@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.4) 	
+-->
+<ern:NewReleaseMessage xmlns:ern="http://ddex.net/xml/ern/382"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+	xs:schemaLocation="http://ddex.net/xml/ern/382 file:../XSD/release-notification.xsd"
+	MessageSchemaVersionId="ern/382"
+	<!-- For Film Bundles the value has to be FilmBundle -->
+
+	<MessageHeader>
+		<MessageThreadId/>
+		<MessageId/>
+		<MessageSender>
+			<PartyId>DPID_OF_THE_SENDER</PartyId>
+		</MessageSender>
+		<MessageRecipient>
+			<PartyId>DPID_OF_THE_RECIPIENT</PartyId>
+		</MessageRecipient>
+		<MessageCreatedDateTime>2012-12-11T15:50:00+00:00</MessageCreatedDateTime>
+	</MessageHeader>
+
+	<UpdateIndicator>OriginalMessage</UpdateIndicator>
+
+	<!-- The IsBackfill flag is optional and should only be used for indicating that an XML file is part of
+		a special backfill of a (typically large) catalogue -->
+	<IsBackfill>true</IsBackfill>
+
+	<ResourceList>
+		<Video>
+			<VideoType>Episode</VideoType>
+			<VideoId>
+				<ISAN>123345</ISAN>
+			</VideoId>
+			<!-- No ID for the musical work information is provided fpr this video as TV series seldom have such an ID -->			
+			<ResourceReference>A1</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Episode 1</TitleText>
+			</ReferenceTitle>
+			<Duration>PT30M</Duration>			
+			<VideoDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>				
+				<!-- TechnicalImageDetails are only to be provided when relevant Resource Files are communicated -->
+				<ResourceReleaseDate>2010</ResourceReleaseDate>				
+				<TechnicalVideoDetails>
+					<TechnicalResourceDetailsReference>T1</TechnicalResourceDetailsReference>
+					<File>
+						<FileName>E1.mov</FileName>
+					</File>
+				</TechnicalVideoDetails>
+				
+			</VideoDetailsByTerritory>
+		</Video>
+		<Video>
+			<VideoType>Episode</VideoType>
+			<VideoId>
+				<ISAN>54321</ISAN>
+			</VideoId>
+			<!-- No ID for the musical work information is provided fpr this video as TV series seldom have such an ID -->			
+			<ResourceReference>A2</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Episode 2</TitleText>
+			</ReferenceTitle>
+			<Duration>PT30M</Duration>			
+			<VideoDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>	
+				<!-- No composer/writer information is procided -->
+				<!-- TechnicalImageDetails are only to be provided when relevant Resource Files are communicated -->
+				<TechnicalVideoDetails>
+					<TechnicalResourceDetailsReference>T2</TechnicalResourceDetailsReference>
+					<File>
+						<FileName>E2.mov</FileName>
+					</File>
+				</TechnicalVideoDetails>
+				
+			</VideoDetailsByTerritory>
+		</Video>
+		<Image>
+			<ImageType>FrontCoverImage</ImageType>
+			<ImageId>
+				<ProprietaryId Namespace="MyDPID">MyID-3</ProprietaryId>
+			</ImageId>
+			<ResourceReference>A3</ResourceReference>
+			<ImageDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				
+				<!-- TechnicalImageDetails are only to be provided when relevant Resource Files are communicated -->
+				<TechnicalImageDetails>
+					<TechnicalResourceDetailsReference>T3</TechnicalResourceDetailsReference>
+					<File>
+						<FileName>img.jpeg</FileName>
+					</File>
+				</TechnicalImageDetails>
+			</ImageDetailsByTerritory>
+		</Image>
+	</ResourceList>
+
+	<CollectionList>
+		<Collection>
+			<CollectionId>
+				<ProprietaryId Namespace="MyDPID">MyID-2</ProprietaryId>
+			</CollectionId>
+			<CollectionType>Series</CollectionType>
+			<CollectionReference>X1</CollectionReference>
+			<Title>
+				<TitleText>The Office</TitleText>
+			</Title>
+			<CollectionCollectionReferenceList>
+				<CollectionCollectionReference>
+					<SequenceNumber>1</SequenceNumber>
+					<CollectionCollectionReference>X2</CollectionCollectionReference>
+				</CollectionCollectionReference>
+				<CollectionCollectionReference>
+					<SequenceNumber>2</SequenceNumber>
+					<CollectionCollectionReference>X3</CollectionCollectionReference>
+				</CollectionCollectionReference>
+			</CollectionCollectionReferenceList>
+		</Collection>
+
+		<Collection>
+			<CollectionId>
+				<ProprietaryId Namespace="MyDPID">MyID-2</ProprietaryId>
+			</CollectionId>
+			<CollectionType>Season</CollectionType>
+			<CollectionReference>X2</CollectionReference>
+			<Title>
+				<TitleText>The Office (Season 1)</TitleText>
+			</Title>
+		</Collection>
+
+		<Collection>
+			<CollectionId>
+				<ProprietaryId Namespace="MyDPID">MyID-3</ProprietaryId>
+			</CollectionId>
+			<CollectionType>Season</CollectionType>
+			<CollectionReference>X3</CollectionReference>
+			<EquivalentReleaseReference>R1</EquivalentReleaseReference>
+			<Title>
+				<TitleText>The Office (Season 2)</TitleText>
+			</Title>
+			<CollectionResourceReferenceList>
+				<CollectionResourceReference>
+					<SequenceNumber>1</SequenceNumber>
+					<CollectionResourceReference>A1</CollectionResourceReference>
+				</CollectionResourceReference>
+				<CollectionResourceReference>
+					<SequenceNumber>2</SequenceNumber>
+					<CollectionResourceReference>A2</CollectionResourceReference>
+				</CollectionResourceReference>
+			</CollectionResourceReferenceList>
+			<RepresentativeImageReference>A3</RepresentativeImageReference>
+		</Collection>
+
+	</CollectionList>
+
+	<ReleaseList>
+		<Release>
+			<ReleaseId>
+				<ICPN IsEan="false">BarCode</ICPN>
+			</ReleaseId>
+			<ReleaseReference>R1</ReleaseReference>
+			<ReferenceTitle>
+				<TitleText>The Office (Series 2)</TitleText>
+				<!-- Assuming that it comprises of two episodes -->
+			</ReferenceTitle>
+			<ReleaseResourceReferenceList>
+				<ReleaseResourceReference>A1</ReleaseResourceReference>
+				<ReleaseResourceReference>A2</ReleaseResourceReference>
+				<ReleaseResourceReference>A3</ReleaseResourceReference>
+			</ReleaseResourceReferenceList>
+			<ReleaseCollectionReferenceList>
+				<ReleaseCollectionReference>X1</ReleaseCollectionReference>
+			</ReleaseCollectionReferenceList>
+			<ReleaseType>Series</ReleaseType>
+			<ReleaseDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<LabelName>Big Brother Label</LabelName>
+			</ReleaseDetailsByTerritory>
+			<CLine>
+				<CLineText>(c) 2001 BBC</CLineText>
+			</CLine>
+		</Release>
+		
+		<!-- Not shown is the TrackRelease -->
+		
+	</ReleaseList>
+
+
+</ern:NewReleaseMessage>

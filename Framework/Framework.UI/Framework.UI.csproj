@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{163ED8DF-8390-4069-81F0-AADCC41FB1D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework.UI</RootNamespace>
+    <AssemblyName>Framework.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\MRButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRButton.Designer.cs">
+      <DependentUpon>MRButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MRCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRCheckBox.Designer.cs">
+      <DependentUpon>MRCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MRGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRGroupBox.Designer.cs">
+      <DependentUpon>MRGroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MRLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRLabel.Designer.cs">
+      <DependentUpon>MRLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MRPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRPanel.Designer.cs">
+      <DependentUpon>MRPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MRTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRTextBox.Designer.cs">
+      <DependentUpon>MRTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MRTitleBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MRTitleBar.Designer.cs">
+      <DependentUpon>MRTitleBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MRMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MRMessageBox.Designer.cs">
+      <DependentUpon>MRMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MRMDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MRMDIParent.Designer.cs">
+      <DependentUpon>MRMDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MRStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MRStatusForm.Designer.cs">
+      <DependentUpon>MRStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ComboBoxItem.cs" />
+    <Compile Include="Helpers\CrossThreadingHelpers.cs" />
+    <Compile Include="Forms\MREditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MREditForm.Designer.cs">
+      <DependentUpon>MREditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\StaticHelpers.cs" />
+    <Compile Include="Interfaces\IMREditableControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\MRTitleBar.resx">
+      <DependentUpon>MRTitleBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MREditForm.resx">
+      <DependentUpon>MREditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MRMessageBox.resx">
+      <DependentUpon>MRMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MRMDIParent.resx">
+      <DependentUpon>MRMDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MRStatusForm.resx">
+      <DependentUpon>MRStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Business.DDEXFactory.Interfaces\Business.DDEXFactory.Interfaces.csproj">
+      <Project>{457d7450-aaba-4905-9823-70c8b02791a9}</Project>
+      <Name>Business.DDEXFactory.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

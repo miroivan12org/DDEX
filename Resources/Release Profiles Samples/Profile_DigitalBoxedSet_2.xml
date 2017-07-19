@@ -1,0 +1,2593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) 2014 Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.3)	
+-->
+<ern:NewReleaseMessage xmlns:ern="http://ddex.net/xml/ern/38"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+  xs:schemaLocation="http://ddex.net/xml/ern/38 http://ddex.net/xml/ern/38/release-notification.xsd"
+  MessageSchemaVersionId="ern/382" 
+  ReleaseProfileVersionId="CommonReleaseTypesTypes/13/DigitalBoxedSet" LanguageAndScriptCode="en">
+
+  <MessageHeader>
+    <MessageThreadId>3000018458749</MessageThreadId>
+    <MessageId>3000018458749_44720776832</MessageId>
+    <MessageFileName>UMG_Metadata_BP1_update_00602537639656_2014-03-17_23-36-25.xml</MessageFileName>
+    <MessageSender>
+      <PartyId>PADPIDA2010032301A</PartyId>
+      <PartyName>
+        <FullName>Digiplug</FullName>
+      </PartyName>
+    </MessageSender>
+    <SentOnBehalfOf>
+      <PartyId>PADPIDA2012031302R</PartyId>
+      <PartyName>
+        <FullName>Universal Music Group International</FullName>
+      </PartyName>
+    </SentOnBehalfOf>
+    <MessageRecipient>
+      <PartyId>12345</PartyId>
+      <PartyName>
+        <FullName>BP1</FullName>
+      </PartyName>
+    </MessageRecipient>
+    <MessageCreatedDateTime>2014-03-17T23:36:25</MessageCreatedDateTime>
+    <MessageControlType>LiveMessage</MessageControlType>
+  </MessageHeader>
+  <UpdateIndicator>UpdateMessage</UpdateIndicator>
+  <IsBackfill>false</IsBackfill>
+  <ResourceList>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300101</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A1</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Anything</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M12.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Anything</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Anything</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Brian Howes</FullName>
+            <KeyName>Howes</KeyName>
+            <NamesAfterKeyName>Brian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Jay "JVP" Van Poederooyen</FullName>
+            <KeyName>Jay "JVP" Van Poederooyen</KeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="4">
+          <PartyName>
+            <FullName>8 pack of Lucky Publishing Inc (SOCAN)</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="5">
+          <PartyName>
+            <FullName>EMI Blackwood Music Inc</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="6">
+          <PartyName>
+            <FullName>Hedley Entertainment Corp. / Universal Music Publishing Group (SOCAN/BMI)</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="7">
+          <PartyName>
+            <FullName>High Buck Publishing (SOCAN/B</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300175</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A2</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Crazy For You</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M38.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Crazy For You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Crazy For You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Jacob Hoggard</KeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Brian Howes</FullName>
+            <KeyName>Howes</KeyName>
+            <NamesAfterKeyName>Brian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Jason Van Poederooyen</FullName>
+            <KeyName>Van Poederooyen</KeyName>
+            <NamesAfterKeyName>Jason</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="4">
+          <PartyName>
+            <FullName>8 pack of Lucky Publishing Inc (SOCAN)</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="5">
+          <PartyName>
+            <FullName>EMI Blackwood Music Inc</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="6">
+          <PartyName>
+            <FullName>Hedley Entertainment Corp./Universal Music Publishing Canada, A Division of Universal Music Canada Inc. (SOCAN/BMI)</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="7">
+          <PartyName>
+            <FullName>High Buck Publishing (SOCAN/BMI)</FullName>
+          </PartyName>
+          <IndirectResourceContributorRole>MusicPublisher</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300177</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A3</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Headphones</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M33.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Headphones</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Headphones</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Brian Howes</FullName>
+            <KeyName>Howes</KeyName>
+            <NamesAfterKeyName>Brian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Ryan Peterson</FullName>
+            <KeyName>Peterson</KeyName>
+            <NamesAfterKeyName>Ryan</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="4">
+          <PartyName>
+            <FullName>Nolan W. Sipe</FullName>
+            <KeyName>W. Sipe</KeyName>
+            <NamesAfterKeyName>Nolan</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300176</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A4</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>I'll Be With You</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M10.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>I'll Be With You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>I'll Be With You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Matt Squire</FullName>
+            <KeyName>Squire</KeyName>
+            <NamesAfterKeyName>Matt</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Lucas Banker</FullName>
+            <KeyName>Banker</KeyName>
+            <NamesAfterKeyName>Lucas</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="4">
+          <PartyName>
+            <FullName>Patrick Nissley</FullName>
+            <KeyName>Nissley</KeyName>
+            <NamesAfterKeyName>Patrick</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300178</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A5</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Pocket Full Of Dreams</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M44.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Pocket Full Of Dreams</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Pocket Full Of Dreams</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>BC Jean</FullName>
+            <KeyName>BC Jean</KeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Rune Westberg</FullName>
+            <KeyName>Westberg</KeyName>
+            <NamesAfterKeyName>Rune</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300179</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A6</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Mexico</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M46.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Mexico</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Mexico</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Adrian Newman</FullName>
+            <KeyName>Newman</KeyName>
+            <NamesAfterKeyName>Adrian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Ennio Morricone</FullName>
+            <KeyName>Morricone</KeyName>
+            <NamesAfterKeyName>Ennio</NamesAfterKeyName>
+            <AbbreviatedName>Morricone</AbbreviatedName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300180</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A7</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Heaven In Our Headlights</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M9.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Heaven In Our Headlights</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Heaven In Our Headlights</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Brian Howes</FullName>
+            <KeyName>Howes</KeyName>
+            <NamesAfterKeyName>Brian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Nolan W. Sipe</FullName>
+            <KeyName>W. Sipe</KeyName>
+            <NamesAfterKeyName>Nolan</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300181</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A8</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Dreaming's For Sleeping</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M16.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Dreaming's For Sleeping</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Dreaming's For Sleeping</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Brian Howes</FullName>
+            <KeyName>Howes</KeyName>
+            <NamesAfterKeyName>Brian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Nolan W. Sipe</FullName>
+            <KeyName>W. Sipe</KeyName>
+            <NamesAfterKeyName>Nolan</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300183</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A9</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Wild Life</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M5.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Wild Life</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Wild Life</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300182</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A10</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Got Love</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M21.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Got Love</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Got Love</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>BC Jean</FullName>
+            <KeyName>BC Jean</KeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Rune Westberg</FullName>
+            <KeyName>Westberg</KeyName>
+            <NamesAfterKeyName>Rune</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300184</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A11</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>All The Way</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M34.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>All The Way</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>All The Way</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300185</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A12</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Top Of The World</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M54.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Top Of The World</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Top Of The World</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Brian Howes</FullName>
+            <KeyName>Howes</KeyName>
+            <NamesAfterKeyName>Brian</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Jason Van Poederooyen</FullName>
+            <KeyName>Van Poederooyen</KeyName>
+            <NamesAfterKeyName>Jason</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300186</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A13</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Beautiful Girl</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT4M9.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Beautiful Girl</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Beautiful Girl</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Kenny Edmonds</FullName>
+            <KeyName>Edmonds</KeyName>
+            <NamesAfterKeyName>Kenny</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Tony Dixon</FullName>
+            <KeyName>Dixon</KeyName>
+            <NamesAfterKeyName>Tony</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300187</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A14</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Parade Rain</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M40.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Parade Rain</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Parade Rain</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Thomas "Twags" Salter</FullName>
+            <KeyName>Thomas "Twags" Salter</KeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="3">
+          <PartyName>
+            <FullName>Mike Wise</FullName>
+            <KeyName>Wise</KeyName>
+            <NamesAfterKeyName>Mike</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <SoundRecording>
+      <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+      <SoundRecordingId>
+        <ISRC>CAUM71300188</ISRC>
+      </SoundRecordingId>
+      <ResourceReference>A15</ResourceReference>
+      <ReferenceTitle>
+        <TitleText>Almost Over</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <IsBonusResource>false</IsBonusResource>
+      <Duration>PT3M29.000S</Duration>
+      <SoundRecordingDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Almost Over</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Almost Over</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <IndirectResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Jacob Hoggard</FullName>
+            <KeyName>Hoggard</KeyName>
+            <NamesAfterKeyName>Jacob</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <IndirectResourceContributor SequenceNumber="2">
+          <PartyName>
+            <FullName>Jimmy Harry</FullName>
+            <KeyName>Harry</KeyName>
+            <NamesAfterKeyName>Jimmy</NamesAfterKeyName>
+          </PartyName>
+          <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+          <IndirectResourceContributorRole>Author</IndirectResourceContributorRole>
+        </IndirectResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <PLine>
+          <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+        </PLine>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </SoundRecordingDetailsByTerritory>
+    </SoundRecording>
+    <Image>
+      <ImageType>FrontCoverImage</ImageType>
+      <ImageId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">13UAEIM13798</ProprietaryId>
+      </ImageId>
+      <ResourceReference>A16</ResourceReference>
+      <Title>
+        <TitleText>Wild Life</TitleText>
+      </Title>
+      <ImageDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Wild Life</TitleText>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Wild Life</TitleText>
+        </Title>
+        <ResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ResourceContributorRole>MainArtist</ResourceContributorRole>
+        </ResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <CLine>
+          <CLineText>(C) 2013 Universal Music Canada Inc.</CLineText>
+        </CLine>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </ImageDetailsByTerritory>
+    </Image>
+    <Image>
+      <ImageType>FrontCoverImage</ImageType>
+      <ImageId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">xxxx2</ProprietaryId>
+      </ImageId>
+      <ResourceReference>A17</ResourceReference>
+      <Title>
+        <TitleText>Wild Life2</TitleText>
+      </Title>
+      <ImageDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Wild Life2</TitleText>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Wild Life2</TitleText>
+        </Title>
+        <ResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ResourceContributorRole>MainArtist</ResourceContributorRole>
+        </ResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <CLine>
+          <CLineText>(C) 2013 Universal Music Canada Inc.</CLineText>
+        </CLine>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </ImageDetailsByTerritory>
+    </Image>
+    <Image>
+      <ImageType>FrontCoverImage</ImageType>
+      <ImageId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">xxxx3</ProprietaryId>
+      </ImageId>
+      <ResourceReference>A18</ResourceReference>
+      <Title>
+        <TitleText>Wild Life3</TitleText>
+      </Title>
+      <ImageDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <Title TitleType="FormalTitle">
+          <TitleText>Wild Life3</TitleText>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Wild Life3</TitleText>
+        </Title>
+        <ResourceContributor SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ResourceContributorRole>MainArtist</ResourceContributorRole>
+        </ResourceContributor>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <CLine>
+          <CLineText>(C) 2013 Universal Music Canada Inc.</CLineText>
+        </CLine>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+      </ImageDetailsByTerritory>
+    </Image>
+  </ResourceList>
+  <ReleaseList>
+    <Release IsMainRelease="true">
+      <ReleaseId>
+        <ICPN IsEan="false">00602537639656</ICPN>
+      </ReleaseId>
+      <ReleaseReference>R0</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Wild Life</TitleText>
+        <SubTitle>Deluxe Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A1</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A2</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A3</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A4</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A5</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A6</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A7</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A8</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A9</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A10</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A11</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A12</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A13</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A14</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A15</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+          >A16</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+          >A17</ReleaseResourceReference>
+        <ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+          >A18</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>DigitalBoxSetRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Wild Life</TitleText>
+          <SubTitle>Deluxe Version</SubTitle>
+        </Title>
+        <Title TitleType="FormalTitle">
+          <TitleText>Wild Life</TitleText>
+          <SubTitle>Deluxe Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroup>
+            <Title TitleType="GroupingTitle">
+              <TitleText>Wild Life Part 1</TitleText>
+            </Title>
+            <SequenceNumber>1</SequenceNumber>
+            <ResourceGroupContentItem>
+              <SequenceNumber>1</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A1</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>2</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A2</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>3</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A3</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>4</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A4</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>5</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A5</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+                >A17</ReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A1</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A2</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A3</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A4</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A5</LinkedReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+          </ResourceGroup>
+          <ResourceGroup>
+            <Title TitleType="GroupingTitle">
+              <TitleText>Wild Life Part 2</TitleText>
+            </Title>
+            <SequenceNumber>2</SequenceNumber>
+            <ResourceGroupContentItem>
+              <SequenceNumber>1</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A6</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>2</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A7</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>3</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A8</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>4</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A9</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>5</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A10</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>6</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A11</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>7</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A12</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>8</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A13</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>9</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A14</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <SequenceNumber>10</SequenceNumber>
+              <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+                >A15</ReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+            <ResourceGroupContentItem>
+              <ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+                >A18</ReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A6</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A7</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A8</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A9</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A10</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A11</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A12</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A13</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A14</LinkedReleaseResourceReference>
+              <LinkedReleaseResourceReference LinkDescription="FrontCoverImage"
+                >A15</LinkedReleaseResourceReference>
+              <IsBonusResource>false</IsBonusResource>
+              <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            </ResourceGroupContentItem>
+          </ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+              >A16</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT52M40.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+      <CLine>
+        <CLineText>(C) 2013 Universal Music Canada Inc.</CLineText>
+      </CLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300101_01_001</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R1</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Anything</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A1</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Anything</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Anything</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A1</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M12.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300175_01_002</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R2</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Crazy For You</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A2</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Crazy For You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Crazy For You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A2</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M38.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300177_01_003</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R3</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Headphones</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A3</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Headphones</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Headphones</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A3</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M33.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300176_01_004</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R4</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>I'll Be With You</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A4</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>I'll Be With You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>I'll Be With You</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A4</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M10.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300178_01_005</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R5</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Pocket Full Of Dreams</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A5</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Pocket Full Of Dreams</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Pocket Full Of Dreams</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A5</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M44.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300179_01_006</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R6</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Mexico</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A6</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Mexico</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Mexico</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A6</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M46.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300180_01_007</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R7</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Heaven In Our Headlights</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A7</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Heaven In Our Headlights</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Heaven In Our Headlights</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A7</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M9.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300181_01_008</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R8</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Dreaming's For Sleeping</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A8</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Dreaming's For Sleeping</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Dreaming's For Sleeping</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A8</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M16.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300183_01_009</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R9</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Wild Life</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A9</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Wild Life</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Wild Life</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A9</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M5.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300182_01_010</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R10</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Got Love</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A10</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Got Love</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Got Love</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A10</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M21.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300184_01_011</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R11</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>All The Way</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A11</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>All The Way</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>All The Way</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A11</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M34.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300185_01_012</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R12</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Top Of The World</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A12</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Top Of The World</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Top Of The World</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A12</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M54.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300186_01_013</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R13</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Beautiful Girl</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A13</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Beautiful Girl</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Beautiful Girl</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>Explicit</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A13</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT4M9.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300187_01_014</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R14</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Parade Rain</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A14</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Parade Rain</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Parade Rain</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A14</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M40.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+    <Release>
+      <ReleaseId>
+        <ProprietaryId Namespace="PADPIDA2012031302R">00602537639656_CAUM71300188_01_015</ProprietaryId>
+      </ReleaseId>
+      <ReleaseReference>R15</ReleaseReference>
+      <ReferenceTitle>
+        <TitleText>Almost Over</TitleText>
+        <SubTitle>Album Version</SubTitle>
+      </ReferenceTitle>
+      <ReleaseResourceReferenceList>
+        <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+          >A15</ReleaseResourceReference>
+      </ReleaseResourceReferenceList>
+      <ReleaseType>TrackRelease</ReleaseType>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>Worldwide</TerritoryCode>
+        <DisplayArtistName>Hedley</DisplayArtistName>
+        <LabelName>123 Music</LabelName>
+        <Title TitleType="FormalTitle">
+          <TitleText>Almost Over</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <Title TitleType="DisplayTitle">
+          <TitleText>Almost Over</TitleText>
+          <SubTitle>Album Version</SubTitle>
+        </Title>
+        <DisplayArtist SequenceNumber="1">
+          <PartyName>
+            <FullName>Hedley</FullName>
+            <KeyName>Hedley</KeyName>
+          </PartyName>
+          <ArtistRole>MainArtist</ArtistRole>
+        </DisplayArtist>
+        <ParentalWarningType>NoAdviceAvailable</ParentalWarningType>
+        <ResourceGroup>
+          <ResourceGroupContentItem>
+            <ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+              >A15</ReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          </ResourceGroupContentItem>
+        </ResourceGroup>
+        <Genre>
+          <GenreText>Pop</GenreText>
+        </Genre>
+        <ReleaseDate>2014-03-14</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>BR</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>ES</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>DE</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-16</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <ReleaseDetailsByTerritory>
+        <TerritoryCode>IT</TerritoryCode>
+        <LabelName LabelNameType="UserDefined" UserDefinedValue="ReleaseLabel" Namespace="PADPIDA2010032301A">Universal Music International Ltda.</LabelName>
+        <ReleaseDate>2014-05-19</ReleaseDate>
+      </ReleaseDetailsByTerritory>
+      <Duration>PT3M29.000S</Duration>
+      <PLine>
+        <PLineText>(P) 2013 Universal Music Canada Inc.</PLineText>
+      </PLine>
+    </Release>
+  </ReleaseList>
+  <DealList>
+    <ReleaseDeal>
+      <DealReleaseReference>R1</DealReleaseReference>
+      <DealReleaseReference>R2</DealReleaseReference>
+      <DealReleaseReference>R3</DealReleaseReference>
+      <DealReleaseReference>R4</DealReleaseReference>
+      <DealReleaseReference>R5</DealReleaseReference>
+      <DealReleaseReference>R6</DealReleaseReference>
+      <DealReleaseReference>R7</DealReleaseReference>
+      <DealReleaseReference>R8</DealReleaseReference>
+      <DealReleaseReference>R9</DealReleaseReference>
+      <DealReleaseReference>R10</DealReleaseReference>
+      <DealReleaseReference>R11</DealReleaseReference>
+      <DealReleaseReference>R12</DealReleaseReference>
+      <DealReleaseReference>R13</DealReleaseReference>
+      <DealReleaseReference>R14</DealReleaseReference>
+      <DealReleaseReference>R15</DealReleaseReference>
+      <Deal>
+        <DealTerms>
+          <CommercialModelType>PayAsYouGoModel</CommercialModelType>
+          <Usage>
+            <UseType>PermanentDownload</UseType>
+          </Usage>
+          <TerritoryCode>BR</TerritoryCode>
+          <TerritoryCode>ES</TerritoryCode>
+          <TerritoryCode>IT</TerritoryCode>
+          <PriceInformation>
+            <PriceType Namespace="PADPIDA2012031302R">X1</PriceType>
+          </PriceInformation>
+          <ValidityPeriod>
+            <StartDate>2014-05-19</StartDate>
+          </ValidityPeriod>
+          <ReleaseDisplayStartDate>2014-04-14</ReleaseDisplayStartDate>
+          <TrackListingPreviewStartDate>2014-04-14</TrackListingPreviewStartDate>
+          <CoverArtPreviewStartDate>2014-04-14</CoverArtPreviewStartDate>
+          <ClipPreviewStartDate>2014-05-19</ClipPreviewStartDate>
+        </DealTerms>
+      </Deal>
+      <Deal>
+        <DealTerms>
+          <CommercialModelType>PayAsYouGoModel</CommercialModelType>
+          <Usage>
+            <UseType>PermanentDownload</UseType>
+          </Usage>
+          <TerritoryCode>DE</TerritoryCode>
+          <PriceInformation>
+            <PriceType Namespace="PADPIDA2012031302R">X2</PriceType>
+          </PriceInformation>
+          <ValidityPeriod>
+            <StartDate>2014-05-16</StartDate>
+          </ValidityPeriod>
+          <ReleaseDisplayStartDate>2014-03-14</ReleaseDisplayStartDate>
+          <TrackListingPreviewStartDate>2014-03-14</TrackListingPreviewStartDate>
+          <CoverArtPreviewStartDate>2014-03-14</CoverArtPreviewStartDate>
+          <ClipPreviewStartDate>2014-05-16</ClipPreviewStartDate>
+        </DealTerms>
+      </Deal>
+    </ReleaseDeal>
+    <ReleaseDeal>
+      <DealReleaseReference>R0</DealReleaseReference>
+      <Deal>
+        <DealTerms>
+          <CommercialModelType>PayAsYouGoModel</CommercialModelType>
+          <Usage>
+            <UseType>PermanentDownload</UseType>
+          </Usage>
+          <TerritoryCode>BR</TerritoryCode>
+          <TerritoryCode>ES</TerritoryCode>
+          <TerritoryCode>IT</TerritoryCode>
+          <PriceInformation>
+            <PriceType Namespace="PADPIDA2012031302R">Y1</PriceType>
+          </PriceInformation>
+          <ValidityPeriod>
+            <StartDate>2014-05-19</StartDate>
+          </ValidityPeriod>
+          <ReleaseDisplayStartDate>2014-04-14</ReleaseDisplayStartDate>
+          <TrackListingPreviewStartDate>2014-04-14</TrackListingPreviewStartDate>
+          <CoverArtPreviewStartDate>2014-04-14</CoverArtPreviewStartDate>
+          <ClipPreviewStartDate>2014-05-20</ClipPreviewStartDate>
+        </DealTerms>
+      </Deal>
+      <Deal>
+        <DealTerms>
+          <CommercialModelType>PayAsYouGoModel</CommercialModelType>
+          <Usage>
+            <UseType>PermanentDownload</UseType>
+          </Usage>
+          <TerritoryCode>DE</TerritoryCode>
+          <PriceInformation>
+            <PriceType Namespace="PADPIDA2012031302R">Y2</PriceType>
+          </PriceInformation>
+          <ValidityPeriod>
+            <StartDate>2014-05-16</StartDate>
+          </ValidityPeriod>
+          <ReleaseDisplayStartDate>2014-03-14</ReleaseDisplayStartDate>
+          <TrackListingPreviewStartDate>2014-03-14</TrackListingPreviewStartDate>
+          <CoverArtPreviewStartDate>2014-03-14</CoverArtPreviewStartDate>
+          <ClipPreviewStartDate>2014-05-17</ClipPreviewStartDate>
+        </DealTerms>
+      </Deal>
+    </ReleaseDeal>
+  </DealList>
+</ern:NewReleaseMessage>

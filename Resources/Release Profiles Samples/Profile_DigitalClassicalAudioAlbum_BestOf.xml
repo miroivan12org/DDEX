@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) 2014 Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.3)	
+-->
+<ern:NewReleaseMessage xmlns:ern="http://ddex.net/xml/ern/38"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+	xs:schemaLocation="http://ddex.net/xml/ern/38 http://ddex.net/xml/ern/38/release-notification.xsd"
+	MessageSchemaVersionId="ern/382" 
+	ReleaseProfileVersionId="CommonReleaseTypes/13/ClassicalAudioAlbum" LanguageAndScriptCode="en">
+	<MessageHeader>
+		<MessageThreadId>F88E3110-56C0-4d3b-BF8B-C53C728F478F</MessageThreadId>
+		<MessageId>F88E3110-56C0-4d3b-BF8B-C53C728F478F</MessageId>
+		<MessageFileName>DigitalClassicalAudioAlbum.xml</MessageFileName>
+		<MessageSender>
+			<PartyId>PADPIDA0000000003A</PartyId>
+			<TradingName>Uriel Records</TradingName>
+		</MessageSender>
+		<MessageRecipient>
+			<PartyId>PADPIDA0000000002A</PartyId>
+			<TradingName>Lamson Digital Distribution</TradingName>
+		</MessageRecipient>
+		<MessageCreatedDateTime>2010-11-15T00:00:00</MessageCreatedDateTime>
+		<MessageControlType>TestMessage</MessageControlType>
+	</MessageHeader>
+
+	<UpdateIndicator>OriginalMessage</UpdateIndicator>
+
+	<!-- The IsBackfill flag is optional and should only be used for indicating that an XML file is part of
+		a special backfill of a (typically large) catalogue -->
+	<IsBackfill>true</IsBackfill>
+
+	<ResourceList>
+		<SoundRecording>
+			<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+			<SoundRecordingId>
+				<ISRC>XXXX</ISRC>
+			</SoundRecordingId>
+			<IndirectSoundRecordingId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectSoundRecordingId>
+			<ResourceReference>A1</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Concerto for Harpsichord, Strings and Continuo No.5 in F minor BWV 1056 - 1. Largo</TitleText>
+			</ReferenceTitle>
+			<Duration>PT0S</Duration>
+			<SoundRecordingDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Johann Sebastian Bach: Concerto for Harpsichord, Strings and Continuo No.5 in F minor BWV 1056: 1. Largo</TitleText>
+				</Title>
+				<Title TitleType="GroupingTitle">
+					<TitleText>Concerto for Harpsichord, Strings and Continuo No.5 in F minor BWV 1056</TitleText>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Johann Sebastian Bach</FullName>
+					</PartyName>
+					<ArtistRole>Composer</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="2">
+					<PartyName>
+						<FullName>William Bennett</FullName>
+					</PartyName>
+					<ArtistRole>Soloist</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="3">
+					<PartyName>
+						<FullName>The Academy of St. Martin in the Fields</FullName>
+					</PartyName>
+					<ArtistRole>Orchestra</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="4">
+					<PartyName>
+						<FullName>Neville Marriner</FullName>
+					</PartyName>
+					<ArtistRole>Conductor</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Johann Sebastian Bach</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<DisplayArtistName>Neville Marriner</DisplayArtistName>												
+				
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Someone</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</SoundRecordingDetailsByTerritory>
+		</SoundRecording>
+		<SoundRecording>
+			<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+			<SoundRecordingId>
+				<ISRC>XXXX</ISRC>
+			</SoundRecordingId>
+			<IndirectSoundRecordingId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectSoundRecordingId>
+			<ResourceReference>A2</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Andante for Flute and Orchestra in C, K.315</TitleText>
+			</ReferenceTitle>
+			<Duration>PT0S</Duration>
+			<SoundRecordingDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Wolgfang Amadeus Mozart: Andante for Flute and Orchestra in C, K.315</TitleText>
+				</Title>
+				<DisplayArtist>
+					<PartyName>
+						<FullName>Wolfgang Amadeus Mozart</FullName>
+					</PartyName>
+					<ArtistRole>Composer</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist>
+					<PartyName>
+						<FullName>Claude Monteux</FullName>
+					</PartyName>
+					<ArtistRole>Soloist</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist>
+					<PartyName>
+						<FullName>The Academy of St. Martin in the Fields</FullName>
+					</PartyName>
+					<ArtistRole>Orchestra</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist>
+					<PartyName>
+						<FullName>Neville Marriner</FullName>
+					</PartyName>
+					<ArtistRole>Conductor</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Wolfgang Amadeus Mozart</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<DisplayArtistName>Neville Marriner</DisplayArtistName>												
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Someone</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</SoundRecordingDetailsByTerritory>
+		</SoundRecording>
+		<SoundRecording>
+			<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+			<SoundRecordingId>
+				<ISRC>XXXX</ISRC>
+			</SoundRecordingId>
+			<IndirectSoundRecordingId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectSoundRecordingId>
+			<ResourceReference>A3</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Sonata for Flute and Piano: Cantilena</TitleText>
+			</ReferenceTitle>
+			<Duration>PT0S</Duration>
+			<SoundRecordingDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Francis Poulenc: Sonata for Flute and Piano: Cantilena</TitleText>
+				</Title>
+				<Title TitleType="GroupingTitle">
+					<TitleText>Sonata for Flute and Piano</TitleText>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Francis Poulenc</FullName>
+					</PartyName>
+					<ArtistRole>Composer</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="2">
+					<PartyName>
+						<FullName>Pascal Rogé</FullName>
+					</PartyName>
+					<ArtistRole>Soloist</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="3">
+					<PartyName>
+						<FullName>Patrick Gallois</FullName>
+					</PartyName>
+					<ArtistRole>Soloist</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Francis Poulenc</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<DisplayArtistName>Patrick Gallois</DisplayArtistName>								
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Someone</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</SoundRecordingDetailsByTerritory>
+		</SoundRecording>
+		<SoundRecording>
+			<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+			<SoundRecordingId>
+				<ISRC>XXXX</ISRC>
+			</SoundRecordingId>
+			<IndirectSoundRecordingId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectSoundRecordingId>			<ResourceReference>A4</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Pavane Op. 50</TitleText>
+			</ReferenceTitle>
+			<Duration>PT0S</Duration>
+			<SoundRecordingDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Gabriel Fauré: Pavane Op. 50</TitleText>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Gabriel Fauré</FullName>
+					</PartyName>
+					<ArtistRole>Composer</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="2">
+					<PartyName>
+						<FullName>The Academy of St. Martin in the Fields</FullName>
+					</PartyName>
+					<ArtistRole>Orchestra</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="3">
+					<PartyName>
+						<FullName>Neville Marriner</FullName>
+					</PartyName>
+					<ArtistRole>Conductor</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Gabriel Fauré</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<DisplayArtistName>Neville Marriner</DisplayArtistName>				
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Someone</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</SoundRecordingDetailsByTerritory>
+		</SoundRecording>
+		<SoundRecording>
+			<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+			<SoundRecordingId>
+				<ISRC>XXXX</ISRC>
+			</SoundRecordingId>
+			<IndirectSoundRecordingId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectSoundRecordingId>
+			<ResourceReference>A5</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Flute Quartet in D, KV 285: 2. Adagio</TitleText>
+			</ReferenceTitle>
+			<Duration>PT0S</Duration>
+			<SoundRecordingDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Wolfgang Amadeus Mozart: Flute Quartet in D, KV 285: 2. Adagio</TitleText>
+				</Title>
+				<Title TitleType="GroupingTitle">
+					<TitleText>Flute Quartet in D, KV 285</TitleText>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Wolfgang Amadeus Mozart</FullName>
+					</PartyName>
+					<ArtistRole>Composer</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="2">
+					<PartyName>
+						<FullName>William Bennett</FullName>
+					</PartyName>
+					<ArtistRole>Soloist</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Wolfgang Amadeus MOzart</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<DisplayArtistName>William Bennett</DisplayArtistName>				
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Someone</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</SoundRecordingDetailsByTerritory>
+		</SoundRecording>
+		<SoundRecording>
+			<SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+			<SoundRecordingId>
+				<ISRC>XXXX</ISRC>
+			</SoundRecordingId>
+			<IndirectSoundRecordingId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectSoundRecordingId>
+			<ResourceReference>A6</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Flute Quartet in D, KV 285: 3. Rondeau</TitleText>
+			</ReferenceTitle>
+			<Duration>PT0S</Duration>
+			<SoundRecordingDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Wolfgang Amadeus Mozart: Flute Quartet in D, KV 285: 3. Rondeau</TitleText>
+				</Title>
+				<Title TitleType="GroupingTitle">
+					<TitleText>Flute Quartet in D, KV 285</TitleText>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Wolfgang Amadeus Mozart</FullName>
+					</PartyName>
+					<ArtistRole>Composer</ArtistRole>
+				</DisplayArtist>
+				<DisplayArtist SequenceNumber="2">
+					<PartyName>
+						<FullName>William Bennett</FullName>
+					</PartyName>
+					<ArtistRole>Soloist</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Wolfgang Amadeus Mozart</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<DisplayArtistName>William Bennett</DisplayArtistName>
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Someone</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</SoundRecordingDetailsByTerritory>
+		</SoundRecording>
+
+		<Image>
+			<ImageType>FrontCoverImage</ImageType>
+			<ImageId>
+				<ProprietaryId Namespace="DPID:PADPIDA0000000003A">PId0900</ProprietaryId>
+			</ImageId>
+			<ResourceReference>A7</ResourceReference>
+			<ImageDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+				<!-- TechnicalImageDetails are only to be provided when relevant Resource Files are communicated -->
+				<TechnicalImageDetails>
+					<TechnicalResourceDetailsReference>T13</TechnicalResourceDetailsReference>
+					<File>
+						<FileName>A1UCASE0000000900X.jpeg</FileName>
+					</File>
+				</TechnicalImageDetails>
+			</ImageDetailsByTerritory>
+		</Image>
+	</ResourceList>
+
+	<ReleaseList>
+		<Release IsMainRelease="true">
+			<ReleaseId>
+				<GRid>xxx</GRid>
+			</ReleaseId>
+
+			<ReleaseReference>R1</ReleaseReference>
+
+			<ReferenceTitle>
+				<TitleText>Flute Adagios</TitleText>
+			</ReferenceTitle>
+
+			<ReleaseResourceReferenceList>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+					>A1</ReleaseResourceReference>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+					>A2</ReleaseResourceReference>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+					>A3</ReleaseResourceReference>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+					>A4</ReleaseResourceReference>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+					>A5</ReleaseResourceReference>
+				<ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+					>A6</ReleaseResourceReference>
+			</ReleaseResourceReferenceList>
+
+			<ReleaseType>ClassicalAlbum</ReleaseType>
+
+			<ReleaseDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<LabelName LabelNameType="DisplayLabelName">Decca</LabelName>
+				<LabelName>Decca Classics</LabelName>
+				<Title TitleType="FormalTitle">
+					<TitleText>Flute Adagios</TitleText>
+				</Title>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Flute Adagios</TitleText>
+				</Title>
+
+				<DisplayArtist>
+					<PartyName>
+						<FullName>Various Artists</FullName>
+					</PartyName>
+					<ArtistRole>Artist</ArtistRole>
+				</DisplayArtist>
+
+				<ResourceGroup>
+					<ResourceGroup>
+						<Title>
+							<TitleText>Disk 1</TitleText>
+						</Title>
+						<SequenceNumber>1</SequenceNumber>
+						<ResourceGroup>
+							<Title TitleType="GroupingTitle">
+								<TitleText>Concerto for Harpsichord, Strings and Continuo No.5 in F minor BWV 1056</TitleText>
+							</Title>
+							<SequenceNumber>1</SequenceNumber>
+							<ResourceGroupContentItem>
+								<SequenceNumber>1</SequenceNumber>
+								<ResourceType>SoundRecording</ResourceType>
+								<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+									>A1</ReleaseResourceReference>
+							</ResourceGroupContentItem>
+						</ResourceGroup>
+
+						<ResourceGroup>
+							<!-- Note the odd order: first all Resource Grouyps and then the ResourceGroupContentItems.
+                            Order is effected by the SequenceNumber elelemt-->
+							<Title TitleType="GroupingTitle">
+								<TitleText>Sonata for Flute and Piano</TitleText>
+							</Title>
+							<SequenceNumber>3</SequenceNumber>
+							<ResourceGroupContentItem>
+								<SequenceNumber>1</SequenceNumber>
+								<ResourceType>SoundRecording</ResourceType>
+
+								<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+									>A3</ReleaseResourceReference>
+							</ResourceGroupContentItem>
+						</ResourceGroup>
+
+						<ResourceGroupContentItem>
+							<SequenceNumber>2</SequenceNumber>
+							<!-- Note: No title necessary... -->
+							<ResourceType>SoundRecording</ResourceType>
+							<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+								>A2</ReleaseResourceReference>
+						</ResourceGroupContentItem>
+
+					</ResourceGroup>
+					<ResourceGroup>
+						<Title>
+							<TitleText>Disk 2</TitleText>
+						</Title>
+						<SequenceNumber>2</SequenceNumber>
+
+						<ResourceGroup>
+							<Title TitleType="GroupingTitle">
+								<TitleText>Flute Quartet in D, K.285</TitleText>
+							</Title>
+							<SequenceNumber>2</SequenceNumber>
+							<ResourceGroupContentItem>
+								<SequenceNumber>1</SequenceNumber>
+								<ResourceType>SoundRecording</ResourceType>
+								<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+									>A5</ReleaseResourceReference>
+							</ResourceGroupContentItem>
+							<ResourceGroupContentItem>
+								<SequenceNumber>2</SequenceNumber>
+								<ResourceType>SoundRecording</ResourceType>
+								<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+									>A6</ReleaseResourceReference>
+							</ResourceGroupContentItem>
+						</ResourceGroup>
+
+						<ResourceGroupContentItem>
+							<SequenceNumber>1</SequenceNumber>
+							<!-- Note: No title necessary... -->
+							<ResourceType>SoundRecording</ResourceType>
+							<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+								>A4</ReleaseResourceReference>
+						</ResourceGroupContentItem>
+
+						<ResourceGroupContentItem>
+							<ResourceType>Image</ResourceType>
+							<ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+								>A7</ReleaseResourceReference>
+						</ResourceGroupContentItem>
+
+					</ResourceGroup>
+				</ResourceGroup>
+				<Genre>
+					<GenreText>Classical</GenreText>
+				</Genre>
+				<ReleaseDate IsApproximate="true">2010-01-01</ReleaseDate>
+			</ReleaseDetailsByTerritory>
+			<PLine>
+				<PLineText>(c) 1966 Decca</PLineText>
+			</PLine>
+			<GlobalOriginalReleaseDate>1966-01-01</GlobalOriginalReleaseDate>
+
+		</Release>
+
+		<!-- Not shown in this sample are Track Releases -->
+
+	</ReleaseList>
+</ern:NewReleaseMessage>

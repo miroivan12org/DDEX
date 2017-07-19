@@ -1,0 +1,4011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:avs="http://ddex.net/xml/avs/avs"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://ddex.net/xml/avs/avs"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:documentation>© 2006-2016 Digital Data Exchange, LLC (DDEX)</xs:documentation>
+   </xs:annotation>
+   <xs:annotation>
+      <xs:documentation>This XML Schema Definition file is, together with all DDEX standards, subject to two licences: If you wish to evaluate whether the standard meets your needs please have a look at the Evaluation Licence at https://kb.ddex.net/display/HBK/Evaluation+Licence+for+DDEX+Standards. If you want to implement and use this DDEX standard, please take out an Implementation Licence. For details please go to http://ddex.net/apply-ddex-implementation-licence.</xs:documentation>
+   </xs:annotation>
+   <xs:simpleType name="BinaryDataType">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A format of a Fingerprint.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Binary64">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Base64-encoded binary data.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HexBinary">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hexadecimal-encoded binary data.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="BusinessContributorRole">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A business-related role played by a Contributor in relation to a MusicalWork.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Contributor">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Party contributing to the making of a Creation.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MusicPublisher">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Party which has acquired Rights in one or more MusicalWorks for a specified Territory and Period. Note: A MusicPublisher typically administers and promotes the exploitation of the acquired Works. This term includes OriginalPublisher and SubPublisher. </xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="OriginalPublisher">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Party which has acquired, from a Creator, Rights in a Creation for a specified Territory and Period.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SubPublisher">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Party which has acquired, by Agreement with a MusicPublisher, Rights in one or more MusicalWorks for a specified Territory and Period. Note: This includes Rights which are passed to subsidiaries or affiliates of a larger Organization.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SubstitutedPublisher">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Party acting on behalf of a MusicPublisher or other controller of Rights in a MusicalWork.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Unknown">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity used when a sender of a DdexMessage wishes to indicate that the value within the allowed value set is unknown.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UserDefined">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity which is defined by a sender of a DdexMessage in a manner acceptable to its recipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CreativeContributorRole">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A creative role played by a Contributor in relation to a MusicalWork.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Adapter">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">An Author of adapted Lyrics of a MusicalWork. Note: The adapted Lyrics may or may not result in a new copyright Creation.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Arranger">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A modifier of musical components of a Work. Note: The arranged MusicalWork may or may not result in a new copyright Creation.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AssociatedPerformer">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">An Artist commonly associated with a Work as one of its Performers, and whose identity is only used for accurate Work identification.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Author">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator of written or spoken words which form part of a Resource.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Composer">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator of the musical elements of a MusicalWork. </xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ComposerLyricist">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator that plays the roles of Composer and Lyricist of a MusicalWork.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Librettist">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator of a libretto.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Lyricist">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator of the Lyrics of a MusicalWork.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NonLyricAuthor">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator of written or spoken words other than Lyrics. </xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SubArranger">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator of arrangements made on behalf of a SubPublisher.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SubLyricist">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Creator who substitutes or modifies the existing Lyrics of a MusicalWork.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Translator">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Party that translates Lyrics and/or Text from one Language into another. This is also known as sub-Lyricist.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DdexTerritoryCode">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A TerritoryId which is not a TerritoryId according to the ISO 3166-1 standard or the TIS standard.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Worldwide">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">An Identifier which identifies all Territories in the world.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DeprecatedCurrencyCode">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A CurrencyCode which is not valid anymore.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="CYP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cyprus Pound (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EEK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kroon (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LTL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lithuanian Litas (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LVL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Latvian Lats (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MTL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Maltese Lira (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ROL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Old Leu (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SIT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tolar (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SKK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Slovak Koruna (deprecated).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DeprecatedIsoTerritoryCode">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">An ISO 3166-3 four-letter code representing a Territory, which is a replacement for a deprecated ISO 3166-1 code.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AIDJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">French Afar and Issas, Name changed to Djibouti (DJ), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ANHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Netherlands Antilles, Divided into: Bonaire, Sint Eustatius and Saba (BQ), Curaçao (CW), Sint Maarten (Dutch part) (SX), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BQAQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">British Antarctic Territory, Merged into Antarctica (AQ), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BUMM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Burma, Name changed to Myanmar (MM), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BYAA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Byelorussian SSR, Name changed to Belarus (BY), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CSHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Czechoslovakia, Divided into: Czech Republic (CZ), Slovakia (SK), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CSXX">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Serbia and Montenegro, Divided into: Montenegro (ME), Serbia (RS), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CTKI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Canton and Enderbury Islands, Merged into Kiribati (KI), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DDDE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">German Democratic Republic, Merged into Germany (DE), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DYBJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dahomey, Name changed to Benin (BJ), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FQHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">French Southern and Antarctic Territories, Divided into: Part of Antarctica (AQ) (i.e., Adálie Land), French Southern Territories (TF), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FXFR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">France, Metropolitan, Merged into France (FR), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GEHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gilbert and Ellice Islands, Divided into: Kiribati (KI), Tuvalu (TV), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HVBF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Upper Volta, Name changed to Burkina Faso (BF), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JTUM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Johnston Island, Merged into United States Minor Outlying Islands (UM), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MIUM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Midway Islands, Merged into United States Minor Outlying Islands (UM), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NHVU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Hebrides, Name changed to Vanuatu (VU), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NQAQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dronning Maud Land, Merged into Antarctica (AQ), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NTHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Neutral Zone, Divided into: Part of Iraq (IQ), Part of Saudi Arabia (SA), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PCHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pacific Islands, Trust Territory of the, Divided into: Marshall Islands (MH), Micronesia, Federated States of (FM), Northern Mariana Islands (MP), Palau (PW), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PUUM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">U.S. Miscellaneous Pacific Islands, Merged into United States Minor Outlying Islands (UM), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PZPA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Panama Canal Zone, Merged into Panama (PA), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RHZW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Southern Rhodesia, Name changed to Zimbabwe (ZW), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SKIN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sikkim, Merged into India (IN), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SUHH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">USSR, Divided into: Armenia (AM), Azerbaijan (AZ), Estonia (EE), Georgia (GE), Kazakhstan (KZ), Kyrgyzstan (KG), Latvia (LV), Lithuania (LT), Moldova, Republic of (MD), Russian Federation (RU), Tajikistan (TJ), Turkmenistan (TM), Uzbekistan (UZ), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TPTL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">East Timor, Name changed to Timor-Leste (TL), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VDVN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Viet-Nam, Democratic Republic of, Merged into Viet Nam (VN), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="WKUM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Wake Island, Merged into United States Minor Outlying Islands (UM), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="YDYE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yemen, Democratic, Merged into Yemen (YE), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="YUCS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yugoslavia, Name changed to Serbia and Montenegro (CS), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZRCD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zaire, Name changed to Congo, the Democratic Republic of the (CD), (Source ISO 3166-3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ErnMessageType">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Type of Message in the Release Notification Message Suite Standard.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="NewReleaseMessage">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Message in the Release Notification Message Suite Standard, containing details of a new Release.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ErncFileStatus">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Status of a File in terms of its validity in the Release Delivery Choreography Standard.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="ArtistRoleUnknown">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which an ArtistRole is unknown.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CommercialReleaseDateInvalid">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a commercial Release Date is not valid.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ConflictingAvailabilityPeriods">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which multiple availability Periods are given that start on the same date for the same country for the same usage.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DuplicatedPublisherNames">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which duplicate publisher names are given.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ErnMissing">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which an ERN File is missing.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FileOK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a File contains no errors.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IdentifierInvalid">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which an Identifier is not valid, e.g. because the same ISRC is given for two different tracks.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IdentifierSyntaxInvalid">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which an Identifier syntax is not valid.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="InternalError">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which there is an internal error at the MessageRecipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MetadataMissing">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which metadata fileds required according to the Profile in use are missing.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NewReleaseMessageInvalid">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which an NewReleaseMessage doesn't validate.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NoDealForTrackRelease">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which there is no Deal for any Track Release.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NoDealInNewReleaseMessage">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which there is no Deal section in the NewReleaseMessage.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="OriginalReleaseDateLaterThanReleaseDate">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which the OriginalReleaseDate is later than the ReleaseDate.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PrimaryArtistNameMissing">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a Name of the primary Artist is missing.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ResourceCorrupt">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a Resource is corrupt.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ResourceMissing">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a Resource is missing from a context in which it was expected to be found.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ResourceNotMeetingSpecifications">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a Resource is valid, but does not meet required minimum specifications.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SignatureOrHashSumWrongOrMissing">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a Signature or a HashSum is incorrect or missing.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UnsupportedUsage">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a usage (e.g. a CommercialModelType or a UseType for the commercial relationship between the MessageSender and the MessageRecipient) is invalid.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UserDefined">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity which is defined by a sender of a DdexMessage in a manner acceptable to its recipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ErncProposedActionType">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Type of action that is proposed.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="ResendXmlOnly">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A request to resend the acknowledged Message, but not any referenced Files.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ResendXmlAndResources">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A request to resend the acknowledged Message including all Resources.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UserDefined">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity which is defined by a sender of a DdexMessage in a manner acceptable to its recipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="FileStatus">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Status of a File in terms of its validity.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="FileMissing">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a File is missing from a context in which it was expected to be found.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FileOK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a File contains no errors.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HashSumWrong">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a HashSum is incorrect.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SignatureWrong">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A State in which a Signature is incorrect.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="HashSumAlgorithmType">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Type of HashSumAlgorithm.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BYTES">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CRC32">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MD2">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MD4">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The MD4 HashSumAlgorithm.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MD4(MLNET)">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MD5">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The MD5 HashSumAlgorithm.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MDC2">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RMD160">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The SHA HashSumAlgorithm.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHA-224">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHA-256">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHA-384">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHA-512">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">[missing definition]</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHA1">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The SHA1 HashSumAlgorithm.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UserDefined">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity which is defined by a sender of a DdexMessage in a manner acceptable to its recipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="IsoCurrencyCode">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">An ISO4217 three-letter code representing a Currency.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AED">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">UAE Dirham.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AFN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Afghani.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ALL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lek.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AMD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Armenian Dram.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ANG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Netherlands Antillian Guilder.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AOA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kwanza.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ARS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Argentine Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AUD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Australian Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AWG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Aruban Guilder.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AZN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Azerbaijanian Manat.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BAM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Convertible Marks.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BBD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Barbados Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BDT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Taka.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BGN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bulgarian Lev.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BHD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bahraini Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BIF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Burundi Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BMD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bermudian Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BND">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Brunei Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BOB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Boliviano.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BOV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mvdol.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BRL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Brazilian Real.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BSD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bahamian Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BTN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ngultrum.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BWP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pula.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BYR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belarussian Ruble.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BZD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belize Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CAD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Canadian Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CDF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Congolese Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CHF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Swiss Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CLF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Unidades de fomento.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CLP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Chilean Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CNY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yuan Renminbi.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="COP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Colombian Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="COU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Unidad de Valor Real.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CRC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Costa Rican Colón.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CUC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Peso Convertible.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CUP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cuban Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CVE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cape Verde Escudo.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CZK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Czech Koruna.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DJF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Djibouti Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DKK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Danish Krone.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DOP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dominican Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DZD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Algerian Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EGP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Egyptian Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ERN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nakfa.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ETB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ethiopian Birr.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EUR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Euro.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FJD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Fiji Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FKP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Falkland Islands Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GBP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pound Sterling.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GEL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lari.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GHS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cedi.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GIP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gibraltar Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GMD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dalasi.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GNF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guinea Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GTQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Quetzal.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GYD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guyana Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HKD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hong Kong Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HNL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lempira.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HRK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Croatian Kuna.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HTG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gourde.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HUF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Forint.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IDR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rupiah.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ILS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Israeli Sheqel.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="INR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Indian Rupee.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IQD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iraqi Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IRR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iranian Rial.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ISK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iceland Króna.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JMD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jamaican Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JOD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jordanian Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JPY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yen.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KES">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kenyan Shilling.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KGS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Som.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KHR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Riel.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KMF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Comoro Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KPW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">North Korean Won.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KRW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Won.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KWD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kuwaiti Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KYD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cayman Islands Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KZT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tenge.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LAK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kip.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LBP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lebanese Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LKR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sri Lanka Rupee.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LRD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Liberian Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LSL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Loti.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LYD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Libyan Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MAD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Moroccan Dirham.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MDL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Moldovan Leu.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MGA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malagasy Ariary.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MKD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Denar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MMK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kyat.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MNT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tugrik.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MOP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pataca.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MRO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ouguiya.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MUR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mauritius Rupee.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MVR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rufiyaa.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MWK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kwacha.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MXN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mexican Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MXV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mexican Unidad de Inversion.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MYR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malaysian Ringgit.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MZN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mozambique Metical.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NAD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Namibia Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NGN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Naira.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NIO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Córdoba Oro.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NOK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Norwegian Krone.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NPR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nepalese Rupee.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NZD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Zealand Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="OMR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rial Omani.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PAB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Balboa.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PEN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nuevo Sol.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PGK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kina.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PHP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Philippine Peso.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PKR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pakistan Rupee.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PLN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zloty.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PYG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guarani.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="QAR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Qatari Rial.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RON">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Leu.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RSD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Serbian Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RUB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Russian Ruble.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RWF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rwanda Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SAR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saudi Riyal.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SBD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Solomon Islands Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SCR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Seychelles Rupee.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SDG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sudanese Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SEK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Swedish Krona.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SGD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Singapore Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SHP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Helena Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SLL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Leone.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SOS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Somali Shilling.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SRD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Suriname Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SSP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South Sudanese Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="STD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dobra.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SVC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">El Salvador Colón.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SYP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Syrian Pound.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SZL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lilangeni.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="THB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Baht.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TJS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Somoni.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TMT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Manat.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TND">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tunisian Dinar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TOP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pa'anga.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TRY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Turkish Lira.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TTD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Trinidad and Tobago Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TWD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Taiwan Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TZS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tanzanian Shilling.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UAH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hryvnia.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UGX">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uganda Shilling.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="USD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">US Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UYI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uruguay Peso en Unidades Indexadas.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UYU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Peso Uruguayo.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UZS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uzbekistan Sum.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VEF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bolivar Fuerte.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VND">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dong.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VUV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Vatu.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="WST">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tala.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="XAF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">CFA Franc BEAC.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="XCD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">East Caribbean Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="XOF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">CFA Franc BCEAO.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="XPF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">CFP Franc.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="YER">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yemeni Rial.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZAR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rand.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZMW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zambian Kwacha.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZWL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zimbabwe Dollar.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="IsoTerritoryCode">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">An ISO 3166-1 two-letter code representing a Territory.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Andorra (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The United Arab Emirates (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Afghanistan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Antigua and Barbuda (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Anguilla (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Albania (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Armenia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Netherlands Antilles (Source:ISO 3166-1). This allowed value is deprecated. DDEX advises that this value will be removed at a future date and therefore recommends against using it.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Angola (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Antarctica (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Argentina (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">American Samoa (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Austria (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Australia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Aruba (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AX">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Åland Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Azerbaijan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bosnia and Herzegovina (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Barbados (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bangladesh (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belgium (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Burkina Faso (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bulgaria (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bahrain (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Burundi (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Benin (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Barthélemy (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bermuda (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Brunei (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bolivia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bonaire, Sint Eustatius and Saba (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Brazil (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Bahamas (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bhutan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bouvet Island (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Botswana (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belarus (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="BZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belize (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Canada (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cocos Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Democratic Republic of the Congo (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Central African Republic (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Congo (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Switzerland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Côte d'Ivoire (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cook Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Chile (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cameroon (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">China (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Colombia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Costa Rica (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Czechslovakia (until 1993) or Serbia and Montenegro (2003-2006) (Source:ISO 3166-1). This allowed value is deprecated. DDEX advises that this value will be removed at a future date and therefore recommends against using it.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cuba (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cape Verde (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Curaçao (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CX">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Christmas Island (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cyprus (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="CZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Czech Republic (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Germany (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Djibouti (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Denmark (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dominica (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Dominican Republic (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Algeria (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ecuador (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Estonia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Egypt (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Western Sahara (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ER">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Eritrea (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ES">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Spain (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ET">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ethiopia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Finland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Fiji (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Falkland Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Micronesia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Faroe Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="FR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">France (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gabon (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The United Kingdom (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Grenada (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Georgia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">French Guiana (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guernsey (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ghana (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gibraltar (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Greenland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Gambia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guinea (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guadeloupe (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Equatorial Guinea (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Greece (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South Georgia and The South Sandwich Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guatemala (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guam (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guinea-Bissau (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guyana (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hong Kong (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Heard Island and McDonald Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Honduras (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Croatia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Haiti (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hungary (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ID">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Indonesia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ireland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Israel (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Isle of Man (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">India (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The British Indian Ocean Territory (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iraq (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iran (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iceland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="IT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Italy (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jersey (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jamaica (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jordan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="JP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Japan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kenya (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kyrgyzstan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cambodia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kiribati (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Comoros (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Kitts and Nevis (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Democratic People's Republic of Korea (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Republic of Korea (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kuwait (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cayman Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="KZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kazakhstan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Laos (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lebanon (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Lucia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Liechtenstein (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sri Lanka (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Liberia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lesotho (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lithuania (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Luxembourg (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Latvia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Libya (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Morocco (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Monaco (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Moldova (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ME">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Montenegro (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Martin (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Madagascar (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Marshall Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Macedonia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ML">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mali (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Myanmar (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mongolia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Macao (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Northern Mariana Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MQ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Martinique (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mauritania (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Montserrat (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malta (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mauritius (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Maldives (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malawi (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MX">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mexico (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malaysia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mozambique (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Namibia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Caledonia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Niger (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Norfolk Island (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nigeria (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nicaragua (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Netherlands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Norway (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nepal (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nauru (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Niue (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Zealand (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="OM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Oman (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Panama (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Peru (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">French Polynesia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Papua New Guinea (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Philippines (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pakistan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Poland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Pierre and Miquelon (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pitcairn (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Puerto Rico (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Occupied Palestinian Territory (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Portugal (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Palau (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Paraguay (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="QA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Qatar (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Réunion (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Romania (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Serbia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Russia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rwanda (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saudi Arabia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SB">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Solomon Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Seychelles (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Sudan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sweden (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Singapore (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Helena (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Slovenia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Svalbard and Jan Mayen (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Slovakia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sierra Leone (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">San Marino (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Senegal (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Somalia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Suriname (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South Soudan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ST">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sao Tome and Principe (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">El Salvador (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SX">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sint Maarten (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Syria (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Swaziland (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Turks and Caicos Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TD">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Chad (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The French Southern Territories (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Togo (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TH">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Thailand (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TJ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tajikistan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tokelau (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TL">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Timor-Leste (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Turkmenistan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tunisia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TO">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tonga (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TR">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Turkey (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Trinidad and Tobago (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TV">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tuvalu (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Taiwan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tanzania (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ukraine (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uganda (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">United States Minor Outlying Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="US">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The United States (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UY">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uruguay (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UZ">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uzbekistan (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">The Holy See (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VC">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Vincent and The Grenadines (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Venezuela (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VG">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">British Virgin Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VI">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">US Virgin Islands (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VN">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Viet Nam (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VU">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Vanuatu (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="WF">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Wallis and Futuna (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="WS">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Samoa (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="YE">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yemen (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="YT">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mayotte (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZA">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South Africa (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZM">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zambia (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ZW">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zimbabwe (Source:ISO 3166-1).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="MessageActionType">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Type of action requested in a Message.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BackCatalogDelivery">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A MessageActionType that contains a delivery of one or more NewReleaseMessage(s) of back catalog Releases.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="HighPriorityDelivery">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A MessageActionType that contains a delivery of one or more NewReleaseMessage(s) that should be processed with high priority.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NewReleaseDelivery">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A MessageActionType that contains a delivery of one or more NewReleaseMessage(s) containing new Releases.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ReDelivery">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A MessageActionType that contains one or more NewReleaseMessage(s) providing re-deliveries of Releases.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TakeDown">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A MessageActionType that contains a delivery of a take-down notice for a Release. This Message should be processed with high priority.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UserDefined">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity which is defined by a sender of a DdexMessage in a manner acceptable to its recipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="ProductType">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Type of Product.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AudioProduct">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Product that is predominantly comprised of AudioResources (SoundRecordings or MIDIs).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="GraphicsProduct">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Product that is predominantly comprised of Images.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MixedMediaBundleProduct">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Product that is a bundle of different types of Resources.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="MobileProduct">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Product that is predominantly comprised of Products intended to be used on MobileTelephone devices.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UserDefined">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Type of an Entity which is defined by a sender of a DdexMessage in a manner acceptable to its recipient.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="VideoProduct">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Product that is predominantly comprised of Videos.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="TisTerritoryCode">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A CISAC four-digit TIS code representing a Territory.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="4">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Afghanistan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="8">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Albania (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="12">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Algeria (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="20">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Andorra (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="24">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Angola (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="28">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Antigua And Barbuda (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="31">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Azerbaijan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="32">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Argentina (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="36">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Australia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="40">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Austria (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="44">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bahamas (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="48">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bahrain (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="50">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bangladesh (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="51">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Armenia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="52">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Barbados (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="56">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belgium (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="64">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bhutan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="68">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bolivia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="70">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bosnia And Herzegovina (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="72">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Botswana (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="76">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Brazil (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="84">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belize (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="90">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Solomon Islands (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="96">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Brunei Darussalam (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="100">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Bulgaria (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="104">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Myanmar (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="108">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Burundi (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="112">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Belarus (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="116">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cambodia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="120">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cameroon (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="124">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Canada (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="132">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cape Verde (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="140">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Central African Republic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="144">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sri Lanka (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="148">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Chad (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="152">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Chile (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="156">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">China (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="158">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Taiwan, Province of China (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="170">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Colombia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="174">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Comoros (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="178">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Congo (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="180">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Congo, The Democratic Republic of The (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="188">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Costa Rica (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="191">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Croatia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="192">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cuba (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="196">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cyprus (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="200">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Czechoslovakia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="203">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Czech Republic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="204">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Benin (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="208">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Denmark (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="212">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dominica (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="214">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Dominican Republic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="218">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ecuador (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="222">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">El Salvador (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="226">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Equatorial Guinea (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="230">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ethiopia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="231">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ethiopia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="232">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Eritrea (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="233">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Estonia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="242">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Fiji (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="246">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Finland (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="250">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">France (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="258">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">French Polynesia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="262">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Djibouti (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="266">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gabon (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="268">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Georgia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="270">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Gambia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="276">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Germany (after 1990) (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="278">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">German Democratic Republic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="280">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Germany (before 1990) (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="288">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ghana (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="296">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kiribati (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="300">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Greece (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="308">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Grenada (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="320">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guatemala (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="324">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guinea (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="328">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guyana (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="332">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Haiti (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="336">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Holy See (Vatican City State) (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="340">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Honduras (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="344">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hong Kong (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="348">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Hungary (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="352">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iceland (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="356">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">India (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="360">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Indonesia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="364">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iran, Islamic Republic of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="368">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Iraq (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="372">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ireland (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="376">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Israel (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="380">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Italy (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="384">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Cote D'Ivoire (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="388">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jamaica (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="392">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Japan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="398">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kazakhstan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="400">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Jordan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="404">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kenya (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="408">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Korea, Democratic People's Republic of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="410">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Korea, Republic of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="414">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kuwait (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="417">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kyrgyzstan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="418">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lao People's Democratic Republic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="422">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lebanon (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="426">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lesotho (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="428">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Latvia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="430">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Liberia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="434">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Libya (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="438">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Liechtenstein (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="440">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Lithuania (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="442">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Luxembourg (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="450">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Madagascar (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="454">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malawi (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="458">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malaysia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="462">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Maldives (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="466">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mali (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="470">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Malta (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="478">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mauritania (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="480">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mauritius (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="484">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mexico (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="492">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Monaco (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="496">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mongolia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="498">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Moldova, Republic of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="499">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Montenegro (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="504">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Morocco (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="508">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Mozambique (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="512">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Oman (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="516">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Namibia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="520">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nauru (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="524">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nepal (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="528">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Netherlands (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="540">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Caledonia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="548">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Vanuatu (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="554">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">New Zealand (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="558">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nicaragua (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="562">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Niger (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="566">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nigeria (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="578">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Norway (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="583">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Micronesia, Federated States of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="584">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Marshall Islands (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="585">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Palau (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="586">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Pakistan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="591">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Panama (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="598">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Papua New Guinea (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="600">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Paraguay (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="604">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Peru (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="608">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Philippines (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="616">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Poland (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="620">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Portugal (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="624">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Guinea-Bissau (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="626">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Timor-Leste (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="630">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Puerto Rico (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="634">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Qatar (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="642">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Romania (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="643">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Russian Federation (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="646">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Rwanda (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="659">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Kitts And Nevis (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="662">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Lucia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="670">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saint Vincent And The Grenadines (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="674">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">San Marino (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="678">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sao Tome And Principe (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="682">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Saudi Arabia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="686">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Senegal (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="688">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Serbia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="690">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Seychelles (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="694">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sierra Leone (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="702">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Singapore (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="703">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Slovakia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="704">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Viet Nam (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="705">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Slovenia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="706">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Somalia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="710">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South Africa (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="716">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zimbabwe (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="720">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yemen, Democratic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="724">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Spain (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="728">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South Sudan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="729">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sudan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="732">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Western Sahara (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="736">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sudan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="740">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Suriname (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="748">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Swaziland (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="752">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Sweden (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="756">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Switzerland (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="760">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Syrian Arab Republic (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="762">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tajikistan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="764">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Thailand (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="768">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Togo (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="776">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tonga (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="780">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Trinidad And Tobago (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="784">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">United Arab Emirates (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="788">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tunisia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="792">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Turkey (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="795">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Turkmenistan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="798">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tuvalu (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="800">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uganda (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="804">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Ukraine (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="807">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Macedonia, The Former Yugoslav Republic of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="810">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">USSR (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="818">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Egypt (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="826">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">United Kingdom (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="834">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Tanzania, United Republic of (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="840">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">United States (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="854">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Burkina Faso (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="858">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uruguay (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="860">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Uzbekistan (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="862">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Venezuela (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="882">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Samoa (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="886">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yemen (before 1990) (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="887">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yemen (after 1990) (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="890">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Yugoslavia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="891">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Serbia And Montenegro (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="894">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Zambia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2100">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Africa (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2101">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">America (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2102">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">American Continent (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2103">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Antilles (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2104">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Apec Countries (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2105">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Asean Countries (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2106">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Asia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2107">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Australasia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2108">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Balkans (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2109">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Baltic States (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2110">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Benelux (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2111">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">British Isles (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2112">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">British West Indies (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2113">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Central America (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2114">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Commonwealth (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2115">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Commonwealth African Territories (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2116">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Commonwealth Asian Territories (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2117">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Commonwealth Australasian Territories (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2118">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Commonwealth of Independent States (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2119">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Eastern Europe (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2120">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Europe (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2121">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">European Economic Area (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2122">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">European Continent (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2123">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">European Union (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2124">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">GSA Countries (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2125">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Middle East (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2126">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nafta Countries (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2127">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Nordic Countries (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2128">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">North Africa (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2129">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">North America (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2130">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Oceania (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2131">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Scandinavia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2132">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South America (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2133">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">South East Asia (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2134">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">West Indies (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2136">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">World (Source: TIS Standard).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="TerritoryCode">
+     <xs:annotation>
+       <xs:documentation source="ddex:Definition">A code representing a Territory. This includes ISO 3166-1 two-letter codes plus a code for Worldwide (This list is included here for compatibility reasons. Current standards use other TerritoryCode lists).</xs:documentation>
+     </xs:annotation>
+     <xs:union memberTypes="avs:IsoTerritoryCode avs:DdexTerritoryCode"/>
+   </xs:simpleType>
+</xs:schema>

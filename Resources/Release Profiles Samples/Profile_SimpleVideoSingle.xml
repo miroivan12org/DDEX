@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.4) 	
+-->
+<ern:NewReleaseMessage xmlns:ern="http://ddex.net/xml/ern/382"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+	xs:schemaLocation="http://ddex.net/xml/ern/382 file:../XSD/release-notification.xsd"
+	MessageSchemaVersionId="ern/382"
+	ReleaseProfileVersionId="CommonReleaseTypesTypes/13/SimpleVideoSingle" LanguageAndScriptCode="en">
+
+	
+	<MessageHeader>
+		<MessageThreadId/>
+		<MessageId/>
+		<MessageSender>
+			<PartyId>DPID_OF_THE_SENDER</PartyId>
+		</MessageSender>
+		<MessageRecipient>
+			<PartyId>DPID_OF_THE_RECIPIENT</PartyId>
+		</MessageRecipient>
+		<MessageCreatedDateTime>2012-12-11T15:50:00+00:00</MessageCreatedDateTime>
+	</MessageHeader>
+	
+	<UpdateIndicator>OriginalMessage</UpdateIndicator>
+	
+	<!-- The IsBackfill flag is optional and should only be used for indicating that an XML file is part of
+		a special backfill of a (typically large) catalogue -->
+	<IsBackfill>true</IsBackfill>
+	
+	<ResourceList>
+		<Video>
+			<VideoType>ShortFormMusicalWorkVideo</VideoType>
+			<VideoId>
+				<ISRC>CASE00000007</ISRC>
+			</VideoId>
+			<IndirectVideoId>
+				<ISWC>T1234567890</ISWC>
+			</IndirectVideoId>
+			<ResourceReference>A1</ResourceReference>
+			<ReferenceTitle>
+				<TitleText>Can you feel ...the Monkey Claw!</TitleText>
+				<SubTitle>Live at Budokan</SubTitle>
+			</ReferenceTitle>
+			<Duration>PT20M1S</Duration>
+			<VideoDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<Title TitleType="FormalTitle">
+					<TitleText>Can you feel ...the Monkey Claw!</TitleText>
+					<SubTitle>Live at Budokan</SubTitle>
+				</Title>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Can you feel ...the Monkey Claw! (Live at Budokan)</TitleText>
+				</Title>
+				<Title LanguageAndScriptCode="ja" TitleType="TranslatedTitle">
+					<TitleText>キャン・ユー・フィール．．．ザ・モンキー・クロー！</TitleText>
+					<SubTitle>ライヴ・アット・武道館</SubTitle>
+				</Title>
+				<Title LanguageAndScriptCode="ja-Kana" TitleType="TranslatedTitle">
+					<TitleText>キャン・ユー・フィール…ザ・モンキー・クロー! </TitleText>
+					<SubTitle>ライウ゛・アット・ブドーカン</SubTitle>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Monkey Claw</FullName>
+					</PartyName>
+					<ArtistRole>MainArtist</ArtistRole>
+				</DisplayArtist>
+				<ResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Steve Albino</FullName>
+					</PartyName>
+					<ResourceContributorRole>Producer</ResourceContributorRole>
+				</ResourceContributor>
+				
+				<!-- No DisplayArtistName is shown here as the DisplayArtistName is the same as for the Release -->					
+				
+				<IndirectResourceContributor SequenceNumber="1">
+					<PartyName>
+						<FullName>Bob Black</FullName>
+					</PartyName>
+					<IndirectResourceContributorRole>Composer</IndirectResourceContributorRole>
+				</IndirectResourceContributor>
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<PLine>
+					<Year>2010</Year>
+					<PLineText>(P) 2010 Iron Crown Music</PLineText>
+				</PLine>
+				<Genre>
+					<GenreText>Metal</GenreText>
+					<SubGenre>Progressive Metal</SubGenre>
+				</Genre>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+				<!-- TechnicalVideoDetails are only to be provided when relevant Resource Files are communicated -->
+				<TechnicalVideoDetails>
+					<TechnicalResourceDetailsReference>T1</TechnicalResourceDetailsReference>
+					<File>
+						<FileName>A1UCASE0000000007X_01_01.mpeg</FileName>
+					</File>
+				</TechnicalVideoDetails>
+			</VideoDetailsByTerritory>
+		</Video>
+		<Image>
+			<ImageType>VideoScreenCapture</ImageType>
+			<ImageId>
+				<ProprietaryId Namespace="DPID:PADPIDA0000000001A">PId0007</ProprietaryId>
+			</ImageId>
+			<ResourceReference>A2</ResourceReference>
+			<ImageDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+				
+				<!-- TechnicalImageDetails are only to be provided when relevant Resource Files are communicated -->
+				<TechnicalImageDetails>
+					<TechnicalResourceDetailsReference>T2</TechnicalResourceDetailsReference>
+					<File>
+						<FileName>A1UCASE0000000007X_01_01.jpeg</FileName>
+					</File>
+				</TechnicalImageDetails>
+			</ImageDetailsByTerritory>
+		</Image>
+	</ResourceList>
+	<ReleaseList>
+		<Release IsMainRelease="true">
+			<ReleaseId>
+				<GRid>A1UCASE0000000007X</GRid>
+				<ISRC>CASE00000007</ISRC>
+			</ReleaseId>
+			<ReleaseReference>R0</ReleaseReference>
+			<ReferenceTitle>
+				<TitleText>Can you feel ...the Monkey Claw!</TitleText>
+				<SubTitle>Live at Budokan</SubTitle>
+			</ReferenceTitle>
+			<ReleaseResourceReferenceList>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+					>A1</ReleaseResourceReference>
+				<ReleaseResourceReference ReleaseResourceType="SecondaryResource"
+					>A2</ReleaseResourceReference>
+			</ReleaseResourceReferenceList>
+			<ReleaseType>VideoSingle</ReleaseType>
+			<ReleaseDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<DisplayArtistName>Monkey Claw</DisplayArtistName>
+				<LabelName>Iron Crown Music</LabelName>
+				<Title TitleType="FormalTitle">
+					<TitleText>Can you feel ...the Monkey Claw!</TitleText>
+					<SubTitle>Live at Budokan</SubTitle>
+				</Title>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Can you feel ...the Monkey Claw! (Live at Budokan)</TitleText>
+				</Title>
+				<Title LanguageAndScriptCode="ja" TitleType="TranslatedTitle">
+					<TitleText>キャン・ユー・フィール．．．ザ・モンキー・クロー！</TitleText>
+					<SubTitle>ライヴ・アット・武道館</SubTitle>
+				</Title>
+				<Title LanguageAndScriptCode="ja-Kana" TitleType="TranslatedTitle">
+					<TitleText>キャン・ユー・フィール…ザ・モンキー・クロー! </TitleText>
+					<SubTitle>ライウ゛・アット・ブドーカン</SubTitle>
+				</Title>
+				<DisplayArtist SequenceNumber="1">
+					<PartyName>
+						<FullName>Monkey Claw</FullName>
+					</PartyName>
+					<ArtistRole>MainArtist</ArtistRole>
+				</DisplayArtist>
+				<RelatedRelease>
+					<ReleaseId>
+						<GRid>A1UCASE0000000001X</GRid>
+					</ReleaseId>
+					<ReferenceTitle>
+						<TitleText>Can you feel ...the Monkey Claw!</TitleText>
+					</ReferenceTitle>
+					<ReleaseRelationshipType>IsEquivalentToAudio</ReleaseRelationshipType>
+				</RelatedRelease>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+				<ResourceGroup>
+					<ResourceGroup>
+						<Title TitleType="GroupingTitle">
+							<TitleText>Component 1</TitleText>
+						</Title>
+						<SequenceNumber>1</SequenceNumber>
+						<ResourceGroupContentItem>
+							<SequenceNumber>1</SequenceNumber>
+							<ResourceType>Video</ResourceType>
+							<ReleaseResourceReference ReleaseResourceType="PrimaryResource"
+								>A1</ReleaseResourceReference>
+							<LinkedReleaseResourceReference LinkDescription="VideoScreenCapture"
+								>A2</LinkedReleaseResourceReference>
+						</ResourceGroupContentItem>
+					</ResourceGroup>
+				</ResourceGroup>
+				<Genre>
+					<GenreText>Metal</GenreText>
+					<SubGenre>Progressive Metal</SubGenre>
+				</Genre>
+				<ReleaseDate IsApproximate="true">2010-01-01</ReleaseDate>
+			</ReleaseDetailsByTerritory>
+			<PLine>
+				<Year>2010</Year>
+				<PLineText>(P) 2010 Iron Crown Music</PLineText>
+			</PLine>
+			<CLine>
+				<Year>2010</Year>
+				<CLineText>(C) 2010 Iron Crown Music</CLineText>
+			</CLine>
+			<GlobalOriginalReleaseDate>1966-01-01</GlobalOriginalReleaseDate>
+		</Release>
+	</ReleaseList>
+</ern:NewReleaseMessage>

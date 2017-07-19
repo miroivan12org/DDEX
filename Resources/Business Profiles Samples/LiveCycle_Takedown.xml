@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.4) 	
+-->
+<ern:NewReleaseMessage xmlns:ern="http://ddex.net/xml/ern/382"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+	xs:schemaLocation="http://ddex.net/xml/ern/382 file:../XSD/release-notification.xsd"
+	MessageSchemaVersionId="ern/382"
+	BusinessProfileVersionId="CommonDealTypes/13/GenericDownloadService" LanguageAndScriptCode="en">
+
+	<MessageHeader>
+		<MessageThreadId/>
+		<MessageId/>
+		<MessageSender>
+			<PartyId>DPID_OF_THE_SENDER</PartyId>
+		</MessageSender>
+		<MessageRecipient>
+			<PartyId>DPID_OF_THE_RECIPIENT</PartyId>
+		</MessageRecipient>
+		<MessageCreatedDateTime>2015-08-01T15:50:00+00:00</MessageCreatedDateTime>
+	</MessageHeader>
+
+	<UpdateIndicator>OriginalMessage</UpdateIndicator>
+
+	<!-- ResourceList and ReleaseList should be provided in accordance with the 
+			relevant Release Profile. Tthis  XML file's ResourceList and ReleaseList
+			are for the sole purpose of creating of a valid XML file -->
+	<ResourceList/>
+	<ReleaseList>
+		<Release>
+			<ReleaseId>
+				<!-- A valid ID for the Release -->
+			</ReleaseId>
+			<ReleaseReference>R1</ReleaseReference>
+			<ReferenceTitle>
+				<TitleText/>
+			</ReferenceTitle>
+			<ResourceOmissionReason>UserDefined</ResourceOmissionReason>
+			<ReleaseDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+			</ReleaseDetailsByTerritory>
+		</Release>
+	</ReleaseList>
+	
+	<DealList>
+		<ReleaseDeal>
+			<DealReleaseReference>R1</DealReleaseReference>
+			<Deal>
+				<DealTerms>
+					<CommercialModelType>SubscriptionModel</CommercialModelType>
+					<Usage>
+						<UseType>OnDemandStream</UseType>
+					</Usage>
+					<TerritoryCode>US</TerritoryCode>
+					<ValidityPeriod>
+						<EndDate>2015-10-01</EndDate>
+					</ValidityPeriod>
+				</DealTerms>
+			</Deal>
+		</ReleaseDeal>
+	</DealList>
+</ern:NewReleaseMessage>

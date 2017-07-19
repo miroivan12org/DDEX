@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDEX", "Client\DDEX\DDEX.csproj", "{06F4AA24-5FFA-41DA-8AA5-78B9E6821D22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI", "Framework\Framework.UI\Framework.UI.csproj", "{163ED8DF-8390-4069-81F0-AADCC41FB1D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.DDEXFactory", "Business\Business.DDEXFactory\Business.DDEXFactory.csproj", "{0836E723-F040-4DE5-BA80-C7EAEDEBD554}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{2091A002-F078-4702-87D6-2A4DC13837BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{90E30B0C-8C31-45EF-870D-DC6C98FECB9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.DDEXSchemaERN_382", "Business\Business.DDEXSchemaERN_382\Business.DDEXSchemaERN_382.csproj", "{1EB3DD03-2B02-4A94-BFF4-9174A5D4AAC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.DDEXFactory.Interfaces", "Business\Business.DDEXFactory.Interfaces\Business.DDEXFactory.Interfaces.csproj", "{457D7450-AABA-4905-9823-70C8B02791A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06F4AA24-5FFA-41DA-8AA5-78B9E6821D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F4AA24-5FFA-41DA-8AA5-78B9E6821D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F4AA24-5FFA-41DA-8AA5-78B9E6821D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F4AA24-5FFA-41DA-8AA5-78B9E6821D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163ED8DF-8390-4069-81F0-AADCC41FB1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163ED8DF-8390-4069-81F0-AADCC41FB1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163ED8DF-8390-4069-81F0-AADCC41FB1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163ED8DF-8390-4069-81F0-AADCC41FB1D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0836E723-F040-4DE5-BA80-C7EAEDEBD554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0836E723-F040-4DE5-BA80-C7EAEDEBD554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0836E723-F040-4DE5-BA80-C7EAEDEBD554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0836E723-F040-4DE5-BA80-C7EAEDEBD554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB3DD03-2B02-4A94-BFF4-9174A5D4AAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB3DD03-2B02-4A94-BFF4-9174A5D4AAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB3DD03-2B02-4A94-BFF4-9174A5D4AAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB3DD03-2B02-4A94-BFF4-9174A5D4AAC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{457D7450-AABA-4905-9823-70C8B02791A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457D7450-AABA-4905-9823-70C8B02791A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457D7450-AABA-4905-9823-70C8B02791A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457D7450-AABA-4905-9823-70C8B02791A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{163ED8DF-8390-4069-81F0-AADCC41FB1D5} = {90E30B0C-8C31-45EF-870D-DC6C98FECB9B}
+		{0836E723-F040-4DE5-BA80-C7EAEDEBD554} = {2091A002-F078-4702-87D6-2A4DC13837BB}
+		{1EB3DD03-2B02-4A94-BFF4-9174A5D4AAC9} = {2091A002-F078-4702-87D6-2A4DC13837BB}
+		{457D7450-AABA-4905-9823-70C8B02791A9} = {2091A002-F078-4702-87D6-2A4DC13837BB}
+	EndGlobalSection
+EndGlobal

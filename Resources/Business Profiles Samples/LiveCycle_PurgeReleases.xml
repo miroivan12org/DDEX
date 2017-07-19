@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.4) 	
+-->
+<ern:PurgeReleaseMessage xmlns:ern="http://ddex.net/xml/ern/382"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+	xs:schemaLocation="http://ddex.net/xml/ern/382 file:../XSD/release-notification.xsd"
+	MessageSchemaVersionId="ern/382" LanguageAndScriptCode="en">
+
+	<MessageHeader>
+		<MessageThreadId/>
+		<MessageId/>
+		<MessageSender>
+			<PartyId>DPID_OF_THE_SENDER</PartyId>
+		</MessageSender>
+		<MessageRecipient>
+			<PartyId>DPID_OF_THE_RECIPIENT</PartyId>
+		</MessageRecipient>
+		<MessageCreatedDateTime>2012-12-11T15:50:00+00:00</MessageCreatedDateTime>
+	</MessageHeader>
+
+	<PurgedRelease>
+		<ReleaseId>
+			<ICPN>123451234509</ICPN>
+		</ReleaseId>
+		<Title>
+			<TitleText>Boogie Man</TitleText>
+		</Title>
+		<ResourceContributor>
+			<PartyName>
+				<FullName>Vince Weber</FullName>
+			</PartyName>
+		</ResourceContributor>
+	</PurgedRelease>
+
+</ern:PurgeReleaseMessage>

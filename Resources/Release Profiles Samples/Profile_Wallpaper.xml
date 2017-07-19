@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	(c) Digital Data Exchange, LLC (DDEX)
+	This file forms part of the DDEX Standard defining Release Profiles for Common Release Types (Version 1.4) 	
+-->
+<ern:NewReleaseMessage xmlns:ern="http://ddex.net/xml/ern/382"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+	xs:schemaLocation="http://ddex.net/xml/ern/382 file:../XSD/release-notification.xsd"
+	MessageSchemaVersionId="ern/382"
+	ReleaseProfileVersionId="CommonReleaseTypesTypes/13/WallpaperRelease" LanguageAndScriptCode="en">
+
+	<MessageHeader>
+		<MessageThreadId/>
+		<MessageId/>
+		<MessageSender>
+			<PartyId>DPID_OF_THE_SENDER</PartyId>
+		</MessageSender>
+		<MessageRecipient>
+			<PartyId>DPID_OF_THE_RECIPIENT</PartyId>
+		</MessageRecipient>
+		<MessageCreatedDateTime>2012-12-11T15:50:00+00:00</MessageCreatedDateTime>
+	</MessageHeader>
+
+	<UpdateIndicator>OriginalMessage</UpdateIndicator>
+
+	<!-- The IsBackfill flag is optional and should only be used for indicating that an XML file is part of
+		a special backfill of a (typically large) catalogue -->
+	<IsBackfill>true</IsBackfill>
+
+	<ResourceList>
+		<Image>
+			<ImageType>Wallpaper</ImageType>
+			<ImageId>
+				<ProprietaryId Namespace="DPID:PADPIDA0000000001A">PId0012</ProprietaryId>
+			</ImageId>
+			<ResourceReference>A1</ResourceReference>
+			<Title>
+				<TitleText>Warhammer</TitleText>
+			</Title>
+			<ImageDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<ResourceReleaseDate>2011</ResourceReleaseDate>
+				<ParentalWarningType>NotExplicit</ParentalWarningType>
+			</ImageDetailsByTerritory>
+		</Image>
+	</ResourceList>
+	<ReleaseList>
+		<Release IsMainRelease="true">
+			<ReleaseId>
+				<GRid>A1UCASE0000000012X</GRid>
+			</ReleaseId>
+			<ReleaseReference>R0</ReleaseReference>
+			<ReferenceTitle>
+				<TitleText>Warhammer</TitleText>
+			</ReferenceTitle>
+			<ReleaseResourceReferenceList>
+				<ReleaseResourceReference ReleaseResourceType="PrimaryResource">A1
+				</ReleaseResourceReference>
+			</ReleaseResourceReferenceList>
+			<ReleaseType>WallpaperRelease</ReleaseType>
+			<ReleaseDetailsByTerritory>
+				<TerritoryCode>Worldwide</TerritoryCode>
+				<DisplayArtistName>Monkey Claw</DisplayArtistName>
+				<LabelName>Iron Crown Music</LabelName>
+				<Title TitleType="FormalTitle">
+					<TitleText>Warhammer</TitleText>
+				</Title>
+				<Title TitleType="DisplayTitle">
+					<TitleText>Warhammer</TitleText>
+				</Title>
+			</ReleaseDetailsByTerritory>
+			<CLine>
+				<Year>2010</Year>
+				<CLineText>(C) 2010 Iron Crown Music</CLineText>
+			</CLine>
+			<GlobalOriginalReleaseDate IsApproximate="true">2010-10-01</GlobalOriginalReleaseDate>
+		</Release>
+	</ReleaseList>
+</ern:NewReleaseMessage>
