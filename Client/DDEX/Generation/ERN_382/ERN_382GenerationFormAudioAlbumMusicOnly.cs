@@ -16,8 +16,12 @@ namespace DDEX.Generation.ERN_382
         public ERN_382GenerationFormAudioAlbumMusicOnly()
         {
             InitializeComponent();
-            lblPath.Text = "C:\\temp\\file.xml";
-            Model = GetModelFromFile(lblPath.Text);            
+            
+            if (System.IO.File.Exists("C:\\temp\\file.xml"))
+            {
+                lblPath.Text = "C:\\temp\\file.xml";
+                Model = GetModelFromFile(lblPath.Text);
+            }                       
         }
 
         public ERN_382GenerationFormAudioAlbumMusicOnly(AudioAlbumModel model) : this()
@@ -328,7 +332,10 @@ namespace DDEX.Generation.ERN_382
 
             try
             {
-                ret = (AudioAlbumModel)Binder.GetModelFromXmlObject(Binder.GetXmlObjectFromFile(fileName));
+                if (System.IO.File.Exists(fileName) && (new System.IO.FileInfo(fileName)).Length > 0)
+                {
+                    ret = (AudioAlbumModel)Binder.GetModelFromXmlObject(Binder.GetXmlObjectFromFile(fileName));
+                }
             }
             catch (Exception ex)
             {
@@ -339,12 +346,14 @@ namespace DDEX.Generation.ERN_382
         }
         private void ERN_382GenerationFormAudioAlbumMusicOnly_Load(object sender, EventArgs e)
         {
+            
             AudioAlbumModel m = GetModelFromFile(Model.FullFileName);
             if (m != null)
             {
                 Model.CopyFromSource(m);
                 lblPath.Text = Model.FullFileName;
             }
+            
             InitBindings();
             dgvSoundRecordingsAndReleases.ClearSelection();
         }

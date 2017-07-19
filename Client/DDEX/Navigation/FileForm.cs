@@ -42,7 +42,7 @@ namespace DDEX.Navigation
                 string message = "";
                 if (Model.IsValid(out message))
                 {
-                    if (System.IO.File.Exists(Model.FullName) && MRMessageBox.Show("File exists. Overwrite?", MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Warning) == DialogResult.Yes)
+                    if (!System.IO.File.Exists(Model.FullName) || MRMessageBox.Show("File exists. Overwrite?", MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Warning) == DialogResult.Yes)
                     {
                         System.IO.File.WriteAllText(Model.FullName, "");
                         DialogResult = DialogResult.OK;
