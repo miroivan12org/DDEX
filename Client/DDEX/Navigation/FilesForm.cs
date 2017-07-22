@@ -1,4 +1,5 @@
-﻿using Business.DDEXSchemaERN_382.Entities;
+﻿using Business.DDEXSchemaERN_382;
+using Business.DDEXSchemaERN_382.Entities;
 using Newtonsoft;
 using Newtonsoft.Json;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,20 +21,12 @@ namespace DDEX.Navigation
             tbFiles.BindedControls.Add(dgvFiles);
         }
         
-        private NavigationModel Model
-        {
-            get
-            {
-                return Globals.Model;
-            }
-        }
-
+        public static NavigationModel Model { get; set; } = new NavigationModel();
         private void FilesForm_Load(object sender, EventArgs e)
         {
             lblPath.Text = Properties.Settings.Default.NavigationFolderPath;
-            Model.FolderPath = Properties.Settings.Default.NavigationFolderPath; 
-            Globals.LoadNavigation();
-
+            Model.FolderPath = Properties.Settings.Default.NavigationFolderPath;
+            Model.Refresh();
             InitBindings();
         }
         private void InitBindings()
@@ -75,7 +69,7 @@ namespace DDEX.Navigation
             if (record != null)
             {
                 var model = new AudioAlbumModel() { FullFileName = record.FullName };
-                var frm = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly((AudioAlbumModel) model) { Editable = true };
+                var frm = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model) { Editable = true };
                 frm.MdiParent = Globals.MDIMainForm;
                 frm.Show();
             }
@@ -93,10 +87,20 @@ namespace DDEX.Navigation
                 if (b.ShowDialog() == DialogResult.OK)
                 {
                     Model.FolderPath = b.SelectedPath;
-                    Globals.LoadNavigation();                    
+                    Model.Refresh();
                 }
             }
         }
 
+        private void chxbSubFolders_CheckedChanged(object sender, EventArgs e)
+        {
+            Model.ScanSubFolders = chxbSubFolders.Checked;
+            Model.Refresh();
+        }
+
+        private void btnValidateAll_Click(object sender, EventArgs e)
+        {
+            Model.Refresh();
+        }
     }
 }

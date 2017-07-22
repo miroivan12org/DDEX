@@ -14,7 +14,7 @@ namespace DDEX.Forms
             InitializeComponent();
         }
         
-        public Binder Binder = new Binder();
+        public AudioAlbumBinder Binder = new AudioAlbumBinder(); 
 
         private void btnValidate_Click(object sender, EventArgs e)
         {

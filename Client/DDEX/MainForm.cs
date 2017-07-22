@@ -39,7 +39,7 @@ namespace DDEX
         private void MainForm_Load(object sender, EventArgs e)
         {
             menuItem_Click(albumToolStripMenuItem, new EventArgs());
-            filesToolStripMenuItem_Click(this, new EventArgs());
+            //filesToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void validatorToolStripMenuItem_Click(object sender, EventArgs e)

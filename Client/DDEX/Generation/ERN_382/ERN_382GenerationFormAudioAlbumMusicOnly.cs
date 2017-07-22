@@ -20,7 +20,8 @@ namespace DDEX.Generation.ERN_382
             if (System.IO.File.Exists("C:\\temp\\file.xml"))
             {
                 lblPath.Text = "C:\\temp\\file.xml";
-                Model = GetModelFromFile(lblPath.Text);
+                Model = new AudioAlbumModel() { FullFileName = lblPath.Text };
+                //Model = GetModelFromFile(lblPath.Text);
             }                       
         }
 
@@ -30,7 +31,7 @@ namespace DDEX.Generation.ERN_382
         }
 
         public AudioAlbumModel Model = new AudioAlbumModel();
-        public Binder Binder = new Binder();
+        public AudioAlbumBinder Binder = new AudioAlbumBinder();
 
         #region Comments
         //private static NewReleaseMessage BindToObject()
@@ -451,30 +452,35 @@ namespace DDEX.Generation.ERN_382
 
         }
 
+        private void SaveDialog()
+        {
+            string message = "";
+            string message2 = "";
+            if (Model.IsValid(out message) && IsXmlFileValid(out message2))
+            {
+                Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName);
+                DialogResult = DialogResult.OK;
+                Close();
+                Dispose();
+            }
+            else
+            {
+                rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
+                if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
+                {
+                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName);
+                    DialogResult = DialogResult.Abort;
+                    Close();
+                    Dispose();
+                }
+            }
+        }
+
         private void Form_DialogResultClicked(object sender, DialogResultEventArgs e)
         {
             if (e.Result == DialogResult.OK)
             {
-                string message = "";
-                string message2 = "";
-                if (Model.IsValid(out message) && IsXmlFileValid(out message2))
-                {
-                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName);
-                    DialogResult = DialogResult.OK;
-                    Close();
-                    Dispose();
-                }
-                else
-                {
-                    rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
-                    if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
-                    {
-                        Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName);
-                        DialogResult = DialogResult.Abort;
-                        Close();
-                        Dispose();
-                    }
-                }
+                SaveDialog();
             }
             else if (e.Result == DialogResult.Cancel)
             {
@@ -489,6 +495,10 @@ namespace DDEX.Generation.ERN_382
             return Binder.IsModelValid(Model, out msg);
         }
 
+        private void mrButton1_Click(object sender, EventArgs e)
+        {
+            SaveDialog();
+        }
     }
 
     

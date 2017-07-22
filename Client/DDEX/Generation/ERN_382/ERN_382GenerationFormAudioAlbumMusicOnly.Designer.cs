@@ -74,6 +74,7 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.mrButton1 = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlFrontCoverImageParent.SuspendLayout();
@@ -127,6 +128,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.mrButton1);
             this.groupBox2.Controls.Add(this.pnlFrontCoverImageParent);
             this.groupBox2.Controls.Add(this.pnlTrackReleasesParent);
             this.groupBox2.Controls.Add(this.mrPanel1);
@@ -568,6 +570,16 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
+            // mrButton1
+            // 
+            this.mrButton1.Location = new System.Drawing.Point(441, 485);
+            this.mrButton1.Name = "mrButton1";
+            this.mrButton1.Size = new System.Drawing.Size(75, 23);
+            this.mrButton1.TabIndex = 20;
+            this.mrButton1.Text = "mrButton1";
+            this.mrButton1.UseVisualStyleBackColor = true;
+            this.mrButton1.Click += new System.EventHandler(this.mrButton1_Click);
+            // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,5 +664,6 @@
         private Framework.UI.Controls.MRTitleBar tbFrontCoverImage;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private Framework.UI.Controls.MRButton mrButton1;
     }
 }

@@ -6,12 +6,12 @@ using System;
 
 namespace Business.DDEXSchemaERN_382
 {
-    public class Binder
+    public class AudioAlbumBinder
     {
         IXmlGenerator Generator { get; set; }
         IXmlGenerationFactory Factory { get; set; }
         
-        public Binder()
+        public AudioAlbumBinder()
         {
             Factory = new Generation.ERN_382GenerationFactory();
             Generator = Factory.GetGenerator();
@@ -133,11 +133,16 @@ namespace Business.DDEXSchemaERN_382
                 ret.ReleaseList.Release = new Release[1];
                 ret.ReleaseList.Release[0] = new Release();
             }
+            // main release
+            ret.ReleaseList.Release[0].IsMainRelease = true;
+            ret.ReleaseList.Release[0].IsMainReleaseSpecified = true;
+
             if (ret.ReleaseList.Release[0].ReleaseId == null || ret.ReleaseList.Release[0].ReleaseId.Length == 0)
             {
                 ret.ReleaseList.Release[0].ReleaseId = new ReleaseId[1];
                 ret.ReleaseList.Release[0].ReleaseId[0] = new ReleaseId();
             }
+            
             if (ret.ReleaseList.Release[0].ReleaseId[0].ICPN == null)
             {
                 ret.ReleaseList.Release[0].ReleaseId[0].ICPN = new ICPN();
@@ -154,17 +159,34 @@ namespace Business.DDEXSchemaERN_382
 
             if (m.Tracks.Any())
             {
-                if (ret.ReleaseList == null)
+                
+                if (ret.ReleaseList.Release.Count() < m.Tracks.Count + 1)
                 {
-                    ret.ReleaseList = new ReleaseList();
+                    var newRel = new Release[m.Tracks.Count + 1];
+                    newRel[0] = ret.ReleaseList.Release[0];
+                    ret.ReleaseList.Release = newRel;
                 }
-                if (ret.ReleaseList.Release == null)
+
+                Release mainRelease = ret.ReleaseList.Release[0];
+                if (mainRelease.Item == null) mainRelease.Item = new ReleaseResourceReferenceList();
+                if (((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference == null) ((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference = new ReleaseResourceReference[m.Tracks.Count + 1];
+                for (int i = 0; i < m.Tracks.Count + 1; i++)
                 {
-                    ret.ReleaseList.Release = new Release[m.Tracks.Count];
+                    ((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference[i] = new ReleaseResourceReference()
+                    {
+                        Value = "A" + (i + 1).ToString(),
+                        ReleaseResourceType = ReleaseResourceType.PrimaryResource,
+                        ReleaseResourceTypeSpecified = true
+                    };
+                    if (i == m.Tracks.Count + 1) ((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference[i].ReleaseResourceType = ReleaseResourceType.SecondaryResource;
                 }
+                mainRelease.ReleaseType = new ReleaseType1[1];
+                mainRelease.ReleaseType[0].Value = ReleaseType.Album;
+
                 for (int i = 0; i < m.Tracks.Count; i++)
                 {
                     var track = m.Tracks[i];
+                  
                     if (ret.ReleaseList.Release.Length <= (i + 1))
                     {
                         var x = ret.ReleaseList.Release;
@@ -198,64 +220,72 @@ namespace Business.DDEXSchemaERN_382
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
             AudioAlbumModel ret = new AudioAlbumModel();
-            ret.FullFileName = xmlObject.FullFileName;
-
-            NewReleaseMessage nrm = (NewReleaseMessage)xmlObject;
-            if (nrm != null)
+            try
             {
-                if (nrm.MessageHeader != null)
+                ret.FullFileName = xmlObject.FullFileName;
+
+                NewReleaseMessage nrm = (NewReleaseMessage)xmlObject;
+                if (nrm != null)
                 {
-                    ret.MessageID = nrm.MessageHeader.MessageId;
-                    if (nrm.MessageHeader.MessageSender.PartyId.Length > 0)
+                    if (nrm.MessageHeader != null)
                     {
-                        ret.SenderPartyID = nrm.MessageHeader.MessageSender.PartyId[0].Value;
-                    }
-                    if (nrm.MessageHeader.MessageSender.PartyName != null && nrm.MessageHeader.MessageSender.PartyName.FullName != null)
-                    {
-                        ret.SenderPartyName = nrm.MessageHeader.MessageSender.PartyName.FullName.Value;
-                    }
-                    if (nrm.MessageHeader.MessageRecipient != null && nrm.MessageHeader.MessageRecipient.Length > 0 && nrm.MessageHeader.MessageRecipient[0].PartyId != null && nrm.MessageHeader.MessageRecipient[0].PartyId.Length > 0)
-                    {
-                        ret.RecipientPartyID = nrm.MessageHeader.MessageRecipient[0].PartyId[0].Value;
-                    }
-                    if (nrm.MessageHeader.MessageRecipient != null && nrm.MessageHeader.MessageRecipient.Length > 0 && nrm.MessageHeader.MessageRecipient[0].PartyName != null && nrm.MessageHeader.MessageRecipient[0].PartyName.FullName != null)
-                    {
-                        ret.RecipientPartyName = nrm.MessageHeader.MessageRecipient[0].PartyName.FullName.Value;
-                    }
-                    ret.MessageCreatedDateTime = nrm.MessageHeader.MessageCreatedDateTime;
-                    ret.UpdateIndicator = nrm.UpdateIndicator;
-
-                    if (nrm.ReleaseList != null && nrm.ReleaseList.Release != null && nrm.ReleaseList.Release.Length > 0 && nrm.ReleaseList.Release[0].ReleaseId != null && nrm.ReleaseList.Release[0].ReleaseId.Length > 0 && nrm.ReleaseList.Release[0].ReleaseId[0].ICPN != null)
-                    {
-                        ret.EAN = nrm.ReleaseList.Release[0].ReleaseId[0].ICPN.Value;
-                    }
-
-                    if (nrm.ReleaseList != null && nrm.ReleaseList.Release != null && nrm.ReleaseList.Release.Any())
-                    {
-                        ret.Tracks.RaiseListChangedEvents = false;
-                        foreach (var rel in nrm.ReleaseList.Release.Where(x => !x.IsMainRelease))
+                        ret.MessageID = nrm.MessageHeader.MessageId;
+                        if (nrm.MessageHeader.MessageSender.PartyId.Length > 0)
                         {
-                            var track = new TrackModel()
-                            {
-                                Ordinal = Convert.ToInt32(rel.ReleaseReference.FirstOrDefault().TrimStart('R')),
-                                ISRC = rel.ReleaseId.FirstOrDefault().ISRC,
-                                Title = rel.ReferenceTitle.TitleText.Value
-                            };
-                            if (rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText != null)
-                            {
-                                track.Genre = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText.Value;
-                            }
-                            if (rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().SubGenre != null)
-                            {
-                                track.SubGenre = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().SubGenre.Value;
-                            }
-                            
-                            ret.Tracks.Add(track);
+                            ret.SenderPartyID = nrm.MessageHeader.MessageSender.PartyId[0].Value;
                         }
-                        ret.Tracks.RaiseListChangedEvents = true;
-                        ret.Tracks.ResetBindings();
+                        if (nrm.MessageHeader.MessageSender.PartyName != null && nrm.MessageHeader.MessageSender.PartyName.FullName != null)
+                        {
+                            ret.SenderPartyName = nrm.MessageHeader.MessageSender.PartyName.FullName.Value;
+                        }
+                        if (nrm.MessageHeader.MessageRecipient != null && nrm.MessageHeader.MessageRecipient.Length > 0 && nrm.MessageHeader.MessageRecipient[0].PartyId != null && nrm.MessageHeader.MessageRecipient[0].PartyId.Length > 0)
+                        {
+                            ret.RecipientPartyID = nrm.MessageHeader.MessageRecipient[0].PartyId[0].Value;
+                        }
+                        if (nrm.MessageHeader.MessageRecipient != null && nrm.MessageHeader.MessageRecipient.Length > 0 && nrm.MessageHeader.MessageRecipient[0].PartyName != null && nrm.MessageHeader.MessageRecipient[0].PartyName.FullName != null)
+                        {
+                            ret.RecipientPartyName = nrm.MessageHeader.MessageRecipient[0].PartyName.FullName.Value;
+                        }
+                        ret.MessageCreatedDateTime = nrm.MessageHeader.MessageCreatedDateTime;
+                        ret.UpdateIndicator = nrm.UpdateIndicator;
+
+                        if (nrm.ReleaseList != null && nrm.ReleaseList.Release != null && nrm.ReleaseList.Release.Length > 0 && nrm.ReleaseList.Release[0].ReleaseId != null && nrm.ReleaseList.Release[0].ReleaseId.Length > 0 && nrm.ReleaseList.Release[0].ReleaseId[0].ICPN != null)
+                        {
+                            ret.EAN = nrm.ReleaseList.Release[0].ReleaseId[0].ICPN.Value;
+                            
+                        }
+                        if (nrm.ReleaseList != null && nrm.ReleaseList.Release != null && nrm.ReleaseList.Release.Any())
+                        {
+                            ret.Tracks.RaiseListChangedEvents = false;
+                                                        
+                            foreach (var rel in nrm.ReleaseList.Release.Where(x => !x.IsMainRelease))
+                            {
+                                var track = new TrackModel()
+                                {
+                                    Ordinal = Convert.ToInt32(rel.ReleaseReference.FirstOrDefault().TrimStart('R')),
+                                    ISRC = rel.ReleaseId.FirstOrDefault().ISRC,
+                                    Title = rel.ReferenceTitle.TitleText.Value
+                                };
+                                if (rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText != null)
+                                {
+                                    track.Genre = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText.Value;
+                                }
+                                if (rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().SubGenre != null)
+                                {
+                                    track.SubGenre = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().SubGenre.Value;
+                                }
+                            
+                                ret.Tracks.Add(track);
+                            }
+                            ret.Tracks.RaiseListChangedEvents = true;
+                            ret.Tracks.ResetBindings();
+                        }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
             }
 
             return ret;

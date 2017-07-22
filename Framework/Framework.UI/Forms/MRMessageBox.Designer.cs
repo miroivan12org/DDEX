@@ -42,6 +42,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblTitle.ForeColor = System.Drawing.Color.RoyalBlue;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
@@ -55,7 +56,7 @@
             this.pnlYesNo.Controls.Add(this.mrButton2);
             this.pnlYesNo.Controls.Add(this.mrButton1);
             this.pnlYesNo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlYesNo.Location = new System.Drawing.Point(0, 126);
+            this.pnlYesNo.Location = new System.Drawing.Point(0, 150);
             this.pnlYesNo.Name = "pnlYesNo";
             this.pnlYesNo.Size = new System.Drawing.Size(317, 24);
             this.pnlYesNo.TabIndex = 2;
@@ -87,7 +88,7 @@
             // 
             this.pnlOk.Controls.Add(this.btnOK);
             this.pnlOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlOk.Location = new System.Drawing.Point(0, 150);
+            this.pnlOk.Location = new System.Drawing.Point(0, 126);
             this.pnlOk.Name = "pnlOk";
             this.pnlOk.Size = new System.Drawing.Size(317, 24);
             this.pnlOk.TabIndex = 0;
@@ -111,8 +112,8 @@
             this.ClientSize = new System.Drawing.Size(317, 174);
             this.ControlBox = false;
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.pnlYesNo);
             this.Controls.Add(this.pnlOk);
+            this.Controls.Add(this.pnlYesNo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MRMessageBox";
