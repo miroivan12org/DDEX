@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Security.Cryptography;
 
 namespace Business.DDEXFactory.Helpers
 {
@@ -25,6 +26,18 @@ namespace Business.DDEXFactory.Helpers
             catch (Exception)
             {
                 throw;
+            }
+        }
+     
+
+        public static string GetMD5HashSum(string fileName)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(fileName))
+                {
+                    return BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "‌​").ToLower();
+                }
             }
         }
     }

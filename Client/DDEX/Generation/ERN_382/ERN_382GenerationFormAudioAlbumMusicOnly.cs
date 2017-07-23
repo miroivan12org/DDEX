@@ -17,9 +17,9 @@ namespace DDEX.Generation.ERN_382
         {
             InitializeComponent();
             
-            if (System.IO.File.Exists("C:\\temp\\file.xml"))
+            if (System.IO.File.Exists("C:\\temp\\release\\file.xml"))
             {
-                lblPath.Text = "C:\\temp\\file.xml";
+                lblPath.Text = "C:\\temp\\release\\file.xml";
                 Model = new AudioAlbumModel() { FullFileName = lblPath.Text };
                 //Model = GetModelFromFile(lblPath.Text);
             }                       
@@ -383,6 +383,9 @@ namespace DDEX.Generation.ERN_382
             cbUpdateIndicator.DataBindings.Add("SelectedItem", Model, "UpdateIndicator");
             txtMainReleaseReferenceTitle.DataBindings.Add("Text", Model, "MainReleaseReferenceTitle");
 
+            lblFrontCoverImageRelativePath.DataBindings.Add("Text", Model, "FrontCoverImagePath");
+            lblFrontCoverImageFileName.DataBindings.Add("Text", Model, "FrontCoverImageFileName");
+
         }
 
         private void tbTrackReleases_ButtonClicked(object sender, Framework.UI.Controls.MRTitleBar.ActionButtonEventArgs e)
@@ -498,6 +501,27 @@ namespace DDEX.Generation.ERN_382
         private void mrButton1_Click(object sender, EventArgs e)
         {
             SaveDialog();
+        }
+
+        private void btnOpenFrontCoverImage_Click(object sender, EventArgs e)
+        {
+            using (var fd = new OpenFileDialog() { RestoreDirectory = true, InitialDirectory = System.IO.Path.GetDirectoryName(Model.FullFileName) })
+            {
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    Model.FrontCoverImageFileName = System.IO.Path.GetFileName(fd.FileName);
+                    Model.FrontCoverImagePath = System.IO.Path.GetDirectoryName(fd.FileName).Substring(System.IO.Path.GetDirectoryName(Model.FullFileName).Length + 1) + "/";
+                    Model.FrontCoverImageFullFileName = fd.FileName;
+                }
+                else
+                {
+                    Model.FrontCoverImagePath = null;
+                    Model.FrontCoverImageFileName = null;
+                    Model.FrontCoverImageFullFileName = null;
+                }
+
+                Model.ComputeMaterialized();
+            }
         }
     }
 
