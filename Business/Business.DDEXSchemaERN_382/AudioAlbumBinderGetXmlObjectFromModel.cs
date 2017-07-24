@@ -29,6 +29,7 @@ namespace Business.DDEXSchemaERN_382
 
             ret.MessageHeader = GetMessageHeader(m);
             ret.ResourceList = GetResourceList(m);
+            ret.ReleaseList = GetReleaseList(m);
 
             return ret;
         }
@@ -79,35 +80,250 @@ namespace Business.DDEXSchemaERN_382
         private ReleaseList GetReleaseList(AudioAlbumModel m)
         {
             ReleaseList ret = null;
-            
-            
 
+            Release mainRelease = GetMainRelease(m);
+            int releaseListCount = (mainRelease == null ? 0 : 1) + m.Tracks.Count; ;
+            if (releaseListCount > 0)
+            {
+                ret = new ReleaseList() { Release = new Release[releaseListCount] };
+                if (mainRelease != null) ret.Release[0] = mainRelease;
+
+                for (int i = 0; i < m.Tracks.Count; i++)
+                {
+            
+                }
+            }
+         
             return ret;
         }
         private Release GetMainRelease(AudioAlbumModel m)
         {
-            Release ret = null; 
+            Release ret = null;
+            if (!string.IsNullOrWhiteSpace(m.EAN))
+            {
+                ret = new Release()
+                {
+                    IsMainRelease = true,
+                    IsMainReleaseSpecified = true,
+                    ReleaseId = new ReleaseId[] 
+                    {
+                        new ReleaseId()
+                        {
+                            ICPN = new ICPN()
+                            {
+                                    IsEan = true,
+                                    IsEanSpecified = true,
+                                    Value = m.EAN
+                            }
+                        }
+                    },
+                    ReleaseReference = new string[] { "R0" },
+                    ReferenceTitle = new ReferenceTitle() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } },
+                    Item = new ReleaseResourceReferenceList()
+                    {
+                            ReleaseResourceReference = new ReleaseResourceReference[m.Tracks.Count + 1]
+                    },
+                    ReleaseType = new ReleaseType1[] { new ReleaseType1() { Value = ReleaseType.Album } },
+                    ReleaseDetailsByTerritory = new ReleaseDetailsByTerritory[]
+                    {
+                        new ReleaseDetailsByTerritory()
+                        {
+                            Items = new CurrentTerritoryCode[]
+                            {
+                                new CurrentTerritoryCode()
+                                {
+                                    Value = "Worldwide"
+                                }
+                            },
+                            ParentalWarningType = new ParentalWarningType1[]
+                            {
+                                new ParentalWarningType1()
+                                {
+                                    Value = ParentalWarningType.NotExplicit
+                                }
+                            }
+                        }
+                    }
+                };
+                if (m.Tracks.Count > 0)
+                {
+                    ret.ReleaseDetailsByTerritory[0].ResourceGroup = new ResourceGroup[]
+                    {
+                        new ResourceGroup()
+                        {
+                            Title = new Title[]
+                            {
+                                new Title()
+                                {
+                                    TitleType = TitleType.GroupingTitle,
+                                    TitleText = new TitleText()
+                                    {
+                                        Value = "Component 1"
+                                    }
+                                }
+                            }
+                        }
+                    };
+                    //for (int i = 0; i < m.Tracks.Count; i++)
+                    //{
+                    //    ret.ReleaseDetailsByTerritory[0].ResourceGroup[0].Items = new object[] { new ResourceGroup }
+                    //}
+                }
+                if (!string.IsNullOrWhiteSpace(m.LabelName))
+                {
+                    ret.ReleaseDetailsByTerritory[0].LabelName = new LabelName[]
+                    {
+                        new LabelName() {  Value = m.LabelName }
+                    };
+                }
+
+                if (!string.IsNullOrWhiteSpace(m.MainReleaseReferenceTitle))
+                {
+                    ret.ReleaseDetailsByTerritory[0].Title = new Title[]
+                    {
+                        new Title() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } , TitleType = TitleType.FormalTitle },
+                        new Title() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } , TitleType = TitleType.DisplayTitle}
+                    };
+                }
+
+                if (!string.IsNullOrWhiteSpace(m.MainArtist))
+                {
+                    ret.ReleaseDetailsByTerritory[0].DisplayArtist = new Artist[]
+                    {
+                        new Artist()
+                        {
+                            SequenceNumber = "1",
+                            ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
+                            Items = new object[] { new PartyName() {  FullName = new Name() { Value = m.MainArtist } } }
+                        }
+                    };
+                }
+
+                for (int i = 0; i < m.Tracks.Count + 1; i++)
+                {
+                    ((ReleaseResourceReferenceList)ret.Item).ReleaseResourceReference[i] = new ReleaseResourceReference()
+                    {
+                        Value = "A" + (i + 1).ToString(),
+                        ReleaseResourceType = (i==m.Tracks.Count ? ReleaseResourceType.SecondaryResource : ReleaseResourceType.PrimaryResource)
+                    };
+                }
+            }
 
             return ret;
         }
-
         private ResourceList GetResourceList(AudioAlbumModel m)
         {
             ResourceList ret = null;
 
             ret = new ResourceList();
             ret.Image = GetFrontCoverImage(m);
-            ret.SoundRecording = GetSoundRecording(m);
-            
+            ret.SoundRecording = GetSoundRecordings(m);
+                        
             return ret;
         }
-        private SoundRecording[] GetSoundRecording(AudioAlbumModel m)
+        private SoundRecording[] GetSoundRecordings(AudioAlbumModel m)
         {
             SoundRecording[] ret = null;
 
             if (m.Tracks != null && m.Tracks.Count > 0)
             {
                 ret = new SoundRecording[m.Tracks.Count];
+                
+                for (int i = 0; i < m.Tracks.Count; i++)
+                {
+                    var track = m.Tracks[i];
+                    var sr = new SoundRecording()
+                    {
+                        LanguageOfPerformance = IsoLanguageCode.aa
+                    };
+
+                    sr.SoundRecordingType = new SoundRecordingType1() { Value = SoundRecordingType.MusicalWorkSoundRecording };
+                    if (!string.IsNullOrWhiteSpace(track.ISRC)) sr.SoundRecordingId = new SoundRecordingId[] { new SoundRecordingId() {  ISRC = track.ISRC } };
+                    sr.ResourceReference = "A" + track.Ordinal;
+
+                    if (!string.IsNullOrWhiteSpace(track.Title)) sr.ReferenceTitle = new ReferenceTitle() {  TitleText = new TitleText() {  Value = track.Title } };
+                    sr.Duration = "PT" + track.DurationMin.ToString() + "M" + track.DurationSec.ToString() + "S";
+
+                    sr.SoundRecordingDetailsByTerritory = new SoundRecordingDetailsByTerritory[] {
+                        new SoundRecordingDetailsByTerritory()
+                        {
+                            Items = new CurrentTerritoryCode[] { new CurrentTerritoryCode() { Value = "Worldwide" } },
+                            ItemsElementName = new ItemsChoiceType5[] { ItemsChoiceType5.TerritoryCode }
+                        }
+                    };
+
+                    if (!string.IsNullOrWhiteSpace(track.Title))
+                    {
+                        sr.SoundRecordingDetailsByTerritory[0].Title = new Title[]
+                        {
+                            new Title {  TitleText = new TitleText() {  Value = track.Title }, TitleType = TitleType.FormalTitle },
+                            new Title {  TitleText = new TitleText() {  Value = track.Title }, TitleType = TitleType.DisplayTitle }
+                        };
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(track.MainArtist))
+                    {
+                        sr.SoundRecordingDetailsByTerritory[0].DisplayArtist = new Artist[]
+                        {
+                            new Artist()
+                            {
+                                SequenceNumber = "1",
+                                ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
+                                Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.MainArtist } } }
+                            }
+                        };
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(track.Producer))
+                    {
+                        sr.SoundRecordingDetailsByTerritory[0].ResourceContributor = new DetailedResourceContributor[]
+                        {
+                            new DetailedResourceContributor()
+                            {
+                                SequenceNumber = "1",
+                                Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.Producer } } },
+                                ResourceContributorRole = new ResourceContributorRole1[] { new ResourceContributorRole1() {  Value = ResourceContributorRole.Producer } }
+
+                            }
+                        };
+                    }
+
+                    if (track.IndirectContributors.Count > 0)
+                    {
+                        sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor = new IndirectResourceContributor[track.IndirectContributors.Count];
+                        for (int j = 0; j < track.IndirectContributors.Count; j++)
+                        {
+                            Tuple<string, string> contributor = track.IndirectContributors[j];
+                            sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor[j] = new IndirectResourceContributor()
+                            {
+                                SequenceNumber = (j + 1).ToString(),
+                                Items = new object[] { new PartyName() { FullName = new Name() { Value = contributor.Item1 } } },
+                                IndirectResourceContributorRole = new MusicalWorkContributorRole[] { new MusicalWorkContributorRole() { Value = contributor.Item2 } }
+                            };
+                        }
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(track.ReleaseYear) || !string.IsNullOrWhiteSpace(track.PLineText))
+                    {
+                        sr.SoundRecordingDetailsByTerritory[0].PLine = new PLine[]
+                        {
+                                new PLine()
+                        };
+
+                        if (!string.IsNullOrWhiteSpace(track.ReleaseYear))
+                        {
+                            sr.SoundRecordingDetailsByTerritory[0].PLine[0].Year = track.ReleaseYear;
+                            sr.SoundRecordingDetailsByTerritory[0].ResourceReleaseDate = new EventDate() { Value = track.ReleaseYear };
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(track.PLineText))
+                        {
+                            sr.SoundRecordingDetailsByTerritory[0].PLine[0].PLineText = track.PLineText;
+                        }
+                    }
+
+                    ret[i] = sr;
+                }
             }
 
             return ret;
@@ -153,7 +369,6 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-
         public IXmlObject GetXmlObjectFromModel(IBindableModel model)
         {
             NewReleaseMessage nrm;
@@ -161,90 +376,7 @@ namespace Business.DDEXSchemaERN_382
 
             nrm = GetNewReleaseMessage(m);
             
-            if (nrm.ReleaseList == null)
-            {
-                nrm.ReleaseList = new ReleaseList();
-            }
-            if (nrm.ReleaseList.Release == null || nrm.ReleaseList.Release.Length == 0)
-            {
-                nrm.ReleaseList.Release = new Release[1];
-                nrm.ReleaseList.Release[0] = new Release();
-            }
-            // main release
-            nrm.ReleaseList.Release[0].IsMainRelease = true;
-            nrm.ReleaseList.Release[0].IsMainReleaseSpecified = true;
-
-            if (nrm.ReleaseList.Release[0].ReleaseId == null || nrm.ReleaseList.Release[0].ReleaseId.Length == 0)
-            {
-                nrm.ReleaseList.Release[0].ReleaseId = new ReleaseId[1];
-                nrm.ReleaseList.Release[0].ReleaseId[0] = new ReleaseId();
-            }
-
-            if (nrm.ReleaseList.Release[0].ReleaseId[0].ICPN == null)
-            {
-                nrm.ReleaseList.Release[0].ReleaseId[0].ICPN = new ICPN();
-            }
-            nrm.ReleaseList.Release[0].ReleaseId[0].ICPN.IsEan = true;
-            nrm.ReleaseList.Release[0].ReleaseId[0].ICPN.IsEanSpecified = true;
-            nrm.ReleaseList.Release[0].ReleaseId[0].ICPN.Value = m.EAN;
-                        
-            if (m.Tracks.Any())
-            {
-
-                if (nrm.ReleaseList.Release.Count() < m.Tracks.Count + 1)
-                {
-                    var newRel = new Release[m.Tracks.Count + 1];
-                    newRel[0] = nrm.ReleaseList.Release[0];
-                    nrm.ReleaseList.Release = newRel;
-                }
-
-                Release mainRelease = nrm.ReleaseList.Release[0];
-                if (mainRelease.Item == null) mainRelease.Item = new ReleaseResourceReferenceList();
-                if (((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference == null) ((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference = new ReleaseResourceReference[m.Tracks.Count + 1];
-                for (int i = 0; i < m.Tracks.Count + 1; i++)
-                {
-                    ((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference[i] = new ReleaseResourceReference()
-                    {
-                        Value = "A" + (i + 1).ToString(),
-                        ReleaseResourceType = ReleaseResourceType.PrimaryResource,
-                        ReleaseResourceTypeSpecified = true
-                    };
-                    if (i == m.Tracks.Count + 1) ((ReleaseResourceReferenceList)mainRelease.Item).ReleaseResourceReference[i].ReleaseResourceType = ReleaseResourceType.SecondaryResource;
-                }
-                mainRelease.ReleaseType = new ReleaseType1[1];
-                mainRelease.ReleaseType[0].Value = ReleaseType.Album;
-
-                for (int i = 0; i < m.Tracks.Count; i++)
-                {
-                    var track = m.Tracks[i];
-
-                    if (nrm.ReleaseList.Release.Length <= (i + 1))
-                    {
-                        var x = nrm.ReleaseList.Release;
-                        Array.Resize(ref x, i + 2);
-                        nrm.ReleaseList.Release = x;
-                        nrm.ReleaseList.Release[i + 1] = new Release();
-                    }
-                    var rel = nrm.ReleaseList.Release[i + 1];
-                    if (rel.ReleaseReference == null || rel.ReleaseReference.Length == 0) rel.ReleaseReference = new string[1];
-                    rel.ReleaseReference[0] = "R" + track.Ordinal;
-                    if (rel.ReleaseId == null || rel.ReleaseId.Length == 0) rel.ReleaseId = new ReleaseId[1];
-                    if (rel.ReleaseId[0] == null) rel.ReleaseId[0] = new ReleaseId();
-                    rel.ReleaseId[0].ISRC = track.ISRC;
-                    if (rel.ReferenceTitle == null) rel.ReferenceTitle = new ReferenceTitle();
-                    if (rel.ReferenceTitle.TitleText == null) rel.ReferenceTitle.TitleText = new TitleText();
-                    rel.ReferenceTitle.TitleText.Value = track.Title;
-                    if (rel.ReleaseDetailsByTerritory == null || rel.ReleaseDetailsByTerritory.Length == 0) rel.ReleaseDetailsByTerritory = new ReleaseDetailsByTerritory[1];
-                    if (rel.ReleaseDetailsByTerritory[0] == null) rel.ReleaseDetailsByTerritory[0] = new ReleaseDetailsByTerritory();
-                    if (rel.ReleaseDetailsByTerritory[0].Genre == null || rel.ReleaseDetailsByTerritory[0].Genre.Length == 0) rel.ReleaseDetailsByTerritory[0].Genre = new Genre[1];
-                    if (rel.ReleaseDetailsByTerritory[0].Genre[0] == null) rel.ReleaseDetailsByTerritory[0].Genre[0] = new Genre();
-                    if (rel.ReleaseDetailsByTerritory[0].Genre[0].GenreText == null) rel.ReleaseDetailsByTerritory[0].Genre[0].GenreText = new Description();
-                    rel.ReleaseDetailsByTerritory[0].Genre[0].GenreText.Value = track.Genre;
-                    if (rel.ReleaseDetailsByTerritory[0].Genre[0].SubGenre == null) rel.ReleaseDetailsByTerritory[0].Genre[0].SubGenre = new Description();
-                    rel.ReleaseDetailsByTerritory[0].Genre[0].SubGenre.Value = track.SubGenre;
-                }
-                // TODO - tracks zapisati u soundrecordings
-            }
+            
             return nrm;
         }
     }

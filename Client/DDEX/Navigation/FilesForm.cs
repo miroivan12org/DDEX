@@ -52,7 +52,7 @@ namespace DDEX.Navigation
                         Model.Files.Add(record);
                         dgvFiles.ClearSelection();
 
-                        var model = new AudioAlbumModel() { FullFileName = record.FullName };
+                        var model = new AudioAlbumModel() { FullFileName = record.FullName, LabelName = Properties.Settings.Default.LabelName };
                         using (var frmEdit = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model))
                         {
                             frmEdit.ShowDialog();

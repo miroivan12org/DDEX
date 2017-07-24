@@ -34,6 +34,8 @@ namespace DDEX.Generation.ERN_382
         private void ERN_382TrackReleaseForm_Load(object sender, EventArgs e)
         {
             InitBindings();
+            tbContributor1.BindedControls.Add(pnlContributor1);
+            tbContributor2.BindedControls.Add(pnlContributor2);
         }
 
         private void InitBindings()
@@ -43,6 +45,15 @@ namespace DDEX.Generation.ERN_382
             txtISRC.DataBindings.Add("Text", Model, "ISRC");
             txtOrdinal.DataBindings.Add("Text", Model, "Ordinal");
             txtTitle.DataBindings.Add("Text", Model, "Title");
+            txtDurationMins.DataBindings.Add("Text", Model, "DurationMin");
+            txtDurationSecs.DataBindings.Add("Text", Model, "DurationSec");
+            txtMainArtist.DataBindings.Add("Text", Model, "MainArtist");
+            txtProducer.DataBindings.Add("Text", Model, "Producer");
+            txtReleaseYear.DataBindings.Add("Text", Model, "ReleaseYear");
+            txtContributor1.DataBindings.Add("Text", Model, "Contributor1");
+            txtContributor1Role.DataBindings.Add("Text", Model, "Contributor1Role");
+            txtContributor2.DataBindings.Add("Text", Model, "Contributor2");
+            txtContributor2Role.DataBindings.Add("Text", Model, "Contributor2Role");
         }
 
         private void ERN_382TrackReleaseForm_DialogResultClicked(object sender, DialogResultEventArgs e)

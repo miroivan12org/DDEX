@@ -15,6 +15,8 @@ namespace Business.DDEXSchemaERN_382.Entities
         }
         public string FullFileName { get { return Get<string>(); } set { Set(value); } }
         public string EAN { get { return Get<string>(); } set { Set(value); } }
+        public string MainArtist { get { return Get<string>(); } set { Set(value); } }
+        public string LabelName { get { return Get<string>(); } set { Set(value); } }
         public string MessageID { get { return Get<string>(); } set { Set(value); } }
         public string SenderPartyID { get { return Get<string>(); } set { Set(value); } }
         public string SenderPartyName { get { return Get<string>(); } set { Set(value); } }
@@ -55,6 +57,24 @@ namespace Business.DDEXSchemaERN_382.Entities
 
                 FrontCoverImageHashSum_Materialized = DDEXFactory.Helpers.FilesHelper.GetMD5HashSum(FrontCoverImageFullFileName);
             }
+        }
+
+        public override bool IsValid(out string message)
+        {
+            bool isValid = base.IsValid(out message);
+            if (isValid)
+            {
+                foreach (var track in Tracks)
+                {
+                    isValid = track.IsValid(out message);
+                    if (!isValid)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return isValid;
         }
     }
 }

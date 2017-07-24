@@ -34,5 +34,23 @@ namespace DDEX.Properties {
                 this["NavigationFolderPath"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(P) 2016 LONGPLAY")]
+        public string PLineText {
+            get {
+                return ((string)(this["PLineText"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LONGPLAY")]
+        public string LabelName {
+            get {
+                return ((string)(this["LabelName"]));
+            }
+        }
     }
 }

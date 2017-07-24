@@ -36,6 +36,10 @@
             this.mrButton1 = new Framework.UI.Controls.MRButton(this.components);
             this.pnlFrontCoverImageParent = new Framework.UI.Controls.MRPanel(this.components);
             this.pnlFrontCoverImage = new Framework.UI.Controls.MRPanel(this.components);
+            this.lblFrontCoverImageRelativePath = new Framework.UI.Controls.MRLabel(this.components);
+            this.lblFrontCoverImageFileName = new Framework.UI.Controls.MRLabel(this.components);
+            this.btnOpenFrontCoverImage = new Framework.UI.Controls.MRButton(this.components);
+            this.mrLabel1 = new Framework.UI.Controls.MRLabel(this.components);
             this.label13 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbFrontCoverImage = new Framework.UI.Controls.MRTitleBar();
             this.pnlTrackReleasesParent = new Framework.UI.Controls.MRPanel(this.components);
@@ -74,10 +78,10 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.mrLabel1 = new Framework.UI.Controls.MRLabel(this.components);
-            this.btnOpenFrontCoverImage = new Framework.UI.Controls.MRButton(this.components);
-            this.lblFrontCoverImageFileName = new Framework.UI.Controls.MRLabel(this.components);
-            this.lblFrontCoverImageRelativePath = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel2 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtMainArtist = new Framework.UI.Controls.MRTextBox(this.components);
+            this.mrLabel3 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtLabel = new Framework.UI.Controls.MRTextBox(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlFrontCoverImageParent.SuspendLayout();
@@ -180,6 +184,43 @@
             this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnlFrontCoverImage.Size = new System.Drawing.Size(844, 77);
             this.pnlFrontCoverImage.TabIndex = 1;
+            // 
+            // lblFrontCoverImageRelativePath
+            // 
+            this.lblFrontCoverImageRelativePath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFrontCoverImageRelativePath.Location = new System.Drawing.Point(103, 27);
+            this.lblFrontCoverImageRelativePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFrontCoverImageRelativePath.Name = "lblFrontCoverImageRelativePath";
+            this.lblFrontCoverImageRelativePath.Size = new System.Drawing.Size(301, 22);
+            this.lblFrontCoverImageRelativePath.TabIndex = 6;
+            // 
+            // lblFrontCoverImageFileName
+            // 
+            this.lblFrontCoverImageFileName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFrontCoverImageFileName.Location = new System.Drawing.Point(103, 5);
+            this.lblFrontCoverImageFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFrontCoverImageFileName.Name = "lblFrontCoverImageFileName";
+            this.lblFrontCoverImageFileName.Size = new System.Drawing.Size(301, 22);
+            this.lblFrontCoverImageFileName.TabIndex = 5;
+            // 
+            // btnOpenFrontCoverImage
+            // 
+            this.btnOpenFrontCoverImage.Location = new System.Drawing.Point(409, 5);
+            this.btnOpenFrontCoverImage.Name = "btnOpenFrontCoverImage";
+            this.btnOpenFrontCoverImage.Size = new System.Drawing.Size(29, 22);
+            this.btnOpenFrontCoverImage.TabIndex = 4;
+            this.btnOpenFrontCoverImage.Text = "...";
+            this.btnOpenFrontCoverImage.UseVisualStyleBackColor = true;
+            this.btnOpenFrontCoverImage.Click += new System.EventHandler(this.btnOpenFrontCoverImage_Click);
+            // 
+            // mrLabel1
+            // 
+            this.mrLabel1.Location = new System.Drawing.Point(15, 27);
+            this.mrLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel1.Name = "mrLabel1";
+            this.mrLabel1.Size = new System.Drawing.Size(84, 22);
+            this.mrLabel1.TabIndex = 2;
+            this.mrLabel1.Text = "Relative Path";
             // 
             // label13
             // 
@@ -469,6 +510,10 @@
             // pnlMainRelease
             // 
             this.pnlMainRelease.AutoSize = true;
+            this.pnlMainRelease.Controls.Add(this.mrLabel3);
+            this.pnlMainRelease.Controls.Add(this.txtLabel);
+            this.pnlMainRelease.Controls.Add(this.mrLabel2);
+            this.pnlMainRelease.Controls.Add(this.txtMainArtist);
             this.pnlMainRelease.Controls.Add(this.label8);
             this.pnlMainRelease.Controls.Add(this.label7);
             this.pnlMainRelease.Controls.Add(this.cbUpdateIndicator);
@@ -489,7 +534,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 18);
             this.label8.TabIndex = 7;
-            this.label8.Text = "ReferenceTitle";
+            this.label8.Text = "Title";
             // 
             // label7
             // 
@@ -578,42 +623,39 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
-            // mrLabel1
+            // mrLabel2
             // 
-            this.mrLabel1.Location = new System.Drawing.Point(15, 27);
-            this.mrLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mrLabel1.Name = "mrLabel1";
-            this.mrLabel1.Size = new System.Drawing.Size(84, 22);
-            this.mrLabel1.TabIndex = 2;
-            this.mrLabel1.Text = "Relative Path";
+            this.mrLabel2.Location = new System.Drawing.Point(12, 75);
+            this.mrLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel2.Name = "mrLabel2";
+            this.mrLabel2.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel2.TabIndex = 9;
+            this.mrLabel2.Text = "Main Artist";
             // 
-            // btnOpenFrontCoverImage
+            // txtMainArtist
             // 
-            this.btnOpenFrontCoverImage.Location = new System.Drawing.Point(409, 5);
-            this.btnOpenFrontCoverImage.Name = "btnOpenFrontCoverImage";
-            this.btnOpenFrontCoverImage.Size = new System.Drawing.Size(29, 22);
-            this.btnOpenFrontCoverImage.TabIndex = 4;
-            this.btnOpenFrontCoverImage.Text = "...";
-            this.btnOpenFrontCoverImage.UseVisualStyleBackColor = true;
-            this.btnOpenFrontCoverImage.Click += new System.EventHandler(this.btnOpenFrontCoverImage_Click);
+            this.txtMainArtist.Location = new System.Drawing.Point(184, 72);
+            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMainArtist.Name = "txtMainArtist";
+            this.txtMainArtist.Size = new System.Drawing.Size(156, 20);
+            this.txtMainArtist.TabIndex = 10;
             // 
-            // lblFrontCoverImageFileName
+            // mrLabel3
             // 
-            this.lblFrontCoverImageFileName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFrontCoverImageFileName.Location = new System.Drawing.Point(103, 5);
-            this.lblFrontCoverImageFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFrontCoverImageFileName.Name = "lblFrontCoverImageFileName";
-            this.lblFrontCoverImageFileName.Size = new System.Drawing.Size(301, 22);
-            this.lblFrontCoverImageFileName.TabIndex = 5;
+            this.mrLabel3.Location = new System.Drawing.Point(12, 99);
+            this.mrLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel3.Name = "mrLabel3";
+            this.mrLabel3.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel3.TabIndex = 11;
+            this.mrLabel3.Text = "Label";
             // 
-            // lblFrontCoverImageRelativePath
+            // txtLabel
             // 
-            this.lblFrontCoverImageRelativePath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFrontCoverImageRelativePath.Location = new System.Drawing.Point(103, 27);
-            this.lblFrontCoverImageRelativePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFrontCoverImageRelativePath.Name = "lblFrontCoverImageRelativePath";
-            this.lblFrontCoverImageRelativePath.Size = new System.Drawing.Size(301, 22);
-            this.lblFrontCoverImageRelativePath.TabIndex = 6;
+            this.txtLabel.Location = new System.Drawing.Point(184, 96);
+            this.txtLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLabel.Name = "txtLabel";
+            this.txtLabel.Size = new System.Drawing.Size(156, 20);
+            this.txtLabel.TabIndex = 12;
             // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
@@ -702,5 +744,9 @@
         private Framework.UI.Controls.MRButton btnOpenFrontCoverImage;
         private Framework.UI.Controls.MRLabel lblFrontCoverImageRelativePath;
         private Framework.UI.Controls.MRLabel lblFrontCoverImageFileName;
+        private Framework.UI.Controls.MRLabel mrLabel2;
+        private Framework.UI.Controls.MRTextBox txtMainArtist;
+        private Framework.UI.Controls.MRLabel mrLabel3;
+        private Framework.UI.Controls.MRTextBox txtLabel;
     }
 }

@@ -41,9 +41,9 @@
             // 
             this.pnlTitle.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.pnlTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Controls.Add(this.btnAdd);
             this.pnlTitle.Controls.Add(this.btnCollapse);
-            this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Controls.Add(this.btnExpand);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
@@ -80,10 +80,10 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(100, 20);
+            this.lblTitle.Size = new System.Drawing.Size(357, 20);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,34 @@ namespace Business.DDEXFactory.Intefaces
         public virtual bool IsValid(out string message)
         {
             message = "";
-            return true;
+            bool isValid = true;
+            List<PropertyInfo> props = GetType().GetProperties().Where(
+                prop => Attribute.IsDefined(prop, typeof(NotNullAttribute))).ToList();
+
+            foreach (PropertyInfo pi in props)
+            {
+                if (pi.PropertyType == typeof(string))
+                {
+                    string value = (string) pi.GetValue(this);
+                    if (value == null || value == "")
+                    {
+                        message = pi.Name + " cannot be empty";
+                        isValid = false;
+                        break;
+                    }
+                }
+                else
+                { 
+                    if (Object.Equals(pi.GetValue(this), null))
+                    {
+                        message = pi.Name + " cannot be empty";
+                        isValid = false;
+                        break;
+                    }
+                }
+            }
+
+            return isValid;
         }
 
         public virtual BindableModel Copy()

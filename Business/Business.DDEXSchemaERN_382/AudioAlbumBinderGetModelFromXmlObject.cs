@@ -13,12 +13,27 @@ namespace Business.DDEXSchemaERN_382
     {
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
-            AudioAlbumModel ret = new AudioAlbumModel();
+            AudioAlbumModel ret = null;
             try
             {
-                ret.FullFileName = xmlObject.FullFileName;
-
+                ret = new AudioAlbumModel();
                 NewReleaseMessage nrm = (NewReleaseMessage)xmlObject;
+                if
+                    (
+                        nrm.ReleaseList != null &&
+                        nrm.ReleaseList.Release != null &&
+                        nrm.ReleaseList.Release[0] != null &&
+                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory != null &&
+                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0] != null &&
+                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0].LabelName != null &&
+                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0].LabelName[0] != null
+                    )
+                {
+                    ret.LabelName = nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0].LabelName[0].Value;
+                }
+                    
+                ret.FullFileName = xmlObject.FullFileName;
+                
                 if (nrm != null)
                 {
                     if (nrm.MessageHeader != null)

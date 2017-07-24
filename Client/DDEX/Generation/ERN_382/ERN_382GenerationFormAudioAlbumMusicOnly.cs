@@ -20,8 +20,11 @@ namespace DDEX.Generation.ERN_382
             if (System.IO.File.Exists("C:\\temp\\release\\file.xml"))
             {
                 lblPath.Text = "C:\\temp\\release\\file.xml";
-                Model = new AudioAlbumModel() { FullFileName = lblPath.Text };
-                //Model = GetModelFromFile(lblPath.Text);
+                Model = new AudioAlbumModel() 
+                {
+                    FullFileName = lblPath.Text,
+                    LabelName = Properties.Settings.Default.LabelName
+                };
             }                       
         }
 
@@ -30,7 +33,7 @@ namespace DDEX.Generation.ERN_382
             Model.CopyFromSource(model);
         }
 
-        public AudioAlbumModel Model = new AudioAlbumModel();
+        public AudioAlbumModel Model = new AudioAlbumModel() { LabelName = Properties.Settings.Default.LabelName };
         public AudioAlbumBinder Binder = new AudioAlbumBinder();
 
         #region Comments
@@ -372,6 +375,9 @@ namespace DDEX.Generation.ERN_382
             dgvSoundRecordingsAndReleases.ClearSelection();
 
             txtEAN.DataBindings.Add("Text", Model, "EAN");
+            txtMainArtist.DataBindings.Add("Text", Model, "MainArtist");
+            txtLabel.DataBindings.Add("Text", Model, "LabelName");
+
             txtMessageID.DataBindings.Add("Text", Model, "MessageID");
             txtMessageSender_PartyID.DataBindings.Add("Text", Model, "SenderPartyID");
             txtMessageSender_PartyName.DataBindings.Add("Text", Model, "SenderPartyName");
@@ -397,6 +403,7 @@ namespace DDEX.Generation.ERN_382
                 if (Model.Tracks.Any())
                 {
                     track.Ordinal = Model.Tracks.Max(x => x.Ordinal) + 1;
+                    track.PLineText = Properties.Settings.Default.PLineText;
                 }
 
                 using (var frm = new ERN_382TrackReleaseForm(track))
