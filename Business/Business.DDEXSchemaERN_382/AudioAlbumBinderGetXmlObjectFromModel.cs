@@ -96,6 +96,146 @@ namespace Business.DDEXSchemaERN_382
          
             return ret;
         }
+
+        private ReleaseDetailsByTerritory[] GetMainReleaseDetailsByTerritory(AudioAlbumModel m)
+        {
+            ReleaseDetailsByTerritory[] ret = null;
+
+            ret = new ReleaseDetailsByTerritory[]
+            {
+                new ReleaseDetailsByTerritory()
+                {
+                    Items = new CurrentTerritoryCode[]
+                    {
+                        new CurrentTerritoryCode()
+                        {
+                            Value = "Worldwide"
+                        }
+                    },
+                    ItemsElementName = new ItemsChoiceType15[] {  ItemsChoiceType15.TerritoryCode },
+                    ParentalWarningType = new ParentalWarningType1[]
+                    {
+                        new ParentalWarningType1()
+                        {
+                            Value = ParentalWarningType.NotExplicit
+                        }
+                    }
+                }
+            };
+
+            ReleaseDetailsByTerritory det = ret[0];
+
+            if (m.Tracks.Count > 0)
+            {
+                det.ResourceGroup = new ResourceGroup[]
+                {
+                        new ResourceGroup()
+                        {
+                            Title = new Title[]
+                            {
+                                new Title()
+                                {
+                                    TitleType = TitleType.GroupingTitle,
+                                    TitleText = new TitleText()
+                                    {
+                                        Value = "Component 1"
+                                    }
+                                }
+                            },
+                            SequenceNumber = "1"
+                        }
+                };
+
+                if (!string.IsNullOrWhiteSpace(m.FrontCoverImageFullFileName))
+                {
+                    det.ResourceGroup[0].Items = new object[]
+                    {
+                            new ExtendedResourceGroupContentItem()
+                            {
+                                ReleaseResourceReference = new ReleaseResourceReference()
+                                {
+                                    ReleaseResourceType = ReleaseResourceType.SecondaryResource,
+                                    ReleaseResourceTypeSpecified = true,
+                                    Value = "A" + m.Tracks.Count.ToString()
+                                },
+                                ResourceType = new ResourceType1[]
+                                {
+                                    new ResourceType1()
+                                    {
+                                        Value = ResourceType.Image
+                                    }
+                                }
+                            }
+                    };
+                }
+                det.ResourceGroup[0].ResourceGroup1 = new ResourceGroup[]
+                {
+                        new ResourceGroup()
+                        {
+                            Items = new object[m.Tracks.Count]
+                        }
+                };
+                for (int i = 0; i < m.Tracks.Count; i++)
+                {
+                    det.ResourceGroup[0].ResourceGroup1[0].Items[i] = new ExtendedResourceGroupContentItem
+                    {
+                        ReleaseResourceReference = new ReleaseResourceReference()
+                        {
+                            ReleaseResourceType = ReleaseResourceType.PrimaryResource,
+                            ReleaseResourceTypeSpecified = true,
+                            Value = "A" + (i + 1).ToString()
+                        },
+                        SequenceNumber = (i + 1).ToString()
+                    };
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(m.Genre) || !string.IsNullOrWhiteSpace(m.SubGenre))
+            {
+                det.Genre = new Genre[]
+                {
+                        new Genre()
+                        {
+                             GenreText = new Description() {  Value = m.Genre },
+                             SubGenre = new Description() { Value = m.SubGenre }
+                        }
+                };
+            }
+
+            if (!string.IsNullOrWhiteSpace(m.LabelName))
+            {
+                det.LabelName = new LabelName[]
+                {
+                        new LabelName() {  Value = m.LabelName }
+                };
+            }
+
+            if (!string.IsNullOrWhiteSpace(m.MainReleaseReferenceTitle))
+            {
+                det.Title = new Title[]
+                {
+                        new Title() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } , TitleType = TitleType.FormalTitle },
+                        new Title() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } , TitleType = TitleType.DisplayTitle}
+                };
+            }
+
+            if (!string.IsNullOrWhiteSpace(m.MainArtist))
+            {
+                det.DisplayArtist = new Artist[]
+                {
+                        new Artist()
+                        {
+                            SequenceNumber = "1",
+                            ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
+                            Items = new object[] { new PartyName() {  FullName = new Name() { Value = m.MainArtist } } }
+                        }
+                };
+            }
+
+            det.ReleaseDate = new EventDate() { IsApproximate = true, IsApproximateSpecified = true, Value = m.ApproximateReleaseDate.ToString("yyyy-MM-dd") };
+
+            return ret;
+        }
         private Release GetMainRelease(AudioAlbumModel m)
         {
             Release ret = null;
@@ -124,79 +264,23 @@ namespace Business.DDEXSchemaERN_382
                             ReleaseResourceReference = new ReleaseResourceReference[m.Tracks.Count + 1]
                     },
                     ReleaseType = new ReleaseType1[] { new ReleaseType1() { Value = ReleaseType.Album } },
-                    ReleaseDetailsByTerritory = new ReleaseDetailsByTerritory[]
-                    {
-                        new ReleaseDetailsByTerritory()
-                        {
-                            Items = new CurrentTerritoryCode[]
-                            {
-                                new CurrentTerritoryCode()
-                                {
-                                    Value = "Worldwide"
-                                }
-                            },
-                            ParentalWarningType = new ParentalWarningType1[]
-                            {
-                                new ParentalWarningType1()
-                                {
-                                    Value = ParentalWarningType.NotExplicit
-                                }
-                            }
-                        }
-                    }
+                    ReleaseDetailsByTerritory = GetMainReleaseDetailsByTerritory(m)
                 };
-                if (m.Tracks.Count > 0)
-                {
-                    ret.ReleaseDetailsByTerritory[0].ResourceGroup = new ResourceGroup[]
-                    {
-                        new ResourceGroup()
-                        {
-                            Title = new Title[]
-                            {
-                                new Title()
-                                {
-                                    TitleType = TitleType.GroupingTitle,
-                                    TitleText = new TitleText()
-                                    {
-                                        Value = "Component 1"
-                                    }
-                                }
-                            }
-                        }
-                    };
-                    //for (int i = 0; i < m.Tracks.Count; i++)
-                    //{
-                    //    ret.ReleaseDetailsByTerritory[0].ResourceGroup[0].Items = new object[] { new ResourceGroup }
-                    //}
-                }
-                if (!string.IsNullOrWhiteSpace(m.LabelName))
-                {
-                    ret.ReleaseDetailsByTerritory[0].LabelName = new LabelName[]
-                    {
-                        new LabelName() {  Value = m.LabelName }
-                    };
-                }
 
-                if (!string.IsNullOrWhiteSpace(m.MainReleaseReferenceTitle))
+                if (!string.IsNullOrWhiteSpace(m.PCLineText) || !string.IsNullOrWhiteSpace(m.ReleaseYear))
                 {
-                    ret.ReleaseDetailsByTerritory[0].Title = new Title[]
+                    ret.PLine = new PLine[]
                     {
-                        new Title() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } , TitleType = TitleType.FormalTitle },
-                        new Title() {  TitleText = new TitleText() {  Value = m.MainReleaseReferenceTitle } , TitleType = TitleType.DisplayTitle}
+                        new PLine()
                     };
-                }
-
-                if (!string.IsNullOrWhiteSpace(m.MainArtist))
-                {
-                    ret.ReleaseDetailsByTerritory[0].DisplayArtist = new Artist[]
+                    if (!string.IsNullOrWhiteSpace(m.PCLineText))
                     {
-                        new Artist()
-                        {
-                            SequenceNumber = "1",
-                            ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
-                            Items = new object[] { new PartyName() {  FullName = new Name() { Value = m.MainArtist } } }
-                        }
-                    };
+                        ret.PLine[0].PLineText = m.PCLineText;
+                    }
+                    if (!string.IsNullOrWhiteSpace(m.ReleaseYear))
+                    {
+                        ret.PLine[0].Year = m.ReleaseYear;
+                    }
                 }
 
                 for (int i = 0; i < m.Tracks.Count + 1; i++)
@@ -334,18 +418,29 @@ namespace Business.DDEXSchemaERN_382
 
             if (m.FrontCoverImageFileName != null || m.FrontCoverImagePath != null)
             {
-                ret = new Image[1];
-                ret[0] = new Image();
-                ret[0].ImageId = new ResourceProprietaryId[1];
-                ret[0].ImageType = new ImageType1() {  Value = ImageType.FrontCoverImage };
-                ret[0].ImageId[0] = new ResourceProprietaryId() { ProprietaryId = new ProprietaryId[0] };
-                ret[0].ImageId[0].ProprietaryId = new ProprietaryId[1];
-                ret[0].ImageId[0].ProprietaryId[0] = new ProprietaryId() { Value = m.EAN + "_COVERART", Namespace = "DPID:" + m.SenderPartyID };
+                ret = new Image[]
+                {
+                    new Image()
+                    {
+                        ImageType = new ImageType1() {  Value = ImageType.FrontCoverImage },
+                        ImageId = new ResourceProprietaryId[]
+                        {
+                            new ResourceProprietaryId()
+                            {
+                                ProprietaryId = new ProprietaryId[]
+                                {
+                                    new ProprietaryId() { Value = m.EAN + "_COVERART", Namespace = "DPID:" + m.SenderPartyID }
+                                }
+                            }
+                        }
+                    }
+                };
 
                 ret[0].ImageDetailsByTerritory = new ImageDetailsByTerritory[1];
                 ret[0].ImageDetailsByTerritory[0] = new ImageDetailsByTerritory();
                 ret[0].ImageDetailsByTerritory[0].Items = new CurrentTerritoryCode[1];
                 ret[0].ImageDetailsByTerritory[0].Items[0] = new CurrentTerritoryCode() { Value = "Worldwide" };
+                ret[0].ImageDetailsByTerritory[0].ItemsElementName = new ItemsChoiceType9[] { ItemsChoiceType9.TerritoryCode };
 
                 int imageOrdinal = 1;
                 if (m.Tracks != null && m.Tracks.Any())

@@ -23,6 +23,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         public string RecipientPartyID { get { return Get<string>(); } set { Set(value); } }
         public string RecipientPartyName { get { return Get<string>(); } set { Set(value); } }
         public DateTime MessageCreatedDateTime { get { return Get<DateTime>(); } set { Set(value); } }
+        public DateTime ApproximateReleaseDate { get { return Get<DateTime>(); } set { Set(value); } }
         public UpdateIndicator UpdateIndicator { get { return Get<UpdateIndicator>(); } set { Set(value); } }
         public string MainReleaseReferenceTitle { get { return Get<string>(); } set { Set(value); } }
 
@@ -34,6 +35,12 @@ namespace Business.DDEXSchemaERN_382.Entities
 
         public int FrontCoverImageHeight_Materialized { get { return Get<int>(); } set { Set(value); } }
         public int FrontCoverImageWidth_Materialized { get { return Get<int>(); } set { Set(value); } }
+
+        public string Genre { get { return Get<string>(); } set { Set(value); } }
+        public string SubGenre { get { return Get<string>(); } set { Set(value); } }
+
+        public string ReleaseYear { get { return Get<string>(); } set { Set(value); } }
+        public string PCLineText { get { return Get<string>(); } set { Set(value); } }
 
         public SortableBindingList<TrackModel> Tracks { get; set; } = new SortableBindingList<TrackModel>();
 

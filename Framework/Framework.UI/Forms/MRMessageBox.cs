@@ -121,6 +121,7 @@ namespace Framework.UI.Forms
         {
             using (var frm = new MRMessageBox(message, style, lineLength) {  MessageBoxType = type })
             {
+
                 return frm.ShowDialog();
             }
         }

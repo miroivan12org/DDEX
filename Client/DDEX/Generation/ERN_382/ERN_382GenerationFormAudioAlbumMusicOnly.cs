@@ -377,6 +377,8 @@ namespace DDEX.Generation.ERN_382
             txtEAN.DataBindings.Add("Text", Model, "EAN");
             txtMainArtist.DataBindings.Add("Text", Model, "MainArtist");
             txtLabel.DataBindings.Add("Text", Model, "LabelName");
+            txtGenre.DataBindings.Add("Text", Model, "Genre");
+            txtSubGenre.DataBindings.Add("Text", Model, "SubGenre");
 
             txtMessageID.DataBindings.Add("Text", Model, "MessageID");
             txtMessageSender_PartyID.DataBindings.Add("Text", Model, "SenderPartyID");
@@ -391,6 +393,9 @@ namespace DDEX.Generation.ERN_382
 
             lblFrontCoverImageRelativePath.DataBindings.Add("Text", Model, "FrontCoverImagePath");
             lblFrontCoverImageFileName.DataBindings.Add("Text", Model, "FrontCoverImageFileName");
+
+            txtPCLine.DataBindings.Add("Text", Model, "PCLineText");
+            txtReleaseYear.DataBindings.Add("Text", Model, "ReleaseYear");
 
         }
 
@@ -517,7 +522,15 @@ namespace DDEX.Generation.ERN_382
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
                     Model.FrontCoverImageFileName = System.IO.Path.GetFileName(fd.FileName);
-                    Model.FrontCoverImagePath = System.IO.Path.GetDirectoryName(fd.FileName).Substring(System.IO.Path.GetDirectoryName(Model.FullFileName).Length + 1) + "/";
+                    string dir = System.IO.Path.GetDirectoryName(fd.FileName);
+                    string modelDir = System.IO.Path.GetDirectoryName(Model.FullFileName);
+                    string prePath = "";
+                    if (dir.Length > modelDir.Length)
+                    {
+                        prePath = dir.Substring(modelDir.Length + 1);
+                    }
+                    Model.FrontCoverImagePath = prePath + "/";
+
                     Model.FrontCoverImageFullFileName = fd.FileName;
                 }
                 else
@@ -530,6 +543,8 @@ namespace DDEX.Generation.ERN_382
                 Model.ComputeMaterialized();
             }
         }
+
+   
     }
 
     
