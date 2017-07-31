@@ -418,6 +418,12 @@ namespace Business.DDEXSchemaERN_382
 
             if (m.FrontCoverImageFileName != null || m.FrontCoverImagePath != null)
             {
+                int imageOrdinal = 1;
+                if (m.Tracks != null && m.Tracks.Any())
+                {
+                    imageOrdinal = m.Tracks.Count + 1;
+                }
+
                 ret = new Image[]
                 {
                     new Image()
@@ -432,33 +438,45 @@ namespace Business.DDEXSchemaERN_382
                                     new ProprietaryId() { Value = m.EAN + "_COVERART", Namespace = "DPID:" + m.SenderPartyID }
                                 }
                             }
+                        },
+                        ResourceReference = "A" + imageOrdinal.ToString(),
+                        ImageDetailsByTerritory = new ImageDetailsByTerritory[]
+                        {
+                            new ImageDetailsByTerritory()
+                            {
+                                Items = new CurrentTerritoryCode[]
+                                {
+                                    new CurrentTerritoryCode()
+                                    {
+                                        Value = "Worldwide"
+                                    }
+                                },
+                                ItemsElementName = new ItemsChoiceType9[]
+                                {
+                                    ItemsChoiceType9.TerritoryCode
+                                },
+                                TechnicalImageDetails = new TechnicalImageDetails[]
+                                {
+                                    new TechnicalImageDetails()
+                                    {
+                                        ImageCodecType = new ImageCodecType1() { Value = m.FrontCoverImageCodecType },
+                                        ImageHeight = new Extent() { Value = m.FrontCoverImageHeight_Materialized },
+                                        ImageWidth = new Extent() { Value = m.FrontCoverImageWidth_Materialized},
+                                        Items = new File[] 
+                                        {
+                                            new File()
+                                            {
+                                                HashSum = new HashSum() { HashSum1 = m.FrontCoverImageHashSum_Materialized, HashSumAlgorithmType = new HashSumAlgorithmType1() {  Value = HashSumAlgorithmType.MD5 } },
+                                                Items = new string[] { m.FrontCoverImageFileName, m.FrontCoverImagePath },
+                                                ItemsElementName = new ItemsChoiceType6[] {  ItemsChoiceType6.FileName, ItemsChoiceType6.FilePath }
+                                            }
+                                        },
+                                        TechnicalResourceDetailsReference = "T" + imageOrdinal.ToString()
+                                    }
+                                }
+                            }
                         }
-                    }
-                };
-
-                ret[0].ImageDetailsByTerritory = new ImageDetailsByTerritory[1];
-                ret[0].ImageDetailsByTerritory[0] = new ImageDetailsByTerritory();
-                ret[0].ImageDetailsByTerritory[0].Items = new CurrentTerritoryCode[1];
-                ret[0].ImageDetailsByTerritory[0].Items[0] = new CurrentTerritoryCode() { Value = "Worldwide" };
-                ret[0].ImageDetailsByTerritory[0].ItemsElementName = new ItemsChoiceType9[] { ItemsChoiceType9.TerritoryCode };
-
-                int imageOrdinal = 1;
-                if (m.Tracks != null && m.Tracks.Any())
-                {
-                    imageOrdinal = m.Tracks.Count + 1;
-                }
-                ret[0].ResourceReference = "A" + imageOrdinal.ToString();
-
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails = new TechnicalImageDetails[1];
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails[0] = new TechnicalImageDetails();
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails[0].ImageCodecType = new ImageCodecType1() { Value = m.FrontCoverImageCodecType };
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails[0].ImageHeight = new Extent() { Value = m.FrontCoverImageHeight_Materialized };
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails[0].ImageWidth = new Extent() { Value = m.FrontCoverImageWidth_Materialized};
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails[0].Items = new File[1];
-                ret[0].ImageDetailsByTerritory[0].TechnicalImageDetails[0].Items[0] = new File() {
-                    HashSum = new HashSum() { HashSum1 = m.FrontCoverImageHashSum_Materialized, HashSumAlgorithmType = new HashSumAlgorithmType1() {  Value = HashSumAlgorithmType.MD5 } }
-                    , Items = new string[] { m.FrontCoverImageFileName, m.FrontCoverImagePath }
-                    , ItemsElementName = new ItemsChoiceType6[] {  ItemsChoiceType6.FileName, ItemsChoiceType6.FilePath }
+                    }                    
                 };
             }
 

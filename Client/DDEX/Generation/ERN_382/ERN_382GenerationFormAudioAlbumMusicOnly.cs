@@ -483,7 +483,7 @@ namespace DDEX.Generation.ERN_382
                 rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
                 if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
                 {
-                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName);
+                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName + "_test");
                     DialogResult = DialogResult.Abort;
                     Close();
                     Dispose();

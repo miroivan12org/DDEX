@@ -11,6 +11,53 @@ namespace Business.DDEXSchemaERN_382
 {
     public partial class AudioAlbumBinder
     {
+        private void FillMainReleaseData(NewReleaseMessage nrm, AudioAlbumModel m)
+        {
+            Release mainRelease = null;
+
+            if
+                (
+                    nrm != null &&
+                    nrm.ReleaseList != null &&
+                    nrm.ReleaseList.Release != null
+                )
+            {
+                mainRelease = nrm.ReleaseList.Release[0];
+            }
+
+            if
+                (
+                    mainRelease != null &&
+                    mainRelease.ReleaseDetailsByTerritory != null &&
+                    mainRelease.ReleaseDetailsByTerritory[0] != null &&
+                    mainRelease.ReleaseDetailsByTerritory[0].LabelName != null &&
+                    mainRelease.ReleaseDetailsByTerritory[0].LabelName[0] != null
+                )
+            {
+                m.LabelName = mainRelease.ReleaseDetailsByTerritory[0].LabelName[0].Value;
+            }
+
+            if
+                (
+                    mainRelease != null &&
+                    mainRelease.ReferenceTitle != null &&
+                    mainRelease.ReferenceTitle.TitleText != null
+                )
+            {
+                m.MainReleaseReferenceTitle = nrm.ReleaseList.Release[0].ReferenceTitle.TitleText.Value;
+            }
+
+            if
+                (
+                    mainRelease != null && mainRelease.ReleaseDetailsByTerritory != null && mainRelease.ReleaseDetailsByTerritory[0] != null &&
+                    mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist != null && mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist[0] != null &&
+                    mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist[0].Items != null && mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist[0].Items[0] != null &&
+                    mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist[0].Items[0] is PartyName && ((PartyName)mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist[0].Items[0]).FullName != null
+                )
+            {
+                m.MainArtist = ((PartyName)mainRelease.ReleaseDetailsByTerritory[0].DisplayArtist[0].Items[0]).FullName.Value;
+            }
+        }
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
             AudioAlbumModel ret = null;
@@ -18,20 +65,9 @@ namespace Business.DDEXSchemaERN_382
             {
                 ret = new AudioAlbumModel();
                 NewReleaseMessage nrm = (NewReleaseMessage)xmlObject;
-                if
-                    (
-                        nrm.ReleaseList != null &&
-                        nrm.ReleaseList.Release != null &&
-                        nrm.ReleaseList.Release[0] != null &&
-                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory != null &&
-                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0] != null &&
-                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0].LabelName != null &&
-                        nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0].LabelName[0] != null
-                    )
-                {
-                    ret.LabelName = nrm.ReleaseList.Release[0].ReleaseDetailsByTerritory[0].LabelName[0].Value;
-                }
-                    
+
+                FillMainReleaseData(nrm, ret);
+                
                 ret.FullFileName = xmlObject.FullFileName;
                 
                 if (nrm != null)
