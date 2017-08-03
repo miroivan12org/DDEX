@@ -14,7 +14,7 @@ namespace DDEX.Navigation
         
         public string FolderPath { get { return Get<string>(); } set { Set(value); } }
         public bool ScanSubFolders { get { return Get<bool>(); } set { Set(value); } }
-        public SortableBindingList<EditXmlFileModel> Files { get; set; } = new SortableBindingList<EditXmlFileModel>();
+        public SortableBindingList<AudioAlbumModelBrowseModel> Files { get; set; } = new SortableBindingList<AudioAlbumModelBrowseModel>();
 
         public void Refresh()
         {
@@ -27,31 +27,41 @@ namespace DDEX.Navigation
 
                     var so = SearchOption.TopDirectoryOnly;
                     if (ScanSubFolders) so = SearchOption.AllDirectories;
-
-                    FileInfo[] files = d.GetFiles("*.xml", so);
-
-                    foreach (var f in files)
+                    try
                     {
-                        var file = new EditXmlFileModel()
-                        {
-                            FullName = f.FullName,
-                            Extension = f.Extension,
-                            DirectoryName = f.DirectoryName,
-                            Name = f.Name,
-                            LastWriteTime = f.LastWriteTime
-                        };
+                        FileInfo[] files = d.GetFiles("*.xml", so);
 
-                        string msg = "";
-                        file.IsValid(out msg);
-
-                        long len = 0;
-                        if (File.Exists(file.FullName))
+                        foreach (var f in files)
                         {
-                            len = (new FileInfo(file.FullName)).Length;
+                            var file = new AudioAlbumModelBrowseModel()
+                            {
+                                FullName = f.FullName,
+                                Extension = f.Extension,
+                                DirectoryName = f.DirectoryName,
+                                Name = f.Name,
+                                LastWriteTime = f.LastWriteTime
+                            };
+
+                            string msg = "";
+                            file.IsValid(out msg);
+
+                            long len = 0;
+                            if (File.Exists(file.FullName))
+                            {
+                                len = (new FileInfo(file.FullName)).Length;
+                            }
+                            file.Size = len;
+
+                            Files.Add(file);
                         }
-                        file.Size = len;
-
-                        Files.Add(file);
+                    }
+                    catch (UnauthorizedAccessException)
+                    {
+                        Framework.UI.Forms.MRMessageBox.Show("System unauthorized exception.\nPlease choose a folder which can be read including subfolders.", Framework.UI.Forms.MRMessageBox.eMessageBoxStyle.OK, Framework.UI.Forms.MRMessageBox.eMessageBoxType.Warning);
+                    }
+                    catch (Exception)
+                    {
+                        throw;
                     }
                 }
             }

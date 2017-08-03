@@ -92,13 +92,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\EditXmlFileModel.cs" />
-    <Compile Include="Navigation\FileForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navigation\FileForm.Designer.cs">
-      <DependentUpon>FileForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Navigation\AudioAlbumModelBrowseModel.cs" />
     <Compile Include="Navigation\FilesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +113,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\FileForm.resx">
-      <DependentUpon>FileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\FilesForm.resx">
       <DependentUpon>FilesForm.cs</DependentUpon>

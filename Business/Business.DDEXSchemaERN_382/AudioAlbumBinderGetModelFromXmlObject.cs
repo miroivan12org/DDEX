@@ -333,9 +333,10 @@ namespace Business.DDEXSchemaERN_382
         private int GetModelTrackOrdinal(Release rel)
         {
             int ret = 0;
-
-            ret = Convert.ToInt32(rel.ReleaseReference.FirstOrDefault().TrimStart('R'));
-
+            if (rel != null)
+            {
+                ret = Convert.ToInt32(rel.ReleaseReference.FirstOrDefault().TrimStart('R'));
+            }
             return ret;
         }
         private string GetModelTrackISRC(Release rel)
@@ -364,7 +365,7 @@ namespace Business.DDEXSchemaERN_382
         {
             string ret = null;
 
-            if (rel!= null && rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText != null)
+            if (rel != null && rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText != null)
             {
                 ret = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText.Value;
             }
@@ -382,12 +383,20 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        
-    private TrackModel GetModelTrack(NewReleaseMessage nrm, int trackIndex)
+
+        private TrackModel GetModelTrack(NewReleaseMessage nrm, int trackIndex)
         {
             var ret = new TrackModel();
-            SoundRecording sr = nrm.ResourceList.SoundRecording[trackIndex];
-            Release rel = nrm.ReleaseList.Release[trackIndex + 1];
+            SoundRecording sr = null;
+            if (nrm.ResourceList != null && nrm.ResourceList.SoundRecording != null && nrm.ResourceList.SoundRecording.Length > trackIndex)
+            {
+                sr = nrm.ResourceList.SoundRecording[trackIndex];
+            }
+            Release rel = null;
+            if (nrm.ReleaseList != null && nrm.ReleaseList.Release != null && nrm.ReleaseList.Release.Length > trackIndex + 1)
+            {
+                rel = nrm.ReleaseList.Release[trackIndex + 1];
+            }
 
             ret.Ordinal = GetModelTrackOrdinal(rel);
             ret.ISRC = GetModelTrackISRC(rel);
@@ -452,10 +461,10 @@ namespace Business.DDEXSchemaERN_382
                     ret.FrontCoverImageHeight_Materialized = GetModelFrontCoverImageHeight_Materialized(nrm);
                     ret.FrontCoverImageWidth_Materialized = GetModelFrontCoverImageWidth_Materialized(nrm);
 
-                    ret.Tracks.RaiseListChangedEvents = false;
+                    //ret.Tracks.RaiseListChangedEvents = false;
                     ret.Tracks = GetModelTracks(nrm);
-                    ret.Tracks.RaiseListChangedEvents = true;
-                    ret.Tracks.ResetBindings();
+                    //ret.Tracks.RaiseListChangedEvents = true;
+                    //ret.Tracks.ResetBindings();
                 }
             }
             catch (Exception)

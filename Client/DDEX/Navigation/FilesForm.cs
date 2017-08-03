@@ -21,10 +21,9 @@ namespace DDEX.Navigation
             tbFiles.BindedControls.Add(dgvFiles);
         }
         
-        public static NavigationModel Model { get; set; } = new NavigationModel();
+        public NavigationModel Model { get; set; } = new NavigationModel();
         private void FilesForm_Load(object sender, EventArgs e)
         {
-            lblPath.Text = Properties.Settings.Default.NavigationFolderPath;
             Model.FolderPath = Properties.Settings.Default.NavigationFolderPath;
             Model.Refresh();
             InitBindings();
@@ -37,39 +36,31 @@ namespace DDEX.Navigation
                 dgvFiles.DataSource = Model.Files;
                 dgvFiles.ClearSelection();
             }
+            lblPath.DataBindings.Add("Text", Model, "FolderPath");
         }
 
         private void tbTrackReleases_ButtonClicked(object sender, Framework.UI.Controls.MRTitleBar.ActionButtonEventArgs e)
         {
             if (e.Action == Framework.UI.Controls.MRTitleBar.eButtonAction.Add)
             {
-                var record = new EditXmlFileModel();
-
-                using (var frm = new FileForm(record))
+                var model = new AudioAlbumModel() { LabelName = Properties.Settings.Default.LabelName };
+                using (var frmEdit = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model) { ParentForm = this })
                 {
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (frmEdit.ShowDialog() == DialogResult.OK)
                     {
-                        Model.Files.Add(record);
-                        dgvFiles.ClearSelection();
-
-                        var model = new AudioAlbumModel() { FullFileName = record.FullName, LabelName = Properties.Settings.Default.LabelName };
-                        using (var frmEdit = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model))
-                        {
-                            frmEdit.ShowDialog();
-                        }
+                        Model.Refresh();
                     }
                 }
-
-                
             }
         }
         private void dgvFiles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditXmlFileModel record = (EditXmlFileModel)dgvFiles.CurrentRow.DataBoundItem;
+            AudioAlbumModelBrowseModel record = (AudioAlbumModelBrowseModel)dgvFiles.CurrentRow.DataBoundItem;
             if (record != null)
             {
                 var model = new AudioAlbumModel() { FullFileName = record.FullName };
-                var frm = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model) { Editable = true };
+                var frm = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model) { Editable = false, ParentForm = this };
+                
                 frm.MdiParent = Globals.MDIMainForm;
                 frm.Show();
             }
@@ -81,9 +72,15 @@ namespace DDEX.Navigation
             {
                 Description = "Select folder for xml files",
                 SelectedPath = Properties.Settings.Default.NavigationFolderPath,
+                RootFolder = Environment.SpecialFolder.MyComputer,
                 ShowNewFolderButton = true
             })
             {
+                if (Model != null && Directory.Exists(Model.FolderPath))
+                {
+                    b.SelectedPath = Model.FolderPath;
+                    
+                }
                 if (b.ShowDialog() == DialogResult.OK)
                 {
                     Model.FolderPath = b.SelectedPath;
@@ -101,6 +98,24 @@ namespace DDEX.Navigation
         private void btnValidateAll_Click(object sender, EventArgs e)
         {
             Model.Refresh();
+        }
+
+        private void dgvFiles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int editIndex = 0;
+            //int deleteIndex = 1;
+            if (e.ColumnIndex == editIndex)
+            {
+                AudioAlbumModelBrowseModel record = (AudioAlbumModelBrowseModel)dgvFiles.CurrentRow.DataBoundItem;
+                if (record != null)
+                {
+                    var model = new AudioAlbumModel() { FullFileName = record.FullName };
+                    var frm = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model) { ParentForm = this };
+
+                    frm.MdiParent = Globals.MDIMainForm;
+                    frm.Show();
+                }
+            }
         }
     }
 }

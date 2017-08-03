@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new Framework.UI.Controls.MRGroupBox(this.components);
-            this.lblPath = new Framework.UI.Controls.MRLabel(this.components);
+            this.btnOpenFile = new Framework.UI.Controls.MRButton(this.components);
+            this.mrLabel9 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtFileName = new Framework.UI.Controls.MRTextBox(this.components);
             this.btnLoadXml = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox2 = new Framework.UI.Controls.MRGroupBox(this.components);
             this.pnlFrontCoverImage = new Framework.UI.Controls.MRPanel(this.components);
@@ -45,7 +47,7 @@
             this.mrLabel1 = new Framework.UI.Controls.MRLabel(this.components);
             this.label13 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbFrontCoverImage = new Framework.UI.Controls.MRTitleBar();
-            this.dgvSoundRecordingsAndReleases = new System.Windows.Forms.DataGridView();
+            this.dgvSoundRecordingsAndReleases = new Framework.UI.Controls.MRDataGridView(this.components);
             this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.csTracksOrdinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +55,7 @@
             this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTrackReleases = new Framework.UI.Controls.MRTitleBar();
             this.pnlMessageHeader = new Framework.UI.Controls.MRPanel(this.components);
-            this.dpMessageCreatedDateTime = new System.Windows.Forms.DateTimePicker();
+            this.dpMessageCreatedDateTime = new Framework.UI.Controls.MRDatePicker(this.components);
             this.label1 = new Framework.UI.Controls.MRLabel(this.components);
             this.label6 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtMessageID = new Framework.UI.Controls.MRTextBox(this.components);
@@ -83,7 +85,7 @@
             this.txtMainArtist = new Framework.UI.Controls.MRTextBox(this.components);
             this.label8 = new Framework.UI.Controls.MRLabel(this.components);
             this.label7 = new Framework.UI.Controls.MRLabel(this.components);
-            this.cbUpdateIndicator = new System.Windows.Forms.ComboBox();
+            this.cbUpdateIndicator = new Framework.UI.Controls.MRComboBox(this.components);
             this.label12 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtMainReleaseReferenceTitle = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtEAN = new Framework.UI.Controls.MRTextBox(this.components);
@@ -106,26 +108,46 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblPath);
+            this.groupBox1.Controls.Add(this.btnOpenFile);
+            this.groupBox1.Controls.Add(this.mrLabel9);
+            this.groupBox1.Controls.Add(this.txtFileName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1131, 55);
+            this.groupBox1.Size = new System.Drawing.Size(1131, 62);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Loaded file";
+            this.groupBox1.Text = "Destination File";
             // 
-            // lblPath
+            // btnOpenFile
             // 
-            this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPath.Location = new System.Drawing.Point(12, 18);
-            this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(1107, 28);
-            this.lblPath.TabIndex = 0;
+            this.btnOpenFile.Location = new System.Drawing.Point(762, 18);
+            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(37, 33);
+            this.btnOpenFile.TabIndex = 14;
+            this.btnOpenFile.Text = "...";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            // 
+            // mrLabel9
+            // 
+            this.mrLabel9.Location = new System.Drawing.Point(12, 23);
+            this.mrLabel9.Name = "mrLabel9";
+            this.mrLabel9.Size = new System.Drawing.Size(138, 22);
+            this.mrLabel9.TabIndex = 12;
+            this.mrLabel9.Text = "FileName";
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Location = new System.Drawing.Point(156, 23);
+            this.txtFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(599, 22);
+            this.txtFileName.TabIndex = 13;
+            this.txtFileName.TabStop = false;
             // 
             // btnLoadXml
             // 
@@ -148,11 +170,11 @@
             this.groupBox2.Controls.Add(this.pnlMainRelease);
             this.groupBox2.Controls.Add(this.tbMainRelease);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 55);
+            this.groupBox2.Location = new System.Drawing.Point(0, 62);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(1131, 630);
+            this.groupBox2.Size = new System.Drawing.Size(1131, 623);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loaded Xml Model";
@@ -287,6 +309,7 @@
             this.csTrackTitle});
             this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvSoundRecordingsAndReleases.GridColor = System.Drawing.Color.DarkGray;
+            this.dgvSoundRecordingsAndReleases.IgnoreParentsEnabled = true;
             this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(3, 361);
             this.dgvSoundRecordingsAndReleases.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSoundRecordingsAndReleases.MultiSelect = false;
@@ -738,6 +761,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "ERN_382GenerationFormAudioAlbumMusicOnly";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
             this.Text = "Release Edit";
             this.DialogResultClicked += new Framework.UI.Forms.MREditForm.ButtonClickEventHandler(this.Form_DialogResultClicked);
             this.Load += new System.EventHandler(this.ERN_382GenerationFormAudioAlbumMusicOnly_Load);
@@ -745,6 +769,7 @@
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.pnlFrontCoverImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoundRecordingsAndReleases)).EndInit();
@@ -760,7 +785,6 @@
         #endregion
         private Framework.UI.Controls.MRGroupBox groupBox1;
         public Framework.UI.Controls.MRButton btnLoadXml;
-        private Framework.UI.Controls.MRLabel lblPath;
         private Framework.UI.Controls.MRGroupBox groupBox2;
         private Framework.UI.Controls.MRTextBox txtMessageID;
         private Framework.UI.Controls.MRLabel label1;
@@ -773,12 +797,12 @@
         private Framework.UI.Controls.MRTextBox txtMessageRecipient_PartyName;
         private Framework.UI.Controls.MRLabel label5;
         private Framework.UI.Controls.MRTextBox txtMessageRecipient_PartyID;
-        private System.Windows.Forms.DateTimePicker dpMessageCreatedDateTime;
+        private Framework.UI.Controls.MRDatePicker dpMessageCreatedDateTime;
         private Framework.UI.Controls.MRLabel label6;
-        private System.Windows.Forms.ComboBox cbUpdateIndicator;
+        private Framework.UI.Controls.MRComboBox cbUpdateIndicator;
         private Framework.UI.Controls.MRLabel label12;
         private Framework.UI.Controls.MRLabel label13;
-        private System.Windows.Forms.DataGridView dgvSoundRecordingsAndReleases;
+        private Framework.UI.Controls.MRDataGridView dgvSoundRecordingsAndReleases;
         private Framework.UI.Controls.MRLabel label8;
         private Framework.UI.Controls.MRTextBox txtMainReleaseReferenceTitle;
         private Framework.UI.Controls.MRLabel label7;
@@ -820,5 +844,8 @@
         private Framework.UI.Controls.MRLabel lblFrontCoverImageHeight;
         private Framework.UI.Controls.MRLabel mrLabel11;
         private Framework.UI.Controls.MRLabel mrLabel12;
+        private Framework.UI.Controls.MRButton btnOpenFile;
+        private Framework.UI.Controls.MRLabel mrLabel9;
+        private Framework.UI.Controls.MRTextBox txtFileName;
     }
 }

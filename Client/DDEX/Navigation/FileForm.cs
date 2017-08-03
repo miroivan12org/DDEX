@@ -18,12 +18,12 @@ namespace DDEX.Navigation
             InitializeComponent();
             tbTrackRelease.BindedControls.Add(pnlMainRelease);
         }
-        public FileForm(EditXmlFileModel model) : this()
+        public FileForm(AudioAlbumModelBrowseModel model) : this()
         {
             Model = model;
         }
 
-        public EditXmlFileModel Model { get; set; }
+        public AudioAlbumModelBrowseModel Model { get; set; }
       
         private void Form_Load(object sender, EventArgs e)
         {

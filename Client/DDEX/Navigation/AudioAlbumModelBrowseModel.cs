@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DDEX.Navigation
 {
-    public class EditXmlFileModel: BindableModel
+    public class AudioAlbumModelBrowseModel: BindableModel
     {
         public string Name { get { return Get<string>(); } set { Set(value); } }
         public string FullName { get { return Get<string>(); } set { Set(value); } }

@@ -41,10 +41,13 @@ namespace Business.DDEXSchemaERN_382.Entities
 
         public string GetFullFileNameFromRelativePathAndFileName(string relativePath, string fileName)
         {
-            string ret = "";
+            string ret = null;
 
-            string dir = System.IO.Path.GetDirectoryName(FullFileName);
-            ret = dir + @"\" + relativePath.TrimEnd('/') + @"\" + fileName;
+            if (relativePath != null && fileName != null)
+            {
+                string dir = System.IO.Path.GetDirectoryName(FullFileName);
+                ret = dir + @"\" + relativePath.TrimEnd('/') + @"\" + fileName;
+            }
 
             return ret;
         }

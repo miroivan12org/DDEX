@@ -87,11 +87,11 @@ namespace Framework.UI.Forms
         {
             get
             {
-                string ret = "Informacija";
+                string ret = "Information";
                 if (messageBoxType == eMessageBoxType.Warning)
-                    ret = "Upozorenje";
+                    ret = "Warning";
                 else if (messageBoxType == eMessageBoxType.Error)
-                    ret = "Greška!";
+                    ret = "Error!";
 
                 return ret;
             }

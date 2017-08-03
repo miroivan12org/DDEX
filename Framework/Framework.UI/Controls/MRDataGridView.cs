@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace Framework.UI.Controls
 {
-    public partial class MRDatePicker : DateTimePicker, IMREditableControl, IMRControlCollectionParent
+    public partial class MRDataGridView : DataGridView, IMREditableControl, IMRControlCollectionParent
     {
-        public MRDatePicker()
+        public MRDataGridView()
         {
             InitializeComponent();
         }
 
-        public MRDatePicker(IContainer container)
+        public MRDataGridView(IContainer container)
         {
             container.Add(this);
 
             InitializeComponent();
         }
+
         [DefaultValue(false)]
         public bool IgnoreParentsEnabled { get; set; } = false;
 

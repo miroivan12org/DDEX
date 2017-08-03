@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace Framework.UI.Controls
 {
-    public partial class MRDatePicker : DateTimePicker, IMREditableControl, IMRControlCollectionParent
+    public partial class MRComboBox : ComboBox, IMREditableControl, IMRControlCollectionParent
     {
-        public MRDatePicker()
+        public MRComboBox()
         {
             InitializeComponent();
         }
 
-        public MRDatePicker(IContainer container)
+        public MRComboBox(IContainer container)
         {
             container.Add(this);
 
             InitializeComponent();
         }
+
         [DefaultValue(false)]
         public bool IgnoreParentsEnabled { get; set; } = false;
 

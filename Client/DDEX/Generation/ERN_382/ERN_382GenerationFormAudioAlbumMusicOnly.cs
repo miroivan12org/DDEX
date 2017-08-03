@@ -8,6 +8,7 @@ using Business.DDEXSchemaERN_382.Entities;
 using Business.DDEXSchemaERN_382;
 using System.Linq;
 using Framework.UI.Forms;
+using DDEX.Navigation;
 
 namespace DDEX.Generation.ERN_382
 {
@@ -16,16 +17,18 @@ namespace DDEX.Generation.ERN_382
         public ERN_382GenerationFormAudioAlbumMusicOnly()
         {
             InitializeComponent();
-            
-            if (System.IO.File.Exists("C:\\temp\\release\\file.xml"))
+
+            if (System.Diagnostics.Debugger.IsAttached)
             {
-                lblPath.Text = "C:\\temp\\release\\file.xml";
-                Model = new AudioAlbumModel() 
+                if (System.IO.File.Exists("C:\\temp\\release\\file.xml"))
                 {
-                    FullFileName = lblPath.Text,
-                    LabelName = Properties.Settings.Default.LabelName
-                };
-            }                       
+                    Model = new AudioAlbumModel()
+                    {
+                        FullFileName = "C:\\temp\\release\\file.xml",
+                        LabelName = Properties.Settings.Default.LabelName
+                    };
+                }
+            }                      
         }
 
         public ERN_382GenerationFormAudioAlbumMusicOnly(AudioAlbumModel model) : this()
@@ -35,6 +38,7 @@ namespace DDEX.Generation.ERN_382
 
         public AudioAlbumModel Model = new AudioAlbumModel() { LabelName = Properties.Settings.Default.LabelName };
         public AudioAlbumBinder Binder = new AudioAlbumBinder();
+        public new FilesForm ParentForm { get; set; }
 
         #region Comments
         //private static NewReleaseMessage BindToObject()
@@ -318,7 +322,7 @@ namespace DDEX.Generation.ERN_382
                 dlg.RestoreDirectory = true;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    lblPath.Text = dlg.FileName;
+                    Model.FullFileName = dlg.FileName;
                     
                     var xmlObject = Binder.GetXmlObjectFromFile(dlg.FileName);
 
@@ -355,7 +359,6 @@ namespace DDEX.Generation.ERN_382
             if (m != null)
             {
                 Model.CopyFromSource(m);
-                lblPath.Text = Model.FullFileName;
             }
             
             InitBindings();
@@ -373,6 +376,7 @@ namespace DDEX.Generation.ERN_382
             dgvSoundRecordingsAndReleases.DataSource = Model.Tracks;
             dgvSoundRecordingsAndReleases.ClearSelection();
 
+            txtFileName.DataBindings.Add("Text", Model, "FullFileName");
             txtEAN.DataBindings.Add("Text", Model, "EAN");
             txtMainArtist.DataBindings.Add("Text", Model, "MainArtist");
             txtLabel.DataBindings.Add("Text", Model, "LabelName");
@@ -434,7 +438,7 @@ namespace DDEX.Generation.ERN_382
                 TrackModel track = (TrackModel) dgvSoundRecordingsAndReleases.CurrentRow.DataBoundItem;
                 if (track != null)
                 {
-                    using (var frm = new ERN_382TrackReleaseForm((TrackModel)track.Copy()))
+                    using (var frm = new ERN_382TrackReleaseForm((TrackModel)track.Copy()) {  Editable = this.Editable })
                     {
                         if (frm.ShowDialog() == DialogResult.OK)
                         {
@@ -443,9 +447,9 @@ namespace DDEX.Generation.ERN_382
                     }
                 }
             }
-            else if (e.ColumnIndex == deleteIndex)
+            else if (e.ColumnIndex == deleteIndex && this.Editable)
             {
-                using (var f = new MRMessageBox("Želite li obrisati zapis?", MRMessageBox.eMessageBoxStyle.YesNo))
+                using (var f = new MRMessageBox("Delete record?", MRMessageBox.eMessageBoxStyle.YesNo))
                 {
                     if (f.ShowDialog() == DialogResult.Yes)
                     {
@@ -548,6 +552,27 @@ namespace DDEX.Generation.ERN_382
                 }
 
                 Model.ComputeMaterialized();
+            }
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new SaveFileDialog()
+            {
+                RestoreDirectory = true,
+                CheckFileExists = false
+            }
+            )
+            {
+                if (ParentForm != null && ParentForm.Model != null && ParentForm.Model.FolderPath != null && System.IO.Directory.Exists(ParentForm.Model.FolderPath))
+                {
+                    dlg.InitialDirectory = ParentForm.Model.FolderPath;
+                }
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    Model.FullFileName = dlg.FileName;
+                }
             }
         }
     }
