@@ -33,16 +33,18 @@
             this.lblPath = new Framework.UI.Controls.MRLabel(this.components);
             this.btnLoadXml = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox2 = new Framework.UI.Controls.MRGroupBox(this.components);
-            this.mrButton1 = new Framework.UI.Controls.MRButton(this.components);
-            this.pnlFrontCoverImageParent = new Framework.UI.Controls.MRPanel(this.components);
             this.pnlFrontCoverImage = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrButton1 = new Framework.UI.Controls.MRButton(this.components);
+            this.lblFrontCoverImageWidth = new Framework.UI.Controls.MRLabel(this.components);
+            this.lblFrontCoverImageHeight = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
             this.lblFrontCoverImageRelativePath = new Framework.UI.Controls.MRLabel(this.components);
             this.lblFrontCoverImageFileName = new Framework.UI.Controls.MRLabel(this.components);
             this.btnOpenFrontCoverImage = new Framework.UI.Controls.MRButton(this.components);
             this.mrLabel1 = new Framework.UI.Controls.MRLabel(this.components);
             this.label13 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbFrontCoverImage = new Framework.UI.Controls.MRTitleBar();
-            this.pnlTrackReleasesParent = new Framework.UI.Controls.MRPanel(this.components);
             this.dgvSoundRecordingsAndReleases = new System.Windows.Forms.DataGridView();
             this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
@@ -50,8 +52,6 @@
             this.csTracksISRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTrackReleases = new Framework.UI.Controls.MRTitleBar();
-            this.mrPanel1 = new Framework.UI.Controls.MRPanel(this.components);
-            this.pnlMessageHeaderParent = new Framework.UI.Controls.MRPanel(this.components);
             this.pnlMessageHeader = new Framework.UI.Controls.MRPanel(this.components);
             this.dpMessageCreatedDateTime = new System.Windows.Forms.DateTimePicker();
             this.label1 = new Framework.UI.Controls.MRLabel(this.components);
@@ -66,7 +66,6 @@
             this.txtMessageRecipient_PartyID = new Framework.UI.Controls.MRTextBox(this.components);
             this.label3 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbMessageHeader = new Framework.UI.Controls.MRTitleBar();
-            this.pnlMainReleaseParent = new Framework.UI.Controls.MRPanel(this.components);
             this.pnlMainRelease = new Framework.UI.Controls.MRPanel(this.components);
             this.mrDatePicker1 = new Framework.UI.Controls.MRDatePicker(this.components);
             this.mrLabel8 = new Framework.UI.Controls.MRLabel(this.components);
@@ -92,27 +91,18 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblFrontCoverImageWidth = new Framework.UI.Controls.MRLabel(this.components);
-            this.lblFrontCoverImageHeight = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.pnlFrontCoverImageParent.SuspendLayout();
             this.pnlFrontCoverImage.SuspendLayout();
-            this.pnlTrackReleasesParent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoundRecordingsAndReleases)).BeginInit();
-            this.mrPanel1.SuspendLayout();
-            this.pnlMessageHeaderParent.SuspendLayout();
             this.pnlMessageHeader.SuspendLayout();
-            this.pnlMainReleaseParent.SuspendLayout();
             this.pnlMainRelease.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlData
             // 
-            this.pnlData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.pnlData.Size = new System.Drawing.Size(1131, 735);
+            this.pnlData.Margin = new System.Windows.Forms.Padding(5);
+            this.pnlData.Size = new System.Drawing.Size(1131, 685);
             // 
             // groupBox1
             // 
@@ -149,45 +139,26 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pnlFrontCoverImageParent);
-            this.groupBox2.Controls.Add(this.pnlTrackReleasesParent);
-            this.groupBox2.Controls.Add(this.mrPanel1);
+            this.groupBox2.Controls.Add(this.pnlFrontCoverImage);
+            this.groupBox2.Controls.Add(this.tbFrontCoverImage);
+            this.groupBox2.Controls.Add(this.dgvSoundRecordingsAndReleases);
+            this.groupBox2.Controls.Add(this.tbTrackReleases);
+            this.groupBox2.Controls.Add(this.pnlMessageHeader);
+            this.groupBox2.Controls.Add(this.tbMessageHeader);
+            this.groupBox2.Controls.Add(this.pnlMainRelease);
+            this.groupBox2.Controls.Add(this.tbMainRelease);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 55);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(1131, 680);
+            this.groupBox2.Size = new System.Drawing.Size(1131, 630);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loaded Xml Model";
             // 
-            // mrButton1
-            // 
-            this.mrButton1.Location = new System.Drawing.Point(800, 64);
-            this.mrButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.mrButton1.Name = "mrButton1";
-            this.mrButton1.Size = new System.Drawing.Size(100, 28);
-            this.mrButton1.TabIndex = 20;
-            this.mrButton1.Text = "mrButton1";
-            this.mrButton1.UseVisualStyleBackColor = true;
-            this.mrButton1.Click += new System.EventHandler(this.mrButton1_Click);
-            // 
-            // pnlFrontCoverImageParent
-            // 
-            this.pnlFrontCoverImageParent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlFrontCoverImageParent.Controls.Add(this.pnlFrontCoverImage);
-            this.pnlFrontCoverImageParent.Controls.Add(this.tbFrontCoverImage);
-            this.pnlFrontCoverImageParent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFrontCoverImageParent.Location = new System.Drawing.Point(3, 498);
-            this.pnlFrontCoverImageParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlFrontCoverImageParent.Name = "pnlFrontCoverImageParent";
-            this.pnlFrontCoverImageParent.Size = new System.Drawing.Size(1125, 160);
-            this.pnlFrontCoverImageParent.TabIndex = 19;
-            // 
             // pnlFrontCoverImage
             // 
-            this.pnlFrontCoverImage.AutoSize = true;
             this.pnlFrontCoverImage.Controls.Add(this.mrButton1);
             this.pnlFrontCoverImage.Controls.Add(this.lblFrontCoverImageWidth);
             this.pnlFrontCoverImage.Controls.Add(this.lblFrontCoverImageHeight);
@@ -198,13 +169,56 @@
             this.pnlFrontCoverImage.Controls.Add(this.btnOpenFrontCoverImage);
             this.pnlFrontCoverImage.Controls.Add(this.mrLabel1);
             this.pnlFrontCoverImage.Controls.Add(this.label13);
-            this.pnlFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFrontCoverImage.Location = new System.Drawing.Point(0, 30);
-            this.pnlFrontCoverImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlFrontCoverImage.Location = new System.Drawing.Point(3, 509);
+            this.pnlFrontCoverImage.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFrontCoverImage.Name = "pnlFrontCoverImage";
             this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 12);
-            this.pnlFrontCoverImage.Size = new System.Drawing.Size(1125, 130);
+            this.pnlFrontCoverImage.Size = new System.Drawing.Size(1125, 109);
             this.pnlFrontCoverImage.TabIndex = 1;
+            // 
+            // mrButton1
+            // 
+            this.mrButton1.Location = new System.Drawing.Point(800, 64);
+            this.mrButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.mrButton1.Name = "mrButton1";
+            this.mrButton1.Size = new System.Drawing.Size(100, 28);
+            this.mrButton1.TabIndex = 20;
+            this.mrButton1.Text = "mrButton1";
+            this.mrButton1.UseVisualStyleBackColor = true;
+            this.mrButton1.Click += new System.EventHandler(this.mrButton1_Click);
+            // 
+            // lblFrontCoverImageWidth
+            // 
+            this.lblFrontCoverImageWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFrontCoverImageWidth.Location = new System.Drawing.Point(368, 69);
+            this.lblFrontCoverImageWidth.Name = "lblFrontCoverImageWidth";
+            this.lblFrontCoverImageWidth.Size = new System.Drawing.Size(170, 27);
+            this.lblFrontCoverImageWidth.TabIndex = 10;
+            // 
+            // lblFrontCoverImageHeight
+            // 
+            this.lblFrontCoverImageHeight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFrontCoverImageHeight.Location = new System.Drawing.Point(137, 69);
+            this.lblFrontCoverImageHeight.Name = "lblFrontCoverImageHeight";
+            this.lblFrontCoverImageHeight.Size = new System.Drawing.Size(170, 27);
+            this.lblFrontCoverImageHeight.TabIndex = 9;
+            // 
+            // mrLabel11
+            // 
+            this.mrLabel11.Location = new System.Drawing.Point(313, 69);
+            this.mrLabel11.Name = "mrLabel11";
+            this.mrLabel11.Size = new System.Drawing.Size(54, 27);
+            this.mrLabel11.TabIndex = 8;
+            this.mrLabel11.Text = "Width";
+            // 
+            // mrLabel12
+            // 
+            this.mrLabel12.Location = new System.Drawing.Point(20, 69);
+            this.mrLabel12.Name = "mrLabel12";
+            this.mrLabel12.Size = new System.Drawing.Size(112, 27);
+            this.mrLabel12.TabIndex = 7;
+            this.mrLabel12.Text = "Height";
             // 
             // lblFrontCoverImageRelativePath
             // 
@@ -225,7 +239,7 @@
             // btnOpenFrontCoverImage
             // 
             this.btnOpenFrontCoverImage.Location = new System.Drawing.Point(545, 6);
-            this.btnOpenFrontCoverImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOpenFrontCoverImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpenFrontCoverImage.Name = "btnOpenFrontCoverImage";
             this.btnOpenFrontCoverImage.Size = new System.Drawing.Size(39, 27);
             this.btnOpenFrontCoverImage.TabIndex = 4;
@@ -252,24 +266,12 @@
             // tbFrontCoverImage
             // 
             this.tbFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbFrontCoverImage.Location = new System.Drawing.Point(0, 0);
-            this.tbFrontCoverImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFrontCoverImage.Location = new System.Drawing.Point(3, 479);
+            this.tbFrontCoverImage.Margin = new System.Windows.Forms.Padding(4);
             this.tbFrontCoverImage.Name = "tbFrontCoverImage";
             this.tbFrontCoverImage.Size = new System.Drawing.Size(1125, 30);
             this.tbFrontCoverImage.TabIndex = 0;
             this.tbFrontCoverImage.Title = "Front Cover Image";
-            // 
-            // pnlTrackReleasesParent
-            // 
-            this.pnlTrackReleasesParent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlTrackReleasesParent.Controls.Add(this.dgvSoundRecordingsAndReleases);
-            this.pnlTrackReleasesParent.Controls.Add(this.tbTrackReleases);
-            this.pnlTrackReleasesParent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTrackReleasesParent.Location = new System.Drawing.Point(3, 368);
-            this.pnlTrackReleasesParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlTrackReleasesParent.Name = "pnlTrackReleasesParent";
-            this.pnlTrackReleasesParent.Size = new System.Drawing.Size(1125, 130);
-            this.pnlTrackReleasesParent.TabIndex = 17;
             // 
             // dgvSoundRecordingsAndReleases
             // 
@@ -283,15 +285,15 @@
             this.csTracksOrdinal,
             this.csTracksISRC,
             this.csTrackTitle});
-            this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvSoundRecordingsAndReleases.GridColor = System.Drawing.Color.DarkGray;
-            this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(0, 30);
-            this.dgvSoundRecordingsAndReleases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(3, 361);
+            this.dgvSoundRecordingsAndReleases.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSoundRecordingsAndReleases.MultiSelect = false;
             this.dgvSoundRecordingsAndReleases.Name = "dgvSoundRecordingsAndReleases";
             this.dgvSoundRecordingsAndReleases.ReadOnly = true;
             this.dgvSoundRecordingsAndReleases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(1125, 100);
+            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(1125, 118);
             this.dgvSoundRecordingsAndReleases.TabIndex = 3;
             this.dgvSoundRecordingsAndReleases.TabStop = false;
             this.dgvSoundRecordingsAndReleases.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellClick);
@@ -351,41 +353,16 @@
             // 
             this.tbTrackReleases.AddVisible = true;
             this.tbTrackReleases.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbTrackReleases.Location = new System.Drawing.Point(0, 0);
-            this.tbTrackReleases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTrackReleases.Location = new System.Drawing.Point(3, 331);
+            this.tbTrackReleases.Margin = new System.Windows.Forms.Padding(4);
             this.tbTrackReleases.Name = "tbTrackReleases";
             this.tbTrackReleases.Size = new System.Drawing.Size(1125, 30);
             this.tbTrackReleases.TabIndex = 16;
             this.tbTrackReleases.Title = "Track Releases";
             this.tbTrackReleases.ButtonClicked += new Framework.UI.Controls.MRTitleBar.ButtonClickedEventHandler(this.tbTrackReleases_ButtonClicked);
             // 
-            // mrPanel1
-            // 
-            this.mrPanel1.Controls.Add(this.pnlMessageHeaderParent);
-            this.mrPanel1.Controls.Add(this.pnlMainReleaseParent);
-            this.mrPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mrPanel1.Location = new System.Drawing.Point(3, 17);
-            this.mrPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.mrPanel1.Name = "mrPanel1";
-            this.mrPanel1.Size = new System.Drawing.Size(1125, 351);
-            this.mrPanel1.TabIndex = 18;
-            // 
-            // pnlMessageHeaderParent
-            // 
-            this.pnlMessageHeaderParent.AutoSize = true;
-            this.pnlMessageHeaderParent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlMessageHeaderParent.Controls.Add(this.pnlMessageHeader);
-            this.pnlMessageHeaderParent.Controls.Add(this.tbMessageHeader);
-            this.pnlMessageHeaderParent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMessageHeaderParent.Location = new System.Drawing.Point(0, 172);
-            this.pnlMessageHeaderParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlMessageHeaderParent.Name = "pnlMessageHeaderParent";
-            this.pnlMessageHeaderParent.Size = new System.Drawing.Size(1125, 179);
-            this.pnlMessageHeaderParent.TabIndex = 15;
-            // 
             // pnlMessageHeader
             // 
-            this.pnlMessageHeader.AutoSize = true;
             this.pnlMessageHeader.Controls.Add(this.dpMessageCreatedDateTime);
             this.pnlMessageHeader.Controls.Add(this.label1);
             this.pnlMessageHeader.Controls.Add(this.label6);
@@ -398,12 +375,12 @@
             this.pnlMessageHeader.Controls.Add(this.txtMessageSender_PartyName);
             this.pnlMessageHeader.Controls.Add(this.txtMessageRecipient_PartyID);
             this.pnlMessageHeader.Controls.Add(this.label3);
-            this.pnlMessageHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMessageHeader.Location = new System.Drawing.Point(0, 30);
-            this.pnlMessageHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMessageHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMessageHeader.Location = new System.Drawing.Point(3, 186);
+            this.pnlMessageHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMessageHeader.Name = "pnlMessageHeader";
             this.pnlMessageHeader.Padding = new System.Windows.Forms.Padding(0, 0, 13, 12);
-            this.pnlMessageHeader.Size = new System.Drawing.Size(1125, 149);
+            this.pnlMessageHeader.Size = new System.Drawing.Size(1125, 145);
             this.pnlMessageHeader.TabIndex = 13;
             // 
             // dpMessageCreatedDateTime
@@ -507,23 +484,12 @@
             // tbMessageHeader
             // 
             this.tbMessageHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbMessageHeader.Location = new System.Drawing.Point(0, 0);
-            this.tbMessageHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMessageHeader.Location = new System.Drawing.Point(3, 156);
+            this.tbMessageHeader.Margin = new System.Windows.Forms.Padding(4);
             this.tbMessageHeader.Name = "tbMessageHeader";
             this.tbMessageHeader.Size = new System.Drawing.Size(1125, 30);
             this.tbMessageHeader.TabIndex = 12;
             this.tbMessageHeader.Title = "Message Header";
-            // 
-            // pnlMainReleaseParent
-            // 
-            this.pnlMainReleaseParent.Controls.Add(this.pnlMainRelease);
-            this.pnlMainReleaseParent.Controls.Add(this.tbMainRelease);
-            this.pnlMainReleaseParent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMainReleaseParent.Location = new System.Drawing.Point(0, 0);
-            this.pnlMainReleaseParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlMainReleaseParent.Name = "pnlMainReleaseParent";
-            this.pnlMainReleaseParent.Size = new System.Drawing.Size(1125, 172);
-            this.pnlMainReleaseParent.TabIndex = 14;
             // 
             // pnlMainRelease
             // 
@@ -547,12 +513,12 @@
             this.pnlMainRelease.Controls.Add(this.label12);
             this.pnlMainRelease.Controls.Add(this.txtMainReleaseReferenceTitle);
             this.pnlMainRelease.Controls.Add(this.txtEAN);
-            this.pnlMainRelease.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainRelease.Location = new System.Drawing.Point(0, 30);
-            this.pnlMainRelease.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMainRelease.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMainRelease.Location = new System.Drawing.Point(3, 47);
+            this.pnlMainRelease.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMainRelease.Name = "pnlMainRelease";
             this.pnlMainRelease.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.pnlMainRelease.Size = new System.Drawing.Size(1125, 142);
+            this.pnlMainRelease.Size = new System.Drawing.Size(1125, 109);
             this.pnlMainRelease.TabIndex = 13;
             // 
             // mrDatePicker1
@@ -560,7 +526,7 @@
             this.mrDatePicker1.CustomFormat = "yyyy-MM-dd";
             this.mrDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.mrDatePicker1.Location = new System.Drawing.Point(941, 32);
-            this.mrDatePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrDatePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.mrDatePicker1.Name = "mrDatePicker1";
             this.mrDatePicker1.ShowCheckBox = true;
             this.mrDatePicker1.Size = new System.Drawing.Size(173, 22);
@@ -722,8 +688,8 @@
             // tbMainRelease
             // 
             this.tbMainRelease.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbMainRelease.Location = new System.Drawing.Point(0, 0);
-            this.tbMainRelease.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMainRelease.Location = new System.Drawing.Point(3, 17);
+            this.tbMainRelease.Margin = new System.Windows.Forms.Padding(4);
             this.tbMainRelease.Name = "tbMainRelease";
             this.tbMainRelease.Size = new System.Drawing.Size(1125, 30);
             this.tbMainRelease.TabIndex = 12;
@@ -764,42 +730,10 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
-            // lblFrontCoverImageWidth
-            // 
-            this.lblFrontCoverImageWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFrontCoverImageWidth.Location = new System.Drawing.Point(368, 69);
-            this.lblFrontCoverImageWidth.Name = "lblFrontCoverImageWidth";
-            this.lblFrontCoverImageWidth.Size = new System.Drawing.Size(170, 27);
-            this.lblFrontCoverImageWidth.TabIndex = 10;
-            // 
-            // lblFrontCoverImageHeight
-            // 
-            this.lblFrontCoverImageHeight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFrontCoverImageHeight.Location = new System.Drawing.Point(137, 69);
-            this.lblFrontCoverImageHeight.Name = "lblFrontCoverImageHeight";
-            this.lblFrontCoverImageHeight.Size = new System.Drawing.Size(170, 27);
-            this.lblFrontCoverImageHeight.TabIndex = 9;
-            // 
-            // mrLabel11
-            // 
-            this.mrLabel11.Location = new System.Drawing.Point(313, 69);
-            this.mrLabel11.Name = "mrLabel11";
-            this.mrLabel11.Size = new System.Drawing.Size(54, 27);
-            this.mrLabel11.TabIndex = 8;
-            this.mrLabel11.Text = "Width";
-            // 
-            // mrLabel12
-            // 
-            this.mrLabel12.Location = new System.Drawing.Point(20, 69);
-            this.mrLabel12.Name = "mrLabel12";
-            this.mrLabel12.Size = new System.Drawing.Size(112, 27);
-            this.mrLabel12.TabIndex = 7;
-            this.mrLabel12.Text = "Height";
-            // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1131, 790);
+            this.ClientSize = new System.Drawing.Size(1131, 740);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -812,18 +746,10 @@
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.pnlFrontCoverImageParent.ResumeLayout(false);
-            this.pnlFrontCoverImageParent.PerformLayout();
             this.pnlFrontCoverImage.ResumeLayout(false);
-            this.pnlTrackReleasesParent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoundRecordingsAndReleases)).EndInit();
-            this.mrPanel1.ResumeLayout(false);
-            this.mrPanel1.PerformLayout();
-            this.pnlMessageHeaderParent.ResumeLayout(false);
-            this.pnlMessageHeaderParent.PerformLayout();
             this.pnlMessageHeader.ResumeLayout(false);
             this.pnlMessageHeader.PerformLayout();
-            this.pnlMainReleaseParent.ResumeLayout(false);
             this.pnlMainRelease.ResumeLayout(false);
             this.pnlMainRelease.PerformLayout();
             this.ResumeLayout(false);
@@ -858,20 +784,15 @@
         private Framework.UI.Controls.MRLabel label7;
         private Framework.UI.Controls.MRTextBox txtEAN;
         private Framework.UI.Controls.MRTitleBar tbMainRelease;
-        private Framework.UI.Controls.MRPanel pnlMainReleaseParent;
         private Framework.UI.Controls.MRPanel pnlMainRelease;
-        private Framework.UI.Controls.MRPanel pnlMessageHeaderParent;
         private Framework.UI.Controls.MRPanel pnlMessageHeader;
         private Framework.UI.Controls.MRTitleBar tbMessageHeader;
-        private Framework.UI.Controls.MRPanel pnlTrackReleasesParent;
         private Framework.UI.Controls.MRTitleBar tbTrackReleases;
         private System.Windows.Forms.DataGridViewImageColumn csEdit;
         private System.Windows.Forms.DataGridViewImageColumn csDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn csTracksOrdinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn csTracksISRC;
         private System.Windows.Forms.DataGridViewTextBoxColumn csTrackTitle;
-        private Framework.UI.Controls.MRPanel mrPanel1;
-        private Framework.UI.Controls.MRPanel pnlFrontCoverImageParent;
         private Framework.UI.Controls.MRPanel pnlFrontCoverImage;
         private Framework.UI.Controls.MRTitleBar tbFrontCoverImage;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;

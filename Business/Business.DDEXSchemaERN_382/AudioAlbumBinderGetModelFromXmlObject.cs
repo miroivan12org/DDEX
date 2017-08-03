@@ -1,4 +1,5 @@
 ﻿using Business.DDEXFactory.Interfaces;
+using Business.DDEXSchemaERN_382.BindingObjects;
 using Business.DDEXSchemaERN_382.Entities;
 using Business.DDEXSchemaERN_382.Schema;
 using System;
@@ -327,6 +328,94 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+
+        #region GetTrackModel
+        private int GetModelTrackOrdinal(Release rel)
+        {
+            int ret = 0;
+
+            ret = Convert.ToInt32(rel.ReleaseReference.FirstOrDefault().TrimStart('R'));
+
+            return ret;
+        }
+        private string GetModelTrackISRC(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.ReleaseId != null && rel.ReleaseId.Length > 0)
+            {
+                ret = rel.ReleaseId.FirstOrDefault().ISRC;
+            }
+
+            return ret;
+        }
+        private string GetModelTrackTitle(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.ReferenceTitle != null && rel.ReferenceTitle.TitleText != null)
+            {
+                ret = rel.ReferenceTitle.TitleText.Value;
+            }
+
+            return ret;
+        }
+        private string GetModelTrackGenre(Release rel)
+        {
+            string ret = null;
+
+            if (rel!= null && rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText != null)
+            {
+                ret = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().GenreText.Value;
+            }
+
+            return ret;
+        }
+        private string GetModelTrackSubGenre(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.ReleaseDetailsByTerritory != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre != null && rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().SubGenre != null)
+            {
+                ret = rel.ReleaseDetailsByTerritory.FirstOrDefault().Genre.FirstOrDefault().SubGenre.Value;
+            }
+
+            return ret;
+        }
+        
+    private TrackModel GetModelTrack(NewReleaseMessage nrm, int trackIndex)
+        {
+            var ret = new TrackModel();
+            SoundRecording sr = nrm.ResourceList.SoundRecording[trackIndex];
+            Release rel = nrm.ReleaseList.Release[trackIndex + 1];
+
+            ret.Ordinal = GetModelTrackOrdinal(rel);
+            ret.ISRC = GetModelTrackISRC(rel);
+            ret.Title = GetModelTrackTitle(rel);
+            ret.Genre = GetModelTrackGenre(rel);
+            ret.SubGenre = GetModelTrackSubGenre(rel);            
+
+            return ret;
+        }
+        #endregion
+
+        private SortableBindingList<TrackModel> GetModelTracks(NewReleaseMessage nrm)
+        {
+            var ret = new SortableBindingList<TrackModel>();
+
+            int nrOfTracks = 0;
+            if (nrm.ResourceList != null && nrm.ResourceList.SoundRecording != null && nrm.ResourceList.SoundRecording.Length > 0)
+            {
+                nrOfTracks = nrm.ResourceList.SoundRecording.Length;
+            }
+            for (int i = 0; i < nrOfTracks; i++)
+            {
+                TrackModel track = GetModelTrack(nrm, i);
+                ret.Add(track);
+            }
+
+            return ret;
+        }
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
             AudioAlbumModel ret = null;
@@ -362,7 +451,11 @@ namespace Business.DDEXSchemaERN_382
                     ret.FrontCoverImageHashSum_Materialized = GetModelFrontCoverImageHashSum(nrm);
                     ret.FrontCoverImageHeight_Materialized = GetModelFrontCoverImageHeight_Materialized(nrm);
                     ret.FrontCoverImageWidth_Materialized = GetModelFrontCoverImageWidth_Materialized(nrm);
-                    
+
+                    ret.Tracks.RaiseListChangedEvents = false;
+                    ret.Tracks = GetModelTracks(nrm);
+                    ret.Tracks.RaiseListChangedEvents = true;
+                    ret.Tracks.ResetBindings();
                 }
             }
             catch (Exception)

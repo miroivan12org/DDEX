@@ -361,14 +361,13 @@ namespace DDEX.Generation.ERN_382
             InitBindings();
             dgvSoundRecordingsAndReleases.ClearSelection();
         }
-
         private void InitBindings()
         {
             cbUpdateIndicator.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "OriginalMessage", Value = UpdateIndicator.OriginalMessage }, new ComboBoxItem() { Text = "UpdateMessage", Value = UpdateIndicator.UpdateMessage } };
             tbMainRelease.BindedControls.Add(pnlMainRelease);
             tbMessageHeader.BindedControls.Add(pnlMessageHeader);
-            //tbTrackReleases.BindedControls.Add(pnlTrackReleases);
             tbTrackReleases.BindedControls.Add(dgvSoundRecordingsAndReleases);
+            tbFrontCoverImage.BindedControls.Add(pnlFrontCoverImage);
 
             dgvSoundRecordingsAndReleases.AutoGenerateColumns = false;
             dgvSoundRecordingsAndReleases.DataSource = Model.Tracks;
