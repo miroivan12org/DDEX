@@ -68,6 +68,7 @@
             this.tbMessageHeader = new Framework.UI.Controls.MRTitleBar();
             this.pnlMainReleaseParent = new Framework.UI.Controls.MRPanel(this.components);
             this.pnlMainRelease = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrDatePicker1 = new Framework.UI.Controls.MRDatePicker(this.components);
             this.mrLabel8 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel7 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
@@ -91,7 +92,10 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.mrDatePicker1 = new Framework.UI.Controls.MRDatePicker(this.components);
+            this.lblFrontCoverImageWidth = new Framework.UI.Controls.MRLabel(this.components);
+            this.lblFrontCoverImageHeight = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlFrontCoverImageParent.SuspendLayout();
@@ -107,17 +111,18 @@
             // 
             // pnlData
             // 
-            this.pnlData.Size = new System.Drawing.Size(848, 596);
+            this.pnlData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlData.Size = new System.Drawing.Size(1131, 735);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblPath);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(848, 45);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1131, 55);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loaded file";
@@ -127,10 +132,9 @@
             this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPath.Location = new System.Drawing.Point(9, 15);
-            this.lblPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPath.Location = new System.Drawing.Point(12, 18);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(830, 23);
+            this.lblPath.Size = new System.Drawing.Size(1107, 28);
             this.lblPath.TabIndex = 0;
             // 
             // btnLoadXml
@@ -145,25 +149,25 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.mrButton1);
             this.groupBox2.Controls.Add(this.pnlFrontCoverImageParent);
             this.groupBox2.Controls.Add(this.pnlTrackReleasesParent);
             this.groupBox2.Controls.Add(this.mrPanel1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 45);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(0, 55);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(848, 551);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(1131, 680);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loaded Xml Model";
             // 
             // mrButton1
             // 
-            this.mrButton1.Location = new System.Drawing.Point(441, 485);
+            this.mrButton1.Location = new System.Drawing.Point(800, 64);
+            this.mrButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mrButton1.Name = "mrButton1";
-            this.mrButton1.Size = new System.Drawing.Size(75, 23);
+            this.mrButton1.Size = new System.Drawing.Size(100, 28);
             this.mrButton1.TabIndex = 20;
             this.mrButton1.Text = "mrButton1";
             this.mrButton1.UseVisualStyleBackColor = true;
@@ -175,49 +179,55 @@
             this.pnlFrontCoverImageParent.Controls.Add(this.pnlFrontCoverImage);
             this.pnlFrontCoverImageParent.Controls.Add(this.tbFrontCoverImage);
             this.pnlFrontCoverImageParent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFrontCoverImageParent.Location = new System.Drawing.Point(2, 406);
+            this.pnlFrontCoverImageParent.Location = new System.Drawing.Point(3, 498);
+            this.pnlFrontCoverImageParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlFrontCoverImageParent.Name = "pnlFrontCoverImageParent";
-            this.pnlFrontCoverImageParent.Size = new System.Drawing.Size(844, 101);
+            this.pnlFrontCoverImageParent.Size = new System.Drawing.Size(1125, 160);
             this.pnlFrontCoverImageParent.TabIndex = 19;
             // 
             // pnlFrontCoverImage
             // 
             this.pnlFrontCoverImage.AutoSize = true;
+            this.pnlFrontCoverImage.Controls.Add(this.mrButton1);
+            this.pnlFrontCoverImage.Controls.Add(this.lblFrontCoverImageWidth);
+            this.pnlFrontCoverImage.Controls.Add(this.lblFrontCoverImageHeight);
+            this.pnlFrontCoverImage.Controls.Add(this.mrLabel11);
+            this.pnlFrontCoverImage.Controls.Add(this.mrLabel12);
             this.pnlFrontCoverImage.Controls.Add(this.lblFrontCoverImageRelativePath);
             this.pnlFrontCoverImage.Controls.Add(this.lblFrontCoverImageFileName);
             this.pnlFrontCoverImage.Controls.Add(this.btnOpenFrontCoverImage);
             this.pnlFrontCoverImage.Controls.Add(this.mrLabel1);
             this.pnlFrontCoverImage.Controls.Add(this.label13);
             this.pnlFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFrontCoverImage.Location = new System.Drawing.Point(0, 24);
+            this.pnlFrontCoverImage.Location = new System.Drawing.Point(0, 30);
+            this.pnlFrontCoverImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlFrontCoverImage.Name = "pnlFrontCoverImage";
-            this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.pnlFrontCoverImage.Size = new System.Drawing.Size(844, 77);
+            this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 12);
+            this.pnlFrontCoverImage.Size = new System.Drawing.Size(1125, 130);
             this.pnlFrontCoverImage.TabIndex = 1;
             // 
             // lblFrontCoverImageRelativePath
             // 
             this.lblFrontCoverImageRelativePath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFrontCoverImageRelativePath.Location = new System.Drawing.Point(103, 27);
-            this.lblFrontCoverImageRelativePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFrontCoverImageRelativePath.Location = new System.Drawing.Point(137, 33);
             this.lblFrontCoverImageRelativePath.Name = "lblFrontCoverImageRelativePath";
-            this.lblFrontCoverImageRelativePath.Size = new System.Drawing.Size(301, 22);
+            this.lblFrontCoverImageRelativePath.Size = new System.Drawing.Size(401, 27);
             this.lblFrontCoverImageRelativePath.TabIndex = 6;
             // 
             // lblFrontCoverImageFileName
             // 
             this.lblFrontCoverImageFileName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFrontCoverImageFileName.Location = new System.Drawing.Point(103, 5);
-            this.lblFrontCoverImageFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFrontCoverImageFileName.Location = new System.Drawing.Point(137, 6);
             this.lblFrontCoverImageFileName.Name = "lblFrontCoverImageFileName";
-            this.lblFrontCoverImageFileName.Size = new System.Drawing.Size(301, 22);
+            this.lblFrontCoverImageFileName.Size = new System.Drawing.Size(401, 27);
             this.lblFrontCoverImageFileName.TabIndex = 5;
             // 
             // btnOpenFrontCoverImage
             // 
-            this.btnOpenFrontCoverImage.Location = new System.Drawing.Point(409, 5);
+            this.btnOpenFrontCoverImage.Location = new System.Drawing.Point(545, 6);
+            this.btnOpenFrontCoverImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOpenFrontCoverImage.Name = "btnOpenFrontCoverImage";
-            this.btnOpenFrontCoverImage.Size = new System.Drawing.Size(29, 22);
+            this.btnOpenFrontCoverImage.Size = new System.Drawing.Size(39, 27);
             this.btnOpenFrontCoverImage.TabIndex = 4;
             this.btnOpenFrontCoverImage.Text = "...";
             this.btnOpenFrontCoverImage.UseVisualStyleBackColor = true;
@@ -225,19 +235,17 @@
             // 
             // mrLabel1
             // 
-            this.mrLabel1.Location = new System.Drawing.Point(15, 27);
-            this.mrLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel1.Location = new System.Drawing.Point(20, 33);
             this.mrLabel1.Name = "mrLabel1";
-            this.mrLabel1.Size = new System.Drawing.Size(84, 22);
+            this.mrLabel1.Size = new System.Drawing.Size(112, 27);
             this.mrLabel1.TabIndex = 2;
             this.mrLabel1.Text = "Relative Path";
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(15, 5);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(20, 6);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 22);
+            this.label13.Size = new System.Drawing.Size(112, 27);
             this.label13.TabIndex = 0;
             this.label13.Text = "FileName";
             // 
@@ -245,8 +253,9 @@
             // 
             this.tbFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbFrontCoverImage.Location = new System.Drawing.Point(0, 0);
+            this.tbFrontCoverImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbFrontCoverImage.Name = "tbFrontCoverImage";
-            this.tbFrontCoverImage.Size = new System.Drawing.Size(844, 24);
+            this.tbFrontCoverImage.Size = new System.Drawing.Size(1125, 30);
             this.tbFrontCoverImage.TabIndex = 0;
             this.tbFrontCoverImage.Title = "Front Cover Image";
             // 
@@ -256,9 +265,10 @@
             this.pnlTrackReleasesParent.Controls.Add(this.dgvSoundRecordingsAndReleases);
             this.pnlTrackReleasesParent.Controls.Add(this.tbTrackReleases);
             this.pnlTrackReleasesParent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTrackReleasesParent.Location = new System.Drawing.Point(2, 300);
+            this.pnlTrackReleasesParent.Location = new System.Drawing.Point(3, 368);
+            this.pnlTrackReleasesParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTrackReleasesParent.Name = "pnlTrackReleasesParent";
-            this.pnlTrackReleasesParent.Size = new System.Drawing.Size(844, 106);
+            this.pnlTrackReleasesParent.Size = new System.Drawing.Size(1125, 130);
             this.pnlTrackReleasesParent.TabIndex = 17;
             // 
             // dgvSoundRecordingsAndReleases
@@ -275,12 +285,13 @@
             this.csTrackTitle});
             this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSoundRecordingsAndReleases.GridColor = System.Drawing.Color.DarkGray;
-            this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(0, 24);
+            this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(0, 30);
+            this.dgvSoundRecordingsAndReleases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvSoundRecordingsAndReleases.MultiSelect = false;
             this.dgvSoundRecordingsAndReleases.Name = "dgvSoundRecordingsAndReleases";
             this.dgvSoundRecordingsAndReleases.ReadOnly = true;
             this.dgvSoundRecordingsAndReleases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(844, 82);
+            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(1125, 100);
             this.dgvSoundRecordingsAndReleases.TabIndex = 3;
             this.dgvSoundRecordingsAndReleases.TabStop = false;
             this.dgvSoundRecordingsAndReleases.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellClick);
@@ -341,8 +352,9 @@
             this.tbTrackReleases.AddVisible = true;
             this.tbTrackReleases.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbTrackReleases.Location = new System.Drawing.Point(0, 0);
+            this.tbTrackReleases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTrackReleases.Name = "tbTrackReleases";
-            this.tbTrackReleases.Size = new System.Drawing.Size(844, 24);
+            this.tbTrackReleases.Size = new System.Drawing.Size(1125, 30);
             this.tbTrackReleases.TabIndex = 16;
             this.tbTrackReleases.Title = "Track Releases";
             this.tbTrackReleases.ButtonClicked += new Framework.UI.Controls.MRTitleBar.ButtonClickedEventHandler(this.tbTrackReleases_ButtonClicked);
@@ -352,9 +364,10 @@
             this.mrPanel1.Controls.Add(this.pnlMessageHeaderParent);
             this.mrPanel1.Controls.Add(this.pnlMainReleaseParent);
             this.mrPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mrPanel1.Location = new System.Drawing.Point(2, 15);
+            this.mrPanel1.Location = new System.Drawing.Point(3, 17);
+            this.mrPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mrPanel1.Name = "mrPanel1";
-            this.mrPanel1.Size = new System.Drawing.Size(844, 285);
+            this.mrPanel1.Size = new System.Drawing.Size(1125, 351);
             this.mrPanel1.TabIndex = 18;
             // 
             // pnlMessageHeaderParent
@@ -364,9 +377,10 @@
             this.pnlMessageHeaderParent.Controls.Add(this.pnlMessageHeader);
             this.pnlMessageHeaderParent.Controls.Add(this.tbMessageHeader);
             this.pnlMessageHeaderParent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMessageHeaderParent.Location = new System.Drawing.Point(0, 140);
+            this.pnlMessageHeaderParent.Location = new System.Drawing.Point(0, 172);
+            this.pnlMessageHeaderParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMessageHeaderParent.Name = "pnlMessageHeaderParent";
-            this.pnlMessageHeaderParent.Size = new System.Drawing.Size(844, 145);
+            this.pnlMessageHeaderParent.Size = new System.Drawing.Size(1125, 179);
             this.pnlMessageHeaderParent.TabIndex = 15;
             // 
             // pnlMessageHeader
@@ -385,113 +399,108 @@
             this.pnlMessageHeader.Controls.Add(this.txtMessageRecipient_PartyID);
             this.pnlMessageHeader.Controls.Add(this.label3);
             this.pnlMessageHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMessageHeader.Location = new System.Drawing.Point(0, 24);
+            this.pnlMessageHeader.Location = new System.Drawing.Point(0, 30);
+            this.pnlMessageHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMessageHeader.Name = "pnlMessageHeader";
-            this.pnlMessageHeader.Padding = new System.Windows.Forms.Padding(0, 0, 10, 10);
-            this.pnlMessageHeader.Size = new System.Drawing.Size(844, 121);
+            this.pnlMessageHeader.Padding = new System.Windows.Forms.Padding(0, 0, 13, 12);
+            this.pnlMessageHeader.Size = new System.Drawing.Size(1125, 149);
             this.pnlMessageHeader.TabIndex = 13;
             // 
             // dpMessageCreatedDateTime
             // 
             this.dpMessageCreatedDateTime.CustomFormat = "dd.MM.yyyy HH:mm.ss";
             this.dpMessageCreatedDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpMessageCreatedDateTime.Location = new System.Drawing.Point(187, 93);
-            this.dpMessageCreatedDateTime.Margin = new System.Windows.Forms.Padding(2);
+            this.dpMessageCreatedDateTime.Location = new System.Drawing.Point(249, 114);
+            this.dpMessageCreatedDateTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpMessageCreatedDateTime.Name = "dpMessageCreatedDateTime";
-            this.dpMessageCreatedDateTime.Size = new System.Drawing.Size(156, 20);
+            this.dpMessageCreatedDateTime.Size = new System.Drawing.Size(207, 22);
             this.dpMessageCreatedDateTime.TabIndex = 11;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(15, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(20, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 18);
+            this.label1.Size = new System.Drawing.Size(163, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Message ID";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(15, 93);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(20, 114);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 18);
+            this.label6.Size = new System.Drawing.Size(209, 22);
             this.label6.TabIndex = 10;
             this.label6.Text = "DateTime Created";
             // 
             // txtMessageID
             // 
-            this.txtMessageID.Location = new System.Drawing.Point(187, 4);
-            this.txtMessageID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMessageID.Location = new System.Drawing.Point(249, 5);
+            this.txtMessageID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMessageID.Name = "txtMessageID";
-            this.txtMessageID.Size = new System.Drawing.Size(156, 20);
+            this.txtMessageID.Size = new System.Drawing.Size(207, 22);
             this.txtMessageID.TabIndex = 1;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(15, 75);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(20, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 18);
+            this.label4.Size = new System.Drawing.Size(209, 22);
             this.label4.TabIndex = 8;
             this.label4.Text = "Recipient PartyName";
             // 
             // txtMessageSender_PartyID
             // 
-            this.txtMessageSender_PartyID.Location = new System.Drawing.Point(187, 21);
-            this.txtMessageSender_PartyID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMessageSender_PartyID.Location = new System.Drawing.Point(249, 26);
+            this.txtMessageSender_PartyID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMessageSender_PartyID.Name = "txtMessageSender_PartyID";
-            this.txtMessageSender_PartyID.Size = new System.Drawing.Size(156, 20);
+            this.txtMessageSender_PartyID.Size = new System.Drawing.Size(207, 22);
             this.txtMessageSender_PartyID.TabIndex = 3;
             // 
             // txtMessageRecipient_PartyName
             // 
-            this.txtMessageRecipient_PartyName.Location = new System.Drawing.Point(187, 75);
-            this.txtMessageRecipient_PartyName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMessageRecipient_PartyName.Location = new System.Drawing.Point(249, 92);
+            this.txtMessageRecipient_PartyName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMessageRecipient_PartyName.Name = "txtMessageRecipient_PartyName";
-            this.txtMessageRecipient_PartyName.Size = new System.Drawing.Size(156, 20);
+            this.txtMessageRecipient_PartyName.Size = new System.Drawing.Size(207, 22);
             this.txtMessageRecipient_PartyName.TabIndex = 9;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(15, 21);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(20, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 18);
+            this.label2.Size = new System.Drawing.Size(172, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Sender PartyID";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(15, 57);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(20, 70);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 18);
+            this.label5.Size = new System.Drawing.Size(181, 22);
             this.label5.TabIndex = 6;
             this.label5.Text = "Recipient PartyID";
             // 
             // txtMessageSender_PartyName
             // 
-            this.txtMessageSender_PartyName.Location = new System.Drawing.Point(187, 39);
-            this.txtMessageSender_PartyName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMessageSender_PartyName.Location = new System.Drawing.Point(249, 48);
+            this.txtMessageSender_PartyName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMessageSender_PartyName.Name = "txtMessageSender_PartyName";
-            this.txtMessageSender_PartyName.Size = new System.Drawing.Size(156, 20);
+            this.txtMessageSender_PartyName.Size = new System.Drawing.Size(207, 22);
             this.txtMessageSender_PartyName.TabIndex = 5;
             // 
             // txtMessageRecipient_PartyID
             // 
-            this.txtMessageRecipient_PartyID.Location = new System.Drawing.Point(187, 57);
-            this.txtMessageRecipient_PartyID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMessageRecipient_PartyID.Location = new System.Drawing.Point(249, 70);
+            this.txtMessageRecipient_PartyID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMessageRecipient_PartyID.Name = "txtMessageRecipient_PartyID";
-            this.txtMessageRecipient_PartyID.Size = new System.Drawing.Size(156, 20);
+            this.txtMessageRecipient_PartyID.Size = new System.Drawing.Size(207, 22);
             this.txtMessageRecipient_PartyID.TabIndex = 7;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(15, 39);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(20, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 18);
+            this.label3.Size = new System.Drawing.Size(196, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Sender PartyName";
             // 
@@ -499,8 +508,9 @@
             // 
             this.tbMessageHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbMessageHeader.Location = new System.Drawing.Point(0, 0);
+            this.tbMessageHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbMessageHeader.Name = "tbMessageHeader";
-            this.tbMessageHeader.Size = new System.Drawing.Size(844, 24);
+            this.tbMessageHeader.Size = new System.Drawing.Size(1125, 30);
             this.tbMessageHeader.TabIndex = 12;
             this.tbMessageHeader.Title = "Message Header";
             // 
@@ -510,8 +520,9 @@
             this.pnlMainReleaseParent.Controls.Add(this.tbMainRelease);
             this.pnlMainReleaseParent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMainReleaseParent.Location = new System.Drawing.Point(0, 0);
+            this.pnlMainReleaseParent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMainReleaseParent.Name = "pnlMainReleaseParent";
-            this.pnlMainReleaseParent.Size = new System.Drawing.Size(844, 140);
+            this.pnlMainReleaseParent.Size = new System.Drawing.Size(1125, 172);
             this.pnlMainReleaseParent.TabIndex = 14;
             // 
             // pnlMainRelease
@@ -537,181 +548,184 @@
             this.pnlMainRelease.Controls.Add(this.txtMainReleaseReferenceTitle);
             this.pnlMainRelease.Controls.Add(this.txtEAN);
             this.pnlMainRelease.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainRelease.Location = new System.Drawing.Point(0, 24);
+            this.pnlMainRelease.Location = new System.Drawing.Point(0, 30);
+            this.pnlMainRelease.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMainRelease.Name = "pnlMainRelease";
-            this.pnlMainRelease.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.pnlMainRelease.Size = new System.Drawing.Size(844, 116);
+            this.pnlMainRelease.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
+            this.pnlMainRelease.Size = new System.Drawing.Size(1125, 142);
             this.pnlMainRelease.TabIndex = 13;
+            // 
+            // mrDatePicker1
+            // 
+            this.mrDatePicker1.CustomFormat = "yyyy-MM-dd";
+            this.mrDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.mrDatePicker1.Location = new System.Drawing.Point(941, 32);
+            this.mrDatePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrDatePicker1.Name = "mrDatePicker1";
+            this.mrDatePicker1.ShowCheckBox = true;
+            this.mrDatePicker1.Size = new System.Drawing.Size(173, 22);
+            this.mrDatePicker1.TabIndex = 24;
             // 
             // mrLabel8
             // 
-            this.mrLabel8.Location = new System.Drawing.Point(569, 26);
-            this.mrLabel8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel8.Location = new System.Drawing.Point(759, 32);
             this.mrLabel8.Name = "mrLabel8";
-            this.mrLabel8.Size = new System.Drawing.Size(137, 21);
+            this.mrLabel8.Size = new System.Drawing.Size(183, 26);
             this.mrLabel8.TabIndex = 23;
             this.mrLabel8.Text = "Approximate Release Date";
             // 
             // mrLabel7
             // 
-            this.mrLabel7.Location = new System.Drawing.Point(569, 3);
-            this.mrLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel7.Location = new System.Drawing.Point(759, 4);
             this.mrLabel7.Name = "mrLabel7";
-            this.mrLabel7.Size = new System.Drawing.Size(81, 18);
+            this.mrLabel7.Size = new System.Drawing.Size(108, 22);
             this.mrLabel7.TabIndex = 21;
             this.mrLabel7.Text = "Release Year";
             // 
             // txtReleaseYear
             // 
-            this.txtReleaseYear.Location = new System.Drawing.Point(706, 3);
-            this.txtReleaseYear.Margin = new System.Windows.Forms.Padding(2);
+            this.txtReleaseYear.Location = new System.Drawing.Point(941, 4);
+            this.txtReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtReleaseYear.Name = "txtReleaseYear";
-            this.txtReleaseYear.Size = new System.Drawing.Size(131, 20);
+            this.txtReleaseYear.Size = new System.Drawing.Size(173, 22);
             this.txtReleaseYear.TabIndex = 22;
             // 
             // mrLabel6
             // 
-            this.mrLabel6.Location = new System.Drawing.Point(274, 67);
-            this.mrLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel6.Location = new System.Drawing.Point(365, 82);
             this.mrLabel6.Name = "mrLabel6";
-            this.mrLabel6.Size = new System.Drawing.Size(128, 18);
+            this.mrLabel6.Size = new System.Drawing.Size(171, 22);
             this.mrLabel6.TabIndex = 19;
             this.mrLabel6.Text = "PLineText and CLineText";
             // 
             // txtPCLine
             // 
-            this.txtPCLine.Location = new System.Drawing.Point(409, 66);
-            this.txtPCLine.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPCLine.Location = new System.Drawing.Point(545, 81);
+            this.txtPCLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPCLine.Name = "txtPCLine";
-            this.txtPCLine.Size = new System.Drawing.Size(156, 20);
+            this.txtPCLine.Size = new System.Drawing.Size(207, 22);
             this.txtPCLine.TabIndex = 20;
             // 
             // mrLabel4
             // 
-            this.mrLabel4.Location = new System.Drawing.Point(274, 46);
-            this.mrLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel4.Location = new System.Drawing.Point(365, 57);
             this.mrLabel4.Name = "mrLabel4";
-            this.mrLabel4.Size = new System.Drawing.Size(130, 18);
+            this.mrLabel4.Size = new System.Drawing.Size(173, 22);
             this.mrLabel4.TabIndex = 17;
             this.mrLabel4.Text = "Sub Genre";
             // 
             // mrLabel5
             // 
-            this.mrLabel5.Location = new System.Drawing.Point(274, 26);
-            this.mrLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel5.Location = new System.Drawing.Point(365, 32);
             this.mrLabel5.Name = "mrLabel5";
-            this.mrLabel5.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel5.Size = new System.Drawing.Size(163, 22);
             this.mrLabel5.TabIndex = 15;
             this.mrLabel5.Text = "Genre";
             // 
             // txtSubGenre
             // 
-            this.txtSubGenre.Location = new System.Drawing.Point(409, 45);
-            this.txtSubGenre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSubGenre.Location = new System.Drawing.Point(545, 55);
+            this.txtSubGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSubGenre.Name = "txtSubGenre";
-            this.txtSubGenre.Size = new System.Drawing.Size(156, 20);
+            this.txtSubGenre.Size = new System.Drawing.Size(207, 22);
             this.txtSubGenre.TabIndex = 18;
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(409, 23);
-            this.txtGenre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtGenre.Location = new System.Drawing.Point(545, 28);
+            this.txtGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(156, 20);
+            this.txtGenre.Size = new System.Drawing.Size(207, 22);
             this.txtGenre.TabIndex = 16;
             // 
             // mrLabel3
             // 
-            this.mrLabel3.Location = new System.Drawing.Point(274, 4);
-            this.mrLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel3.Location = new System.Drawing.Point(365, 5);
             this.mrLabel3.Name = "mrLabel3";
-            this.mrLabel3.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel3.Size = new System.Drawing.Size(163, 22);
             this.mrLabel3.TabIndex = 11;
             this.mrLabel3.Text = "Label";
             // 
             // txtLabel
             // 
-            this.txtLabel.Location = new System.Drawing.Point(409, 2);
-            this.txtLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLabel.Location = new System.Drawing.Point(545, 2);
+            this.txtLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLabel.Name = "txtLabel";
-            this.txtLabel.Size = new System.Drawing.Size(156, 20);
+            this.txtLabel.Size = new System.Drawing.Size(207, 22);
             this.txtLabel.TabIndex = 12;
             // 
             // mrLabel2
             // 
-            this.mrLabel2.Location = new System.Drawing.Point(12, 68);
-            this.mrLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel2.Location = new System.Drawing.Point(16, 84);
             this.mrLabel2.Name = "mrLabel2";
-            this.mrLabel2.Size = new System.Drawing.Size(98, 18);
+            this.mrLabel2.Size = new System.Drawing.Size(131, 22);
             this.mrLabel2.TabIndex = 9;
             this.mrLabel2.Text = "Main Artist";
             // 
             // txtMainArtist
             // 
-            this.txtMainArtist.Location = new System.Drawing.Point(114, 64);
-            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMainArtist.Location = new System.Drawing.Point(152, 79);
+            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMainArtist.Name = "txtMainArtist";
-            this.txtMainArtist.Size = new System.Drawing.Size(156, 20);
+            this.txtMainArtist.Size = new System.Drawing.Size(207, 22);
             this.txtMainArtist.TabIndex = 10;
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(12, 26);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(16, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 18);
+            this.label8.Size = new System.Drawing.Size(131, 22);
             this.label8.TabIndex = 7;
             this.label8.Text = "Title";
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(12, 7);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(16, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 18);
+            this.label7.Size = new System.Drawing.Size(131, 22);
             this.label7.TabIndex = 5;
             this.label7.Text = "EAN";
             // 
             // cbUpdateIndicator
             // 
             this.cbUpdateIndicator.FormattingEnabled = true;
-            this.cbUpdateIndicator.Location = new System.Drawing.Point(114, 42);
-            this.cbUpdateIndicator.Margin = new System.Windows.Forms.Padding(2);
+            this.cbUpdateIndicator.Location = new System.Drawing.Point(152, 52);
+            this.cbUpdateIndicator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbUpdateIndicator.Name = "cbUpdateIndicator";
-            this.cbUpdateIndicator.Size = new System.Drawing.Size(156, 21);
+            this.cbUpdateIndicator.Size = new System.Drawing.Size(207, 24);
             this.cbUpdateIndicator.TabIndex = 1;
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(12, 45);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(16, 55);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 18);
+            this.label12.Size = new System.Drawing.Size(131, 22);
             this.label12.TabIndex = 0;
             this.label12.Text = "UpdateIndicator";
             // 
             // txtMainReleaseReferenceTitle
             // 
-            this.txtMainReleaseReferenceTitle.Location = new System.Drawing.Point(114, 22);
-            this.txtMainReleaseReferenceTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMainReleaseReferenceTitle.Location = new System.Drawing.Point(152, 27);
+            this.txtMainReleaseReferenceTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMainReleaseReferenceTitle.Name = "txtMainReleaseReferenceTitle";
-            this.txtMainReleaseReferenceTitle.Size = new System.Drawing.Size(156, 20);
+            this.txtMainReleaseReferenceTitle.Size = new System.Drawing.Size(207, 22);
             this.txtMainReleaseReferenceTitle.TabIndex = 8;
             // 
             // txtEAN
             // 
-            this.txtEAN.Location = new System.Drawing.Point(114, 4);
-            this.txtEAN.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEAN.Location = new System.Drawing.Point(152, 5);
+            this.txtEAN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEAN.Name = "txtEAN";
-            this.txtEAN.Size = new System.Drawing.Size(156, 20);
+            this.txtEAN.Size = new System.Drawing.Size(207, 22);
             this.txtEAN.TabIndex = 6;
             // 
             // tbMainRelease
             // 
             this.tbMainRelease.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbMainRelease.Location = new System.Drawing.Point(0, 0);
+            this.tbMainRelease.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbMainRelease.Name = "tbMainRelease";
-            this.tbMainRelease.Size = new System.Drawing.Size(844, 24);
+            this.tbMainRelease.Size = new System.Drawing.Size(1125, 30);
             this.tbMainRelease.TabIndex = 12;
             this.tbMainRelease.Title = "Main Release";
             // 
@@ -750,23 +764,45 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
-            // mrDatePicker1
+            // lblFrontCoverImageWidth
             // 
-            this.mrDatePicker1.CustomFormat = "yyyy-MM-dd";
-            this.mrDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.mrDatePicker1.Location = new System.Drawing.Point(706, 26);
-            this.mrDatePicker1.Name = "mrDatePicker1";
-            this.mrDatePicker1.ShowCheckBox = true;
-            this.mrDatePicker1.Size = new System.Drawing.Size(131, 20);
-            this.mrDatePicker1.TabIndex = 24;
+            this.lblFrontCoverImageWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFrontCoverImageWidth.Location = new System.Drawing.Point(368, 69);
+            this.lblFrontCoverImageWidth.Name = "lblFrontCoverImageWidth";
+            this.lblFrontCoverImageWidth.Size = new System.Drawing.Size(170, 27);
+            this.lblFrontCoverImageWidth.TabIndex = 10;
+            // 
+            // lblFrontCoverImageHeight
+            // 
+            this.lblFrontCoverImageHeight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFrontCoverImageHeight.Location = new System.Drawing.Point(137, 69);
+            this.lblFrontCoverImageHeight.Name = "lblFrontCoverImageHeight";
+            this.lblFrontCoverImageHeight.Size = new System.Drawing.Size(170, 27);
+            this.lblFrontCoverImageHeight.TabIndex = 9;
+            // 
+            // mrLabel11
+            // 
+            this.mrLabel11.Location = new System.Drawing.Point(313, 69);
+            this.mrLabel11.Name = "mrLabel11";
+            this.mrLabel11.Size = new System.Drawing.Size(54, 27);
+            this.mrLabel11.TabIndex = 8;
+            this.mrLabel11.Text = "Width";
+            // 
+            // mrLabel12
+            // 
+            this.mrLabel12.Location = new System.Drawing.Point(20, 69);
+            this.mrLabel12.Name = "mrLabel12";
+            this.mrLabel12.Size = new System.Drawing.Size(112, 27);
+            this.mrLabel12.TabIndex = 7;
+            this.mrLabel12.Text = "Height";
             // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(848, 642);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(1131, 790);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "ERN_382GenerationFormAudioAlbumMusicOnly";
             this.Text = "Release Edit";
             this.DialogResultClicked += new Framework.UI.Forms.MREditForm.ButtonClickEventHandler(this.Form_DialogResultClicked);
@@ -859,5 +895,9 @@
         private Framework.UI.Controls.MRTextBox txtReleaseYear;
         private Framework.UI.Controls.MRLabel mrLabel8;
         private Framework.UI.Controls.MRDatePicker mrDatePicker1;
+        private Framework.UI.Controls.MRLabel lblFrontCoverImageWidth;
+        private Framework.UI.Controls.MRLabel lblFrontCoverImageHeight;
+        private Framework.UI.Controls.MRLabel mrLabel11;
+        private Framework.UI.Controls.MRLabel mrLabel12;
     }
 }

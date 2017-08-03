@@ -38,6 +38,16 @@ namespace Business.DDEXSchemaERN_382.Entities
         public int FrontCoverImageHeight_Materialized { get { return Get<int>(); } set { Set(value); } }
         public int FrontCoverImageWidth_Materialized { get { return Get<int>(); } set { Set(value); } }        
         public SortableBindingList<TrackModel> Tracks { get; set; } = new SortableBindingList<TrackModel>();
+
+        public string GetFullFileNameFromRelativePathAndFileName(string relativePath, string fileName)
+        {
+            string ret = "";
+
+            string dir = System.IO.Path.GetDirectoryName(FullFileName);
+            ret = dir + @"\" + relativePath.TrimEnd('/') + @"\" + fileName;
+
+            return ret;
+        }
         public void ComputeMaterialized()
         {
             if (System.IO.File.Exists(FrontCoverImageFullFileName))
@@ -48,7 +58,7 @@ namespace Business.DDEXSchemaERN_382.Entities
                     {
                         FrontCoverImageCodecType = ImageCodecType.JPEG;
                     }
-                    else 
+                    else
                     {
                         FrontCoverImageCodecType = ImageCodecType.Unknown;
                     }
@@ -57,6 +67,12 @@ namespace Business.DDEXSchemaERN_382.Entities
                 }
 
                 FrontCoverImageHashSum_Materialized = DDEXFactory.Helpers.FilesHelper.GetMD5HashSum(FrontCoverImageFullFileName);
+            }
+            else
+            {
+                FrontCoverImageHeight_Materialized = 0;
+                FrontCoverImageWidth_Materialized = 0;
+                FrontCoverImageCodecType = ImageCodecType.Unknown;
             }
         }
         public override bool IsValid(out string message)

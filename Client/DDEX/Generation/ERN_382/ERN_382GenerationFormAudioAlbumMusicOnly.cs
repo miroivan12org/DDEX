@@ -393,6 +393,8 @@ namespace DDEX.Generation.ERN_382
 
             lblFrontCoverImageRelativePath.DataBindings.Add("Text", Model, "FrontCoverImagePath");
             lblFrontCoverImageFileName.DataBindings.Add("Text", Model, "FrontCoverImageFileName");
+            lblFrontCoverImageHeight.DataBindings.Add("Text", Model, "FrontCoverImageHeight_Materialized");
+            lblFrontCoverImageWidth.DataBindings.Add("Text", Model, "FrontCoverImageWidth_Materialized");
 
             txtPCLine.DataBindings.Add("Text", Model, "PCLineText");
             txtReleaseYear.DataBindings.Add("Text", Model, "ReleaseYear");
@@ -519,6 +521,12 @@ namespace DDEX.Generation.ERN_382
         {
             using (var fd = new OpenFileDialog() { RestoreDirectory = true, InitialDirectory = System.IO.Path.GetDirectoryName(Model.FullFileName) })
             {
+                if (Model.FrontCoverImageFullFileName != null && System.IO.File.Exists(Model.FrontCoverImageFullFileName))
+                {
+                    fd.InitialDirectory = System.IO.Path.GetDirectoryName(Model.FrontCoverImageFullFileName);
+                    fd.FileName = System.IO.Path.GetFileName(Model.FrontCoverImageFullFileName);
+                }
+
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
                     Model.FrontCoverImageFileName = System.IO.Path.GetFileName(fd.FileName);
@@ -543,9 +551,6 @@ namespace DDEX.Generation.ERN_382
                 Model.ComputeMaterialized();
             }
         }
-
-   
     }
-
     
 }

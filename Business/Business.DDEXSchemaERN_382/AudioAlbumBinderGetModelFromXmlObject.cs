@@ -57,6 +57,30 @@ namespace Business.DDEXSchemaERN_382
             
             return ret;
         }
+        private TechnicalImageDetails GetModelFrontCoverImageTechnicalImageDetails(NewReleaseMessage nrm)
+        {
+            TechnicalImageDetails ret = null;
+
+            ImageDetailsByTerritory imgDet = GetModelFrontCoverImageDetailsByTerritory(nrm);
+            if (imgDet != null && imgDet.TechnicalImageDetails != null && imgDet.TechnicalImageDetails.Length > 0)
+            {
+                ret = imgDet.TechnicalImageDetails[0];
+            }
+
+            return ret;
+        }
+        private File GetModelFrontCoverImageFile(NewReleaseMessage nrm)
+        {
+            File ret = null;
+
+            TechnicalImageDetails det = GetModelFrontCoverImageTechnicalImageDetails(nrm);
+            if (det != null && det.Items != null && det.Items.Length > 0 && det.Items[0] != null && det.Items[0] is File)
+            {
+                ret = (File)det.Items[0];
+            }
+
+            return ret;
+        }
         private string GetModelEAN(NewReleaseMessage nrm)
         {
             string ret = null;
@@ -249,13 +273,57 @@ namespace Business.DDEXSchemaERN_382
         {
             string ret = null;
 
-            ImageDetailsByTerritory imgDet = GetModelFrontCoverImageDetailsByTerritory(nrm);
-            if (imgDet != null)
+            File imgFile = GetModelFrontCoverImageFile(nrm);
+            if (imgFile != null && imgFile.ItemsElementName != null && imgFile.ItemsElementName.ToList().IndexOf( ItemsChoiceType6.FileName) >= 0 && imgFile.Items != null && imgFile.Items.Length > imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FileName))
             {
-                //TODO
+                ret = imgFile.Items[imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FileName)];
             }
 
+            return ret;
+        }
+        private string GetModelFrontCoverImagePath(NewReleaseMessage nrm)
+        {
+            string ret = null;
 
+            File imgFile = GetModelFrontCoverImageFile(nrm);
+            if (imgFile != null && imgFile.ItemsElementName != null && imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FileName) >= 0 && imgFile.Items != null && imgFile.Items.Length > imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath))
+            {
+                ret = imgFile.Items[imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath)];
+            }
+
+            return ret;
+        }
+        private string GetModelFrontCoverImageHashSum(NewReleaseMessage nrm)
+        {
+            string ret = null;
+
+            File imgFile = GetModelFrontCoverImageFile(nrm);
+            if (imgFile != null && imgFile.HashSum != null )
+            {
+                ret = imgFile.HashSum.HashSum1;
+            }
+
+            return ret;
+        }
+        private int GetModelFrontCoverImageHeight_Materialized(NewReleaseMessage nrm)
+        {
+            int ret = 0;
+            TechnicalImageDetails det = GetModelFrontCoverImageTechnicalImageDetails(nrm);
+            if (det != null && det.ImageHeight != null)
+            {
+                ret = (int) det.ImageHeight.Value;
+            }
+
+            return ret;
+        }
+        private int GetModelFrontCoverImageWidth_Materialized(NewReleaseMessage nrm)
+        {
+            int ret = 0;
+            TechnicalImageDetails det = GetModelFrontCoverImageTechnicalImageDetails(nrm);
+            if (det != null && det.ImageWidth != null)
+            {
+                ret = (int)det.ImageWidth.Value;
+            }
 
             return ret;
         }
@@ -288,6 +356,13 @@ namespace Business.DDEXSchemaERN_382
                     ret.SubGenre = GetModelSubGenre(nrm);
                     ret.PCLineText = GetModelPCLineText(nrm);
                     ret.ReleaseYear = GetModelReleseYear(nrm);
+                    ret.FrontCoverImageFileName = GetModelFrontCoverImageFileName(nrm);
+                    ret.FrontCoverImagePath = GetModelFrontCoverImagePath(nrm);
+                    ret.FrontCoverImageFullFileName = ret.GetFullFileNameFromRelativePathAndFileName(ret.FrontCoverImagePath, ret.FrontCoverImageFileName);
+                    ret.FrontCoverImageHashSum_Materialized = GetModelFrontCoverImageHashSum(nrm);
+                    ret.FrontCoverImageHeight_Materialized = GetModelFrontCoverImageHeight_Materialized(nrm);
+                    ret.FrontCoverImageWidth_Materialized = GetModelFrontCoverImageWidth_Materialized(nrm);
+                    
                 }
             }
             catch (Exception)
