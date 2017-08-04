@@ -36,6 +36,10 @@ namespace DDEX.Generation.ERN_382
             InitBindings();
             tbContributor1.BindedControls.Add(pnlContributor1);
             tbContributor2.BindedControls.Add(pnlContributor2);
+            tbContributor3.BindedControls.Add(pnlContributor3);
+            tbContributor4.BindedControls.Add(pnlContributor4);
+            tbContributor5.BindedControls.Add(pnlContributor5);
+            tbContributor6.BindedControls.Add(pnlContributor6);
         }
 
         private void InitBindings()
@@ -49,11 +53,22 @@ namespace DDEX.Generation.ERN_382
             txtDurationSecs.DataBindings.Add("Text", Model, "DurationSec");
             txtMainArtist.DataBindings.Add("Text", Model, "MainArtist");
             txtProducer.DataBindings.Add("Text", Model, "Producer");
-            txtReleaseYear.DataBindings.Add("Text", Model, "ReleaseYear");
+            txtPLineReleaseYear.DataBindings.Add("Text", Model, "PLineReleaseYear");
+            txtPLineText.DataBindings.Add("Text", Model, "PLineText");
+            txtCLineReleaseYear.DataBindings.Add("Text", Model, "CLineReleaseYear");
+            txtCLineText.DataBindings.Add("Text", Model, "CLineText");
             txtContributor1.DataBindings.Add("Text", Model, "Contributor1");
             txtContributor1Role.DataBindings.Add("Text", Model, "Contributor1Role");
             txtContributor2.DataBindings.Add("Text", Model, "Contributor2");
             txtContributor2Role.DataBindings.Add("Text", Model, "Contributor2Role");
+            txtContributor3.DataBindings.Add("Text", Model, "Contributor3");
+            txtContributor3Role.DataBindings.Add("Text", Model, "Contributor3Role");
+            txtContributor4.DataBindings.Add("Text", Model, "Contributor4");
+            txtContributor4Role.DataBindings.Add("Text", Model, "Contributor4Role");
+            txtContributor5.DataBindings.Add("Text", Model, "Contributor5");
+            txtContributor5Role.DataBindings.Add("Text", Model, "Contributor5Role");
+            txtContributor6.DataBindings.Add("Text", Model, "Contributor6");
+            txtContributor6Role.DataBindings.Add("Text", Model, "Contributor6Role");
         }
 
         private void ERN_382TrackReleaseForm_DialogResultClicked(object sender, DialogResultEventArgs e)

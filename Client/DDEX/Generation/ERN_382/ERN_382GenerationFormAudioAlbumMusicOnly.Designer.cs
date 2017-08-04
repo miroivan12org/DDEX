@@ -72,9 +72,9 @@
             this.mrDatePicker1 = new Framework.UI.Controls.MRDatePicker(this.components);
             this.mrLabel8 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel7 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtPReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrLabel6 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtPCLine = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtPLine = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrLabel4 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel5 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtSubGenre = new Framework.UI.Controls.MRTextBox(this.components);
@@ -93,6 +93,10 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.mrLabel10 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtCLine = new Framework.UI.Controls.MRTextBox(this.components);
+            this.mrLabel13 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtCReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlFrontCoverImage.SuspendLayout();
@@ -516,12 +520,16 @@
             // 
             // pnlMainRelease
             // 
+            this.pnlMainRelease.Controls.Add(this.mrLabel13);
+            this.pnlMainRelease.Controls.Add(this.txtCReleaseYear);
+            this.pnlMainRelease.Controls.Add(this.mrLabel10);
+            this.pnlMainRelease.Controls.Add(this.txtCLine);
             this.pnlMainRelease.Controls.Add(this.mrDatePicker1);
             this.pnlMainRelease.Controls.Add(this.mrLabel8);
             this.pnlMainRelease.Controls.Add(this.mrLabel7);
-            this.pnlMainRelease.Controls.Add(this.txtReleaseYear);
+            this.pnlMainRelease.Controls.Add(this.txtPReleaseYear);
             this.pnlMainRelease.Controls.Add(this.mrLabel6);
-            this.pnlMainRelease.Controls.Add(this.txtPCLine);
+            this.pnlMainRelease.Controls.Add(this.txtPLine);
             this.pnlMainRelease.Controls.Add(this.mrLabel4);
             this.pnlMainRelease.Controls.Add(this.mrLabel5);
             this.pnlMainRelease.Controls.Add(this.txtSubGenre);
@@ -548,7 +556,7 @@
             // 
             this.mrDatePicker1.CustomFormat = "yyyy-MM-dd";
             this.mrDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.mrDatePicker1.Location = new System.Drawing.Point(941, 32);
+            this.mrDatePicker1.Location = new System.Drawing.Point(547, 82);
             this.mrDatePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.mrDatePicker1.Name = "mrDatePicker1";
             this.mrDatePicker1.ShowCheckBox = true;
@@ -557,7 +565,7 @@
             // 
             // mrLabel8
             // 
-            this.mrLabel8.Location = new System.Drawing.Point(759, 32);
+            this.mrLabel8.Location = new System.Drawing.Point(365, 82);
             this.mrLabel8.Name = "mrLabel8";
             this.mrLabel8.Size = new System.Drawing.Size(183, 26);
             this.mrLabel8.TabIndex = 23;
@@ -565,35 +573,35 @@
             // 
             // mrLabel7
             // 
-            this.mrLabel7.Location = new System.Drawing.Point(759, 4);
+            this.mrLabel7.Location = new System.Drawing.Point(758, 27);
             this.mrLabel7.Name = "mrLabel7";
-            this.mrLabel7.Size = new System.Drawing.Size(108, 22);
+            this.mrLabel7.Size = new System.Drawing.Size(142, 22);
             this.mrLabel7.TabIndex = 21;
-            this.mrLabel7.Text = "Release Year";
+            this.mrLabel7.Text = "PLine Release Year";
             // 
-            // txtReleaseYear
+            // txtPReleaseYear
             // 
-            this.txtReleaseYear.Location = new System.Drawing.Point(941, 4);
-            this.txtReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtReleaseYear.Name = "txtReleaseYear";
-            this.txtReleaseYear.Size = new System.Drawing.Size(173, 22);
-            this.txtReleaseYear.TabIndex = 22;
+            this.txtPReleaseYear.Location = new System.Drawing.Point(909, 27);
+            this.txtPReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPReleaseYear.Name = "txtPReleaseYear";
+            this.txtPReleaseYear.Size = new System.Drawing.Size(207, 22);
+            this.txtPReleaseYear.TabIndex = 22;
             // 
             // mrLabel6
             // 
-            this.mrLabel6.Location = new System.Drawing.Point(365, 82);
+            this.mrLabel6.Location = new System.Drawing.Point(759, 5);
             this.mrLabel6.Name = "mrLabel6";
-            this.mrLabel6.Size = new System.Drawing.Size(171, 22);
+            this.mrLabel6.Size = new System.Drawing.Size(141, 22);
             this.mrLabel6.TabIndex = 19;
-            this.mrLabel6.Text = "PLineText and CLineText";
+            this.mrLabel6.Text = "PLine Text";
             // 
-            // txtPCLine
+            // txtPLine
             // 
-            this.txtPCLine.Location = new System.Drawing.Point(545, 81);
-            this.txtPCLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPCLine.Name = "txtPCLine";
-            this.txtPCLine.Size = new System.Drawing.Size(207, 22);
-            this.txtPCLine.TabIndex = 20;
+            this.txtPLine.Location = new System.Drawing.Point(909, 5);
+            this.txtPLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPLine.Name = "txtPLine";
+            this.txtPLine.Size = new System.Drawing.Size(207, 22);
+            this.txtPLine.TabIndex = 20;
             // 
             // mrLabel4
             // 
@@ -613,18 +621,18 @@
             // 
             // txtSubGenre
             // 
-            this.txtSubGenre.Location = new System.Drawing.Point(545, 55);
+            this.txtSubGenre.Location = new System.Drawing.Point(547, 55);
             this.txtSubGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSubGenre.Name = "txtSubGenre";
-            this.txtSubGenre.Size = new System.Drawing.Size(207, 22);
+            this.txtSubGenre.Size = new System.Drawing.Size(205, 22);
             this.txtSubGenre.TabIndex = 18;
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(545, 28);
+            this.txtGenre.Location = new System.Drawing.Point(547, 28);
             this.txtGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(207, 22);
+            this.txtGenre.Size = new System.Drawing.Size(205, 22);
             this.txtGenre.TabIndex = 16;
             // 
             // mrLabel3
@@ -637,10 +645,10 @@
             // 
             // txtLabel
             // 
-            this.txtLabel.Location = new System.Drawing.Point(545, 2);
+            this.txtLabel.Location = new System.Drawing.Point(547, 2);
             this.txtLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLabel.Name = "txtLabel";
-            this.txtLabel.Size = new System.Drawing.Size(207, 22);
+            this.txtLabel.Size = new System.Drawing.Size(205, 22);
             this.txtLabel.TabIndex = 12;
             // 
             // mrLabel2
@@ -753,6 +761,38 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
+            // mrLabel10
+            // 
+            this.mrLabel10.Location = new System.Drawing.Point(759, 56);
+            this.mrLabel10.Name = "mrLabel10";
+            this.mrLabel10.Size = new System.Drawing.Size(144, 22);
+            this.mrLabel10.TabIndex = 25;
+            this.mrLabel10.Text = "CLine Text";
+            // 
+            // txtCLine
+            // 
+            this.txtCLine.Location = new System.Drawing.Point(909, 55);
+            this.txtCLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCLine.Name = "txtCLine";
+            this.txtCLine.Size = new System.Drawing.Size(207, 22);
+            this.txtCLine.TabIndex = 26;
+            // 
+            // mrLabel13
+            // 
+            this.mrLabel13.Location = new System.Drawing.Point(758, 79);
+            this.mrLabel13.Name = "mrLabel13";
+            this.mrLabel13.Size = new System.Drawing.Size(142, 22);
+            this.mrLabel13.TabIndex = 27;
+            this.mrLabel13.Text = "CLine Release Year";
+            // 
+            // txtCReleaseYear
+            // 
+            this.txtCReleaseYear.Location = new System.Drawing.Point(909, 79);
+            this.txtCReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCReleaseYear.Name = "txtCReleaseYear";
+            this.txtCReleaseYear.Size = new System.Drawing.Size(207, 22);
+            this.txtCReleaseYear.TabIndex = 28;
+            // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -835,9 +875,9 @@
         private Framework.UI.Controls.MRTextBox txtSubGenre;
         private Framework.UI.Controls.MRTextBox txtGenre;
         private Framework.UI.Controls.MRLabel mrLabel6;
-        private Framework.UI.Controls.MRTextBox txtPCLine;
+        private Framework.UI.Controls.MRTextBox txtPLine;
         private Framework.UI.Controls.MRLabel mrLabel7;
-        private Framework.UI.Controls.MRTextBox txtReleaseYear;
+        private Framework.UI.Controls.MRTextBox txtPReleaseYear;
         private Framework.UI.Controls.MRLabel mrLabel8;
         private Framework.UI.Controls.MRDatePicker mrDatePicker1;
         private Framework.UI.Controls.MRLabel lblFrontCoverImageWidth;
@@ -847,5 +887,9 @@
         private Framework.UI.Controls.MRButton btnOpenFile;
         private Framework.UI.Controls.MRLabel mrLabel9;
         private Framework.UI.Controls.MRTextBox txtFileName;
+        private Framework.UI.Controls.MRLabel mrLabel10;
+        private Framework.UI.Controls.MRTextBox txtCLine;
+        private Framework.UI.Controls.MRLabel mrLabel13;
+        private Framework.UI.Controls.MRTextBox txtCReleaseYear;
     }
 }

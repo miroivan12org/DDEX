@@ -28,8 +28,10 @@ namespace Business.DDEXSchemaERN_382.Entities
         public string MainReleaseReferenceTitle { get { return Get<string>(); } set { Set(value); } }
         public string Genre { get { return Get<string>(); } set { Set(value); } }
         public string SubGenre { get { return Get<string>(); } set { Set(value); } }
-        public string PCLineText { get { return Get<string>(); } set { Set(value); } }
-        public string ReleaseYear { get { return Get<string>(); } set { Set(value); } }
+        public string PLineText { get { return Get<string>(); } set { Set(value); } }
+        public string PLineReleaseYear { get { return Get<string>(); } set { Set(value); } }
+        public string CLineText { get { return Get<string>(); } set { Set(value); } }
+        public string CLineReleaseYear { get { return Get<string>(); } set { Set(value); } }
         public string FrontCoverImageFullFileName { get { return Get<string>(); } set { Set(value); } }
         public string FrontCoverImageFileName { get { return Get<string>(); } set { Set(value); } }
         public string FrontCoverImagePath { get { return Get<string>(); } set { Set(value); } }

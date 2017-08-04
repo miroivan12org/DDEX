@@ -11,23 +11,19 @@ namespace Business.DDEXSchemaERN_382.Entities
         public int Ordinal{ get { return Get<int>(); } set { Set(value); } }
         [NotNull]
         public string ISRC { get { return Get<string>(); } set { Set(value); } }
-
         [NotNull]
         public string Title { get { return Get<string>(); } set { Set(value); } }
-
+        public string Genre { get { return Get<string>(); } set { Set(value); } }
+        public string SubGenre { get { return Get<string>(); } set { Set(value); } }
+        public string PLineText { get { return Get<string>(); } set { Set(value); } }
+        public string PLineReleaseYear { get { return Get<string>(); } set { Set(value); } }
+        public string CLineText { get { return Get<string>(); } set { Set(value); } }
+        public string CLineReleaseYear { get { return Get<string>(); } set { Set(value); } }
+        public string MainArtist { get { return Get<string>(); } set { Set(value); } }
         [NotNull]
         public int DurationMin { get { return Get<int>(); } set { Set(value); } }
         [NotNull]
-        public int DurationSec { get { return Get<int>(); } set { Set(value); } }
-
-        //[NotNull]
-        public string MainArtist { get { return Get<string>(); } set { Set(value); } }
-
-        public string Genre { get { return Get<string>(); } set { Set(value); } }
-        public string SubGenre { get { return Get<string>(); } set { Set(value); } }
-        public string ReleaseYear { get { return Get<string>(); } set { Set(value); } }
-        public string PLineText { get { return Get<string>(); } set { Set(value); } }
-        
+        public int DurationSec { get { return Get<int>(); } set { Set(value); } }        
         public string Producer { get { return Get<string>(); } set { Set(value); } }
         public string Contributor1 { get { return Get<string>(); } set { Set(value); } }
         public string Contributor1Role { get { return Get<string>(); } set { Set(value); } }

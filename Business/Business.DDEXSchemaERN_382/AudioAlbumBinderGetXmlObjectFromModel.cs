@@ -11,7 +11,7 @@ namespace Business.DDEXSchemaERN_382
 {
     public partial class AudioAlbumBinder
     {
-        private NewReleaseMessage GetNewReleaseMessage(AudioAlbumModel m)
+        private NewReleaseMessage GetXmlNewReleaseMessage(AudioAlbumModel m)
         {
             NewReleaseMessage ret = null;
 
@@ -27,13 +27,13 @@ namespace Business.DDEXSchemaERN_382
             ret.UpdateIndicator = m.UpdateIndicator;
             ret.UpdateIndicatorSpecified = true;
 
-            ret.MessageHeader = GetMessageHeader(m);
-            ret.ResourceList = GetResourceList(m);
-            ret.ReleaseList = GetReleaseList(m);
+            ret.MessageHeader = GetXmlMessageHeader(m);
+            ret.ResourceList = GetXmlResourceList(m);
+            ret.ReleaseList = GetXmlReleaseList(m);
 
             return ret;
         }
-        private MessageHeader GetMessageHeader(AudioAlbumModel m)
+        private MessageHeader GetXmlMessageHeader(AudioAlbumModel m)
         {
             MessageHeader ret = null;
 
@@ -77,11 +77,11 @@ namespace Business.DDEXSchemaERN_382
             
             return ret;
         }
-        private ReleaseList GetReleaseList(AudioAlbumModel m)
+        private ReleaseList GetXmlReleaseList(AudioAlbumModel m)
         {
             ReleaseList ret = null;
 
-            Release mainRelease = GetMainRelease(m);
+            Release mainRelease = GetXmlMainRelease(m);
             int releaseListCount = (mainRelease == null ? 0 : 1) + m.Tracks.Count; ;
             if (releaseListCount > 0)
             {
@@ -96,8 +96,7 @@ namespace Business.DDEXSchemaERN_382
          
             return ret;
         }
-
-        private ReleaseDetailsByTerritory[] GetMainReleaseDetailsByTerritory(AudioAlbumModel m)
+        private ReleaseDetailsByTerritory[] GetXmlMainReleaseDetailsByTerritory(AudioAlbumModel m)
         {
             ReleaseDetailsByTerritory[] ret = null;
 
@@ -236,7 +235,7 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        private Release GetMainRelease(AudioAlbumModel m)
+        private Release GetXmlMainRelease(AudioAlbumModel m)
         {
             Release ret = null;
             if (!string.IsNullOrWhiteSpace(m.EAN))
@@ -264,22 +263,38 @@ namespace Business.DDEXSchemaERN_382
                             ReleaseResourceReference = new ReleaseResourceReference[m.Tracks.Count + 1]
                     },
                     ReleaseType = new ReleaseType1[] { new ReleaseType1() { Value = ReleaseType.Album } },
-                    ReleaseDetailsByTerritory = GetMainReleaseDetailsByTerritory(m)
+                    ReleaseDetailsByTerritory = GetXmlMainReleaseDetailsByTerritory(m)
                 };
 
-                if (!string.IsNullOrWhiteSpace(m.PCLineText) || !string.IsNullOrWhiteSpace(m.ReleaseYear))
+                if (!string.IsNullOrWhiteSpace(m.PLineText) || !string.IsNullOrWhiteSpace(m.PLineReleaseYear))
                 {
                     ret.PLine = new PLine[]
                     {
                         new PLine()
                     };
-                    if (!string.IsNullOrWhiteSpace(m.PCLineText))
+                    if (!string.IsNullOrWhiteSpace(m.PLineText))
                     {
-                        ret.PLine[0].PLineText = m.PCLineText;
+                        ret.PLine[0].PLineText = m.PLineText;
                     }
-                    if (!string.IsNullOrWhiteSpace(m.ReleaseYear))
+                    if (!string.IsNullOrWhiteSpace(m.PLineReleaseYear))
                     {
-                        ret.PLine[0].Year = m.ReleaseYear;
+                        ret.PLine[0].Year = m.PLineReleaseYear;
+                    }
+                }
+
+                if (!string.IsNullOrWhiteSpace(m.CLineText) || !string.IsNullOrWhiteSpace(m.CLineReleaseYear))
+                {
+                    ret.CLine = new CLine[]
+                    {
+                        new CLine()
+                    };
+                    if (!string.IsNullOrWhiteSpace(m.CLineText))
+                    {
+                        ret.CLine[0].CLineText = m.CLineText;
+                    }
+                    if (!string.IsNullOrWhiteSpace(m.CLineReleaseYear))
+                    {
+                        ret.CLine[0].Year = m.CLineReleaseYear;
                     }
                 }
 
@@ -295,17 +310,79 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        private ResourceList GetResourceList(AudioAlbumModel m)
+        private Release GetXmlRelease(AudioAlbumModel m, int trackIndex)
+        {
+            Release ret = null;
+            if (m.Tracks != null && m.Tracks.Count > trackIndex)
+            {
+                var track = m.Tracks[trackIndex];
+                ret = new Release()
+                {
+                    ReferenceTitle = new ReferenceTitle()
+                    {
+                        TitleText = new TitleText() {  Value = track.Title } 
+                    }
+                };
+
+                if (!string.IsNullOrWhiteSpace(m.PLineText) || !string.IsNullOrWhiteSpace(m.PLineReleaseYear))
+                {
+                    ret.PLine = new PLine[]
+                    {
+                        new PLine()
+                    };
+
+                    if (!string.IsNullOrWhiteSpace(m.PLineText))
+                    {
+                        ret.PLine[0].PLineText = m.PLineText;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(m.PLineReleaseYear))
+                    {
+                        ret.PLine[0].Year = m.PLineReleaseYear;
+                    }
+                }
+
+                if (!string.IsNullOrWhiteSpace(m.CLineText) || !string.IsNullOrWhiteSpace(m.CLineReleaseYear))
+                {
+                    ret.CLine = new CLine[]
+                    {
+                        new CLine()
+                    };
+                    if (!string.IsNullOrWhiteSpace(m.CLineText))
+                    {
+                        ret.CLine[0].CLineText = m.CLineText;
+                    }
+                    if (!string.IsNullOrWhiteSpace(m.CLineReleaseYear))
+                    {
+                        ret.CLine[0].Year = m.CLineReleaseYear;
+                    }
+                }
+            }
+
+          
+            for (int i = 0; i < m.Tracks.Count + 1; i++)
+            {
+                ((ReleaseResourceReferenceList)ret.Item).ReleaseResourceReference[i] = new ReleaseResourceReference()
+                {
+                    Value = "A" + (i + 1).ToString(),
+                    ReleaseResourceType = (i == m.Tracks.Count ? ReleaseResourceType.SecondaryResource : ReleaseResourceType.PrimaryResource)
+                };
+            }
+          
+
+            return ret;
+        }
+        private ResourceList GetXmlResourceList(AudioAlbumModel m)
         {
             ResourceList ret = null;
 
             ret = new ResourceList();
-            ret.Image = GetFrontCoverImage(m);
-            ret.SoundRecording = GetSoundRecordings(m);
+            ret.Image = GetXmlFrontCoverImage(m);
+            ret.SoundRecording = GetXmlSoundRecordings(m);
                         
             return ret;
         }
-        private SoundRecording[] GetSoundRecordings(AudioAlbumModel m)
+        private SoundRecording[] GetXmlSoundRecordings(AudioAlbumModel m)
         {
             SoundRecording[] ret = null;
 
@@ -387,17 +464,17 @@ namespace Business.DDEXSchemaERN_382
                         }
                     }
 
-                    if (!string.IsNullOrWhiteSpace(track.ReleaseYear) || !string.IsNullOrWhiteSpace(track.PLineText))
+                    if (!string.IsNullOrWhiteSpace(track.PLineReleaseYear) || !string.IsNullOrWhiteSpace(track.PLineText))
                     {
                         sr.SoundRecordingDetailsByTerritory[0].PLine = new PLine[]
                         {
-                                new PLine()
+                            new PLine()
                         };
 
-                        if (!string.IsNullOrWhiteSpace(track.ReleaseYear))
+                        if (!string.IsNullOrWhiteSpace(track.PLineReleaseYear))
                         {
-                            sr.SoundRecordingDetailsByTerritory[0].PLine[0].Year = track.ReleaseYear;
-                            sr.SoundRecordingDetailsByTerritory[0].ResourceReleaseDate = new EventDate() { Value = track.ReleaseYear };
+                            sr.SoundRecordingDetailsByTerritory[0].PLine[0].Year = track.PLineReleaseYear;
+                            sr.SoundRecordingDetailsByTerritory[0].ResourceReleaseDate = new EventDate() { Value = track.PLineReleaseYear };
                         }
 
                         if (!string.IsNullOrWhiteSpace(track.PLineText))
@@ -412,7 +489,7 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        private Image[] GetFrontCoverImage(AudioAlbumModel m)
+        private Image[] GetXmlFrontCoverImage(AudioAlbumModel m)
         {
             Image[] ret = null;
 
@@ -487,7 +564,7 @@ namespace Business.DDEXSchemaERN_382
             NewReleaseMessage nrm;
             AudioAlbumModel m = (AudioAlbumModel)model;
 
-            nrm = GetNewReleaseMessage(m);
+            nrm = GetXmlNewReleaseMessage(m);
             
             
             return nrm;

@@ -246,7 +246,7 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        private string GetModelPCLineText(NewReleaseMessage nrm)
+        private string GetModelPLineText(NewReleaseMessage nrm)
         {
             string ret = null;
 
@@ -258,7 +258,19 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        private string GetModelReleseYear(NewReleaseMessage nrm)
+        private string GetModelCLineText(NewReleaseMessage nrm)
+        {
+            string ret = null;
+
+            Release mainRelease = GetModelMainRelease(nrm);
+            if (mainRelease != null && mainRelease.CLine != null && mainRelease.CLine.Length > 0 && mainRelease.CLine[0] != null)
+            {
+                ret = mainRelease.CLine[0].CLineText;
+            }
+
+            return ret;
+        }
+        private string GetModelPLineReleseYear(NewReleaseMessage nrm)
         {
             string ret = null;
 
@@ -266,6 +278,18 @@ namespace Business.DDEXSchemaERN_382
             if (mainRelease != null && mainRelease.PLine != null && mainRelease.PLine.Length > 0 && mainRelease.PLine[0] != null)
             {
                 ret = mainRelease.PLine[0].Year;
+            }
+
+            return ret;
+        }
+        private string GetModelCLineReleseYear(NewReleaseMessage nrm)
+        {
+            string ret = null;
+
+            Release mainRelease = GetModelMainRelease(nrm);
+            if (mainRelease != null && mainRelease.CLine != null && mainRelease.CLine.Length > 0 && mainRelease.CLine[0] != null)
+            {
+                ret = mainRelease.CLine[0].Year;
             }
 
             return ret;
@@ -361,6 +385,50 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private string GetModelTrackPLineText(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.PLine != null && rel.PLine.Length > 0 && rel.PLine[0] != null)
+            {
+                ret = rel.PLine[0].PLineText;
+            }
+
+            return ret;
+        }
+        private string GetModelTrackCLineText(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.CLine != null && rel.CLine.Length > 0 && rel.CLine[0] != null)
+            {
+                ret = rel.CLine[0].CLineText;
+            }
+
+            return ret;
+        }
+        private string GetModelTrackPLineReleaseYear(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.PLine != null && rel.PLine.Length > 0 && rel.PLine[0] != null)
+            {
+                ret = rel.PLine[0].Year;
+            }
+
+            return ret;
+        }
+        private string GetModelTrackCLineReleaseYear(Release rel)
+        {
+            string ret = null;
+
+            if (rel != null && rel.CLine != null && rel.CLine.Length > 0 && rel.CLine[0] != null)
+            {
+                ret = rel.CLine[0].Year;
+            }
+
+            return ret;
+        }
         private string GetModelTrackGenre(Release rel)
         {
             string ret = null;
@@ -383,7 +451,56 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private string GetModelTrackMainArtist(SoundRecording sr)
+        {
+            string ret = null;
 
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtist != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtist.Length > 0)
+            {
+                foreach (var artist in sr.SoundRecordingDetailsByTerritory[0].DisplayArtist)
+                {
+                    if (artist.ArtistRole != null)
+                    {
+                        foreach (var artistRole in artist.ArtistRole)
+                        {
+                            if (artistRole.Value == ArtistRole.MainArtist && artist.Items != null && artist.Items.Length > 0 && artist.Items[0] is PartyName && ((PartyName)artist.Items[0]).FullName != null) 
+                            {
+                                ret = ((PartyName)artist.Items[0]).FullName.Value;
+                                break;
+                            }
+                        }
+                        if (ret != null) break;
+                    }
+                }
+            }
+
+            return ret;
+        }
+        private string GetModelTrackProducer(SoundRecording sr)
+        {
+            string ret = null;
+
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].ResourceContributor != null && sr.SoundRecordingDetailsByTerritory[0].ResourceContributor.Length > 0)
+            {
+                foreach (DetailedResourceContributor con in sr.SoundRecordingDetailsByTerritory[0].ResourceContributor)
+                {
+                    if (con.ResourceContributorRole != null)
+                    {
+                        foreach (var artistRole in con.ResourceContributorRole)
+                        {
+                            if (artistRole.Value == ResourceContributorRole.Producer && con.Items != null && con.Items.Length > 0 && con.Items[0] is PartyName && ((PartyName)con.Items[0]).FullName != null)
+                            {
+                                ret = ((PartyName)con.Items[0]).FullName.Value;
+                                break;
+                            }
+                        }
+                        if (ret != null) break;
+                    }
+                }
+            }
+
+            return ret;
+        }
         private TrackModel GetModelTrack(NewReleaseMessage nrm, int trackIndex)
         {
             var ret = new TrackModel();
@@ -402,12 +519,17 @@ namespace Business.DDEXSchemaERN_382
             ret.ISRC = GetModelTrackISRC(rel);
             ret.Title = GetModelTrackTitle(rel);
             ret.Genre = GetModelTrackGenre(rel);
-            ret.SubGenre = GetModelTrackSubGenre(rel);            
+            ret.SubGenre = GetModelTrackSubGenre(rel);
+            ret.PLineText = GetModelTrackPLineText(rel);
+            ret.PLineReleaseYear = GetModelTrackPLineReleaseYear(rel);
+            ret.CLineText = GetModelTrackCLineText(rel);
+            ret.CLineReleaseYear = GetModelTrackCLineReleaseYear(rel);
+            ret.MainArtist = GetModelTrackMainArtist(sr);
+            ret.Producer = GetModelTrackProducer(sr);
 
             return ret;
         }
         #endregion
-
         private SortableBindingList<TrackModel> GetModelTracks(NewReleaseMessage nrm)
         {
             var ret = new SortableBindingList<TrackModel>();
@@ -428,6 +550,7 @@ namespace Business.DDEXSchemaERN_382
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
             AudioAlbumModel ret = null;
+
             try
             {
                 if (xmlObject != null)
@@ -452,19 +575,18 @@ namespace Business.DDEXSchemaERN_382
                     ret.MainReleaseReferenceTitle = GetModelMainReleaseReferenceTitle(nrm);
                     ret.Genre = GetModelGenre(nrm);
                     ret.SubGenre = GetModelSubGenre(nrm);
-                    ret.PCLineText = GetModelPCLineText(nrm);
-                    ret.ReleaseYear = GetModelReleseYear(nrm);
+                    ret.PLineText = GetModelPLineText(nrm);
+                    ret.PLineReleaseYear = GetModelPLineReleseYear(nrm);
+                    ret.CLineText = GetModelCLineText(nrm);
+                    ret.CLineReleaseYear = GetModelCLineReleseYear(nrm);
                     ret.FrontCoverImageFileName = GetModelFrontCoverImageFileName(nrm);
                     ret.FrontCoverImagePath = GetModelFrontCoverImagePath(nrm);
                     ret.FrontCoverImageFullFileName = ret.GetFullFileNameFromRelativePathAndFileName(ret.FrontCoverImagePath, ret.FrontCoverImageFileName);
                     ret.FrontCoverImageHashSum_Materialized = GetModelFrontCoverImageHashSum(nrm);
                     ret.FrontCoverImageHeight_Materialized = GetModelFrontCoverImageHeight_Materialized(nrm);
                     ret.FrontCoverImageWidth_Materialized = GetModelFrontCoverImageWidth_Materialized(nrm);
-
-                    //ret.Tracks.RaiseListChangedEvents = false;
+                    
                     ret.Tracks = GetModelTracks(nrm);
-                    //ret.Tracks.RaiseListChangedEvents = true;
-                    //ret.Tracks.ResetBindings();
                 }
             }
             catch (Exception)

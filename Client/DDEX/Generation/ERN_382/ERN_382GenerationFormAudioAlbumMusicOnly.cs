@@ -399,9 +399,10 @@ namespace DDEX.Generation.ERN_382
             lblFrontCoverImageHeight.DataBindings.Add("Text", Model, "FrontCoverImageHeight_Materialized");
             lblFrontCoverImageWidth.DataBindings.Add("Text", Model, "FrontCoverImageWidth_Materialized");
 
-            txtPCLine.DataBindings.Add("Text", Model, "PCLineText");
-            txtReleaseYear.DataBindings.Add("Text", Model, "ReleaseYear");
-
+            txtPLine.DataBindings.Add("Text", Model, "PLineText");
+            txtCLine.DataBindings.Add("Text", Model, "CLineText");
+            txtPReleaseYear.DataBindings.Add("Text", Model, "PLineReleaseYear");
+            txtCReleaseYear.DataBindings.Add("Text", Model, "CLineReleaseYear");
         }
 
         private void tbTrackReleases_ButtonClicked(object sender, Framework.UI.Controls.MRTitleBar.ActionButtonEventArgs e)
@@ -414,6 +415,7 @@ namespace DDEX.Generation.ERN_382
                 {
                     track.Ordinal = Model.Tracks.Max(x => x.Ordinal) + 1;
                     track.PLineText = Properties.Settings.Default.PLineText;
+                    track.CLineText = Properties.Settings.Default.PLineText;
                 }
 
                 using (var frm = new ERN_382TrackReleaseForm(track))
