@@ -501,6 +501,62 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private List<Tuple<string, string>> GetModelTrackIndirectContributors(SoundRecording sr)
+        {
+            var ret = new List<Tuple<string, string>>();
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor != null && sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor.Length > 0)
+            {
+                var cons = sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor.ToList();
+                for (int i = 0; i < cons.Count; i++)
+                {
+                    string name = null;
+                    string role = null;
+                    if (cons[i].Items != null && cons[i].Items.Length > 0 && cons[i].Items[0] is PartyName && ((PartyName)cons[i].Items[0]).FullName != null && ((PartyName)cons[i].Items[0]).FullName.Value != null)
+                    {
+                        name = ((PartyName)cons[i].Items[0]).FullName.Value;
+                        if (cons[i].IndirectResourceContributorRole != null && cons[i].IndirectResourceContributorRole.Length > 0 && cons[i].IndirectResourceContributorRole[0] != null)
+                        {
+                            role = cons[i].IndirectResourceContributorRole[0].Value;
+                            ret.Add(new Tuple<string, string>(name, role));
+                        }
+                    }
+                }
+            }
+            return ret;
+        }
+        private void FillIndirectContributors(TrackModel m, List<Tuple<string, string>> nameRolePairs)
+        {
+            if (nameRolePairs.Count > 0)
+            {
+                m.Contributor1 = nameRolePairs[0].Item1;
+                m.Contributor1Role = nameRolePairs[0].Item2;
+            }
+            if (nameRolePairs.Count > 1)
+            {
+                m.Contributor2 = nameRolePairs[1].Item1;
+                m.Contributor2Role = nameRolePairs[1].Item2;
+            }
+            if (nameRolePairs.Count > 2)
+            {
+                m.Contributor3 = nameRolePairs[2].Item1;
+                m.Contributor3Role = nameRolePairs[2].Item2;
+            }
+            if (nameRolePairs.Count > 3)
+            {
+                m.Contributor4 = nameRolePairs[3].Item1;
+                m.Contributor4Role = nameRolePairs[3].Item2;
+            }
+            if (nameRolePairs.Count > 4)
+            {
+                m.Contributor5 = nameRolePairs[4].Item1;
+                m.Contributor5Role = nameRolePairs[4].Item2;
+            }
+            if (nameRolePairs.Count > 5)
+            {
+                m.Contributor6 = nameRolePairs[5].Item1;
+                m.Contributor6Role = nameRolePairs[5].Item2;
+            }
+        }
         private TrackModel GetModelTrack(NewReleaseMessage nrm, int trackIndex)
         {
             var ret = new TrackModel();
@@ -526,6 +582,7 @@ namespace Business.DDEXSchemaERN_382
             ret.CLineReleaseYear = GetModelTrackCLineReleaseYear(rel);
             ret.MainArtist = GetModelTrackMainArtist(sr);
             ret.Producer = GetModelTrackProducer(sr);
+            FillIndirectContributors(ret, GetModelTrackIndirectContributors(sr));
 
             return ret;
         }

@@ -30,19 +30,41 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlMainReleaseParent = new Framework.UI.Controls.MRPanel(this.components);
+            this.pnlContributor6 = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrLabel18 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel19 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtContributor6 = new Framework.UI.Controls.MRTextBox(this.components);
+            this.tbContributor6 = new Framework.UI.Controls.MRTitleBar();
+            this.pnlContributor5 = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrLabel16 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel17 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtContributor5 = new Framework.UI.Controls.MRTextBox(this.components);
+            this.tbContributor5 = new Framework.UI.Controls.MRTitleBar();
+            this.pnlContributor4 = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrLabel14 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtContributor4 = new Framework.UI.Controls.MRTextBox(this.components);
+            this.tbContributor4 = new Framework.UI.Controls.MRTitleBar();
+            this.pnlContributor3 = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel13 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtContributor3 = new Framework.UI.Controls.MRTextBox(this.components);
+            this.tbContributor3 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor2 = new Framework.UI.Controls.MRPanel(this.components);
             this.mrLabel6 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel7 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtContributor2Role = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtContributor2 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor2 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor1 = new Framework.UI.Controls.MRPanel(this.components);
             this.mrLabel5 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel4 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtContributor1Role = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtContributor1 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor1 = new Framework.UI.Controls.MRTitleBar();
             this.pnlMainRelease = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrLabel10 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtCLineText = new Framework.UI.Controls.MRTextBox(this.components);
+            this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtCLineReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrLabel9 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtPLineText = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrLabel8 = new Framework.UI.Controls.MRLabel(this.components);
@@ -65,43 +87,21 @@
             this.txtTitle = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtISRC = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbTrackRelease = new Framework.UI.Controls.MRTitleBar();
-            this.mrLabel10 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtCLineText = new Framework.UI.Controls.MRTextBox(this.components);
-            this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtCLineReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
-            this.pnlContributor3 = new Framework.UI.Controls.MRPanel(this.components);
-            this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel13 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtContributor3Role = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtContributor3 = new Framework.UI.Controls.MRTextBox(this.components);
-            this.tbContributor3 = new Framework.UI.Controls.MRTitleBar();
-            this.pnlContributor4 = new Framework.UI.Controls.MRPanel(this.components);
-            this.mrLabel14 = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtContributor4Role = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtContributor4 = new Framework.UI.Controls.MRTextBox(this.components);
-            this.tbContributor4 = new Framework.UI.Controls.MRTitleBar();
-            this.pnlContributor6 = new Framework.UI.Controls.MRPanel(this.components);
-            this.mrLabel18 = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel19 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtContributor6Role = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtContributor6 = new Framework.UI.Controls.MRTextBox(this.components);
-            this.tbContributor6 = new Framework.UI.Controls.MRTitleBar();
-            this.pnlContributor5 = new Framework.UI.Controls.MRPanel(this.components);
-            this.mrLabel16 = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel17 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtContributor5Role = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtContributor5 = new Framework.UI.Controls.MRTextBox(this.components);
-            this.tbContributor5 = new Framework.UI.Controls.MRTitleBar();
+            this.cbContributor1Role = new Framework.UI.Controls.MRComboBox(this.components);
+            this.cbContributor2Role = new Framework.UI.Controls.MRComboBox(this.components);
+            this.cbContributor3Role = new Framework.UI.Controls.MRComboBox(this.components);
+            this.cbContributor4Role = new Framework.UI.Controls.MRComboBox(this.components);
+            this.cbContributor5Role = new Framework.UI.Controls.MRComboBox(this.components);
+            this.cbContributor6Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.pnlData.SuspendLayout();
             this.pnlMainReleaseParent.SuspendLayout();
+            this.pnlContributor6.SuspendLayout();
+            this.pnlContributor5.SuspendLayout();
+            this.pnlContributor4.SuspendLayout();
+            this.pnlContributor3.SuspendLayout();
             this.pnlContributor2.SuspendLayout();
             this.pnlContributor1.SuspendLayout();
             this.pnlMainRelease.SuspendLayout();
-            this.pnlContributor3.SuspendLayout();
-            this.pnlContributor4.SuspendLayout();
-            this.pnlContributor6.SuspendLayout();
-            this.pnlContributor5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlData
@@ -134,11 +134,207 @@
             this.pnlMainReleaseParent.Size = new System.Drawing.Size(880, 892);
             this.pnlMainReleaseParent.TabIndex = 16;
             // 
+            // pnlContributor6
+            // 
+            this.pnlContributor6.Controls.Add(this.cbContributor6Role);
+            this.pnlContributor6.Controls.Add(this.mrLabel18);
+            this.pnlContributor6.Controls.Add(this.mrLabel19);
+            this.pnlContributor6.Controls.Add(this.txtContributor6);
+            this.pnlContributor6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlContributor6.Location = new System.Drawing.Point(0, 780);
+            this.pnlContributor6.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor6.Name = "pnlContributor6";
+            this.pnlContributor6.Size = new System.Drawing.Size(880, 65);
+            this.pnlContributor6.TabIndex = 33;
+            this.pnlContributor6.Visible = false;
+            // 
+            // mrLabel18
+            // 
+            this.mrLabel18.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel18.Name = "mrLabel18";
+            this.mrLabel18.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel18.TabIndex = 28;
+            this.mrLabel18.Text = "Role";
+            // 
+            // mrLabel19
+            // 
+            this.mrLabel19.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel19.Name = "mrLabel19";
+            this.mrLabel19.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel19.TabIndex = 26;
+            this.mrLabel19.Text = "Name";
+            // 
+            // txtContributor6
+            // 
+            this.txtContributor6.Location = new System.Drawing.Point(228, 12);
+            this.txtContributor6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor6.Name = "txtContributor6";
+            this.txtContributor6.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor6.TabIndex = 27;
+            // 
+            // tbContributor6
+            // 
+            this.tbContributor6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbContributor6.Expanded = false;
+            this.tbContributor6.Location = new System.Drawing.Point(0, 754);
+            this.tbContributor6.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor6.Name = "tbContributor6";
+            this.tbContributor6.Size = new System.Drawing.Size(880, 26);
+            this.tbContributor6.TabIndex = 32;
+            this.tbContributor6.Title = "Indirect Contributor 6";
+            // 
+            // pnlContributor5
+            // 
+            this.pnlContributor5.Controls.Add(this.cbContributor5Role);
+            this.pnlContributor5.Controls.Add(this.mrLabel16);
+            this.pnlContributor5.Controls.Add(this.mrLabel17);
+            this.pnlContributor5.Controls.Add(this.txtContributor5);
+            this.pnlContributor5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlContributor5.Location = new System.Drawing.Point(0, 689);
+            this.pnlContributor5.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor5.Name = "pnlContributor5";
+            this.pnlContributor5.Size = new System.Drawing.Size(880, 65);
+            this.pnlContributor5.TabIndex = 31;
+            this.pnlContributor5.Visible = false;
+            // 
+            // mrLabel16
+            // 
+            this.mrLabel16.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel16.Name = "mrLabel16";
+            this.mrLabel16.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel16.TabIndex = 28;
+            this.mrLabel16.Text = "Role";
+            // 
+            // mrLabel17
+            // 
+            this.mrLabel17.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel17.Name = "mrLabel17";
+            this.mrLabel17.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel17.TabIndex = 26;
+            this.mrLabel17.Text = "Name";
+            // 
+            // txtContributor5
+            // 
+            this.txtContributor5.Location = new System.Drawing.Point(228, 12);
+            this.txtContributor5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor5.Name = "txtContributor5";
+            this.txtContributor5.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor5.TabIndex = 27;
+            // 
+            // tbContributor5
+            // 
+            this.tbContributor5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbContributor5.Expanded = false;
+            this.tbContributor5.Location = new System.Drawing.Point(0, 663);
+            this.tbContributor5.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor5.Name = "tbContributor5";
+            this.tbContributor5.Size = new System.Drawing.Size(880, 26);
+            this.tbContributor5.TabIndex = 30;
+            this.tbContributor5.Title = "Indirect Contributor 5";
+            // 
+            // pnlContributor4
+            // 
+            this.pnlContributor4.Controls.Add(this.cbContributor4Role);
+            this.pnlContributor4.Controls.Add(this.mrLabel14);
+            this.pnlContributor4.Controls.Add(this.mrLabel15);
+            this.pnlContributor4.Controls.Add(this.txtContributor4);
+            this.pnlContributor4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlContributor4.Location = new System.Drawing.Point(0, 589);
+            this.pnlContributor4.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor4.Name = "pnlContributor4";
+            this.pnlContributor4.Size = new System.Drawing.Size(880, 74);
+            this.pnlContributor4.TabIndex = 21;
+            this.pnlContributor4.Visible = false;
+            // 
+            // mrLabel14
+            // 
+            this.mrLabel14.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel14.Name = "mrLabel14";
+            this.mrLabel14.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel14.TabIndex = 28;
+            this.mrLabel14.Text = "Role";
+            // 
+            // mrLabel15
+            // 
+            this.mrLabel15.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel15.Name = "mrLabel15";
+            this.mrLabel15.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel15.TabIndex = 26;
+            this.mrLabel15.Text = "Name";
+            // 
+            // txtContributor4
+            // 
+            this.txtContributor4.Location = new System.Drawing.Point(228, 12);
+            this.txtContributor4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor4.Name = "txtContributor4";
+            this.txtContributor4.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor4.TabIndex = 27;
+            // 
+            // tbContributor4
+            // 
+            this.tbContributor4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbContributor4.Expanded = false;
+            this.tbContributor4.Location = new System.Drawing.Point(0, 559);
+            this.tbContributor4.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor4.Name = "tbContributor4";
+            this.tbContributor4.Size = new System.Drawing.Size(880, 30);
+            this.tbContributor4.TabIndex = 20;
+            this.tbContributor4.Title = "Indirect Contributor 4";
+            // 
+            // pnlContributor3
+            // 
+            this.pnlContributor3.Controls.Add(this.cbContributor3Role);
+            this.pnlContributor3.Controls.Add(this.mrLabel12);
+            this.pnlContributor3.Controls.Add(this.mrLabel13);
+            this.pnlContributor3.Controls.Add(this.txtContributor3);
+            this.pnlContributor3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlContributor3.Location = new System.Drawing.Point(0, 490);
+            this.pnlContributor3.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor3.Name = "pnlContributor3";
+            this.pnlContributor3.Size = new System.Drawing.Size(880, 69);
+            this.pnlContributor3.TabIndex = 19;
+            this.pnlContributor3.Visible = false;
+            // 
+            // mrLabel12
+            // 
+            this.mrLabel12.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel12.Name = "mrLabel12";
+            this.mrLabel12.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel12.TabIndex = 28;
+            this.mrLabel12.Text = "Role";
+            // 
+            // mrLabel13
+            // 
+            this.mrLabel13.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel13.Name = "mrLabel13";
+            this.mrLabel13.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel13.TabIndex = 26;
+            this.mrLabel13.Text = "Name";
+            // 
+            // txtContributor3
+            // 
+            this.txtContributor3.Location = new System.Drawing.Point(228, 12);
+            this.txtContributor3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor3.Name = "txtContributor3";
+            this.txtContributor3.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor3.TabIndex = 27;
+            // 
+            // tbContributor3
+            // 
+            this.tbContributor3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbContributor3.Expanded = false;
+            this.tbContributor3.Location = new System.Drawing.Point(0, 460);
+            this.tbContributor3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor3.Name = "tbContributor3";
+            this.tbContributor3.Size = new System.Drawing.Size(880, 30);
+            this.tbContributor3.TabIndex = 18;
+            this.tbContributor3.Title = "Indirect Contributor 3";
+            // 
             // pnlContributor2
             // 
+            this.pnlContributor2.Controls.Add(this.cbContributor2Role);
             this.pnlContributor2.Controls.Add(this.mrLabel6);
             this.pnlContributor2.Controls.Add(this.mrLabel7);
-            this.pnlContributor2.Controls.Add(this.txtContributor2Role);
             this.pnlContributor2.Controls.Add(this.txtContributor2);
             this.pnlContributor2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlContributor2.Location = new System.Drawing.Point(0, 391);
@@ -164,14 +360,6 @@
             this.mrLabel7.TabIndex = 26;
             this.mrLabel7.Text = "Name";
             // 
-            // txtContributor2Role
-            // 
-            this.txtContributor2Role.Location = new System.Drawing.Point(228, 34);
-            this.txtContributor2Role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor2Role.Name = "txtContributor2Role";
-            this.txtContributor2Role.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor2Role.TabIndex = 29;
-            // 
             // txtContributor2
             // 
             this.txtContributor2.Location = new System.Drawing.Point(228, 12);
@@ -193,9 +381,9 @@
             // 
             // pnlContributor1
             // 
+            this.pnlContributor1.Controls.Add(this.cbContributor1Role);
             this.pnlContributor1.Controls.Add(this.mrLabel5);
             this.pnlContributor1.Controls.Add(this.mrLabel4);
-            this.pnlContributor1.Controls.Add(this.txtContributor1Role);
             this.pnlContributor1.Controls.Add(this.txtContributor1);
             this.pnlContributor1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlContributor1.Location = new System.Drawing.Point(0, 292);
@@ -219,14 +407,6 @@
             this.mrLabel4.Size = new System.Drawing.Size(163, 22);
             this.mrLabel4.TabIndex = 26;
             this.mrLabel4.Text = "Name";
-            // 
-            // txtContributor1Role
-            // 
-            this.txtContributor1Role.Location = new System.Drawing.Point(228, 34);
-            this.txtContributor1Role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor1Role.Name = "txtContributor1Role";
-            this.txtContributor1Role.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor1Role.TabIndex = 29;
             // 
             // txtContributor1
             // 
@@ -279,6 +459,38 @@
             this.pnlMainRelease.Name = "pnlMainRelease";
             this.pnlMainRelease.Size = new System.Drawing.Size(880, 232);
             this.pnlMainRelease.TabIndex = 13;
+            // 
+            // mrLabel10
+            // 
+            this.mrLabel10.Location = new System.Drawing.Point(439, 112);
+            this.mrLabel10.Name = "mrLabel10";
+            this.mrLabel10.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel10.TabIndex = 28;
+            this.mrLabel10.Text = "CLine Text";
+            // 
+            // txtCLineText
+            // 
+            this.txtCLineText.Location = new System.Drawing.Point(621, 112);
+            this.txtCLineText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCLineText.Name = "txtCLineText";
+            this.txtCLineText.Size = new System.Drawing.Size(196, 22);
+            this.txtCLineText.TabIndex = 29;
+            // 
+            // mrLabel11
+            // 
+            this.mrLabel11.Location = new System.Drawing.Point(439, 90);
+            this.mrLabel11.Name = "mrLabel11";
+            this.mrLabel11.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel11.TabIndex = 26;
+            this.mrLabel11.Text = "CLine Release Year";
+            // 
+            // txtCLineReleaseYear
+            // 
+            this.txtCLineReleaseYear.Location = new System.Drawing.Point(621, 90);
+            this.txtCLineReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCLineReleaseYear.Name = "txtCLineReleaseYear";
+            this.txtCLineReleaseYear.Size = new System.Drawing.Size(196, 22);
+            this.txtCLineReleaseYear.TabIndex = 27;
             // 
             // mrLabel9
             // 
@@ -458,265 +670,53 @@
             this.tbTrackRelease.TabIndex = 12;
             this.tbTrackRelease.Title = "Track Release";
             // 
-            // mrLabel10
+            // cbContributor1Role
             // 
-            this.mrLabel10.Location = new System.Drawing.Point(439, 112);
-            this.mrLabel10.Name = "mrLabel10";
-            this.mrLabel10.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel10.TabIndex = 28;
-            this.mrLabel10.Text = "CLine Text";
+            this.cbContributor1Role.FormattingEnabled = true;
+            this.cbContributor1Role.Location = new System.Drawing.Point(228, 37);
+            this.cbContributor1Role.Name = "cbContributor1Role";
+            this.cbContributor1Role.Size = new System.Drawing.Size(196, 24);
+            this.cbContributor1Role.TabIndex = 29;
             // 
-            // txtCLineText
+            // cbContributor2Role
             // 
-            this.txtCLineText.Location = new System.Drawing.Point(621, 112);
-            this.txtCLineText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCLineText.Name = "txtCLineText";
-            this.txtCLineText.Size = new System.Drawing.Size(196, 22);
-            this.txtCLineText.TabIndex = 29;
+            this.cbContributor2Role.FormattingEnabled = true;
+            this.cbContributor2Role.Location = new System.Drawing.Point(228, 34);
+            this.cbContributor2Role.Name = "cbContributor2Role";
+            this.cbContributor2Role.Size = new System.Drawing.Size(196, 24);
+            this.cbContributor2Role.TabIndex = 30;
             // 
-            // mrLabel11
+            // cbContributor3Role
             // 
-            this.mrLabel11.Location = new System.Drawing.Point(439, 90);
-            this.mrLabel11.Name = "mrLabel11";
-            this.mrLabel11.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel11.TabIndex = 26;
-            this.mrLabel11.Text = "CLine Release Year";
+            this.cbContributor3Role.FormattingEnabled = true;
+            this.cbContributor3Role.Location = new System.Drawing.Point(228, 37);
+            this.cbContributor3Role.Name = "cbContributor3Role";
+            this.cbContributor3Role.Size = new System.Drawing.Size(196, 24);
+            this.cbContributor3Role.TabIndex = 30;
             // 
-            // txtCLineReleaseYear
+            // cbContributor4Role
             // 
-            this.txtCLineReleaseYear.Location = new System.Drawing.Point(621, 90);
-            this.txtCLineReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCLineReleaseYear.Name = "txtCLineReleaseYear";
-            this.txtCLineReleaseYear.Size = new System.Drawing.Size(196, 22);
-            this.txtCLineReleaseYear.TabIndex = 27;
+            this.cbContributor4Role.FormattingEnabled = true;
+            this.cbContributor4Role.Location = new System.Drawing.Point(228, 35);
+            this.cbContributor4Role.Name = "cbContributor4Role";
+            this.cbContributor4Role.Size = new System.Drawing.Size(196, 24);
+            this.cbContributor4Role.TabIndex = 30;
             // 
-            // pnlContributor3
+            // cbContributor5Role
             // 
-            this.pnlContributor3.Controls.Add(this.mrLabel12);
-            this.pnlContributor3.Controls.Add(this.mrLabel13);
-            this.pnlContributor3.Controls.Add(this.txtContributor3Role);
-            this.pnlContributor3.Controls.Add(this.txtContributor3);
-            this.pnlContributor3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor3.Location = new System.Drawing.Point(0, 490);
-            this.pnlContributor3.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlContributor3.Name = "pnlContributor3";
-            this.pnlContributor3.Size = new System.Drawing.Size(880, 69);
-            this.pnlContributor3.TabIndex = 19;
-            this.pnlContributor3.Visible = false;
+            this.cbContributor5Role.FormattingEnabled = true;
+            this.cbContributor5Role.Location = new System.Drawing.Point(228, 34);
+            this.cbContributor5Role.Name = "cbContributor5Role";
+            this.cbContributor5Role.Size = new System.Drawing.Size(196, 24);
+            this.cbContributor5Role.TabIndex = 30;
             // 
-            // mrLabel12
+            // cbContributor6Role
             // 
-            this.mrLabel12.Location = new System.Drawing.Point(15, 37);
-            this.mrLabel12.Name = "mrLabel12";
-            this.mrLabel12.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel12.TabIndex = 28;
-            this.mrLabel12.Text = "Role";
-            // 
-            // mrLabel13
-            // 
-            this.mrLabel13.Location = new System.Drawing.Point(15, 15);
-            this.mrLabel13.Name = "mrLabel13";
-            this.mrLabel13.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel13.TabIndex = 26;
-            this.mrLabel13.Text = "Name";
-            // 
-            // txtContributor3Role
-            // 
-            this.txtContributor3Role.Location = new System.Drawing.Point(228, 34);
-            this.txtContributor3Role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor3Role.Name = "txtContributor3Role";
-            this.txtContributor3Role.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor3Role.TabIndex = 29;
-            // 
-            // txtContributor3
-            // 
-            this.txtContributor3.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor3.Name = "txtContributor3";
-            this.txtContributor3.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor3.TabIndex = 27;
-            // 
-            // tbContributor3
-            // 
-            this.tbContributor3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbContributor3.Expanded = false;
-            this.tbContributor3.Location = new System.Drawing.Point(0, 460);
-            this.tbContributor3.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContributor3.Name = "tbContributor3";
-            this.tbContributor3.Size = new System.Drawing.Size(880, 30);
-            this.tbContributor3.TabIndex = 18;
-            this.tbContributor3.Title = "Indirect Contributor 3";
-            // 
-            // pnlContributor4
-            // 
-            this.pnlContributor4.Controls.Add(this.mrLabel14);
-            this.pnlContributor4.Controls.Add(this.mrLabel15);
-            this.pnlContributor4.Controls.Add(this.txtContributor4Role);
-            this.pnlContributor4.Controls.Add(this.txtContributor4);
-            this.pnlContributor4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor4.Location = new System.Drawing.Point(0, 589);
-            this.pnlContributor4.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlContributor4.Name = "pnlContributor4";
-            this.pnlContributor4.Size = new System.Drawing.Size(880, 74);
-            this.pnlContributor4.TabIndex = 21;
-            this.pnlContributor4.Visible = false;
-            // 
-            // mrLabel14
-            // 
-            this.mrLabel14.Location = new System.Drawing.Point(15, 37);
-            this.mrLabel14.Name = "mrLabel14";
-            this.mrLabel14.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel14.TabIndex = 28;
-            this.mrLabel14.Text = "Role";
-            // 
-            // mrLabel15
-            // 
-            this.mrLabel15.Location = new System.Drawing.Point(15, 15);
-            this.mrLabel15.Name = "mrLabel15";
-            this.mrLabel15.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel15.TabIndex = 26;
-            this.mrLabel15.Text = "Name";
-            // 
-            // txtContributor4Role
-            // 
-            this.txtContributor4Role.Location = new System.Drawing.Point(228, 34);
-            this.txtContributor4Role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor4Role.Name = "txtContributor4Role";
-            this.txtContributor4Role.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor4Role.TabIndex = 29;
-            // 
-            // txtContributor4
-            // 
-            this.txtContributor4.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor4.Name = "txtContributor4";
-            this.txtContributor4.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor4.TabIndex = 27;
-            // 
-            // tbContributor4
-            // 
-            this.tbContributor4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbContributor4.Expanded = false;
-            this.tbContributor4.Location = new System.Drawing.Point(0, 559);
-            this.tbContributor4.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContributor4.Name = "tbContributor4";
-            this.tbContributor4.Size = new System.Drawing.Size(880, 30);
-            this.tbContributor4.TabIndex = 20;
-            this.tbContributor4.Title = "Indirect Contributor 4";
-            // 
-            // pnlContributor6
-            // 
-            this.pnlContributor6.Controls.Add(this.mrLabel18);
-            this.pnlContributor6.Controls.Add(this.mrLabel19);
-            this.pnlContributor6.Controls.Add(this.txtContributor6Role);
-            this.pnlContributor6.Controls.Add(this.txtContributor6);
-            this.pnlContributor6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor6.Location = new System.Drawing.Point(0, 780);
-            this.pnlContributor6.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlContributor6.Name = "pnlContributor6";
-            this.pnlContributor6.Size = new System.Drawing.Size(880, 65);
-            this.pnlContributor6.TabIndex = 33;
-            this.pnlContributor6.Visible = false;
-            // 
-            // mrLabel18
-            // 
-            this.mrLabel18.Location = new System.Drawing.Point(15, 37);
-            this.mrLabel18.Name = "mrLabel18";
-            this.mrLabel18.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel18.TabIndex = 28;
-            this.mrLabel18.Text = "Role";
-            // 
-            // mrLabel19
-            // 
-            this.mrLabel19.Location = new System.Drawing.Point(15, 15);
-            this.mrLabel19.Name = "mrLabel19";
-            this.mrLabel19.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel19.TabIndex = 26;
-            this.mrLabel19.Text = "Name";
-            // 
-            // txtContributor6Role
-            // 
-            this.txtContributor6Role.Location = new System.Drawing.Point(228, 34);
-            this.txtContributor6Role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor6Role.Name = "txtContributor6Role";
-            this.txtContributor6Role.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor6Role.TabIndex = 29;
-            // 
-            // txtContributor6
-            // 
-            this.txtContributor6.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor6.Name = "txtContributor6";
-            this.txtContributor6.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor6.TabIndex = 27;
-            // 
-            // tbContributor6
-            // 
-            this.tbContributor6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbContributor6.Expanded = false;
-            this.tbContributor6.Location = new System.Drawing.Point(0, 754);
-            this.tbContributor6.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContributor6.Name = "tbContributor6";
-            this.tbContributor6.Size = new System.Drawing.Size(880, 26);
-            this.tbContributor6.TabIndex = 32;
-            this.tbContributor6.Title = "Indirect Contributor 6";
-            // 
-            // pnlContributor5
-            // 
-            this.pnlContributor5.Controls.Add(this.mrLabel16);
-            this.pnlContributor5.Controls.Add(this.mrLabel17);
-            this.pnlContributor5.Controls.Add(this.txtContributor5Role);
-            this.pnlContributor5.Controls.Add(this.txtContributor5);
-            this.pnlContributor5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor5.Location = new System.Drawing.Point(0, 689);
-            this.pnlContributor5.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlContributor5.Name = "pnlContributor5";
-            this.pnlContributor5.Size = new System.Drawing.Size(880, 65);
-            this.pnlContributor5.TabIndex = 31;
-            this.pnlContributor5.Visible = false;
-            // 
-            // mrLabel16
-            // 
-            this.mrLabel16.Location = new System.Drawing.Point(15, 37);
-            this.mrLabel16.Name = "mrLabel16";
-            this.mrLabel16.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel16.TabIndex = 28;
-            this.mrLabel16.Text = "Role";
-            // 
-            // mrLabel17
-            // 
-            this.mrLabel17.Location = new System.Drawing.Point(15, 15);
-            this.mrLabel17.Name = "mrLabel17";
-            this.mrLabel17.Size = new System.Drawing.Size(163, 22);
-            this.mrLabel17.TabIndex = 26;
-            this.mrLabel17.Text = "Name";
-            // 
-            // txtContributor5Role
-            // 
-            this.txtContributor5Role.Location = new System.Drawing.Point(228, 34);
-            this.txtContributor5Role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor5Role.Name = "txtContributor5Role";
-            this.txtContributor5Role.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor5Role.TabIndex = 29;
-            // 
-            // txtContributor5
-            // 
-            this.txtContributor5.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContributor5.Name = "txtContributor5";
-            this.txtContributor5.Size = new System.Drawing.Size(196, 22);
-            this.txtContributor5.TabIndex = 27;
-            // 
-            // tbContributor5
-            // 
-            this.tbContributor5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbContributor5.Expanded = false;
-            this.tbContributor5.Location = new System.Drawing.Point(0, 663);
-            this.tbContributor5.Margin = new System.Windows.Forms.Padding(4);
-            this.tbContributor5.Name = "tbContributor5";
-            this.tbContributor5.Size = new System.Drawing.Size(880, 26);
-            this.tbContributor5.TabIndex = 30;
-            this.tbContributor5.Title = "Indirect Contributor 5";
+            this.cbContributor6Role.FormattingEnabled = true;
+            this.cbContributor6Role.Location = new System.Drawing.Point(228, 34);
+            this.cbContributor6Role.Name = "cbContributor6Role";
+            this.cbContributor6Role.Size = new System.Drawing.Size(196, 24);
+            this.cbContributor6Role.TabIndex = 30;
             // 
             // ERN_382TrackReleaseForm
             // 
@@ -729,20 +729,20 @@
             this.Load += new System.EventHandler(this.ERN_382TrackReleaseForm_Load);
             this.pnlData.ResumeLayout(false);
             this.pnlMainReleaseParent.ResumeLayout(false);
+            this.pnlContributor6.ResumeLayout(false);
+            this.pnlContributor6.PerformLayout();
+            this.pnlContributor5.ResumeLayout(false);
+            this.pnlContributor5.PerformLayout();
+            this.pnlContributor4.ResumeLayout(false);
+            this.pnlContributor4.PerformLayout();
+            this.pnlContributor3.ResumeLayout(false);
+            this.pnlContributor3.PerformLayout();
             this.pnlContributor2.ResumeLayout(false);
             this.pnlContributor2.PerformLayout();
             this.pnlContributor1.ResumeLayout(false);
             this.pnlContributor1.PerformLayout();
             this.pnlMainRelease.ResumeLayout(false);
             this.pnlMainRelease.PerformLayout();
-            this.pnlContributor3.ResumeLayout(false);
-            this.pnlContributor3.PerformLayout();
-            this.pnlContributor4.ResumeLayout(false);
-            this.pnlContributor4.PerformLayout();
-            this.pnlContributor6.ResumeLayout(false);
-            this.pnlContributor6.PerformLayout();
-            this.pnlContributor5.ResumeLayout(false);
-            this.pnlContributor5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -773,13 +773,11 @@
         private Framework.UI.Controls.MRLabel mrLabel5;
         private Framework.UI.Controls.MRLabel mrLabel4;
         private Framework.UI.Controls.MRTextBox txtContributor1;
-        private Framework.UI.Controls.MRTextBox txtContributor1Role;
         private Framework.UI.Controls.MRPanel pnlContributor1;
         private Framework.UI.Controls.MRTitleBar tbContributor1;
         private Framework.UI.Controls.MRPanel pnlContributor2;
         private Framework.UI.Controls.MRLabel mrLabel6;
         private Framework.UI.Controls.MRLabel mrLabel7;
-        private Framework.UI.Controls.MRTextBox txtContributor2Role;
         private Framework.UI.Controls.MRTextBox txtContributor2;
         private Framework.UI.Controls.MRTitleBar tbContributor2;
         private Framework.UI.Controls.MRLabel mrLabel8;
@@ -793,26 +791,28 @@
         private Framework.UI.Controls.MRPanel pnlContributor4;
         private Framework.UI.Controls.MRLabel mrLabel14;
         private Framework.UI.Controls.MRLabel mrLabel15;
-        private Framework.UI.Controls.MRTextBox txtContributor4Role;
         private Framework.UI.Controls.MRTextBox txtContributor4;
         private Framework.UI.Controls.MRTitleBar tbContributor4;
         private Framework.UI.Controls.MRPanel pnlContributor3;
         private Framework.UI.Controls.MRLabel mrLabel12;
         private Framework.UI.Controls.MRLabel mrLabel13;
-        private Framework.UI.Controls.MRTextBox txtContributor3Role;
         private Framework.UI.Controls.MRTextBox txtContributor3;
         private Framework.UI.Controls.MRTitleBar tbContributor3;
         private Framework.UI.Controls.MRPanel pnlContributor6;
         private Framework.UI.Controls.MRLabel mrLabel18;
         private Framework.UI.Controls.MRLabel mrLabel19;
-        private Framework.UI.Controls.MRTextBox txtContributor6Role;
         private Framework.UI.Controls.MRTextBox txtContributor6;
         private Framework.UI.Controls.MRTitleBar tbContributor6;
         private Framework.UI.Controls.MRPanel pnlContributor5;
         private Framework.UI.Controls.MRLabel mrLabel16;
         private Framework.UI.Controls.MRLabel mrLabel17;
-        private Framework.UI.Controls.MRTextBox txtContributor5Role;
         private Framework.UI.Controls.MRTextBox txtContributor5;
         private Framework.UI.Controls.MRTitleBar tbContributor5;
+        private Framework.UI.Controls.MRComboBox cbContributor1Role;
+        private Framework.UI.Controls.MRComboBox cbContributor6Role;
+        private Framework.UI.Controls.MRComboBox cbContributor5Role;
+        private Framework.UI.Controls.MRComboBox cbContributor4Role;
+        private Framework.UI.Controls.MRComboBox cbContributor3Role;
+        private Framework.UI.Controls.MRComboBox cbContributor2Role;
     }
 }

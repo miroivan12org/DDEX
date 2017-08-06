@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSources\ComboBoxDataSources.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Forms\ValidatorForm.cs">
       <SubType>Form</SubType>

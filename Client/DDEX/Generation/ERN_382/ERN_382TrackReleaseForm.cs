@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Business.DDEXSchemaERN_382.Schema;
+using Framework.UI.Helpers;
 
 namespace DDEX.Generation.ERN_382
 {
@@ -23,8 +25,6 @@ namespace DDEX.Generation.ERN_382
         }
 
         public TrackModel Model { get; set; }
-        
-        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -42,8 +42,20 @@ namespace DDEX.Generation.ERN_382
             tbContributor6.BindedControls.Add(pnlContributor6);
         }
 
+        
+        private void InitCombos()
+        {
+            cbContributor1Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbContributor2Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbContributor3Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbContributor4Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbContributor5Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbContributor6Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+        }
         private void InitBindings()
         {
+            InitCombos();
+
             txtGenre.DataBindings.Add("Text", Model, "Genre");
             txtSubGenre.DataBindings.Add("Text", Model, "SubGenre");
             txtISRC.DataBindings.Add("Text", Model, "ISRC");
@@ -58,17 +70,17 @@ namespace DDEX.Generation.ERN_382
             txtCLineReleaseYear.DataBindings.Add("Text", Model, "CLineReleaseYear");
             txtCLineText.DataBindings.Add("Text", Model, "CLineText");
             txtContributor1.DataBindings.Add("Text", Model, "Contributor1");
-            txtContributor1Role.DataBindings.Add("Text", Model, "Contributor1Role");
+            cbContributor1Role.DataBindings.Add("SelectedItem", Model, "Contributor1Role");
             txtContributor2.DataBindings.Add("Text", Model, "Contributor2");
-            txtContributor2Role.DataBindings.Add("Text", Model, "Contributor2Role");
+            cbContributor2Role.DataBindings.Add("SelectedItem", Model, "Contributor2Role");
             txtContributor3.DataBindings.Add("Text", Model, "Contributor3");
-            txtContributor3Role.DataBindings.Add("Text", Model, "Contributor3Role");
+            cbContributor3Role.DataBindings.Add("SelectedItem", Model, "Contributor3Role");
             txtContributor4.DataBindings.Add("Text", Model, "Contributor4");
-            txtContributor4Role.DataBindings.Add("Text", Model, "Contributor4Role");
+            cbContributor4Role.DataBindings.Add("SelectedItem", Model, "Contributor4Role");
             txtContributor5.DataBindings.Add("Text", Model, "Contributor5");
-            txtContributor5Role.DataBindings.Add("Text", Model, "Contributor5Role");
+            cbContributor5Role.DataBindings.Add("SelectedItem", Model, "Contributor5Role");
             txtContributor6.DataBindings.Add("Text", Model, "Contributor6");
-            txtContributor6Role.DataBindings.Add("Text", Model, "Contributor6Role");
+            cbContributor6Role.DataBindings.Add("SelectedItem", Model, "Contributor6Role");
         }
 
         private void ERN_382TrackReleaseForm_DialogResultClicked(object sender, DialogResultEventArgs e)

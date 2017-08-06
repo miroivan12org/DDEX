@@ -24,5 +24,20 @@ namespace Framework.UI.Helpers
         {
             return Value.GetHashCode();
         }
+
+        public static List<ComboBoxItem> GetComboBoxItemsFromEnum<T>(bool valueIsText = false)
+        {
+            var ret = new List<ComboBoxItem>();
+
+            var ls = Enum.GetValues(typeof(T)).Cast<T>().ToList();
+            for (int i = 0; i < ls.Count; i++)
+            {
+                object value = i;
+                if (valueIsText) value = ls[i].ToString();
+                ret.Add(new ComboBoxItem() { Value = value, Text = ls[i].ToString() });
+            }
+            
+            return ret;
+        }
     }
 }
