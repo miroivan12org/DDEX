@@ -11,5 +11,8 @@
     <Setting Name="LabelName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">LONGPLAY</Value>
     </Setting>
+    <Setting Name="IndirectContributors" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Composer;Producer;Lyricist;Arranger</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

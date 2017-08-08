@@ -12,16 +12,15 @@ namespace DDEX.DataSources
     {
         public static List<ComboBoxItem> GetComboDataSourceIndirectResourceContributorRole()
         {
+            var lsIndirectContributors = Properties.Settings.Default.IndirectContributors.Split(';').ToList();
             var ret = new List<ComboBoxItem>()
             {
-                new ComboBoxItem() { Value = null, Text = "" },
-                new ComboBoxItem() { Value = "Composer", Text = "Composer" },
-                new ComboBoxItem() { Value = "Producer", Text = "Producer" },
-                new ComboBoxItem() { Value = "Lyricist", Text = "Lyricist" },
-                new ComboBoxItem() { Value = "Arranger", Text = "Arranger" },
+                new ComboBoxItem() { Value = null, Text = "" }
             };
-
-            // TODO: dodati neki setting koji definira indirect contributore
+            foreach (string c in lsIndirectContributors)
+            {
+                ret.Add(new ComboBoxItem() { Value = c, Text = c });
+            }
             
             return ret;
         }

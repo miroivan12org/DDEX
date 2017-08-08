@@ -52,5 +52,17 @@ namespace DDEX.Properties {
                 return ((string)(this["LabelName"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Composer;Producer;Lyricist;Arranger")]
+        public string IndirectContributors {
+            get {
+                return ((string)(this["IndirectContributors"]));
+            }
+            set {
+                this["IndirectContributors"] = value;
+            }
+        }
     }
 }

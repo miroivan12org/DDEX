@@ -557,6 +557,28 @@ namespace Business.DDEXSchemaERN_382
                 m.Contributor6Role = nameRolePairs[5].Item2;
             }
         }
+        private int GetModelTrackDurationMin(SoundRecording sr)
+        {
+            int ret = 0;
+            //sr.Duration = "PT" + track.DurationMin.ToString() + "M" + track.DurationSec.ToString() + "S";
+            if (sr != null && sr.Duration != null && sr.Duration.StartsWith("PT"))
+            {
+                var sMin = sr.Duration.Substring(2, sr.Duration.IndexOf('M') - 2);
+                ret = Convert.ToInt32(sMin);
+            }
+            return ret;
+        }
+        private int GetModelTrackDurationSec(SoundRecording sr)
+        {
+            int ret = 0;
+            //sr.Duration = "PT" + track.DurationMin.ToString() + "M" + track.DurationSec.ToString() + "S";
+            if (sr != null && sr.Duration != null && sr.Duration.StartsWith("PT"))
+            {
+                var sSec = sr.Duration.Substring(sr.Duration.IndexOf('M') + 1, sr.Duration.IndexOf('S') - sr.Duration.IndexOf('M') - 1);
+                ret = Convert.ToInt32(sSec);
+            }
+            return ret;
+        }
         private TrackModel GetModelTrack(NewReleaseMessage nrm, int trackIndex)
         {
             var ret = new TrackModel();
@@ -583,7 +605,8 @@ namespace Business.DDEXSchemaERN_382
             ret.MainArtist = GetModelTrackMainArtist(sr);
             ret.Producer = GetModelTrackProducer(sr);
             FillIndirectContributors(ret, GetModelTrackIndirectContributors(sr));
-
+            ret.DurationMin = GetModelTrackDurationMin(sr);
+            ret.DurationSec = GetModelTrackDurationSec(sr);
             return ret;
         }
         #endregion

@@ -42,7 +42,6 @@ namespace DDEX.Generation.ERN_382
             tbContributor6.BindedControls.Add(pnlContributor6);
         }
 
-        
         private void InitCombos()
         {
             cbContributor1Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
