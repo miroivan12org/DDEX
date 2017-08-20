@@ -1,5 +1,6 @@
 ﻿using Business.DDEXFactory.Intefaces;
 using Business.DDEXFactory.Interfaces;
+using Business.DDEXSchemaERN_382.Schema;
 using System;
 using System.Collections.Generic;
 
@@ -17,6 +18,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         public string SubGenre { get { return Get<string>(); } set { Set(value); } }
         public string PLineText { get { return Get<string>(); } set { Set(value); } }
         public string PLineReleaseYear { get { return Get<string>(); } set { Set(value); } }
+        public string ResourceReleaseDate { get { return Get<string>(); } set { Set(value); } }
         public string CLineText { get { return Get<string>(); } set { Set(value); } }
         public string CLineReleaseYear { get { return Get<string>(); } set { Set(value); } }
         public string MainArtist { get { return Get<string>(); } set { Set(value); } }
@@ -25,6 +27,41 @@ namespace Business.DDEXSchemaERN_382.Entities
         [NotNull]
         public int DurationSec { get { return Get<int>(); } set { Set(value); } }        
         public string Producer { get { return Get<string>(); } set { Set(value); } }
+
+        #region Technical details
+
+        public AudioCodecType AudioCodec { get { return Get<AudioCodecType>(); } set { Set(value); } }
+        public int NumberOfChannels { get { return Get<int>(); } set { Set(value); } }
+        public decimal SamplingRate { get { return Get<decimal>(); } set { Set(value); } }
+        public int BitsPerSample { get { return Get<int>(); } set { Set(value); } }
+        public string TrackFullFileName { get { return Get<string>(); } set { Set(value); } }
+        public string FileName { get { return Get<string>(); } set { Set(value); } }
+        public string FilePath { get { return Get<string>(); } set { Set(value); } }
+        public string FileHashSum_Materialized { get { return Get<string>(); } set { Set(value); } }
+
+        public string GetFullFileNameFromRelativePathAndFileName(string rootDirectory, string relativePath, string fileName)
+        {
+            string ret = null;
+
+            if (relativePath != null && fileName != null)
+            {
+                string dir = rootDirectory;
+                ret = dir + @"\" + relativePath.TrimEnd('/') + @"\" + fileName;
+            }
+
+            return ret;
+        }
+        public void ComputeMaterialized()
+        {
+            if (System.IO.File.Exists(TrackFullFileName))
+            {
+                FileHashSum_Materialized = DDEXFactory.Helpers.FilesHelper.GetMD5HashSum(TrackFullFileName);
+            }
+
+        }
+
+        #endregion
+
         public string Contributor1 { get { return Get<string>(); } set { Set(value); } }
         public string Contributor1Role { get { return Get<string>(); } set { Set(value); } }
         public string Contributor2 { get { return Get<string>(); } set { Set(value); } }

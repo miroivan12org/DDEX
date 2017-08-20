@@ -366,6 +366,9 @@ namespace DDEX.Generation.ERN_382
         }
         private void InitBindings()
         {
+            btnOpenFrontCoverImage.DataBindings.Add("Enabled", this, "Editable");
+            btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
+
             cbUpdateIndicator.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "OriginalMessage", Value = UpdateIndicator.OriginalMessage }, new ComboBoxItem() { Text = "UpdateMessage", Value = UpdateIndicator.UpdateMessage } };
             tbMainRelease.BindedControls.Add(pnlMainRelease);
             tbMessageHeader.BindedControls.Add(pnlMessageHeader);
@@ -394,10 +397,10 @@ namespace DDEX.Generation.ERN_382
             cbUpdateIndicator.DataBindings.Add("SelectedItem", Model, "UpdateIndicator");
             txtMainReleaseReferenceTitle.DataBindings.Add("Text", Model, "MainReleaseReferenceTitle");
 
-            lblFrontCoverImageRelativePath.DataBindings.Add("Text", Model, "FrontCoverImagePath");
-            lblFrontCoverImageFileName.DataBindings.Add("Text", Model, "FrontCoverImageFileName");
-            lblFrontCoverImageHeight.DataBindings.Add("Text", Model, "FrontCoverImageHeight_Materialized");
-            lblFrontCoverImageWidth.DataBindings.Add("Text", Model, "FrontCoverImageWidth_Materialized");
+            txtFrontCoverImageRelativePath.DataBindings.Add("Text", Model, "FrontCoverImagePath");
+            txtFrontCoverImageFileName.DataBindings.Add("Text", Model, "FrontCoverImageFileName");
+            txtFrontCoverImageHeight.DataBindings.Add("Text", Model, "FrontCoverImageHeight_Materialized");
+            txtFrontCoverImageWidth.DataBindings.Add("Text", Model, "FrontCoverImageWidth_Materialized");
 
             txtPLine.DataBindings.Add("Text", Model, "PLineText");
             txtCLine.DataBindings.Add("Text", Model, "CLineText");
@@ -418,7 +421,7 @@ namespace DDEX.Generation.ERN_382
                     track.CLineText = Properties.Settings.Default.PLineText;
                 }
 
-                using (var frm = new ERN_382TrackReleaseForm(track))
+                using (var frm = new ERN_382TrackReleaseForm(track) { Editable = this.Editable, ParentForm = this })
                 {
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
@@ -440,7 +443,7 @@ namespace DDEX.Generation.ERN_382
                 TrackModel track = (TrackModel) dgvSoundRecordingsAndReleases.CurrentRow.DataBoundItem;
                 if (track != null)
                 {
-                    using (var frm = new ERN_382TrackReleaseForm((TrackModel)track.Copy()) {  Editable = this.Editable })
+                    using (var frm = new ERN_382TrackReleaseForm((TrackModel)track.Copy()) {  Editable = this.Editable, ParentForm = this })
                     {
                         if (frm.ShowDialog() == DialogResult.OK)
                         {
@@ -466,7 +469,7 @@ namespace DDEX.Generation.ERN_382
             TrackModel track = (TrackModel)dgvSoundRecordingsAndReleases.CurrentRow.DataBoundItem;
             if (track != null)
             {
-                using (var frm = new ERN_382TrackReleaseForm((TrackModel)track.Copy()) { Editable = false })
+                using (var frm = new ERN_382TrackReleaseForm((TrackModel)track.Copy()) { Editable = false, ParentForm = this })
                 {
                     frm.ShowDialog();                    
                 }
@@ -500,6 +503,10 @@ namespace DDEX.Generation.ERN_382
 
         private void Form_DialogResultClicked(object sender, DialogResultEventArgs e)
         {
+            if (Model != null)
+            {
+                Model.ComputeMaterialized();
+            }
             if (e.Result == DialogResult.OK)
             {
                 SaveDialog();
@@ -510,6 +517,7 @@ namespace DDEX.Generation.ERN_382
                 Close();
                 Dispose();
             }
+            
         }
 
         private bool IsXmlFileValid(out string msg)

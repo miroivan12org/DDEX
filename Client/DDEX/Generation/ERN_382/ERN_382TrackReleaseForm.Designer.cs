@@ -31,31 +31,37 @@
             this.components = new System.ComponentModel.Container();
             this.pnlMainReleaseParent = new Framework.UI.Controls.MRPanel(this.components);
             this.pnlContributor6 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbContributor6Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel18 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel19 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtContributor6 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor6 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor5 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbContributor5Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel16 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel17 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtContributor5 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor5 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor4 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbContributor4Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel14 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtContributor4 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor4 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor3 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbContributor3Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel13 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtContributor3 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor3 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor2 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbContributor2Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel6 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel7 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtContributor2 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbContributor2 = new Framework.UI.Controls.MRTitleBar();
             this.pnlContributor1 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbContributor1Role = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel5 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel4 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtContributor1 = new Framework.UI.Controls.MRTextBox(this.components);
@@ -87,12 +93,26 @@
             this.txtTitle = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtISRC = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbTrackRelease = new Framework.UI.Controls.MRTitleBar();
-            this.cbContributor1Role = new Framework.UI.Controls.MRComboBox(this.components);
-            this.cbContributor2Role = new Framework.UI.Controls.MRComboBox(this.components);
-            this.cbContributor3Role = new Framework.UI.Controls.MRComboBox(this.components);
-            this.cbContributor4Role = new Framework.UI.Controls.MRComboBox(this.components);
-            this.cbContributor5Role = new Framework.UI.Controls.MRComboBox(this.components);
-            this.cbContributor6Role = new Framework.UI.Controls.MRComboBox(this.components);
+            this.mrLabel20 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtResourceReleaseDate = new Framework.UI.Controls.MRTextBox(this.components);
+            this.mrPanel1 = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrPanel2 = new Framework.UI.Controls.MRPanel(this.components);
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.tbTechnicalDetails = new Framework.UI.Controls.MRTitleBar();
+            this.pnlTechnicalDetails = new Framework.UI.Controls.MRPanel(this.components);
+            this.mrLabel21 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel22 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtNumberOfChannels = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtBitsPerSample = new Framework.UI.Controls.MRTextBox(this.components);
+            this.mrLabel23 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel24 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtSamplingRate = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtRelativePath = new Framework.UI.Controls.MRTextBox(this.components);
+            this.mrLabel25 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel26 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtFileName = new Framework.UI.Controls.MRTextBox(this.components);
+            this.btnOpenFile = new Framework.UI.Controls.MRButton(this.components);
+            this.cbAudioCodecType = new Framework.UI.Controls.MRComboBox(this.components);
             this.pnlData.SuspendLayout();
             this.pnlMainReleaseParent.SuspendLayout();
             this.pnlContributor6.SuspendLayout();
@@ -102,13 +122,16 @@
             this.pnlContributor2.SuspendLayout();
             this.pnlContributor1.SuspendLayout();
             this.pnlMainRelease.SuspendLayout();
+            this.mrPanel1.SuspendLayout();
+            this.mrPanel2.SuspendLayout();
+            this.pnlTechnicalDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlData
             // 
             this.pnlData.Controls.Add(this.pnlMainReleaseParent);
-            this.pnlData.Margin = new System.Windows.Forms.Padding(5);
-            this.pnlData.Size = new System.Drawing.Size(880, 892);
+            this.pnlData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlData.Size = new System.Drawing.Size(660, 889);
             // 
             // pnlMainReleaseParent
             // 
@@ -125,13 +148,14 @@
             this.pnlMainReleaseParent.Controls.Add(this.tbContributor2);
             this.pnlMainReleaseParent.Controls.Add(this.pnlContributor1);
             this.pnlMainReleaseParent.Controls.Add(this.tbContributor1);
+            this.pnlMainReleaseParent.Controls.Add(this.pnlTechnicalDetails);
+            this.pnlMainReleaseParent.Controls.Add(this.tbTechnicalDetails);
             this.pnlMainReleaseParent.Controls.Add(this.pnlMainRelease);
             this.pnlMainReleaseParent.Controls.Add(this.tbTrackRelease);
             this.pnlMainReleaseParent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainReleaseParent.Location = new System.Drawing.Point(0, 0);
-            this.pnlMainReleaseParent.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMainReleaseParent.Name = "pnlMainReleaseParent";
-            this.pnlMainReleaseParent.Size = new System.Drawing.Size(880, 892);
+            this.pnlMainReleaseParent.Size = new System.Drawing.Size(660, 889);
             this.pnlMainReleaseParent.TabIndex = 16;
             // 
             // pnlContributor6
@@ -141,45 +165,54 @@
             this.pnlContributor6.Controls.Add(this.mrLabel19);
             this.pnlContributor6.Controls.Add(this.txtContributor6);
             this.pnlContributor6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor6.Location = new System.Drawing.Point(0, 780);
-            this.pnlContributor6.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor6.Location = new System.Drawing.Point(0, 752);
             this.pnlContributor6.Name = "pnlContributor6";
-            this.pnlContributor6.Size = new System.Drawing.Size(880, 65);
+            this.pnlContributor6.Size = new System.Drawing.Size(660, 53);
             this.pnlContributor6.TabIndex = 33;
             this.pnlContributor6.Visible = false;
             // 
+            // cbContributor6Role
+            // 
+            this.cbContributor6Role.FormattingEnabled = true;
+            this.cbContributor6Role.Location = new System.Drawing.Point(137, 28);
+            this.cbContributor6Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbContributor6Role.Name = "cbContributor6Role";
+            this.cbContributor6Role.Size = new System.Drawing.Size(182, 21);
+            this.cbContributor6Role.TabIndex = 30;
+            // 
             // mrLabel18
             // 
-            this.mrLabel18.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel18.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel18.Name = "mrLabel18";
-            this.mrLabel18.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel18.Size = new System.Drawing.Size(122, 18);
             this.mrLabel18.TabIndex = 28;
             this.mrLabel18.Text = "Role";
             // 
             // mrLabel19
             // 
-            this.mrLabel19.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel19.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel19.Name = "mrLabel19";
-            this.mrLabel19.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel19.Size = new System.Drawing.Size(122, 18);
             this.mrLabel19.TabIndex = 26;
             this.mrLabel19.Text = "Name";
             // 
             // txtContributor6
             // 
-            this.txtContributor6.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor6.Location = new System.Drawing.Point(137, 10);
+            this.txtContributor6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContributor6.Name = "txtContributor6";
-            this.txtContributor6.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor6.Size = new System.Drawing.Size(182, 20);
             this.txtContributor6.TabIndex = 27;
             // 
             // tbContributor6
             // 
             this.tbContributor6.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbContributor6.Expanded = false;
-            this.tbContributor6.Location = new System.Drawing.Point(0, 754);
-            this.tbContributor6.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor6.Location = new System.Drawing.Point(0, 731);
             this.tbContributor6.Name = "tbContributor6";
-            this.tbContributor6.Size = new System.Drawing.Size(880, 26);
+            this.tbContributor6.Size = new System.Drawing.Size(660, 21);
             this.tbContributor6.TabIndex = 32;
             this.tbContributor6.Title = "Indirect Contributor 6";
             // 
@@ -190,45 +223,54 @@
             this.pnlContributor5.Controls.Add(this.mrLabel17);
             this.pnlContributor5.Controls.Add(this.txtContributor5);
             this.pnlContributor5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor5.Location = new System.Drawing.Point(0, 689);
-            this.pnlContributor5.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor5.Location = new System.Drawing.Point(0, 678);
             this.pnlContributor5.Name = "pnlContributor5";
-            this.pnlContributor5.Size = new System.Drawing.Size(880, 65);
+            this.pnlContributor5.Size = new System.Drawing.Size(660, 53);
             this.pnlContributor5.TabIndex = 31;
             this.pnlContributor5.Visible = false;
             // 
+            // cbContributor5Role
+            // 
+            this.cbContributor5Role.FormattingEnabled = true;
+            this.cbContributor5Role.Location = new System.Drawing.Point(137, 28);
+            this.cbContributor5Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbContributor5Role.Name = "cbContributor5Role";
+            this.cbContributor5Role.Size = new System.Drawing.Size(182, 21);
+            this.cbContributor5Role.TabIndex = 30;
+            // 
             // mrLabel16
             // 
-            this.mrLabel16.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel16.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel16.Name = "mrLabel16";
-            this.mrLabel16.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel16.Size = new System.Drawing.Size(122, 18);
             this.mrLabel16.TabIndex = 28;
             this.mrLabel16.Text = "Role";
             // 
             // mrLabel17
             // 
-            this.mrLabel17.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel17.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel17.Name = "mrLabel17";
-            this.mrLabel17.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel17.Size = new System.Drawing.Size(122, 18);
             this.mrLabel17.TabIndex = 26;
             this.mrLabel17.Text = "Name";
             // 
             // txtContributor5
             // 
-            this.txtContributor5.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor5.Location = new System.Drawing.Point(137, 10);
+            this.txtContributor5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContributor5.Name = "txtContributor5";
-            this.txtContributor5.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor5.Size = new System.Drawing.Size(182, 20);
             this.txtContributor5.TabIndex = 27;
             // 
             // tbContributor5
             // 
             this.tbContributor5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbContributor5.Expanded = false;
-            this.tbContributor5.Location = new System.Drawing.Point(0, 663);
-            this.tbContributor5.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor5.Location = new System.Drawing.Point(0, 657);
             this.tbContributor5.Name = "tbContributor5";
-            this.tbContributor5.Size = new System.Drawing.Size(880, 26);
+            this.tbContributor5.Size = new System.Drawing.Size(660, 21);
             this.tbContributor5.TabIndex = 30;
             this.tbContributor5.Title = "Indirect Contributor 5";
             // 
@@ -239,45 +281,54 @@
             this.pnlContributor4.Controls.Add(this.mrLabel15);
             this.pnlContributor4.Controls.Add(this.txtContributor4);
             this.pnlContributor4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor4.Location = new System.Drawing.Point(0, 589);
-            this.pnlContributor4.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor4.Location = new System.Drawing.Point(0, 597);
             this.pnlContributor4.Name = "pnlContributor4";
-            this.pnlContributor4.Size = new System.Drawing.Size(880, 74);
+            this.pnlContributor4.Size = new System.Drawing.Size(660, 60);
             this.pnlContributor4.TabIndex = 21;
             this.pnlContributor4.Visible = false;
             // 
+            // cbContributor4Role
+            // 
+            this.cbContributor4Role.FormattingEnabled = true;
+            this.cbContributor4Role.Location = new System.Drawing.Point(137, 28);
+            this.cbContributor4Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbContributor4Role.Name = "cbContributor4Role";
+            this.cbContributor4Role.Size = new System.Drawing.Size(182, 21);
+            this.cbContributor4Role.TabIndex = 30;
+            // 
             // mrLabel14
             // 
-            this.mrLabel14.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel14.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel14.Name = "mrLabel14";
-            this.mrLabel14.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel14.Size = new System.Drawing.Size(122, 18);
             this.mrLabel14.TabIndex = 28;
             this.mrLabel14.Text = "Role";
             // 
             // mrLabel15
             // 
-            this.mrLabel15.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel15.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel15.Name = "mrLabel15";
-            this.mrLabel15.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel15.Size = new System.Drawing.Size(122, 18);
             this.mrLabel15.TabIndex = 26;
             this.mrLabel15.Text = "Name";
             // 
             // txtContributor4
             // 
-            this.txtContributor4.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor4.Location = new System.Drawing.Point(137, 10);
+            this.txtContributor4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContributor4.Name = "txtContributor4";
-            this.txtContributor4.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor4.Size = new System.Drawing.Size(182, 20);
             this.txtContributor4.TabIndex = 27;
             // 
             // tbContributor4
             // 
             this.tbContributor4.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbContributor4.Expanded = false;
-            this.tbContributor4.Location = new System.Drawing.Point(0, 559);
-            this.tbContributor4.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor4.Location = new System.Drawing.Point(0, 573);
             this.tbContributor4.Name = "tbContributor4";
-            this.tbContributor4.Size = new System.Drawing.Size(880, 30);
+            this.tbContributor4.Size = new System.Drawing.Size(660, 24);
             this.tbContributor4.TabIndex = 20;
             this.tbContributor4.Title = "Indirect Contributor 4";
             // 
@@ -288,45 +339,54 @@
             this.pnlContributor3.Controls.Add(this.mrLabel13);
             this.pnlContributor3.Controls.Add(this.txtContributor3);
             this.pnlContributor3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor3.Location = new System.Drawing.Point(0, 490);
-            this.pnlContributor3.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor3.Location = new System.Drawing.Point(0, 517);
             this.pnlContributor3.Name = "pnlContributor3";
-            this.pnlContributor3.Size = new System.Drawing.Size(880, 69);
+            this.pnlContributor3.Size = new System.Drawing.Size(660, 56);
             this.pnlContributor3.TabIndex = 19;
             this.pnlContributor3.Visible = false;
             // 
+            // cbContributor3Role
+            // 
+            this.cbContributor3Role.FormattingEnabled = true;
+            this.cbContributor3Role.Location = new System.Drawing.Point(137, 30);
+            this.cbContributor3Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbContributor3Role.Name = "cbContributor3Role";
+            this.cbContributor3Role.Size = new System.Drawing.Size(182, 21);
+            this.cbContributor3Role.TabIndex = 30;
+            // 
             // mrLabel12
             // 
-            this.mrLabel12.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel12.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel12.Name = "mrLabel12";
-            this.mrLabel12.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel12.Size = new System.Drawing.Size(122, 18);
             this.mrLabel12.TabIndex = 28;
             this.mrLabel12.Text = "Role";
             // 
             // mrLabel13
             // 
-            this.mrLabel13.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel13.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel13.Name = "mrLabel13";
-            this.mrLabel13.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel13.Size = new System.Drawing.Size(122, 18);
             this.mrLabel13.TabIndex = 26;
             this.mrLabel13.Text = "Name";
             // 
             // txtContributor3
             // 
-            this.txtContributor3.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor3.Location = new System.Drawing.Point(137, 10);
+            this.txtContributor3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContributor3.Name = "txtContributor3";
-            this.txtContributor3.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor3.Size = new System.Drawing.Size(182, 20);
             this.txtContributor3.TabIndex = 27;
             // 
             // tbContributor3
             // 
             this.tbContributor3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbContributor3.Expanded = false;
-            this.tbContributor3.Location = new System.Drawing.Point(0, 460);
-            this.tbContributor3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor3.Location = new System.Drawing.Point(0, 493);
             this.tbContributor3.Name = "tbContributor3";
-            this.tbContributor3.Size = new System.Drawing.Size(880, 30);
+            this.tbContributor3.Size = new System.Drawing.Size(660, 24);
             this.tbContributor3.TabIndex = 18;
             this.tbContributor3.Title = "Indirect Contributor 3";
             // 
@@ -337,45 +397,54 @@
             this.pnlContributor2.Controls.Add(this.mrLabel7);
             this.pnlContributor2.Controls.Add(this.txtContributor2);
             this.pnlContributor2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor2.Location = new System.Drawing.Point(0, 391);
-            this.pnlContributor2.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor2.Location = new System.Drawing.Point(0, 437);
             this.pnlContributor2.Name = "pnlContributor2";
-            this.pnlContributor2.Size = new System.Drawing.Size(880, 69);
+            this.pnlContributor2.Size = new System.Drawing.Size(660, 56);
             this.pnlContributor2.TabIndex = 17;
             this.pnlContributor2.Visible = false;
             // 
+            // cbContributor2Role
+            // 
+            this.cbContributor2Role.FormattingEnabled = true;
+            this.cbContributor2Role.Location = new System.Drawing.Point(137, 28);
+            this.cbContributor2Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbContributor2Role.Name = "cbContributor2Role";
+            this.cbContributor2Role.Size = new System.Drawing.Size(182, 21);
+            this.cbContributor2Role.TabIndex = 30;
+            // 
             // mrLabel6
             // 
-            this.mrLabel6.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel6.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel6.Name = "mrLabel6";
-            this.mrLabel6.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel6.Size = new System.Drawing.Size(122, 18);
             this.mrLabel6.TabIndex = 28;
             this.mrLabel6.Text = "Role";
             // 
             // mrLabel7
             // 
-            this.mrLabel7.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel7.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel7.Name = "mrLabel7";
-            this.mrLabel7.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel7.Size = new System.Drawing.Size(122, 18);
             this.mrLabel7.TabIndex = 26;
             this.mrLabel7.Text = "Name";
             // 
             // txtContributor2
             // 
-            this.txtContributor2.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor2.Location = new System.Drawing.Point(137, 10);
+            this.txtContributor2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContributor2.Name = "txtContributor2";
-            this.txtContributor2.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor2.Size = new System.Drawing.Size(182, 20);
             this.txtContributor2.TabIndex = 27;
             // 
             // tbContributor2
             // 
             this.tbContributor2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbContributor2.Expanded = false;
-            this.tbContributor2.Location = new System.Drawing.Point(0, 361);
-            this.tbContributor2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor2.Location = new System.Drawing.Point(0, 413);
             this.tbContributor2.Name = "tbContributor2";
-            this.tbContributor2.Size = new System.Drawing.Size(880, 30);
+            this.tbContributor2.Size = new System.Drawing.Size(660, 24);
             this.tbContributor2.TabIndex = 16;
             this.tbContributor2.Title = "Indirect Contributor 2";
             // 
@@ -386,343 +455,530 @@
             this.pnlContributor1.Controls.Add(this.mrLabel4);
             this.pnlContributor1.Controls.Add(this.txtContributor1);
             this.pnlContributor1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlContributor1.Location = new System.Drawing.Point(0, 292);
-            this.pnlContributor1.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContributor1.Location = new System.Drawing.Point(0, 357);
             this.pnlContributor1.Name = "pnlContributor1";
-            this.pnlContributor1.Size = new System.Drawing.Size(880, 69);
+            this.pnlContributor1.Size = new System.Drawing.Size(660, 56);
             this.pnlContributor1.TabIndex = 15;
+            // 
+            // cbContributor1Role
+            // 
+            this.cbContributor1Role.FormattingEnabled = true;
+            this.cbContributor1Role.Location = new System.Drawing.Point(137, 30);
+            this.cbContributor1Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbContributor1Role.Name = "cbContributor1Role";
+            this.cbContributor1Role.Size = new System.Drawing.Size(182, 21);
+            this.cbContributor1Role.TabIndex = 29;
             // 
             // mrLabel5
             // 
-            this.mrLabel5.Location = new System.Drawing.Point(15, 37);
+            this.mrLabel5.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel5.Name = "mrLabel5";
-            this.mrLabel5.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel5.Size = new System.Drawing.Size(104, 18);
             this.mrLabel5.TabIndex = 28;
             this.mrLabel5.Text = "Role";
             // 
             // mrLabel4
             // 
-            this.mrLabel4.Location = new System.Drawing.Point(15, 15);
+            this.mrLabel4.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel4.Name = "mrLabel4";
-            this.mrLabel4.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel4.Size = new System.Drawing.Size(122, 18);
             this.mrLabel4.TabIndex = 26;
             this.mrLabel4.Text = "Name";
             // 
             // txtContributor1
             // 
-            this.txtContributor1.Location = new System.Drawing.Point(228, 12);
-            this.txtContributor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContributor1.Location = new System.Drawing.Point(137, 10);
+            this.txtContributor1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContributor1.Name = "txtContributor1";
-            this.txtContributor1.Size = new System.Drawing.Size(196, 22);
+            this.txtContributor1.Size = new System.Drawing.Size(182, 20);
             this.txtContributor1.TabIndex = 27;
             // 
             // tbContributor1
             // 
             this.tbContributor1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbContributor1.Location = new System.Drawing.Point(0, 262);
-            this.tbContributor1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContributor1.Location = new System.Drawing.Point(0, 333);
             this.tbContributor1.Name = "tbContributor1";
-            this.tbContributor1.Size = new System.Drawing.Size(880, 30);
+            this.tbContributor1.Size = new System.Drawing.Size(660, 24);
             this.tbContributor1.TabIndex = 14;
             this.tbContributor1.Title = "Indirect Contributor 1";
             // 
             // pnlMainRelease
             // 
-            this.pnlMainRelease.Controls.Add(this.mrLabel10);
-            this.pnlMainRelease.Controls.Add(this.txtCLineText);
-            this.pnlMainRelease.Controls.Add(this.mrLabel11);
-            this.pnlMainRelease.Controls.Add(this.txtCLineReleaseYear);
-            this.pnlMainRelease.Controls.Add(this.mrLabel9);
-            this.pnlMainRelease.Controls.Add(this.txtPLineText);
-            this.pnlMainRelease.Controls.Add(this.mrLabel8);
-            this.pnlMainRelease.Controls.Add(this.txtPLineReleaseYear);
-            this.pnlMainRelease.Controls.Add(this.mrLabel3);
-            this.pnlMainRelease.Controls.Add(this.txtProducer);
-            this.pnlMainRelease.Controls.Add(this.mrLabel2);
-            this.pnlMainRelease.Controls.Add(this.txtMainArtist);
-            this.pnlMainRelease.Controls.Add(this.txtDurationSecs);
-            this.pnlMainRelease.Controls.Add(this.mrLabel1);
-            this.pnlMainRelease.Controls.Add(this.txtDurationMins);
-            this.pnlMainRelease.Controls.Add(this.label2);
-            this.pnlMainRelease.Controls.Add(this.label3);
-            this.pnlMainRelease.Controls.Add(this.txtSubGenre);
-            this.pnlMainRelease.Controls.Add(this.txtGenre);
-            this.pnlMainRelease.Controls.Add(this.label1);
-            this.pnlMainRelease.Controls.Add(this.txtOrdinal);
-            this.pnlMainRelease.Controls.Add(this.label8);
-            this.pnlMainRelease.Controls.Add(this.label7);
-            this.pnlMainRelease.Controls.Add(this.txtTitle);
-            this.pnlMainRelease.Controls.Add(this.txtISRC);
+            this.pnlMainRelease.Controls.Add(this.mrPanel1);
+            this.pnlMainRelease.Controls.Add(this.splitter1);
+            this.pnlMainRelease.Controls.Add(this.mrPanel2);
             this.pnlMainRelease.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMainRelease.Location = new System.Drawing.Point(0, 30);
-            this.pnlMainRelease.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlMainRelease.Location = new System.Drawing.Point(0, 24);
             this.pnlMainRelease.Name = "pnlMainRelease";
-            this.pnlMainRelease.Size = new System.Drawing.Size(880, 232);
+            this.pnlMainRelease.Size = new System.Drawing.Size(660, 188);
             this.pnlMainRelease.TabIndex = 13;
             // 
             // mrLabel10
             // 
-            this.mrLabel10.Location = new System.Drawing.Point(439, 112);
+            this.mrLabel10.Location = new System.Drawing.Point(5, 110);
+            this.mrLabel10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel10.Name = "mrLabel10";
-            this.mrLabel10.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel10.Size = new System.Drawing.Size(122, 18);
             this.mrLabel10.TabIndex = 28;
             this.mrLabel10.Text = "CLine Text";
             // 
             // txtCLineText
             // 
-            this.txtCLineText.Location = new System.Drawing.Point(621, 112);
-            this.txtCLineText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCLineText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCLineText.Location = new System.Drawing.Point(142, 110);
+            this.txtCLineText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCLineText.Name = "txtCLineText";
-            this.txtCLineText.Size = new System.Drawing.Size(196, 22);
+            this.txtCLineText.Size = new System.Drawing.Size(171, 20);
             this.txtCLineText.TabIndex = 29;
             // 
             // mrLabel11
             // 
-            this.mrLabel11.Location = new System.Drawing.Point(439, 90);
+            this.mrLabel11.Location = new System.Drawing.Point(5, 92);
+            this.mrLabel11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel11.Name = "mrLabel11";
-            this.mrLabel11.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel11.Size = new System.Drawing.Size(122, 18);
             this.mrLabel11.TabIndex = 26;
             this.mrLabel11.Text = "CLine Release Year";
             // 
             // txtCLineReleaseYear
             // 
-            this.txtCLineReleaseYear.Location = new System.Drawing.Point(621, 90);
-            this.txtCLineReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCLineReleaseYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCLineReleaseYear.Location = new System.Drawing.Point(142, 92);
+            this.txtCLineReleaseYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCLineReleaseYear.Name = "txtCLineReleaseYear";
-            this.txtCLineReleaseYear.Size = new System.Drawing.Size(196, 22);
+            this.txtCLineReleaseYear.Size = new System.Drawing.Size(171, 20);
             this.txtCLineReleaseYear.TabIndex = 27;
             // 
             // mrLabel9
             // 
-            this.mrLabel9.Location = new System.Drawing.Point(439, 59);
+            this.mrLabel9.Location = new System.Drawing.Point(5, 67);
+            this.mrLabel9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel9.Name = "mrLabel9";
-            this.mrLabel9.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel9.Size = new System.Drawing.Size(122, 18);
             this.mrLabel9.TabIndex = 24;
             this.mrLabel9.Text = "PLine Text";
             // 
             // txtPLineText
             // 
-            this.txtPLineText.Location = new System.Drawing.Point(621, 59);
-            this.txtPLineText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPLineText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPLineText.Location = new System.Drawing.Point(142, 67);
+            this.txtPLineText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPLineText.Name = "txtPLineText";
-            this.txtPLineText.Size = new System.Drawing.Size(196, 22);
+            this.txtPLineText.Size = new System.Drawing.Size(171, 20);
             this.txtPLineText.TabIndex = 25;
             // 
             // mrLabel8
             // 
-            this.mrLabel8.Location = new System.Drawing.Point(439, 37);
+            this.mrLabel8.Location = new System.Drawing.Point(5, 49);
+            this.mrLabel8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel8.Name = "mrLabel8";
-            this.mrLabel8.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel8.Size = new System.Drawing.Size(122, 18);
             this.mrLabel8.TabIndex = 22;
             this.mrLabel8.Text = "PLine Release Year";
             // 
             // txtPLineReleaseYear
             // 
-            this.txtPLineReleaseYear.Location = new System.Drawing.Point(621, 37);
-            this.txtPLineReleaseYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPLineReleaseYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPLineReleaseYear.Location = new System.Drawing.Point(142, 49);
+            this.txtPLineReleaseYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPLineReleaseYear.Name = "txtPLineReleaseYear";
-            this.txtPLineReleaseYear.Size = new System.Drawing.Size(196, 22);
+            this.txtPLineReleaseYear.Size = new System.Drawing.Size(171, 20);
             this.txtPLineReleaseYear.TabIndex = 23;
             // 
             // mrLabel3
             // 
-            this.mrLabel3.Location = new System.Drawing.Point(15, 201);
+            this.mrLabel3.Location = new System.Drawing.Point(12, 165);
+            this.mrLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel3.Name = "mrLabel3";
-            this.mrLabel3.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel3.Size = new System.Drawing.Size(103, 18);
             this.mrLabel3.TabIndex = 20;
             this.mrLabel3.Text = "Producer";
             // 
             // txtProducer
             // 
-            this.txtProducer.Location = new System.Drawing.Point(228, 197);
-            this.txtProducer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtProducer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProducer.Location = new System.Drawing.Point(119, 162);
+            this.txtProducer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtProducer.Name = "txtProducer";
-            this.txtProducer.Size = new System.Drawing.Size(196, 22);
+            this.txtProducer.Size = new System.Drawing.Size(195, 20);
             this.txtProducer.TabIndex = 21;
             // 
             // mrLabel2
             // 
-            this.mrLabel2.Location = new System.Drawing.Point(15, 178);
+            this.mrLabel2.Location = new System.Drawing.Point(12, 147);
+            this.mrLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel2.Name = "mrLabel2";
-            this.mrLabel2.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel2.Size = new System.Drawing.Size(103, 18);
             this.mrLabel2.TabIndex = 18;
             this.mrLabel2.Text = "Main Artist";
             // 
             // txtMainArtist
             // 
-            this.txtMainArtist.Location = new System.Drawing.Point(228, 175);
-            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMainArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMainArtist.Location = new System.Drawing.Point(119, 144);
+            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMainArtist.Name = "txtMainArtist";
-            this.txtMainArtist.Size = new System.Drawing.Size(196, 22);
+            this.txtMainArtist.Size = new System.Drawing.Size(195, 20);
             this.txtMainArtist.TabIndex = 19;
             // 
             // txtDurationSecs
             // 
-            this.txtDurationSecs.Location = new System.Drawing.Point(335, 139);
-            this.txtDurationSecs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDurationSecs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDurationSecs.Location = new System.Drawing.Point(252, 115);
+            this.txtDurationSecs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDurationSecs.Name = "txtDurationSecs";
-            this.txtDurationSecs.Size = new System.Drawing.Size(89, 22);
+            this.txtDurationSecs.Size = new System.Drawing.Size(62, 20);
             this.txtDurationSecs.TabIndex = 17;
             // 
             // mrLabel1
             // 
-            this.mrLabel1.Location = new System.Drawing.Point(15, 143);
+            this.mrLabel1.Location = new System.Drawing.Point(12, 118);
+            this.mrLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel1.Name = "mrLabel1";
-            this.mrLabel1.Size = new System.Drawing.Size(163, 22);
+            this.mrLabel1.Size = new System.Drawing.Size(103, 18);
             this.mrLabel1.TabIndex = 15;
             this.mrLabel1.Text = "Duration [mm ss]";
             // 
             // txtDurationMins
             // 
-            this.txtDurationMins.Location = new System.Drawing.Point(228, 139);
-            this.txtDurationMins.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDurationMins.Location = new System.Drawing.Point(119, 115);
+            this.txtDurationMins.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDurationMins.Name = "txtDurationMins";
-            this.txtDurationMins.Size = new System.Drawing.Size(100, 22);
+            this.txtDurationMins.Size = new System.Drawing.Size(129, 20);
             this.txtDurationMins.TabIndex = 16;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(15, 113);
+            this.label2.Location = new System.Drawing.Point(12, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 22);
+            this.label2.Size = new System.Drawing.Size(103, 18);
             this.label2.TabIndex = 13;
             this.label2.Text = "Sub Genre";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(15, 91);
+            this.label3.Location = new System.Drawing.Point(12, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 22);
+            this.label3.Size = new System.Drawing.Size(103, 18);
             this.label3.TabIndex = 11;
             this.label3.Text = "Genre";
             // 
             // txtSubGenre
             // 
-            this.txtSubGenre.Location = new System.Drawing.Point(228, 110);
-            this.txtSubGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSubGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSubGenre.Location = new System.Drawing.Point(119, 91);
+            this.txtSubGenre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSubGenre.Name = "txtSubGenre";
-            this.txtSubGenre.Size = new System.Drawing.Size(196, 22);
+            this.txtSubGenre.Size = new System.Drawing.Size(195, 20);
             this.txtSubGenre.TabIndex = 14;
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(228, 87);
-            this.txtGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGenre.Location = new System.Drawing.Point(119, 73);
+            this.txtGenre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(196, 22);
+            this.txtGenre.Size = new System.Drawing.Size(195, 20);
             this.txtGenre.TabIndex = 12;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(15, 5);
+            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 22);
+            this.label1.Size = new System.Drawing.Size(103, 18);
             this.label1.TabIndex = 9;
             this.label1.Text = "Ordinal";
             // 
             // txtOrdinal
             // 
-            this.txtOrdinal.Location = new System.Drawing.Point(228, 1);
-            this.txtOrdinal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtOrdinal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOrdinal.Location = new System.Drawing.Point(119, 3);
+            this.txtOrdinal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtOrdinal.Name = "txtOrdinal";
-            this.txtOrdinal.Size = new System.Drawing.Size(196, 22);
+            this.txtOrdinal.Size = new System.Drawing.Size(195, 20);
             this.txtOrdinal.TabIndex = 10;
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(15, 62);
+            this.label8.Location = new System.Drawing.Point(12, 52);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 22);
+            this.label8.Size = new System.Drawing.Size(103, 18);
             this.label8.TabIndex = 7;
             this.label8.Text = "Title";
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(15, 37);
+            this.label7.Location = new System.Drawing.Point(12, 32);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 22);
+            this.label7.Size = new System.Drawing.Size(103, 18);
             this.label7.TabIndex = 5;
             this.label7.Text = "ISRC";
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(228, 58);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.Location = new System.Drawing.Point(119, 49);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(196, 22);
+            this.txtTitle.Size = new System.Drawing.Size(195, 20);
             this.txtTitle.TabIndex = 8;
             // 
             // txtISRC
             // 
-            this.txtISRC.Location = new System.Drawing.Point(228, 36);
-            this.txtISRC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtISRC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtISRC.Location = new System.Drawing.Point(119, 31);
+            this.txtISRC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtISRC.Name = "txtISRC";
-            this.txtISRC.Size = new System.Drawing.Size(196, 22);
+            this.txtISRC.Size = new System.Drawing.Size(195, 20);
             this.txtISRC.TabIndex = 6;
             // 
             // tbTrackRelease
             // 
             this.tbTrackRelease.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbTrackRelease.Location = new System.Drawing.Point(0, 0);
-            this.tbTrackRelease.Margin = new System.Windows.Forms.Padding(4);
             this.tbTrackRelease.Name = "tbTrackRelease";
-            this.tbTrackRelease.Size = new System.Drawing.Size(880, 30);
+            this.tbTrackRelease.Size = new System.Drawing.Size(660, 24);
             this.tbTrackRelease.TabIndex = 12;
             this.tbTrackRelease.Title = "Track Release";
             // 
-            // cbContributor1Role
+            // mrLabel20
             // 
-            this.cbContributor1Role.FormattingEnabled = true;
-            this.cbContributor1Role.Location = new System.Drawing.Point(228, 37);
-            this.cbContributor1Role.Name = "cbContributor1Role";
-            this.cbContributor1Role.Size = new System.Drawing.Size(196, 24);
-            this.cbContributor1Role.TabIndex = 29;
+            this.mrLabel20.Location = new System.Drawing.Point(5, 31);
+            this.mrLabel20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel20.Name = "mrLabel20";
+            this.mrLabel20.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel20.TabIndex = 30;
+            this.mrLabel20.Text = "Resource Release Date";
             // 
-            // cbContributor2Role
+            // txtResourceReleaseDate
             // 
-            this.cbContributor2Role.FormattingEnabled = true;
-            this.cbContributor2Role.Location = new System.Drawing.Point(228, 34);
-            this.cbContributor2Role.Name = "cbContributor2Role";
-            this.cbContributor2Role.Size = new System.Drawing.Size(196, 24);
-            this.cbContributor2Role.TabIndex = 30;
+            this.txtResourceReleaseDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtResourceReleaseDate.Location = new System.Drawing.Point(142, 31);
+            this.txtResourceReleaseDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtResourceReleaseDate.Name = "txtResourceReleaseDate";
+            this.txtResourceReleaseDate.Size = new System.Drawing.Size(171, 20);
+            this.txtResourceReleaseDate.TabIndex = 31;
             // 
-            // cbContributor3Role
+            // mrPanel1
             // 
-            this.cbContributor3Role.FormattingEnabled = true;
-            this.cbContributor3Role.Location = new System.Drawing.Point(228, 37);
-            this.cbContributor3Role.Name = "cbContributor3Role";
-            this.cbContributor3Role.Size = new System.Drawing.Size(196, 24);
-            this.cbContributor3Role.TabIndex = 30;
+            this.mrPanel1.Controls.Add(this.mrLabel20);
+            this.mrPanel1.Controls.Add(this.txtPLineReleaseYear);
+            this.mrPanel1.Controls.Add(this.txtResourceReleaseDate);
+            this.mrPanel1.Controls.Add(this.mrLabel8);
+            this.mrPanel1.Controls.Add(this.mrLabel10);
+            this.mrPanel1.Controls.Add(this.txtPLineText);
+            this.mrPanel1.Controls.Add(this.txtCLineText);
+            this.mrPanel1.Controls.Add(this.mrLabel9);
+            this.mrPanel1.Controls.Add(this.mrLabel11);
+            this.mrPanel1.Controls.Add(this.txtCLineReleaseYear);
+            this.mrPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mrPanel1.Location = new System.Drawing.Point(336, 0);
+            this.mrPanel1.Name = "mrPanel1";
+            this.mrPanel1.Size = new System.Drawing.Size(324, 188);
+            this.mrPanel1.TabIndex = 32;
             // 
-            // cbContributor4Role
+            // mrPanel2
             // 
-            this.cbContributor4Role.FormattingEnabled = true;
-            this.cbContributor4Role.Location = new System.Drawing.Point(228, 35);
-            this.cbContributor4Role.Name = "cbContributor4Role";
-            this.cbContributor4Role.Size = new System.Drawing.Size(196, 24);
-            this.cbContributor4Role.TabIndex = 30;
+            this.mrPanel2.Controls.Add(this.label1);
+            this.mrPanel2.Controls.Add(this.txtISRC);
+            this.mrPanel2.Controls.Add(this.mrLabel3);
+            this.mrPanel2.Controls.Add(this.txtTitle);
+            this.mrPanel2.Controls.Add(this.txtProducer);
+            this.mrPanel2.Controls.Add(this.label7);
+            this.mrPanel2.Controls.Add(this.mrLabel2);
+            this.mrPanel2.Controls.Add(this.label8);
+            this.mrPanel2.Controls.Add(this.txtMainArtist);
+            this.mrPanel2.Controls.Add(this.txtOrdinal);
+            this.mrPanel2.Controls.Add(this.txtDurationSecs);
+            this.mrPanel2.Controls.Add(this.txtGenre);
+            this.mrPanel2.Controls.Add(this.mrLabel1);
+            this.mrPanel2.Controls.Add(this.txtSubGenre);
+            this.mrPanel2.Controls.Add(this.txtDurationMins);
+            this.mrPanel2.Controls.Add(this.label3);
+            this.mrPanel2.Controls.Add(this.label2);
+            this.mrPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mrPanel2.Location = new System.Drawing.Point(0, 0);
+            this.mrPanel2.Name = "mrPanel2";
+            this.mrPanel2.Size = new System.Drawing.Size(333, 188);
+            this.mrPanel2.TabIndex = 33;
             // 
-            // cbContributor5Role
+            // splitter1
             // 
-            this.cbContributor5Role.FormattingEnabled = true;
-            this.cbContributor5Role.Location = new System.Drawing.Point(228, 34);
-            this.cbContributor5Role.Name = "cbContributor5Role";
-            this.cbContributor5Role.Size = new System.Drawing.Size(196, 24);
-            this.cbContributor5Role.TabIndex = 30;
+            this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitter1.Location = new System.Drawing.Point(333, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 188);
+            this.splitter1.TabIndex = 34;
+            this.splitter1.TabStop = false;
             // 
-            // cbContributor6Role
+            // tbTechnicalDetails
             // 
-            this.cbContributor6Role.FormattingEnabled = true;
-            this.cbContributor6Role.Location = new System.Drawing.Point(228, 34);
-            this.cbContributor6Role.Name = "cbContributor6Role";
-            this.cbContributor6Role.Size = new System.Drawing.Size(196, 24);
-            this.cbContributor6Role.TabIndex = 30;
+            this.tbTechnicalDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbTechnicalDetails.Location = new System.Drawing.Point(0, 212);
+            this.tbTechnicalDetails.Name = "tbTechnicalDetails";
+            this.tbTechnicalDetails.Size = new System.Drawing.Size(660, 21);
+            this.tbTechnicalDetails.TabIndex = 34;
+            this.tbTechnicalDetails.Title = "Technical Details";
+            // 
+            // pnlTechnicalDetails
+            // 
+            this.pnlTechnicalDetails.Controls.Add(this.cbAudioCodecType);
+            this.pnlTechnicalDetails.Controls.Add(this.btnOpenFile);
+            this.pnlTechnicalDetails.Controls.Add(this.txtRelativePath);
+            this.pnlTechnicalDetails.Controls.Add(this.mrLabel25);
+            this.pnlTechnicalDetails.Controls.Add(this.mrLabel26);
+            this.pnlTechnicalDetails.Controls.Add(this.txtFileName);
+            this.pnlTechnicalDetails.Controls.Add(this.txtBitsPerSample);
+            this.pnlTechnicalDetails.Controls.Add(this.mrLabel23);
+            this.pnlTechnicalDetails.Controls.Add(this.mrLabel24);
+            this.pnlTechnicalDetails.Controls.Add(this.txtSamplingRate);
+            this.pnlTechnicalDetails.Controls.Add(this.txtNumberOfChannels);
+            this.pnlTechnicalDetails.Controls.Add(this.mrLabel21);
+            this.pnlTechnicalDetails.Controls.Add(this.mrLabel22);
+            this.pnlTechnicalDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTechnicalDetails.Location = new System.Drawing.Point(0, 233);
+            this.pnlTechnicalDetails.Name = "pnlTechnicalDetails";
+            this.pnlTechnicalDetails.Size = new System.Drawing.Size(660, 100);
+            this.pnlTechnicalDetails.TabIndex = 35;
+            // 
+            // mrLabel21
+            // 
+            this.mrLabel21.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel21.Name = "mrLabel21";
+            this.mrLabel21.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel21.TabIndex = 28;
+            this.mrLabel21.Text = "Number of Channels";
+            // 
+            // mrLabel22
+            // 
+            this.mrLabel22.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel22.Name = "mrLabel22";
+            this.mrLabel22.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel22.TabIndex = 26;
+            this.mrLabel22.Text = "Audio Codec";
+            // 
+            // txtNumberOfChannels
+            // 
+            this.txtNumberOfChannels.Location = new System.Drawing.Point(137, 30);
+            this.txtNumberOfChannels.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumberOfChannels.Name = "txtNumberOfChannels";
+            this.txtNumberOfChannels.Size = new System.Drawing.Size(182, 20);
+            this.txtNumberOfChannels.TabIndex = 29;
+            // 
+            // txtBitsPerSample
+            // 
+            this.txtBitsPerSample.Location = new System.Drawing.Point(478, 30);
+            this.txtBitsPerSample.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBitsPerSample.Name = "txtBitsPerSample";
+            this.txtBitsPerSample.Size = new System.Drawing.Size(171, 20);
+            this.txtBitsPerSample.TabIndex = 33;
+            // 
+            // mrLabel23
+            // 
+            this.mrLabel23.Location = new System.Drawing.Point(333, 30);
+            this.mrLabel23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel23.Name = "mrLabel23";
+            this.mrLabel23.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel23.TabIndex = 32;
+            this.mrLabel23.Text = "Bits Per Sample";
+            // 
+            // mrLabel24
+            // 
+            this.mrLabel24.Location = new System.Drawing.Point(333, 12);
+            this.mrLabel24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel24.Name = "mrLabel24";
+            this.mrLabel24.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel24.TabIndex = 30;
+            this.mrLabel24.Text = "Sampling Rate [kHz]";
+            // 
+            // txtSamplingRate
+            // 
+            this.txtSamplingRate.Location = new System.Drawing.Point(478, 10);
+            this.txtSamplingRate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSamplingRate.Name = "txtSamplingRate";
+            this.txtSamplingRate.Size = new System.Drawing.Size(171, 20);
+            this.txtSamplingRate.TabIndex = 31;
+            // 
+            // txtRelativePath
+            // 
+            this.txtRelativePath.Location = new System.Drawing.Point(137, 76);
+            this.txtRelativePath.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRelativePath.Name = "txtRelativePath";
+            this.txtRelativePath.Size = new System.Drawing.Size(182, 20);
+            this.txtRelativePath.TabIndex = 37;
+            // 
+            // mrLabel25
+            // 
+            this.mrLabel25.Location = new System.Drawing.Point(11, 76);
+            this.mrLabel25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel25.Name = "mrLabel25";
+            this.mrLabel25.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel25.TabIndex = 36;
+            this.mrLabel25.Text = "Relative Path";
+            // 
+            // mrLabel26
+            // 
+            this.mrLabel26.Location = new System.Drawing.Point(11, 58);
+            this.mrLabel26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel26.Name = "mrLabel26";
+            this.mrLabel26.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel26.TabIndex = 34;
+            this.mrLabel26.Text = "FileName";
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Location = new System.Drawing.Point(137, 56);
+            this.txtFileName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(182, 20);
+            this.txtFileName.TabIndex = 35;
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Location = new System.Drawing.Point(336, 56);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(29, 22);
+            this.btnOpenFile.TabIndex = 38;
+            this.btnOpenFile.Text = "...";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            // 
+            // cbAudioCodecType
+            // 
+            this.cbAudioCodecType.FormattingEnabled = true;
+            this.cbAudioCodecType.Location = new System.Drawing.Point(137, 5);
+            this.cbAudioCodecType.Margin = new System.Windows.Forms.Padding(2);
+            this.cbAudioCodecType.Name = "cbAudioCodecType";
+            this.cbAudioCodecType.Size = new System.Drawing.Size(182, 21);
+            this.cbAudioCodecType.TabIndex = 39;
             // 
             // ERN_382TrackReleaseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(880, 947);
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(660, 889);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ERN_382TrackReleaseForm";
             this.Text = "Track Release Edit";
             this.DialogResultClicked += new Framework.UI.Forms.MREditForm.ButtonClickEventHandler(this.ERN_382TrackReleaseForm_DialogResultClicked);
@@ -742,7 +998,12 @@
             this.pnlContributor1.ResumeLayout(false);
             this.pnlContributor1.PerformLayout();
             this.pnlMainRelease.ResumeLayout(false);
-            this.pnlMainRelease.PerformLayout();
+            this.mrPanel1.ResumeLayout(false);
+            this.mrPanel1.PerformLayout();
+            this.mrPanel2.ResumeLayout(false);
+            this.mrPanel2.PerformLayout();
+            this.pnlTechnicalDetails.ResumeLayout(false);
+            this.pnlTechnicalDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -814,5 +1075,25 @@
         private Framework.UI.Controls.MRComboBox cbContributor4Role;
         private Framework.UI.Controls.MRComboBox cbContributor3Role;
         private Framework.UI.Controls.MRComboBox cbContributor2Role;
+        private Framework.UI.Controls.MRPanel mrPanel1;
+        private Framework.UI.Controls.MRLabel mrLabel20;
+        private Framework.UI.Controls.MRTextBox txtResourceReleaseDate;
+        private System.Windows.Forms.Splitter splitter1;
+        private Framework.UI.Controls.MRPanel mrPanel2;
+        private Framework.UI.Controls.MRPanel pnlTechnicalDetails;
+        private Framework.UI.Controls.MRTextBox txtBitsPerSample;
+        private Framework.UI.Controls.MRLabel mrLabel23;
+        private Framework.UI.Controls.MRLabel mrLabel24;
+        private Framework.UI.Controls.MRTextBox txtSamplingRate;
+        private Framework.UI.Controls.MRTextBox txtNumberOfChannels;
+        private Framework.UI.Controls.MRLabel mrLabel21;
+        private Framework.UI.Controls.MRLabel mrLabel22;
+        private Framework.UI.Controls.MRTitleBar tbTechnicalDetails;
+        private Framework.UI.Controls.MRTextBox txtRelativePath;
+        private Framework.UI.Controls.MRLabel mrLabel25;
+        private Framework.UI.Controls.MRLabel mrLabel26;
+        private Framework.UI.Controls.MRTextBox txtFileName;
+        private Framework.UI.Controls.MRButton btnOpenFile;
+        private Framework.UI.Controls.MRComboBox cbAudioCodecType;
     }
 }

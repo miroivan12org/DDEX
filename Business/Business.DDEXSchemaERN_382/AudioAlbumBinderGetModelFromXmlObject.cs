@@ -385,6 +385,17 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private string GetModelTrackResourceReleaseDate(SoundRecording sr)
+        {
+            string ret = null;
+
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].ResourceReleaseDate != null)
+            {
+                ret = sr.SoundRecordingDetailsByTerritory[0].ResourceReleaseDate.Value;
+            }
+
+            return ret;
+        }
         private string GetModelTrackPLineText(Release rel)
         {
             string ret = null;
@@ -501,6 +512,132 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private TechnicalSoundRecordingDetails GetModelTrackHelperTechnicalSoundRecordingDetails(SoundRecording sr)
+        {
+            TechnicalSoundRecordingDetails ret = null;
+
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].TechnicalSoundRecordingDetails != null && sr.SoundRecordingDetailsByTerritory[0].TechnicalSoundRecordingDetails.Length > 0)
+            {
+                ret = sr.SoundRecordingDetailsByTerritory[0].TechnicalSoundRecordingDetails[0];
+            }
+
+            return ret;
+        }
+        private AudioCodecType GetModelTrackAudioCodecType(SoundRecording sr)
+        {
+            AudioCodecType ret = AudioCodecType.Unknown;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.AudioCodecType != null)
+            {
+                ret = det.AudioCodecType.Value;
+            }
+            
+            return ret;
+        }
+        private int GetModelTrackNumberOfChannels(SoundRecording sr)
+        {
+            int ret = 0;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.NumberOfChannels != null)
+            {
+                int res = -1;
+                int.TryParse(det.NumberOfChannels, out res);
+                if (res != -1)
+                {
+                    ret = res;
+                }
+            }
+
+            return ret;
+        }
+        private decimal GetModelTrackSamplingRate(SoundRecording sr)
+        {
+            decimal ret = 0;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.SamplingRate != null)
+            {
+                ret = det.SamplingRate.Value;
+            }
+
+            return ret;
+        }
+        private int GetModelTrackBitsPerSample(SoundRecording sr)
+        {
+            int ret = 0;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.BitsPerSample != null)
+            {
+                int res = -1;
+                int.TryParse(det.BitsPerSample, out res);
+                if (res != -1)
+                {
+                    ret = res;
+                }
+            }
+
+            return ret;
+        }
+        private string GetModelTrackFileName(SoundRecording sr)
+        {
+            string ret = null;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.Items != null && det.Items.Length > 0 && det.Items[0] is File && ((File)det.Items[0]).ItemsElementName != null && ((File)det.Items[0]).ItemsElementName.Length > 0)
+            {
+                File f = (File) det.Items[0];
+                int ix = f.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FileName);
+                if (ix != -1)
+                {
+                    ret = f.Items[ix];
+                }
+            }
+
+            return ret;
+        }
+        private string GetModelTrackFilePath(SoundRecording sr)
+        {
+            string ret = null;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.Items != null && det.Items.Length > 0 && det.Items[0] is File && ((File)det.Items[0]).ItemsElementName != null && ((File)det.Items[0]).ItemsElementName.Length > 0)
+            {
+                File f = (File)det.Items[0];
+                int ix = f.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath);
+                if (ix != -1)
+                {
+                    ret = f.Items[ix];
+                }
+            }
+
+            return ret;
+        }
+        private string GetModelTrackHashSum(SoundRecording sr)
+        {
+            string ret = null;
+
+            TechnicalSoundRecordingDetails det = GetModelTrackHelperTechnicalSoundRecordingDetails(sr);
+
+            if (det != null && det.Items != null && det.Items.Length > 0 && det.Items[0] is File && ((File)det.Items[0]).ItemsElementName != null && ((File)det.Items[0]).ItemsElementName.Length > 0)
+            {
+                File f = (File)det.Items[0];
+                if (f.HashSum != null)
+                {
+                    ret = f.HashSum.HashSum1;
+                }
+            }
+
+            return ret;
+        }
         private List<Tuple<string, string>> GetModelTrackIndirectContributors(SoundRecording sr)
         {
             var ret = new List<Tuple<string, string>>();
@@ -596,17 +733,27 @@ namespace Business.DDEXSchemaERN_382
             ret.Ordinal = GetModelTrackOrdinal(rel);
             ret.ISRC = GetModelTrackISRC(rel);
             ret.Title = GetModelTrackTitle(rel);
+            ret.DurationMin = GetModelTrackDurationMin(sr);
+            ret.DurationSec = GetModelTrackDurationSec(sr);
             ret.Genre = GetModelTrackGenre(rel);
             ret.SubGenre = GetModelTrackSubGenre(rel);
+            ret.ResourceReleaseDate = GetModelTrackResourceReleaseDate(sr);
             ret.PLineText = GetModelTrackPLineText(rel);
             ret.PLineReleaseYear = GetModelTrackPLineReleaseYear(rel);
             ret.CLineText = GetModelTrackCLineText(rel);
             ret.CLineReleaseYear = GetModelTrackCLineReleaseYear(rel);
             ret.MainArtist = GetModelTrackMainArtist(sr);
             ret.Producer = GetModelTrackProducer(sr);
+            ret.AudioCodec = GetModelTrackAudioCodecType(sr);
+            ret.NumberOfChannels = GetModelTrackNumberOfChannels(sr);
+            ret.SamplingRate = GetModelTrackSamplingRate(sr);
+            ret.BitsPerSample = GetModelTrackBitsPerSample(sr);
+            ret.FileName = GetModelTrackFileName(sr);
+            ret.FilePath = GetModelTrackFilePath(sr);
+            ret.FileHashSum_Materialized = GetModelTrackHashSum(sr);
+
             FillIndirectContributors(ret, GetModelTrackIndirectContributors(sr));
-            ret.DurationMin = GetModelTrackDurationMin(sr);
-            ret.DurationSec = GetModelTrackDurationSec(sr);
+            
             return ret;
         }
         #endregion

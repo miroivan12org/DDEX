@@ -78,6 +78,7 @@ namespace Business.DDEXSchemaERN_382.Entities
                 FrontCoverImageHeight_Materialized = 0;
                 FrontCoverImageWidth_Materialized = 0;
                 FrontCoverImageCodecType = ImageCodecType.Unknown;
+                FrontCoverImageHashSum_Materialized = null;
             }
         }
         public override bool IsValid(out string message)

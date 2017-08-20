@@ -25,6 +25,7 @@ namespace DDEX.Generation.ERN_382
         }
 
         public TrackModel Model { get; set; }
+        public new Form ParentForm { get; set; }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -34,12 +35,26 @@ namespace DDEX.Generation.ERN_382
         private void ERN_382TrackReleaseForm_Load(object sender, EventArgs e)
         {
             InitBindings();
+
+            tbTechnicalDetails.BindedControls.Add(pnlTechnicalDetails);
+
             tbContributor1.BindedControls.Add(pnlContributor1);
+            tbContributor1.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor1) || !string.IsNullOrWhiteSpace(Model.Contributor1Role)) });
+
             tbContributor2.BindedControls.Add(pnlContributor2);
+            tbContributor2.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor2) || !string.IsNullOrWhiteSpace(Model.Contributor2Role)) });
+
             tbContributor3.BindedControls.Add(pnlContributor3);
+            tbContributor3.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor3) || !string.IsNullOrWhiteSpace(Model.Contributor3Role)) });
+
             tbContributor4.BindedControls.Add(pnlContributor4);
+            tbContributor4.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor4) || !string.IsNullOrWhiteSpace(Model.Contributor4Role)) });
+
             tbContributor5.BindedControls.Add(pnlContributor5);
+            tbContributor5.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor5) || !string.IsNullOrWhiteSpace(Model.Contributor5Role)) });
+
             tbContributor6.BindedControls.Add(pnlContributor6);
+            tbContributor6.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor6) || !string.IsNullOrWhiteSpace(Model.Contributor6Role)) });
         }
 
         private void InitCombos()
@@ -50,11 +65,13 @@ namespace DDEX.Generation.ERN_382
             cbContributor4Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
             cbContributor5Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
             cbContributor6Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbAudioCodecType.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceAudioCodecType();
         }
         private void InitBindings()
         {
             InitCombos();
 
+            btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
             txtGenre.DataBindings.Add("Text", Model, "Genre");
             txtSubGenre.DataBindings.Add("Text", Model, "SubGenre");
             txtISRC.DataBindings.Add("Text", Model, "ISRC");
@@ -80,6 +97,15 @@ namespace DDEX.Generation.ERN_382
             cbContributor5Role.DataBindings.Add("SelectedItem", Model, "Contributor5Role");
             txtContributor6.DataBindings.Add("Text", Model, "Contributor6");
             cbContributor6Role.DataBindings.Add("SelectedItem", Model, "Contributor6Role");
+            txtResourceReleaseDate.DataBindings.Add("Text", Model, "ResourceReleaseDate");
+
+            cbAudioCodecType.DataBindings.Add("SelectedItem", Model, "AudioCodec");
+            txtNumberOfChannels.DataBindings.Add("Text", Model, "NumberOfChannels");
+            txtSamplingRate.DataBindings.Add("Text", Model, "SamplingRate");
+            txtBitsPerSample.DataBindings.Add("Text", Model, "BitsPerSample");
+            txtFileName.DataBindings.Add("Text", Model, "FileName");
+            txtRelativePath.DataBindings.Add("Text", Model, "FilePath");
+
         }
 
         private void ERN_382TrackReleaseForm_DialogResultClicked(object sender, DialogResultEventArgs e)
@@ -87,6 +113,8 @@ namespace DDEX.Generation.ERN_382
             if (e.Result == DialogResult.OK)
             {
                 string message = "";
+                Model.ComputeMaterialized();
+
                 if (Model.IsValid(out message))
                 {
                     DialogResult = DialogResult.OK;
@@ -99,6 +127,40 @@ namespace DDEX.Generation.ERN_382
             else if (e.Result == DialogResult.Cancel)
             {
                 DialogResult = DialogResult.Cancel;
+            }
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            using (var fd = new OpenFileDialog() { RestoreDirectory = true, InitialDirectory = System.IO.Path.GetDirectoryName(((ERN_382GenerationFormAudioAlbumMusicOnly)ParentForm).Model.FullFileName) })
+            {
+                if (Model.TrackFullFileName != null && System.IO.File.Exists(Model.TrackFullFileName))
+                {
+                    fd.InitialDirectory = System.IO.Path.GetDirectoryName(Model.TrackFullFileName);
+                    fd.FileName = System.IO.Path.GetFileName(Model.TrackFullFileName);
+                }
+
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    string dir = System.IO.Path.GetDirectoryName(fd.FileName);
+                    string modelDir = System.IO.Path.GetDirectoryName(((ERN_382GenerationFormAudioAlbumMusicOnly)ParentForm).Model.FullFileName);
+                    string prePath = "";
+                    if (dir.Length > modelDir.Length)
+                    {
+                        prePath = dir.Substring(modelDir.Length + 1);
+                    }
+
+                    Model.FilePath = prePath + "/";
+                    Model.TrackFullFileName = fd.FileName;
+                }
+                else
+                {
+                    Model.FilePath = null;
+                    Model.FileName = null;
+                    Model.TrackFullFileName = null;
+                }
+
+                Model.ComputeMaterialized();
             }
         }
     }

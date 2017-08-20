@@ -452,15 +452,26 @@ namespace Business.DDEXSchemaERN_382
                     if (track.IndirectContributors.Count > 0)
                     {
                         sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor = new IndirectResourceContributor[track.IndirectContributors.Count];
+                        var roleLastSequenceNumber = new Dictionary<string, int>();
                         for (int j = 0; j < track.IndirectContributors.Count; j++)
                         {
                             Tuple<string, string> contributor = track.IndirectContributors[j];
-                            sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor[j] = new IndirectResourceContributor()
+                            var irc = new IndirectResourceContributor()
                             {
-                                SequenceNumber = (j + 1).ToString(),
                                 Items = new object[] { new PartyName() { FullName = new Name() { Value = contributor.Item1 } } },
                                 IndirectResourceContributorRole = new MusicalWorkContributorRole[] { new MusicalWorkContributorRole() { Value = contributor.Item2 } }
                             };
+                            if (!roleLastSequenceNumber.ContainsKey(contributor.Item2))
+                            {
+                                roleLastSequenceNumber.Add(contributor.Item2, 1);
+                            }
+                            else
+                            {
+                                roleLastSequenceNumber[contributor.Item2] = roleLastSequenceNumber[contributor.Item2] + 1;
+                            }
+                            irc.SequenceNumber = roleLastSequenceNumber[contributor.Item2].ToString();
+
+                            sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor[j] = irc;
                         }
                     }
 

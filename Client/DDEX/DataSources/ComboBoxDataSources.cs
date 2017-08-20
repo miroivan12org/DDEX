@@ -24,5 +24,22 @@ namespace DDEX.DataSources
             
             return ret;
         }
+
+        public static List<ComboBoxItem> GetComboDataSourceAudioCodecType()
+        {
+
+            var lsValues = Enum.GetValues(typeof(AudioCodecType)).Cast<AudioCodecType>().ToList<AudioCodecType>();
+            
+            var ret = new List<ComboBoxItem>()
+            {
+                new ComboBoxItem() { Value = null, Text = "" }
+            };
+            foreach (AudioCodecType c in lsValues)
+            {
+                ret.Add(new ComboBoxItem() { Value = c, Text = Enum.GetName(typeof(AudioCodecType), c) });
+            }
+
+            return ret;
+        }
     }
 }
