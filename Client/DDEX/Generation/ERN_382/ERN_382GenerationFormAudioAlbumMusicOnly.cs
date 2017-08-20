@@ -9,6 +9,7 @@ using Business.DDEXSchemaERN_382;
 using System.Linq;
 using Framework.UI.Forms;
 using DDEX.Navigation;
+using System.Xml;
 
 namespace DDEX.Generation.ERN_382
 {
@@ -369,6 +370,8 @@ namespace DDEX.Generation.ERN_382
             btnOpenFrontCoverImage.DataBindings.Add("Enabled", this, "Editable");
             btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
 
+            dpGlobalReleaseDate.DataBindings.Add("Text", Model, "ApproximateReleaseDate");
+
             cbUpdateIndicator.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "OriginalMessage", Value = UpdateIndicator.OriginalMessage }, new ComboBoxItem() { Text = "UpdateMessage", Value = UpdateIndicator.UpdateMessage } };
             tbMainRelease.BindedControls.Add(pnlMainRelease);
             tbMessageHeader.BindedControls.Add(pnlMessageHeader);
@@ -481,9 +484,10 @@ namespace DDEX.Generation.ERN_382
         {
             string message = "";
             string message2 = "";
+            string fileName = Model.FullFileName.Replace(".xml", "_test.xml");
             if (Model.IsValid(out message) && IsXmlFileValid(out message2))
             {
-                Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName);
+                Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), fileName);
                 DialogResult = DialogResult.OK;
                 Close();
                 Dispose();
@@ -493,7 +497,7 @@ namespace DDEX.Generation.ERN_382
                 rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
                 if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
                 {
-                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model.FullFileName + "_test");
+                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), fileName);
                     DialogResult = DialogResult.Abort;
                     Close();
                     Dispose();

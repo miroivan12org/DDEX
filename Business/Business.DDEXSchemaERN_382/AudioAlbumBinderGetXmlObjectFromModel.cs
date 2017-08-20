@@ -4,6 +4,7 @@ using Business.DDEXSchemaERN_382.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -72,8 +73,9 @@ namespace Business.DDEXSchemaERN_382
                     ret.MessageRecipient[0].PartyName = new PartyName() { FullName = new Name() { Value = m.RecipientPartyName } };
                 }
             }
-                        
-            ret.MessageCreatedDateTime = new DateTime(m.MessageCreatedDateTime.Ticks, DateTimeKind.Local);
+            //ret.MessageCreatedDateTime = new DateTime(m.MessageCreatedDateTime.Ticks, DateTimeKind.Local);
+            
+            ret.MessageCreatedDateTime = DateTime.SpecifyKind(m.MessageCreatedDateTime, DateTimeKind.Local); 
             
             return ret;
         }

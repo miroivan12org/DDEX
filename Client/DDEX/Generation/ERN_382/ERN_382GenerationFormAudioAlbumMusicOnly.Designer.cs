@@ -36,6 +36,10 @@
             this.btnLoadXml = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox2 = new Framework.UI.Controls.MRGroupBox(this.components);
             this.pnlFrontCoverImage = new Framework.UI.Controls.MRPanel(this.components);
+            this.txtFrontCoverImageWidth = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtFrontCoverImageHeight = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtFrontCoverImageRelativePath = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtFrontCoverImageFileName = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrButton1 = new Framework.UI.Controls.MRButton(this.components);
             this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
@@ -69,7 +73,7 @@
             this.txtCReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrLabel10 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtCLine = new Framework.UI.Controls.MRTextBox(this.components);
-            this.mrDatePicker1 = new Framework.UI.Controls.MRDatePicker(this.components);
+            this.dpGlobalReleaseDate = new Framework.UI.Controls.MRDatePicker(this.components);
             this.mrLabel8 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel7 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtPReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
@@ -93,10 +97,6 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtFrontCoverImageFileName = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtFrontCoverImageRelativePath = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtFrontCoverImageHeight = new Framework.UI.Controls.MRTextBox(this.components);
-            this.txtFrontCoverImageWidth = new Framework.UI.Controls.MRTextBox(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlFrontCoverImage.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             // pnlData
             // 
-            this.pnlData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlData.Margin = new System.Windows.Forms.Padding(4);
             this.pnlData.Size = new System.Drawing.Size(848, 555);
             // 
             // groupBox1
@@ -117,9 +117,9 @@
             this.groupBox1.Controls.Add(this.txtFileName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(848, 50);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -147,7 +147,7 @@
             // txtFileName
             // 
             this.txtFileName.Location = new System.Drawing.Point(117, 19);
-            this.txtFileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFileName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(450, 20);
             this.txtFileName.TabIndex = 13;
@@ -175,9 +175,9 @@
             this.groupBox2.Controls.Add(this.tbMainRelease);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 50);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(848, 505);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
@@ -201,6 +201,34 @@
             this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnlFrontCoverImage.Size = new System.Drawing.Size(844, 89);
             this.pnlFrontCoverImage.TabIndex = 1;
+            // 
+            // txtFrontCoverImageWidth
+            // 
+            this.txtFrontCoverImageWidth.Location = new System.Drawing.Point(275, 45);
+            this.txtFrontCoverImageWidth.Name = "txtFrontCoverImageWidth";
+            this.txtFrontCoverImageWidth.Size = new System.Drawing.Size(129, 20);
+            this.txtFrontCoverImageWidth.TabIndex = 24;
+            // 
+            // txtFrontCoverImageHeight
+            // 
+            this.txtFrontCoverImageHeight.Location = new System.Drawing.Point(103, 45);
+            this.txtFrontCoverImageHeight.Name = "txtFrontCoverImageHeight";
+            this.txtFrontCoverImageHeight.Size = new System.Drawing.Size(122, 20);
+            this.txtFrontCoverImageHeight.TabIndex = 23;
+            // 
+            // txtFrontCoverImageRelativePath
+            // 
+            this.txtFrontCoverImageRelativePath.Location = new System.Drawing.Point(103, 24);
+            this.txtFrontCoverImageRelativePath.Name = "txtFrontCoverImageRelativePath";
+            this.txtFrontCoverImageRelativePath.Size = new System.Drawing.Size(300, 20);
+            this.txtFrontCoverImageRelativePath.TabIndex = 22;
+            // 
+            // txtFrontCoverImageFileName
+            // 
+            this.txtFrontCoverImageFileName.Location = new System.Drawing.Point(103, 5);
+            this.txtFrontCoverImageFileName.Name = "txtFrontCoverImageFileName";
+            this.txtFrontCoverImageFileName.Size = new System.Drawing.Size(300, 20);
+            this.txtFrontCoverImageFileName.TabIndex = 21;
             // 
             // mrButton1
             // 
@@ -380,7 +408,7 @@
             this.dpMessageCreatedDateTime.CustomFormat = "dd.MM.yyyy HH:mm.ss";
             this.dpMessageCreatedDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dpMessageCreatedDateTime.Location = new System.Drawing.Point(187, 93);
-            this.dpMessageCreatedDateTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpMessageCreatedDateTime.Margin = new System.Windows.Forms.Padding(2);
             this.dpMessageCreatedDateTime.Name = "dpMessageCreatedDateTime";
             this.dpMessageCreatedDateTime.Size = new System.Drawing.Size(156, 20);
             this.dpMessageCreatedDateTime.TabIndex = 11;
@@ -406,7 +434,7 @@
             // txtMessageID
             // 
             this.txtMessageID.Location = new System.Drawing.Point(187, 4);
-            this.txtMessageID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMessageID.Margin = new System.Windows.Forms.Padding(2);
             this.txtMessageID.Name = "txtMessageID";
             this.txtMessageID.Size = new System.Drawing.Size(156, 20);
             this.txtMessageID.TabIndex = 1;
@@ -423,7 +451,7 @@
             // txtMessageSender_PartyID
             // 
             this.txtMessageSender_PartyID.Location = new System.Drawing.Point(187, 21);
-            this.txtMessageSender_PartyID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMessageSender_PartyID.Margin = new System.Windows.Forms.Padding(2);
             this.txtMessageSender_PartyID.Name = "txtMessageSender_PartyID";
             this.txtMessageSender_PartyID.Size = new System.Drawing.Size(156, 20);
             this.txtMessageSender_PartyID.TabIndex = 3;
@@ -431,7 +459,7 @@
             // txtMessageRecipient_PartyName
             // 
             this.txtMessageRecipient_PartyName.Location = new System.Drawing.Point(187, 75);
-            this.txtMessageRecipient_PartyName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMessageRecipient_PartyName.Margin = new System.Windows.Forms.Padding(2);
             this.txtMessageRecipient_PartyName.Name = "txtMessageRecipient_PartyName";
             this.txtMessageRecipient_PartyName.Size = new System.Drawing.Size(156, 20);
             this.txtMessageRecipient_PartyName.TabIndex = 9;
@@ -457,7 +485,7 @@
             // txtMessageSender_PartyName
             // 
             this.txtMessageSender_PartyName.Location = new System.Drawing.Point(187, 39);
-            this.txtMessageSender_PartyName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMessageSender_PartyName.Margin = new System.Windows.Forms.Padding(2);
             this.txtMessageSender_PartyName.Name = "txtMessageSender_PartyName";
             this.txtMessageSender_PartyName.Size = new System.Drawing.Size(156, 20);
             this.txtMessageSender_PartyName.TabIndex = 5;
@@ -465,7 +493,7 @@
             // txtMessageRecipient_PartyID
             // 
             this.txtMessageRecipient_PartyID.Location = new System.Drawing.Point(187, 57);
-            this.txtMessageRecipient_PartyID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMessageRecipient_PartyID.Margin = new System.Windows.Forms.Padding(2);
             this.txtMessageRecipient_PartyID.Name = "txtMessageRecipient_PartyID";
             this.txtMessageRecipient_PartyID.Size = new System.Drawing.Size(156, 20);
             this.txtMessageRecipient_PartyID.TabIndex = 7;
@@ -494,7 +522,7 @@
             this.pnlMainRelease.Controls.Add(this.txtCReleaseYear);
             this.pnlMainRelease.Controls.Add(this.mrLabel10);
             this.pnlMainRelease.Controls.Add(this.txtCLine);
-            this.pnlMainRelease.Controls.Add(this.mrDatePicker1);
+            this.pnlMainRelease.Controls.Add(this.dpGlobalReleaseDate);
             this.pnlMainRelease.Controls.Add(this.mrLabel8);
             this.pnlMainRelease.Controls.Add(this.mrLabel7);
             this.pnlMainRelease.Controls.Add(this.txtPReleaseYear);
@@ -533,7 +561,7 @@
             // txtCReleaseYear
             // 
             this.txtCReleaseYear.Location = new System.Drawing.Point(682, 64);
-            this.txtCReleaseYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCReleaseYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtCReleaseYear.Name = "txtCReleaseYear";
             this.txtCReleaseYear.Size = new System.Drawing.Size(156, 20);
             this.txtCReleaseYear.TabIndex = 28;
@@ -550,20 +578,20 @@
             // txtCLine
             // 
             this.txtCLine.Location = new System.Drawing.Point(682, 45);
-            this.txtCLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCLine.Margin = new System.Windows.Forms.Padding(2);
             this.txtCLine.Name = "txtCLine";
             this.txtCLine.Size = new System.Drawing.Size(156, 20);
             this.txtCLine.TabIndex = 26;
             // 
-            // mrDatePicker1
+            // dpGlobalReleaseDate
             // 
-            this.mrDatePicker1.CustomFormat = "yyyy-MM-dd";
-            this.mrDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.mrDatePicker1.Location = new System.Drawing.Point(410, 67);
-            this.mrDatePicker1.Name = "mrDatePicker1";
-            this.mrDatePicker1.ShowCheckBox = true;
-            this.mrDatePicker1.Size = new System.Drawing.Size(131, 20);
-            this.mrDatePicker1.TabIndex = 24;
+            this.dpGlobalReleaseDate.CustomFormat = "yyyy-MM-dd";
+            this.dpGlobalReleaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpGlobalReleaseDate.Location = new System.Drawing.Point(410, 67);
+            this.dpGlobalReleaseDate.Name = "dpGlobalReleaseDate";
+            this.dpGlobalReleaseDate.ShowCheckBox = true;
+            this.dpGlobalReleaseDate.Size = new System.Drawing.Size(131, 20);
+            this.dpGlobalReleaseDate.TabIndex = 24;
             // 
             // mrLabel8
             // 
@@ -586,7 +614,7 @@
             // txtPReleaseYear
             // 
             this.txtPReleaseYear.Location = new System.Drawing.Point(682, 22);
-            this.txtPReleaseYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPReleaseYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtPReleaseYear.Name = "txtPReleaseYear";
             this.txtPReleaseYear.Size = new System.Drawing.Size(156, 20);
             this.txtPReleaseYear.TabIndex = 22;
@@ -603,7 +631,7 @@
             // txtPLine
             // 
             this.txtPLine.Location = new System.Drawing.Point(682, 4);
-            this.txtPLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPLine.Margin = new System.Windows.Forms.Padding(2);
             this.txtPLine.Name = "txtPLine";
             this.txtPLine.Size = new System.Drawing.Size(156, 20);
             this.txtPLine.TabIndex = 20;
@@ -629,7 +657,7 @@
             // txtSubGenre
             // 
             this.txtSubGenre.Location = new System.Drawing.Point(410, 45);
-            this.txtSubGenre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSubGenre.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubGenre.Name = "txtSubGenre";
             this.txtSubGenre.Size = new System.Drawing.Size(155, 20);
             this.txtSubGenre.TabIndex = 18;
@@ -637,7 +665,7 @@
             // txtGenre
             // 
             this.txtGenre.Location = new System.Drawing.Point(410, 23);
-            this.txtGenre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGenre.Margin = new System.Windows.Forms.Padding(2);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(155, 20);
             this.txtGenre.TabIndex = 16;
@@ -654,7 +682,7 @@
             // txtLabel
             // 
             this.txtLabel.Location = new System.Drawing.Point(410, 2);
-            this.txtLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLabel.Margin = new System.Windows.Forms.Padding(2);
             this.txtLabel.Name = "txtLabel";
             this.txtLabel.Size = new System.Drawing.Size(155, 20);
             this.txtLabel.TabIndex = 12;
@@ -671,7 +699,7 @@
             // txtMainArtist
             // 
             this.txtMainArtist.Location = new System.Drawing.Point(114, 64);
-            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMainArtist.Margin = new System.Windows.Forms.Padding(2);
             this.txtMainArtist.Name = "txtMainArtist";
             this.txtMainArtist.Size = new System.Drawing.Size(156, 20);
             this.txtMainArtist.TabIndex = 10;
@@ -698,7 +726,7 @@
             // 
             this.cbUpdateIndicator.FormattingEnabled = true;
             this.cbUpdateIndicator.Location = new System.Drawing.Point(114, 42);
-            this.cbUpdateIndicator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbUpdateIndicator.Margin = new System.Windows.Forms.Padding(2);
             this.cbUpdateIndicator.Name = "cbUpdateIndicator";
             this.cbUpdateIndicator.Size = new System.Drawing.Size(156, 21);
             this.cbUpdateIndicator.TabIndex = 1;
@@ -715,7 +743,7 @@
             // txtMainReleaseReferenceTitle
             // 
             this.txtMainReleaseReferenceTitle.Location = new System.Drawing.Point(114, 22);
-            this.txtMainReleaseReferenceTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMainReleaseReferenceTitle.Margin = new System.Windows.Forms.Padding(2);
             this.txtMainReleaseReferenceTitle.Name = "txtMainReleaseReferenceTitle";
             this.txtMainReleaseReferenceTitle.Size = new System.Drawing.Size(156, 20);
             this.txtMainReleaseReferenceTitle.TabIndex = 8;
@@ -723,7 +751,7 @@
             // txtEAN
             // 
             this.txtEAN.Location = new System.Drawing.Point(114, 4);
-            this.txtEAN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEAN.Margin = new System.Windows.Forms.Padding(2);
             this.txtEAN.Name = "txtEAN";
             this.txtEAN.Size = new System.Drawing.Size(156, 20);
             this.txtEAN.TabIndex = 6;
@@ -772,41 +800,13 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
-            // txtFrontCoverImageFileName
-            // 
-            this.txtFrontCoverImageFileName.Location = new System.Drawing.Point(103, 5);
-            this.txtFrontCoverImageFileName.Name = "txtFrontCoverImageFileName";
-            this.txtFrontCoverImageFileName.Size = new System.Drawing.Size(300, 20);
-            this.txtFrontCoverImageFileName.TabIndex = 21;
-            // 
-            // txtFrontCoverImageRelativePath
-            // 
-            this.txtFrontCoverImageRelativePath.Location = new System.Drawing.Point(103, 24);
-            this.txtFrontCoverImageRelativePath.Name = "txtFrontCoverImageRelativePath";
-            this.txtFrontCoverImageRelativePath.Size = new System.Drawing.Size(300, 20);
-            this.txtFrontCoverImageRelativePath.TabIndex = 22;
-            // 
-            // txtFrontCoverImageHeight
-            // 
-            this.txtFrontCoverImageHeight.Location = new System.Drawing.Point(103, 45);
-            this.txtFrontCoverImageHeight.Name = "txtFrontCoverImageHeight";
-            this.txtFrontCoverImageHeight.Size = new System.Drawing.Size(122, 20);
-            this.txtFrontCoverImageHeight.TabIndex = 23;
-            // 
-            // txtFrontCoverImageWidth
-            // 
-            this.txtFrontCoverImageWidth.Location = new System.Drawing.Point(275, 45);
-            this.txtFrontCoverImageWidth.Name = "txtFrontCoverImageWidth";
-            this.txtFrontCoverImageWidth.Size = new System.Drawing.Size(129, 20);
-            this.txtFrontCoverImageWidth.TabIndex = 24;
-            // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(848, 601);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ERN_382GenerationFormAudioAlbumMusicOnly";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
             this.Text = "Release Edit";
@@ -885,7 +885,7 @@
         private Framework.UI.Controls.MRLabel mrLabel7;
         private Framework.UI.Controls.MRTextBox txtPReleaseYear;
         private Framework.UI.Controls.MRLabel mrLabel8;
-        private Framework.UI.Controls.MRDatePicker mrDatePicker1;
+        private Framework.UI.Controls.MRDatePicker dpGlobalReleaseDate;
         private Framework.UI.Controls.MRLabel mrLabel11;
         private Framework.UI.Controls.MRLabel mrLabel12;
         private Framework.UI.Controls.MRButton btnOpenFile;

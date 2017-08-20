@@ -10,5 +10,6 @@ namespace Business.DDEXSchemaERN_382.Schema
     public partial class NewReleaseMessage : IXmlObject
     {
         public string FullFileName { get; set; }
+
     }
 }

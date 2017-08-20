@@ -43,6 +43,10 @@ namespace Business.DDEXSchemaERN_382
             System.IO.File.WriteAllText(fileName, str);
         }
 
+        public IXmlGenerator GetGenerator()
+        {
+            return Generator;
+        }
         public IXmlObject GetXmlObjectFromFile(string fileName)
         {
             string str = Generator.LoadXmlFile(fileName);

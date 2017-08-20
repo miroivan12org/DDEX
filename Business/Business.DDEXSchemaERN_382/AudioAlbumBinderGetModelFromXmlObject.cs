@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Business.DDEXSchemaERN_382
 {
@@ -182,7 +183,8 @@ namespace Business.DDEXSchemaERN_382
 
             if (nrm != null && nrm.MessageHeader != null)
             {
-                ret = nrm.MessageHeader.MessageCreatedDateTime;
+                // TODO - provjeriti konverziju za razlicite timezone
+                ret = DateTime.SpecifyKind(TimeZoneInfo.ConvertTimeToUtc(nrm.MessageHeader.MessageCreatedDateTime), DateTimeKind.Local);
             }
 
             return ret;
@@ -814,6 +816,7 @@ namespace Business.DDEXSchemaERN_382
                     ret.FrontCoverImageWidth_Materialized = GetModelFrontCoverImageWidth_Materialized(nrm);
                     
                     ret.Tracks = GetModelTracks(nrm);
+
                 }
             }
             catch (Exception)
