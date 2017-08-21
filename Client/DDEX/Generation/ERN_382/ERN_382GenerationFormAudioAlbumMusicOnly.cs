@@ -344,6 +344,15 @@ namespace DDEX.Generation.ERN_382
                 if (System.IO.File.Exists(fileName) && (new System.IO.FileInfo(fileName)).Length > 0)
                 {
                     ret = (AudioAlbumModel)Binder.GetModelFromXmlObject(Binder.GetXmlObjectFromFile(fileName));
+                    if (ret.ApproximateReleaseDate == new DateTime(1, 1, 1))
+                    {
+                        ret.ApproximateReleaseDate = DateTime.Now;
+                    }
+                    if (ret.MessageCreatedDateTime == new DateTime(1, 1, 1))
+                    {
+                        ret.MessageCreatedDateTime = DateTime.Now;
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -355,7 +364,6 @@ namespace DDEX.Generation.ERN_382
         }
         private void ERN_382GenerationFormAudioAlbumMusicOnly_Load(object sender, EventArgs e)
         {
-            
             AudioAlbumModel m = GetModelFromFile(Model.FullFileName);
             if (m != null)
             {

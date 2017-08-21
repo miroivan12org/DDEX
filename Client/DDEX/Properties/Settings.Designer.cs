@@ -25,7 +25,7 @@ namespace DDEX.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("c:\\temp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\temp\\release")]
         public string NavigationFolderPath {
             get {
                 return ((string)(this["NavigationFolderPath"]));

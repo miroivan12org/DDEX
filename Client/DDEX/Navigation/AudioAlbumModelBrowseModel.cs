@@ -34,6 +34,7 @@ namespace DDEX.Navigation
                 if (!m.IsValid(out msg) || !binder.IsModelValid(m, out msg))
                 {
                     message = msg;
+                    ret = false;
                 }
             }
             catch (Exception ex)
