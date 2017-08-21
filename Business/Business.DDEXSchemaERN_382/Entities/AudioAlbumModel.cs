@@ -12,6 +12,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         public AudioAlbumModel()
         {
             MessageCreatedDateTime = DateTime.Now;
+            ApproximateReleaseDate = DateTime.Now;
         }
         public string FullFileName { get { return Get<string>(); } set { Set(value); } }
         public string EAN { get { return Get<string>(); } set { Set(value); } }

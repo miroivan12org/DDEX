@@ -1,5 +1,6 @@
 ﻿using Business.DDEXSchemaERN_382;
 using Business.DDEXSchemaERN_382.Entities;
+using Framework.UI.Forms;
 using Newtonsoft;
 using Newtonsoft.Json;
 using System;
@@ -103,7 +104,7 @@ namespace DDEX.Navigation
         private void dgvFiles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int editIndex = 0;
-            //int deleteIndex = 1;
+            int deleteIndex = 1;
             if (e.ColumnIndex == editIndex)
             {
                 AudioAlbumModelBrowseModel record = (AudioAlbumModelBrowseModel)dgvFiles.CurrentRow.DataBoundItem;
@@ -114,6 +115,18 @@ namespace DDEX.Navigation
 
                     frm.MdiParent = Globals.MDIMainForm;
                     frm.Show();
+                }
+            }
+            else if (e.ColumnIndex == deleteIndex)
+            {
+                if (MRMessageBox.Show("Delete file?", MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Warning) == DialogResult.Yes)
+                {
+                    AudioAlbumModelBrowseModel record = (AudioAlbumModelBrowseModel)dgvFiles.CurrentRow.DataBoundItem;
+                    if (record != null)
+                    {
+                        File.Delete(record.FullName);
+                        Model.Refresh();
+                    }
                 }
             }
         }
