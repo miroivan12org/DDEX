@@ -776,6 +776,26 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private void GotModel(IXmlObject xmlObject, ref AudioAlbumModel ret)
+        {
+            if (xmlObject != null && xmlObject.FullFileName != null && System.IO.File.Exists(xmlObject.FullFileName))
+            {
+                XmlDocument doc = new XmlDocument();
+                string xml = Generator.LoadXmlFile(xmlObject.FullFileName);
+                doc.LoadXml(xml);
+
+                string strMsgCreatedDateTime = "";
+                try
+                {
+                    strMsgCreatedDateTime = doc.SelectNodes(".//MessageHeader/MessageCreatedDateTime")[0].InnerText;
+                    ret.MessageCreatedDateTime = DateTime.SpecifyKind(TimeZoneInfo.ConvertTimeToUtc(Convert.ToDateTime(strMsgCreatedDateTime)), DateTimeKind.Local);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }                
+            }
+        }
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
             AudioAlbumModel ret = null;
@@ -817,6 +837,7 @@ namespace Business.DDEXSchemaERN_382
                     
                     ret.Tracks = GetModelTracks(nrm);
 
+                    GotModel(xmlObject, ref ret);
                 }
             }
             catch (Exception)

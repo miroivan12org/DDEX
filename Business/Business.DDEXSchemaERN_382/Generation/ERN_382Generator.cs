@@ -26,6 +26,20 @@ namespace Business.DDEXSchemaERN_382.Generation
             return ret;
         }
 
+        public override string SerializeXmlObject(IXmlObject value)
+        {
+            string ret = base.SerializeXmlObject(value);
+
+            var doc = new XmlDocument();
+            doc.LoadXml(ret);
+            NewReleaseMessage nrm = (NewReleaseMessage)value;
+            var dat = nrm.MessageHeader.MessageCreatedDateTime;
+            doc.SelectNodes(".//MessageHeader/MessageCreatedDateTime")[0].InnerText = DateTime.SpecifyKind(dat, DateTimeKind.Utc).ToString("yyyy-MM-ddTHH:mm:ss") + "+00:00";
+            ret = doc.OuterXml;
+
+            return ret;
+        }
+
         private static Assembly _CurrentAssembly = Assembly.GetExecutingAssembly();
         public static Assembly CurrentAssembly
         {

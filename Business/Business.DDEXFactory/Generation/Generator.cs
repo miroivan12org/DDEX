@@ -6,9 +6,9 @@ namespace Business.DDEXFactory.Generation
 {
     public abstract class Generator: IXmlGenerator
     {
-        public string SerializeXmlObject(IXmlObject value)
+        public virtual string SerializeXmlObject(IXmlObject value)
         {
-            string xml = Business.DDEXFactory.Helpers.SerializationHelper.Serialize(value);
+            string xml = Helpers.SerializationHelper.Serialize(value);
             return xml;
         }
 

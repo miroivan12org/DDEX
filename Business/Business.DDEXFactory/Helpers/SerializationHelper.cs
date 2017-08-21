@@ -29,7 +29,7 @@ namespace Business.DDEXFactory.Helpers
 
             return ret;
         }
-        public static object Deserialize(System.Type type, string value)
+        public static object Deserialize(Type type, string value)
         {
             object ret = null;
 
