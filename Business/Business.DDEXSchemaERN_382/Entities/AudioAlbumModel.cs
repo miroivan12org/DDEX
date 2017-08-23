@@ -56,6 +56,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         }
         public void ComputeMaterialized()
         {
+            FrontCoverImageFullFileName = GetFullFileNameFromRelativePathAndFileName(FrontCoverImagePath, FrontCoverImageFileName);
             if (System.IO.File.Exists(FrontCoverImageFullFileName))
             {
                 using (var im = System.Drawing.Image.FromFile(FrontCoverImageFullFileName))
@@ -80,6 +81,11 @@ namespace Business.DDEXSchemaERN_382.Entities
                 FrontCoverImageWidth_Materialized = 0;
                 FrontCoverImageCodecType = ImageCodecType.Unknown;
                 FrontCoverImageHashSum_Materialized = null;
+            }
+
+            foreach (TrackModel track in Tracks)
+            {
+                track.ComputeMaterialized();
             }
         }
         public override bool IsValid(out string message)

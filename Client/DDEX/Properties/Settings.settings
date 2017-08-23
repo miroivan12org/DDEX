@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="NavigationFolderPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">c:\temp\release</Value>
+      <Value Profile="(Default)">C:\temp\DDEX\deezer</Value>
     </Setting>
     <Setting Name="PLineText" Type="System.String" Scope="Application">
       <Value Profile="(Default)">(P) 2016 LONGPLAY</Value>

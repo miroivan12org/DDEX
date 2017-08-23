@@ -25,7 +25,7 @@ namespace DDEX.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("c:\\temp\\release")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\temp\\DDEX\\deezer")]
         public string NavigationFolderPath {
             get {
                 return ((string)(this["NavigationFolderPath"]));

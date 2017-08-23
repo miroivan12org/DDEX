@@ -30,14 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.albumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.validatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsBtnXmlVersion = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsBtnXmlVersionERN_382 = new System.Windows.Forms.ToolStripMenuItem();
-            this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +44,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(971, 24);
@@ -56,35 +55,11 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.validatorToolStripMenuItem,
-            this.filesToolStripMenuItem});
+            this.filesToolStripMenuItem,
+            this.validatorToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.singleToolStripMenuItem,
-            this.albumToolStripMenuItem});
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "Ne&w";
-            // 
-            // singleToolStripMenuItem
-            // 
-            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
-            this.singleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.singleToolStripMenuItem.Text = "&Single";
-            this.singleToolStripMenuItem.Click += new System.EventHandler(this.menuItem_Click);
-            // 
-            // albumToolStripMenuItem
-            // 
-            this.albumToolStripMenuItem.Name = "albumToolStripMenuItem";
-            this.albumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.albumToolStripMenuItem.Text = "&Album";
-            this.albumToolStripMenuItem.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // validatorToolStripMenuItem
             // 
@@ -92,6 +67,13 @@
             this.validatorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.validatorToolStripMenuItem.Text = "&Validator";
             this.validatorToolStripMenuItem.Click += new System.EventHandler(this.validatorToolStripMenuItem_Click);
+            // 
+            // filesToolStripMenuItem
+            // 
+            this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
+            this.filesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filesToolStripMenuItem.Text = "Files";
+            this.filesToolStripMenuItem.Click += new System.EventHandler(this.filesToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -120,12 +102,11 @@
             this.tsBtnXmlVersionERN_382.Size = new System.Drawing.Size(119, 22);
             this.tsBtnXmlVersionERN_382.Text = "ERN_382";
             // 
-            // filesToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
-            this.filesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filesToolStripMenuItem.Text = "Files";
-            this.filesToolStripMenuItem.Click += new System.EventHandler(this.filesToolStripMenuItem_Click);
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // MainForm
             // 
@@ -136,6 +117,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
+            this.Text = "DDEX XML EDITOR";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Controls.SetChildIndex(this.menuStrip1, 0);
@@ -153,13 +135,11 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripDropDownButton tsBtnXmlVersion;
         private System.Windows.Forms.ToolStripMenuItem tsBtnXmlVersionERN_382;
-        private System.Windows.Forms.ToolStripMenuItem albumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem validatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }

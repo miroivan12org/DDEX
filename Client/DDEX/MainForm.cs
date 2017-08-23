@@ -26,20 +26,13 @@ namespace DDEX
 
         private void menuItem_Click(object sender, EventArgs e)
         {
-            if(sender == albumToolStripMenuItem)
-            {
-                var frm = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly();
-                frm.MdiParent = this;
-                frm.Show();
-            }
         }
 
         #endregion
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            menuItem_Click(albumToolStripMenuItem, new EventArgs());
-            //filesToolStripMenuItem_Click(this, new EventArgs());
+            filesToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void validatorToolStripMenuItem_Click(object sender, EventArgs e)

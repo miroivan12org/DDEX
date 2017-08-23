@@ -238,6 +238,7 @@
             this.mrButton1.TabIndex = 20;
             this.mrButton1.Text = "mrButton1";
             this.mrButton1.UseVisualStyleBackColor = true;
+            this.mrButton1.Visible = false;
             this.mrButton1.Click += new System.EventHandler(this.mrButton1_Click);
             // 
             // mrLabel11

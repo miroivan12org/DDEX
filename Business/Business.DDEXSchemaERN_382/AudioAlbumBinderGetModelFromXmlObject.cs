@@ -836,6 +836,10 @@ namespace Business.DDEXSchemaERN_382
                     ret.FrontCoverImageWidth_Materialized = GetModelFrontCoverImageWidth_Materialized(nrm);
                     
                     ret.Tracks = GetModelTracks(nrm);
+                    foreach (var track in ret.Tracks)
+                    {
+                        track.Parent = ret;
+                    }
 
                     GotModel(xmlObject, ref ret);
                 }

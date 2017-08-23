@@ -626,18 +626,22 @@ namespace Business.DDEXSchemaERN_382
                             {
                                 track.FileName,
                                 track.FilePath
-                            },
-                            HashSum = new HashSum()
-                            {
-                                 HashSumAlgorithmType = new HashSumAlgorithmType1()
-                                 {
-                                     Value = HashSumAlgorithmType.MD5
-                                 },
-                                 HashSum1 = track.FileHashSum_Materialized
                             }
                         }
                     } 
                 };
+                if (track.FileHashSum_Materialized != null && ret != null && ret.Items != null && ret.Items.Length > 0 && ret.Items[0] is File) 
+                {
+                    ((File)ret.Items[0]).HashSum = new HashSum()
+                    {
+                        HashSumAlgorithmType = new HashSumAlgorithmType1()
+                        {
+                            Value = HashSumAlgorithmType.MD5
+                        },
+                        HashSum1 = track.FileHashSum_Materialized
+                    };
+                }
+               
             }
             
             return ret;
@@ -853,11 +857,15 @@ namespace Business.DDEXSchemaERN_382
                                         ImageCodecType = new ImageCodecType1() { Value = m.FrontCoverImageCodecType },
                                         ImageHeight = new Extent() { Value = m.FrontCoverImageHeight_Materialized },
                                         ImageWidth = new Extent() { Value = m.FrontCoverImageWidth_Materialized},
-                                        Items = new File[] 
+                                        Items = new File[]
                                         {
                                             new File()
                                             {
-                                                HashSum = new HashSum() { HashSum1 = m.FrontCoverImageHashSum_Materialized, HashSumAlgorithmType = new HashSumAlgorithmType1() {  Value = HashSumAlgorithmType.MD5 } },
+                                                HashSum = (m.FrontCoverImageHashSum_Materialized == null) ? null : new HashSum()
+                                                {
+                                                    HashSum1 = m.FrontCoverImageHashSum_Materialized,
+                                                    HashSumAlgorithmType = new HashSumAlgorithmType1() {  Value = HashSumAlgorithmType.MD5 }
+                                                },
                                                 Items = new string[] { m.FrontCoverImageFileName, m.FrontCoverImagePath },
                                                 ItemsElementName = new ItemsChoiceType6[] {  ItemsChoiceType6.FileName, ItemsChoiceType6.FilePath }
                                             }

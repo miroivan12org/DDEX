@@ -21,11 +21,11 @@ namespace DDEX.Generation.ERN_382
 
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                if (System.IO.File.Exists("C:\\temp\\release\\file.xml"))
+                if (System.IO.File.Exists(@"C:\temp\DDEX\deezer\9008798224074_20170112173000222\9008798224074.xml"))
                 {
                     Model = new AudioAlbumModel()
                     {
-                        FullFileName = "C:\\temp\\release\\file.xml",
+                        FullFileName = @"C:\temp\DDEX\deezer\9008798224074_20170112173000222\9008798224074.xml",
                         LabelName = Properties.Settings.Default.LabelName
                     };
                 }
@@ -423,7 +423,7 @@ namespace DDEX.Generation.ERN_382
         {
             if (e.Action == Framework.UI.Controls.MRTitleBar.eButtonAction.Add)
             {
-                var track = new TrackModel() { Ordinal = 1 };
+                var track = new TrackModel() { Ordinal = 1, Parent = Model};
 
                 if (Model.Tracks.Any())
                 {
@@ -492,11 +492,13 @@ namespace DDEX.Generation.ERN_382
         {
             string message = "";
             string message2 = "";
-            string fileName = Model.FullFileName.Replace(".xml", "_test.xml");
+            //string fileName = Model.FullFileName.Replace(".xml", "_test.xml");
+            string fileName = Model.FullFileName;
             if (Model.IsValid(out message) && IsXmlFileValid(out message2))
             {
                 Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), fileName);
                 DialogResult = DialogResult.OK;
+                ParentForm.Model.Refresh();
                 Close();
                 Dispose();
             }
@@ -507,10 +509,19 @@ namespace DDEX.Generation.ERN_382
                 {
                     Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), fileName);
                     DialogResult = DialogResult.OK;
+                    ParentForm.Model.Refresh();
                     Close();
                     Dispose();
                 }
             }
+        }
+        private void mrButton1_Click(object sender, EventArgs e)
+        {
+            if (Model != null)
+            {
+                Model.ComputeMaterialized();
+            }
+            SaveDialog();
         }
 
         private void Form_DialogResultClicked(object sender, DialogResultEventArgs e)
@@ -537,10 +548,7 @@ namespace DDEX.Generation.ERN_382
             return Binder.IsModelValid(Model, out msg);
         }
 
-        private void mrButton1_Click(object sender, EventArgs e)
-        {
-            SaveDialog();
-        }
+        
 
         private void btnOpenFrontCoverImage_Click(object sender, EventArgs e)
         {

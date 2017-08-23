@@ -8,6 +8,10 @@ namespace Business.DDEXSchemaERN_382.Entities
 {
     public class TrackModel: BindableModel
     {
+        public TrackModel()
+        {
+        }
+        public AudioAlbumModel Parent { get; set; }
         [NotNull]
         public int Ordinal{ get { return Get<int>(); } set { Set(value); } }
         [NotNull]
@@ -53,9 +57,17 @@ namespace Business.DDEXSchemaERN_382.Entities
         }
         public void ComputeMaterialized()
         {
+            if (Parent != null)
+            {
+                TrackFullFileName = GetFullFileNameFromRelativePathAndFileName(System.IO.Path.GetDirectoryName(Parent.FullFileName), FilePath, FileName);
+            }
             if (System.IO.File.Exists(TrackFullFileName))
             {
                 FileHashSum_Materialized = DDEXFactory.Helpers.FilesHelper.GetMD5HashSum(TrackFullFileName);
+            }
+            else
+            {
+                FileHashSum_Materialized = null;
             }
 
         }
