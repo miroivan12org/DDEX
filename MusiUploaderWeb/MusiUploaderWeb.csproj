@@ -236,6 +236,8 @@
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -282,6 +284,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Attributes\FromJsonAttribute.cs" />
     <Compile Include="Helpers\Consts.cs" />
     <Compile Include="Helpers\FileUploadHelper.cs" />
     <Compile Include="Helpers\GlobalHelper.cs" />
@@ -316,11 +319,11 @@
       <DependentUpon>MusicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityManager\UserManager.cs" />
+    <Compile Include="Models\Model\UploadAlbumModel.cs" />
     <Compile Include="Models\Model\UploadedFile.cs" />
     <Compile Include="Models\Repository\RoleRepository.cs" />
     <Compile Include="Models\Repository\UserRepository.cs" />
     <Compile Include="Models\ViewModel\InputFormModel.cs" />
-    <Compile Include="Models\ViewModel\UploadViewModel.cs" />
     <Compile Include="Models\ViewModel\UserModel.cs" />
     <Compile Include="MultiLanguageViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

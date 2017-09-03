@@ -1,4 +1,5 @@
 ﻿using MusiUploaderWeb.Helpers;
+using MusiUploaderWeb.Helpers.Attributes;
 using MusiUploaderWeb.Models.Model;
 using MusiUploaderWeb.Models.ViewModel;
 using System;
@@ -19,26 +20,32 @@ namespace MusiUploaderWeb.Controllers
             return View();
         }
 
-        public ActionResult UploadFile(UploadViewModel model)
+        [HttpPost]
+        public ActionResult UploadForm([FromJson]UploadAlbumModel model)
         {
-            var file = model.File;
-
-            return View(model);
+            return View("Index");
+        }
+        
+        public JsonResult DeleteTrack(string guid, string fileName)
+        {
+            var path = Path.Combine(Server.MapPath("~/App_Data/"), guid + Path.GetExtension(fileName));
+            System.IO.File.Delete(path);
+            return Json(guid, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public async Task<string> UploadFilePost()
         {
             var handler = new FileUploadHelper();
+            var guid = Guid.NewGuid();
 
             UploadedFile fileObj = handler.GetFileFromRequest(this.Request);
-            var path = Path.Combine(Server.MapPath("~/App_Data/"), Guid.NewGuid() + Path.GetExtension(fileObj.FileName));
+            var path = Path.Combine(Server.MapPath("~/App_Data/"), guid + Path.GetExtension(fileObj.FileName));
 
 
             System.IO.File.WriteAllBytes(path, fileObj.Contents);
-            var message = "File uploaded";
 
-            return message;
+            return guid.ToString();
         }
     }
 }
