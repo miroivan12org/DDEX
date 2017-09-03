@@ -27,6 +27,7 @@
                 {
                     var user = HttpContext.Current.User;
                     @Html.ActionLink(MusiUploaderWeb.App_GlobalResources.RGlobal.Home, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" });
+                    @Html.ActionLink(MusiUploaderWeb.App_GlobalResources.RGlobal.UploadFile, "Index", "Upload", new { area = "" }, new { @class = "navbar-brand" });
                     @Html.ActionLink(MusiUploaderWeb.App_GlobalResources.RGlobal.Logout, "LogOut", "Account", new { area = "" }, new { @class = "navbar-brand right" });
                     @Html.ActionLink(MusiUploaderWeb.App_GlobalResources.RGlobal.EditProfile, "EditProfile", "Account", new { area = "" }, new { @class = "navbar-brand right" });
                     @Html.ActionLink(user.Identity.Name, "EditProfile", "Account", new { area = "" }, new { @class = "navbar-brand right" });
@@ -70,5 +71,7 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

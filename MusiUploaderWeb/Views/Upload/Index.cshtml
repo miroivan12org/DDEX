@@ -1,17 +1,66 @@
-﻿@model MusiUploaderWeb.Models.ViewModel.UploadViewModel
+﻿
 @{
-    ViewBag.Title = "Upload";
+    ViewBag.Title = "Upload File";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Upload</h2>
-
-@using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { encType = "multipart/form-data" }))
+@section scripts
 {
-    @Html.TextBoxFor(model => model.FileName)
-    <br /><br />
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+<script src="~/Scripts/Custom/UploadViewModel.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        var jsonModel = null;
 
-    @Html.TextBoxFor(model => model.File, new { type = "file", name = "File" })<br /><br />
-    <input type="submit" value="submit me" name="submitme" id="submitme" />
+        ko.applyBindings(new UploadViewModel(
+                "@Url.Action("UploadFilePost", "Upload")",
+                "dropbox",
+                "@Url.Content("~/Content/images/musicNote.png")",
+                ["wav", "zip"],
+                jsonModel), document.getElementById("fileUploadContainer"));
+    });
+    </script>
 }
 
+<div id="fileUploadContainer">
+    @using (Html.BeginForm("UploadFilePost", "Upload", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        <br />
+        <div id="dropbox" dropzone="copy f:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet f:application/vnd.ms-excel" class="hero-unit">
+            <h2 id="droplabel">Drop zone - Drag & Drop your files here</h2>
+            <p id="dnd-notes">Only wav file types are supported. Once you drop your files in the dropzone, the upload will start.</p>
+
+            <input data-bind="visible: showFileSelect" id="fileSelect" type="file" name="fileSelect" />
+            <p><button data-bind="visible: showSubmit" type="submit" class="btn btn-primary btn-large">Upload</button></p>
+        </div>
+        <table class="table table-striped" data-bind="visible: showResults">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>File name</th>
+                    <th>File size</th>
+                    <th>Upload Progress</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: fileList">
+                <tr>
+                    <td>
+                        <img style="max-height: 80px" data-bind="attr: { src: imgSrc }" alt="preview will display here" />
+                    </td>
+                    <td data-bind="text: fileName"></td>
+                    <td data-bind="text: fileSize"></td>
+                    <td>
+                        <div class="progress progress-info progress-striped">
+                            <div class="progress-bar" data-bind="style: { width: uploadPercentage }"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div data-bind="visible: showMessages, html: messages">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>

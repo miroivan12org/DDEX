@@ -141,4 +141,7 @@
   <data name="RequiredField" xml:space="preserve">
     <value>The field is required.</value>
   </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Upload file</value>
+  </data>
 </root>

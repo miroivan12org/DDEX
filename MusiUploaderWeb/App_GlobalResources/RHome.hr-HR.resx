@@ -129,6 +129,9 @@
   <data name="Password" xml:space="preserve">
     <value>Lozinka</value>
   </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Podnesi pjesmu</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Korisničko ime</value>
   </data>
