@@ -1,8 +1,331 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Generate xml File";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@section scripts
+{
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/Custom/UploadXmlViewModel.js"></script>
+    <script src="~/Scripts/jquery.bootstrap.wizard.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var jsonModel = null;
 
+            ko.applyBindings(new UploadXmlViewModel(
+                "@Url.Action("UploadFilePost", "Upload")",
+                "dropbox",
+                "@Url.Content("~/Content/images/musicNote.png")",
+                ["wav", "zip"],
+                jsonModel), document.getElementById("fileUploadContainer"));
+    });
+    </script>
+}
+
+<div class="row">
+    <div id="fileUploadContainer">
+        <br />
+        <table class="table table-striped">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td>
+                        EAN:
+                    </td>
+                    <td>
+                        <input data-bind="value: EAN" />
+                    </td>
+                    <td>
+                        Label:
+                    </td>
+                    <td>
+                        <input data-bind="value: label" />
+                    </td>
+                    <td>
+                        PLineText:
+                    </td>
+                    <td>
+                        <input data-bind="value: pLineText" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Title:
+                    </td>
+                    <td>
+                        <input data-bind="value: title" />
+                    </td>
+                    <td>
+                        Genre:
+                    </td>
+                    <td>
+                        <input data-bind="value: genre" />
+                    </td>
+                    <td>
+                        PLine Release Year:
+                    </td>
+                    <td>
+                        <input data-bind="value: pLineReleaseYear" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Update Indicator:
+                    </td>
+                    <td>
+                        <input data-bind="value: updateIndicator" />
+                    </td>
+                    <td>
+                        Sub Genre:
+                    </td>
+                    <td>
+                        <input data-bind="value: subGenre" />
+                    </td>
+                    <td>
+                        CLine Text:
+                    </td>
+                    <td>
+                        <input data-bind="value: cLineText" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Main Artist:
+                    </td>
+                    <td>
+                        <input data-bind="value: mainArtist" />
+                    </td>
+                    <td>
+                        Approximate Release:
+                    </td>
+                    <td>
+                        <input data-bind="value: approximateReleaseDate" />
+                    </td>
+                    <td>
+                        CLine Release Year:
+                    </td>
+                    <td>
+                        <input data-bind="value: cLineReleaseYear" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        MessageID:
+                    </td>
+                    <td>
+                        <input data-bind="value: messageID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sender PartyID:
+                    </td>
+                    <td>
+                        <input data-bind="value: senderPartyID" />
+                    </td>
+                    <td>
+                        Sender Party Name:
+                    </td>
+                    <td>
+                        <input data-bind="value: senderPartyName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Recipient Party ID:
+                    </td>
+                    <td>
+                        <input data-bind="value: recipientPartyID" />
+                    </td>
+                    <td>
+                        Recipient Party Name:
+                    </td>
+                    <td>
+                        <input data-bind="value: recipientPartyName" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped" data-bind="visible: showResults">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>File name</th>
+                    <th>File size</th>
+                    <th>Upload Progress</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: fileList">
+                <tr>
+                    <td>
+                        <img style="max-height: 80px" data-bind="attr: { src: imgSrc }" alt="preview will display here" />
+                    </td>
+                    <td data-bind="text: fileName"></td>
+                    <td><p><input type="button" value="Delete" data-bind="click: deleteFile" /></p></td>
+                    <td>
+                        <div class="progress progress-info progress-striped">
+                            <div class="progress-bar" data-bind="style: { width: uploadPercentage }"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div data-bind="visible: showMessages, html: messages">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ordinal:
+                    </td>
+                    <td>
+                        <input data-bind="value: ordinal" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ISRC:
+                    </td>
+                    <td>
+                        <input data-bind="value: ISRC" />
+                    </td>
+                    <td>
+                        Resource Release Date:
+                    </td>
+                    <td>
+                        <input data-bind="value: resourceReleaseDate" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Title:
+                    </td>
+                    <td>
+                        <input data-bind="value: title" />
+                    </td>
+                    <td>
+                        PLine Release Year:
+                    </td>
+                    <td>
+                        <input data-bind="value: pLineReleaseYear" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Genre:
+                    </td>
+                    <td>
+                        <input data-bind="value: genre" />
+                    </td>
+                    <td>
+                        PLine Text:
+                    </td>
+                    <td>
+                        <input data-bind="value: pLineText" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sub Genre:
+                    </td>
+                    <td>
+                        <input data-bind="value: subGenre" />
+                    </td>
+                    <td>
+                        CLine Release Year:
+                    </td>
+                    <td>
+                        <input data-bind="value: cLineReleaseYear" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Duration minutes:
+                    </td>
+                    <td>
+                        <input data-bind="value: durationMin" />
+                    </td>
+                    <td>
+                        CLine Text:
+                    </td>
+                    <td>
+                        <input data-bind="value: cLineText" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Duration seconds:
+                    </td>
+                    <td>
+                        <input data-bind="value: durationSec" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Main Artist:
+                    </td>
+                    <td>
+                        <input data-bind="value: mainArtist" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Producer:
+                    </td>
+                    <td>
+                        <input data-bind="value: producer" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Audio Codec:
+                    </td>
+                    <td>
+                        <input data-bind="value: audioCode" />
+                    </td>
+                    <td>
+                        Sampling Rate [kHz]:
+                    </td>
+                    <td>
+                        <input data-bind="value: samplingRate" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Number of Channels:
+                    </td>
+                    <td>
+                        <input data-bind="value: numberOfChannels" />
+                    </td>
+                    <td>
+                        Bits per Sample:
+                    </td>
+                    <td>
+                        <input data-bind="value: bitsPerSample" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Contributor:
+                    </td>
+                    <td>
+                        <input data-bind="value: contributor" />
+                    </td>
+                    <td>
+                        Contributor Role:
+                    </td>
+                    <td>
+                        <input data-bind="value: contributorRole" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input data-bind="value: guid" class="hidden" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><input type="button" value="Upload" data-bind="click: uploadAlbum" /></p>
+    </div>
+</div>

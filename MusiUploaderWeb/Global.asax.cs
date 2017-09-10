@@ -38,7 +38,7 @@ namespace MusiUploaderWeb
                         HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(
                             new System.Security.Principal.GenericIdentity(username, "Forms"), role.Split(';'));
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         throw;
                     }

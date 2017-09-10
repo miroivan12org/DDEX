@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MusiUploaderWeb.Models.Model
 {
-    public class UploadAlbumModel
+    public class UploadXmlAlbumModel
     {
         public string EAN { get; set; }
         public string Title { get; set; }
@@ -26,7 +26,6 @@ namespace MusiUploaderWeb.Models.Model
         public string RecipientPartyName { get; set; }
         public DateTime DateTimeCreated { get; set; }
         public FileObj[] FileList { get; set; }
-
     }
 
     public class FileObj

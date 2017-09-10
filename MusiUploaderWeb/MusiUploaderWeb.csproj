@@ -227,13 +227,16 @@
     <Content Include="Scripts\Custom\EditUsers.js" />
     <Content Include="Scripts\Custom\HandleCookies.js" />
     <Content Include="Scripts\Custom\Languages.js" />
-    <Content Include="Scripts\Custom\UploadViewModel.js" />
+    <Content Include="Scripts\Custom\UploadAlbumViewModel.js" />
+    <Content Include="Scripts\Custom\UploadXmlViewModel.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -319,7 +322,8 @@
       <DependentUpon>MusicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityManager\UserManager.cs" />
-    <Compile Include="Models\Model\UploadAlbumModel.cs" />
+    <Compile Include="Models\Model\UploadAlbumUsersModel.cs" />
+    <Compile Include="Models\Model\UploadXmlAlbumModel.cs" />
     <Compile Include="Models\Model\UploadedFile.cs" />
     <Compile Include="Models\Repository\RoleRepository.cs" />
     <Compile Include="Models\Repository\UserRepository.cs" />
@@ -354,6 +358,8 @@
     <Content Include="Views\Account\hr-HR\Register.cshtml" />
     <Content Include="Views\XmlGenerator\Index.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js.map" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

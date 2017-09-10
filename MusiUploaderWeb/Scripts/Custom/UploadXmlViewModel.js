@@ -1,4 +1,4 @@
-﻿function UploadViewModel(uploadUrl, dropBoxID, defaultFileImg, supportedExtensions, dataHeaderObj) {
+﻿function UploadXmlViewModel(uploadUrl, dropBoxID, defaultFileImg, supportedExtensions, dataHeaderObj) {
     var self = this;
 
     self.uploadUrl = uploadUrl;
@@ -81,7 +81,7 @@
                     fileName: fileName
                 },
                 success: function (data) {
-                    if (data != null) {
+                    if (data !== null) {
                         self.removeTrack(data);
                     }
                 }
@@ -199,8 +199,8 @@
 
             // file received/failed
             xhr.onreadystatechange = function (e) {
-                if (xhr.readyState == 4) {
-                    if (xhr.status == 200) {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
                         console.log(xhr);
                         fileModel.messages(xhr.responseText);
                         fileModel.showMessages(true);
@@ -216,7 +216,7 @@
             xhr.setRequestHeader("X-File-Name", file.name);
             xhr.setRequestHeader("X-File-Size", file.size);
             xhr.setRequestHeader("X-File-Type", file.type);
-            if (self.dataHeaderObj != null && self.dataHeaderObj != "") {
+            if (self.dataHeaderObj !== null && self.dataHeaderObj !== "") {
                 xhr.setRequestHeader("X-File-Data", self.dataHeaderObj);
             }
 

@@ -17,11 +17,6 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
 .navbar-brand {
     margin-right: 10px;
@@ -75,4 +70,8 @@ textarea {
 
 #fileSelect {
     width: 400px;
+}
+
+.row {
+    margin-left: 5px !important;
 }
