@@ -229,6 +229,7 @@
     <Content Include="Scripts\Custom\Languages.js" />
     <Content Include="Scripts\Custom\UploadAlbumViewModel.js" />
     <Content Include="Scripts\Custom\UploadXmlViewModel.js" />
+    <Content Include="Scripts\Custom\WizardValidator.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -237,11 +238,15 @@
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.bootstrap.wizard.js" />
     <Content Include="Scripts\jquery.bootstrap.wizard.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ValidationLanguages\messages_hr.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
