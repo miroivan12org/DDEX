@@ -9,7 +9,7 @@ namespace MusiUploaderWeb
 {
     public abstract class BaseController : Controller
     {
-        private static string _cookieLangName = "LangForMusiUploaderWeb";
+        private static string _cookieLangName = "lang";
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {

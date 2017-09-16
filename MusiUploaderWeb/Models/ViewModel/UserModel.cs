@@ -50,6 +50,8 @@ namespace MusiUploaderWeb.Models.ViewModel
         [DataType(DataType.Password)]
         [Display(Name = "Password", ResourceType = typeof(RHome))]
         public string Password { get; set; }
+
+        public string Language { get; set; }
     }
 
     public class LookupAvailableRole

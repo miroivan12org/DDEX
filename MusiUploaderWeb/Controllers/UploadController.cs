@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace MusiUploaderWeb.Controllers
 {
-    public class UploadController : Controller
+    public class UploadController : BaseController
     {
         // GET: Upload
         public ActionResult Index()

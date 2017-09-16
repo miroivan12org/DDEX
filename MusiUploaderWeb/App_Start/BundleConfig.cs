@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using MusiUploaderWeb.ResourceHandler;
+using System.Collections.Generic;
+using System.Web;
 using System.Web.Optimization;
 
 namespace CodeRepository.Web
@@ -26,6 +28,16 @@ namespace CodeRepository.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+            var croatianValidation = new Bundle(string.Format("~/Scripts/ValidatorNotifications-{0}", "hr-HR"))
+                .Include("~/Scripts/ValidationLanguages/messages_hr.js");
+            croatianValidation.Transforms.Clear();
+            croatianValidation.Transforms.Add(new JSTranslator());
+            croatianValidation.Transforms.Add(new JsMinify());
+            bundles.Add(croatianValidation);
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

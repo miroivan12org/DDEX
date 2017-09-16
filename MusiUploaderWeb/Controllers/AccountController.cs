@@ -3,6 +3,7 @@ using MusiUploaderWeb.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -36,6 +37,7 @@ namespace MusiUploaderWeb.Controllers
                     if (model.Password.Equals(password))
                     {
                         FormsAuthentication.SetAuthCookie(model.LoginName, false);
+                        SetCulture(model.Language);
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -99,6 +101,27 @@ namespace MusiUploaderWeb.Controllers
                 ViewBag.Status = "Update Sucessful!";
             }
             return View(profile);
+        }
+
+        private void SetCulture(string cultureCode)
+        {
+            if (cultureCode == null)
+                cultureCode = "hr-HR";
+            var cookieCultureLanguage = new HttpCookie("lang")
+            {
+                Value = cultureCode
+            };
+
+            Response.Cookies.Set(cookieCultureLanguage);
+
+            //Sets  Culture for Current thread  
+            Thread.CurrentThread.CurrentCulture =
+            System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+
+            //Ui Culture for Localized text in the UI  
+            Thread.CurrentThread.CurrentUICulture =
+            new System.Globalization.CultureInfo(cultureCode);
+
         }
     }
 }

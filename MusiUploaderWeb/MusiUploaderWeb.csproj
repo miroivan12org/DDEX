@@ -203,6 +203,14 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_GlobalResources\Notifications.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Notifications.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Notifications.hr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Notifications.hr.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_GlobalResources\RHome.hr-HR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RHome.hr-HR.Designer.cs</LastGenOutput>
@@ -252,6 +260,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Notifications.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notifications.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Notifications.hr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notifications.hr.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\RError.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -283,6 +301,7 @@
       <DependentUpon>RHome.hr-HR.resx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\HtmlHelpers.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -336,6 +355,7 @@
     <Compile Include="Models\ViewModel\UserModel.cs" />
     <Compile Include="MultiLanguageViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceHandler\JsTranslator.cs" />
     <Compile Include="Security\AuthorizeRolesAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

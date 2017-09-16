@@ -12,7 +12,6 @@
     <script src="~/Scripts/jquery.bootstrap.wizard.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/Custom/WizardValidator.js"></script>
-    <script src="~/Scripts/ValidationLanguages/messages_hr.js"></script>
     <script type="text/javascript">
         $(function () {
             var jsonModel = null;
@@ -62,19 +61,19 @@
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Language:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <select class="form-control" data-bind="value: selectedLanguage, options: languages, optionsValue: 'ID', optionsText: function(i) {return i.LanguageName}, optionsCaption: 'Choose language'"></select>
+                                <select class="form-control" name="language" data-bind="value: selectedLanguage, options: languages, optionsValue: 'ID', optionsText: function(i) {return i.LanguageName}, optionsCaption: 'Choose language'"></select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Title:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" id="title" name="title" data-bind="value: title">
+                                <input class="form-control" type="text" name="title" data-bind="value: title">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Version:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: version">
+                                <input class="form-control" type="text" name="version" data-bind="value: version">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -85,7 +84,7 @@
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Role:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <select class="form-control" data-bind="value: selectedRole, options: roles, optionsValue: 'ID', optionsText: function(i) {return i.RoleName}, optionsCaption: 'Choose Role'"></select>
+                                    <select class="form-control" name="artistRole" data-bind="value: selectedRole, options: roles, optionsValue: 'ID', optionsText: function(i) {return i.RoleName}, optionsCaption: 'Choose Role'"></select>
                                 </div>
                                 <div class="col-lg-1">
                                     <button class="btn" data-bind="click: removeArtist, visible: canBeDeleted">Remove</button>
@@ -94,7 +93,7 @@
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Name:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <input class="form-control" type="text" data-bind="value: artistName">
+                                    <input class="form-control" name="artistName" type="text" data-bind="value: artistName">
                                 </div>
                             </div>
                         </div>
@@ -104,13 +103,13 @@
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Genre:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <select class="form-control" data-bind="value: selectedMainGenre, options: mainGenres, optionsValue: 'ID', optionsText: function(i) {return i.GenreName}, optionsCaption: 'Choose genre'"></select>
+                                <select class="form-control" name="mainGenre" data-bind="value: selectedMainGenre, options: mainGenres, optionsValue: 'ID', optionsText: function(i) {return i.GenreName}, optionsCaption: 'Choose genre'"></select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Sub genre:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <select class="form-control" data-bind="value: selectedSubGenre, options: subGenres, optionsValue: 'ID', optionsText: function(i) {return i.GenreName}, optionsCaption: 'Choose subgenre'"></select>
+                                <select class="form-control" name="subGenre" data-bind="value: selectedSubGenre, options: subGenres, optionsValue: 'ID', optionsText: function(i) {return i.GenreName}, optionsCaption: 'Choose subgenre'"></select>
                             </div>
                         </div>
                         <!-- Input fields -->
@@ -122,7 +121,7 @@
                                     <h2 id="droplabel">Drop zone - Drag & Drop your music here</h2>
                                     <p id="dnd-notes">Only wav file types are supported. Once you drop your files in the dropzone, the upload will start.</p>
                                     <p>Or you can click to browse for audio file</p>
-                                    <input type="file" data-bind=" event:{change: onFileSelect}" />
+                                    <input type="file" data-bind="event:{change: onFileSelect}" />
                                 </div>
                             </div>
                         </div>
@@ -137,44 +136,44 @@
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Track title:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <input class="form-control" type="text" data-bind="value: trackName">
+                                    <input class="form-control" name="trackName" type="text" data-bind="value: trackName">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">ISRC:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <input class="form-control" type="text" data-bind="value: ISRC">
+                                    <input class="form-control" name="ISRC" type="text" data-bind="value: ISRC">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Version:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <input class="form-control" type="text" data-bind="value: version">
+                                    <input class="form-control" name="version" type="text" data-bind="value: version">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Copyright Year:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <select class="form-control" data-bind="value: selectedCopyRightYear, options: copyRightYears, optionsValue: 'ID', optionsText: function(i) {return i.OnlyYear}, optionsCaption: 'Choose CopyrightYear'"></select>
+                                    <select class="form-control" name="copyRightYear" data-bind="value: selectedCopyRightYear, options: copyRightYears, optionsValue: 'ID', optionsText: function(i) {return i.OnlyYear}, optionsCaption: 'Choose CopyrightYear'"></select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Copyright Holder:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <input class="form-control" type="text" data-bind="value: copyRightHolder">
+                                    <input class="form-control" name="copyRightHolder" type="text" data-bind="value: copyRightHolder">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Artist:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <input class="form-control" type="text" data-bind="value: trackArtist">
+                                    <input class="form-control" name="trackArtist" type="text" data-bind="value: trackArtist">
                                 </div>
                             </div>
                             <div data-bind="foreach: artists">
                                 <div class="form-group row">
                                     <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Role:</label>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                        <select class="form-control" data-bind="value: selectedRole, options: roles, optionsValue: 'ID', optionsText: function(i) {return i.RoleName}, optionsCaption: 'Choose Role'"></select>
+                                        <select class="form-control" name="artistRole" data-bind="value: selectedRole, options: roles, optionsValue: 'ID', optionsText: function(i) {return i.RoleName}, optionsCaption: 'Choose Role'"></select>
                                     </div>
                                     <div class="col-lg-1">
                                         <button class="btn" data-bind="click: removeArtist, visible: canBeDeleted">Remove</button>
@@ -183,7 +182,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Name:</label>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                        <input class="form-control" type="text" data-bind="value: artistName">
+                                        <input class="form-control" name="artistName" type="text" data-bind="value: artistName">
                                     </div>
                                 </div>
                             </div>
@@ -193,14 +192,14 @@
                             <div class="form-group row">
                                 <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Name:</label>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                    <select class="form-control" data-bind="value: selectedPublisher, options: publishers, optionsValue: 'ID', optionsText: function(i) {return i.PublisherName}, optionsCaption: 'Choose Publisher'"></select>
+                                    <select class="form-control" name="publisherName" data-bind="value: selectedPublisher, options: publishers, optionsValue: 'ID', optionsText: function(i) {return i.PublisherName}, optionsCaption: 'Choose Publisher'"></select>
                                 </div>
                             </div>
                             <div data-bind="foreach: contributors">
                                 <div class="form-group row">
                                     <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Role:</label>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                        <select class="form-control" data-bind="value: selectedRole, options: roles, optionsValue: 'ID', optionsText: function(i) {return i.RoleName}, optionsCaption: 'Choose Role'"></select>
+                                        <select class="form-control" name="contributorRole" data-bind="value: selectedRole, options: roles, optionsValue: 'ID', optionsText: function(i) {return i.RoleName}, optionsCaption: 'Choose Role'"></select>
                                     </div>
                                     <div class="col-lg-1">
                                         <button class="btn" data-bind="click: removeContributor, visible: canBeDeleted">Remove</button>
@@ -209,13 +208,13 @@
                                 <div class="form-group row">
                                     <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Name:</label>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                        <input class="form-control" type="text" data-bind="value: contributorName">
+                                        <input class="form-control" name="contributorName" type="text" data-bind="value: contributorName">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Publisher:</label>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                        <select class="form-control" data-bind="value: selectedPublisher, options: publishers, optionsValue: 'ID', optionsText: function(i) {return i.PublisherName}, optionsCaption: 'Choose Publisher'"></select>
+                                        <select class="form-control" name="publisher" data-bind="value: selectedPublisher, options: publishers, optionsValue: 'ID', optionsText: function(i) {return i.PublisherName}, optionsCaption: 'Choose Publisher'"></select>
                                     </div>
                                 </div>
                             </div>
@@ -250,43 +249,43 @@
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Label name:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: labelName">
+                                <input class="form-control" name="labelName" type="text" data-bind="value: labelName">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Catalogue number:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: catalogueNumber">
+                                <input class="form-control" name="catalogueNumber" type="text" data-bind="value: catalogueNumber">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Barcode:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: barcode">
+                                <input class="form-control" name="barcode" type="text" data-bind="value: barcode">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Copyright Year:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <select class="form-control" data-bind="value: selectedCopyRightYear, options: copyRightYears, optionsValue: 'ID', optionsText: function(i) {return i.OnlyYear}, optionsCaption: 'Choose CopyrightYear'"></select>
+                                <select class="form-control" name="copyRightYear" data-bind="value: selectedCopyRightYear, options: copyRightYears, optionsValue: 'ID', optionsText: function(i) {return i.OnlyYear}, optionsCaption: 'Choose CopyrightYear'"></select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Copyright recording:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: copyRightRecording">
+                                <input class="form-control" name="copyRightRecording" type="text" data-bind="value: copyRightRecording">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Original release:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="date" data-bind="value: originalRelease">
+                                <input class="form-control" name="originalRelease" type="date" data-bind="value: originalRelease">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Digital release:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="date" data-bind="value: digitalReleaseDate">
+                                <input class="form-control" name="digitalReleaseDate" type="date" data-bind="value: digitalReleaseDate">
                             </div>
                         </div>
                         <!-- Input fields -->
@@ -296,13 +295,13 @@
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Artist:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: artistName">
+                                <input class="form-control" name="artistName" type="text" data-bind="value: artistName">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-form-label">Copyright artwork year:</label>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7">
-                                <input class="form-control" type="text" data-bind="value: copyrightArtworkYear">
+                                <input class="form-control" name="copyrightArtworkYear" type="text" data-bind="value: copyrightArtworkYear">
                             </div>
                         </div>
                         <!-- Input fields -->
@@ -318,7 +317,6 @@
                 </div>
             </form>
         </div>
-        
         <br />
     </div>
 </div>

@@ -2,18 +2,73 @@
     var $validator = $("#commentForm").validate({
         rules: {
             title: {
-                required: true,
-                email: true,
-                minlength: 3
+                required: true
             },
-            namefield: {
-                required: true,
-                minlength: 3
+            language: {
+                required: true
             },
-            urlfield: {
-                required: true,
-                minlength: 3,
-                url: true
+            version: {
+                required: true
+            },
+            artistRole: {
+                required: true
+            },
+            artistName: {
+                required: true
+            },
+            mainGenre: {
+                required: true
+            },
+            subGenre: {
+                required: true
+            },
+            trackName: {
+                required: true
+            },
+            ISRC: {
+                required: true
+            },
+            copyRightYear: {
+                required: true
+            },
+            copyRightHolder: {
+                required: true
+            },
+            trackArtist: {
+                required: true
+            },
+            publisherName: {
+                required: true
+            },
+            contributorRole: {
+                required: true
+            },
+            contributorName: {
+                required: true
+            },
+            publisher: {
+                required: true
+            },
+            labelName: {
+                required: true
+            },
+            catalogueNumber: {
+                required: true
+            },
+            barcode: {
+                required: true
+            },
+            copyRightRecording: {
+                required: true
+            },
+            originalRelease: {
+                required: true
+            },
+            digitalReleaseDate: {
+                required: true
+            },
+            copyrightArtworkYear: {
+                required: true
             }
         }
     });
@@ -31,7 +86,6 @@
         //'nextSelector': 'button-next',
         //'previousSelector': 'button-previous',
         onNext: function (tab, navigation, index) {
-            //validacija napravi funckiju koja će okidati validate forme
             var $valid = $("#commentForm").valid();
             if (!$valid) {
                 $validator.focusInvalid();
