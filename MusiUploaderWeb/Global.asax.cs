@@ -13,6 +13,12 @@ namespace MusiUploaderWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        private UserManager userManager;
+
+        public MvcApplication()
+        {
+            this.userManager = new UserManager();
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -32,11 +38,14 @@ namespace MusiUploaderWeb
                     try
                     {
                         string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
-                        var userManager = new UserManager();
-                        var role = userManager.GetUserRoleByUsername(username);
-
+                        var roles = userManager.GetUserRoleByUsername(username);
+                        String[] stringRoles = { "Guest" };
+                        if (roles != null)
+                        {
+                            stringRoles = roles.Split(';');
+                        }
                         HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(
-                            new System.Security.Principal.GenericIdentity(username, "Forms"), role.Split(';'));
+                            new System.Security.Principal.GenericIdentity(username, "Forms"), stringRoles);
                     }
                     catch (Exception ex)
                     {

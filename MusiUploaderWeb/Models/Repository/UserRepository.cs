@@ -3,25 +3,30 @@ using MusiUploaderWeb.Models.DB;
 using MusiUploaderWeb.Models.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace MusiUploaderWeb.Models.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository, IDisposable
     {
-        private readonly MusicEntities context = new MusicEntities();
+        private MusicEntities context;
 
-        public IQueryable<User> GetAll()
+        public UserRepository(MusicEntities context)
         {
-            var users = context.Users;
+            this.context = context;
+        }
+
+        public IEnumerable<User> GetAll()
+        {
+            var users = context.Users.ToList();
             return users;
         }
 
         public User GetSingle(int userID)
         {
-            var user = this.GetAll().FirstOrDefault(x => x.UserID == userID);
-            return user;
+            return context.Users.Find(userID);
         }
 
         public bool UserExists(string userName)
@@ -45,14 +50,15 @@ namespace MusiUploaderWeb.Models.Repository
             context.Users.Add(user);
         }
 
-        public void Delete(User user)
+        public void Delete(int userID)
         {
+            var user = context.Users.Find(userID);
             context.Users.Remove(user);
         }
 
         public void Edit(User user)
         {
-            context.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
+            context.Entry(user).State = EntityState.Modified;
         }
 
         public void Add(UserProfile userProfile)
@@ -82,6 +88,26 @@ namespace MusiUploaderWeb.Models.Repository
         public void Save()
         {
             context.SaveChanges();
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public UserProfile GetUserProfileByUserID(int userID)

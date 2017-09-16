@@ -10,6 +10,12 @@ namespace MusiUploaderWeb.Security
     public class AuthorizeRolesAttribute : AuthorizeAttribute
     {
         private readonly string[] userAssignedRoles;
+        private UserManager userManager;
+
+        public AuthorizeRolesAttribute()
+        {
+            this.userManager = new UserManager();
+        }
         public AuthorizeRolesAttribute(params string[] roles)
         {
             this.userAssignedRoles = roles;

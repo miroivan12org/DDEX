@@ -23,6 +23,10 @@ namespace MusiUploaderWeb.Controllers
         [HttpPost]
         public ActionResult UploadForm([FromJson]UploadAlbumUsersModel model)
         {
+            if (ModelState.IsValid)
+            {
+
+            }
             return View("Index");
         }
         

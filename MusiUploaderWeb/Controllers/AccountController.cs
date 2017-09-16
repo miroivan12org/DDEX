@@ -12,6 +12,11 @@ namespace MusiUploaderWeb.Controllers
 {
     public class AccountController : BaseController
     {
+        private UserManager userManager;
+        public AccountController()
+        {
+            this.userManager = new UserManager();
+        }
         public ActionResult Index()
         {
             return View();
@@ -27,7 +32,6 @@ namespace MusiUploaderWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserManager userManager = new UserManager();
                 string password = userManager.GetUserPassword(model.LoginName);
 
                 if (string.IsNullOrEmpty(password))
@@ -66,7 +70,6 @@ namespace MusiUploaderWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserManager userManager = new UserManager();
                 if (!userManager.IsLoginNameExist(user.LoginName))
                 {
                     userManager.AddUserAccount(user);
@@ -83,7 +86,6 @@ namespace MusiUploaderWeb.Controllers
         public ActionResult EditProfile()
         {
             string loginName = User.Identity.Name;
-            var userManager = new UserManager();
             var userProfileView = userManager.GetUserProfile(userManager.GetUserID(loginName));
             return View(userProfileView);
         }
@@ -95,9 +97,7 @@ namespace MusiUploaderWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userManager = new UserManager();
                 userManager.UpdateUserAccount(profile);
-
                 ViewBag.Status = "Update Sucessful!";
             }
             return View(profile);

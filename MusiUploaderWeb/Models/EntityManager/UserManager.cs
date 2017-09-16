@@ -4,13 +4,21 @@ using MusiUploaderWeb.Models.DB;
 using MusiUploaderWeb.Models.ViewModel;
 using MusiUploaderWeb.Models.Repository;
 using System.Collections.Generic;
+using MusiUploaderWeb.Interfaces;
 
 namespace MusiUploaderWeb.Models.EntityManager
 {
     public class UserManager
     {
-        private static UserRepository _repository = new UserRepository();
-        private static RoleRepository _roleRepository = new RoleRepository();
+        private IRoleRepository roleRepository;
+        private IUserRepository userRepository;
+
+        public UserManager()
+        {
+            this.roleRepository = new RoleRepository(new MusicEntities());
+            this.userRepository = new UserRepository(new MusicEntities());
+        }
+
         public void AddUserAccount(UserSignUpView user)
         {
             User newUser = new User();
@@ -21,7 +29,7 @@ namespace MusiUploaderWeb.Models.EntityManager
             newUser.RowCreatedDateTime = DateTime.Now;
             newUser.RowMOdifiedDateTime = DateTime.Now;
 
-            _repository.Add(newUser);
+            userRepository.Add(newUser);
 
             UserProfile userProfile = new UserProfile();
             userProfile.UserID = newUser.UserID;
@@ -33,10 +41,10 @@ namespace MusiUploaderWeb.Models.EntityManager
             userProfile.RowCreatedDateTime = DateTime.Now;
             userProfile.RowModifiedDateTime = DateTime.Now;
 
-            _repository.Add(userProfile);
+            userRepository.Add(userProfile);
 
             UserRole userRole = new UserRole();
-            var lookupRole = _roleRepository.GetRoleByName(Helpers.Consts.LookupRoleNames.Guest);
+            var lookupRole = roleRepository.GetRoleByName(Helpers.Consts.LookupRoleNames.Guest);
             userRole.LookupRoleID = lookupRole.LookupRoleID;
             userRole.UserID = user.UserID;
             userRole.IsActive = true;
@@ -45,29 +53,29 @@ namespace MusiUploaderWeb.Models.EntityManager
             userRole.RowCreatedDateTime = DateTime.Now;
             userRole.RowModifiedDateTime = DateTime.Now;
 
-            _repository.Add(userRole);
+            userRepository.Add(userRole);
 
-            _repository.Save();
+            userRepository.Save();
         }
 
 
         public bool IsLoginNameExist(string loginName)
         {
-            var exists = _repository.UserExists(loginName);
+            var exists = userRepository.UserExists(loginName);
             return exists;
         }
 
         public string GetUserPassword(string loginName)
         {
-            return _repository.GetPassword(loginName);
+            return userRepository.GetPassword(loginName);
         }
 
         public bool IsUserInRole(string username, string roleName)
         {
-            var user = _repository.GetByUserName(username);
+            var user = userRepository.GetByUserName(username);
             if (user != null)
             {
-                var role = _repository.GetUserRole(user.UserID);
+                var role = userRepository.GetUserRole(user.UserID);
                 if (role == roleName)
                     return true;
             }
@@ -78,10 +86,10 @@ namespace MusiUploaderWeb.Models.EntityManager
         public string GetUserRoleByUsername(string username)
         {
             var role = string.Empty;
-            var user = _repository.GetByUserName(username);
+            var user = userRepository.GetByUserName(username);
             if (user != null)
             {
-                role = _repository.GetUserRole(user.UserID);
+                role = userRepository.GetUserRole(user.UserID);
             }
 
             return role;
@@ -89,7 +97,7 @@ namespace MusiUploaderWeb.Models.EntityManager
 
         public List<LookupAvailableRole> GetAllRoles()
         {
-            var roles = _roleRepository.GetAllRoles();
+            var roles = roleRepository.GetAllRoles();
 
             var availableRoles = roles.Select(r => new LookupAvailableRole
             {
@@ -103,7 +111,7 @@ namespace MusiUploaderWeb.Models.EntityManager
 
         public int GetUserID(string username)
         {
-            var user = _repository.GetByUserName(username);
+            var user = userRepository.GetByUserName(username);
             if (user != null)
                 return user.UserID;
        
@@ -112,7 +120,7 @@ namespace MusiUploaderWeb.Models.EntityManager
         public List<UserSignUpView> GetAllUserProfiles()
         {
             var profiles = new List<UserSignUpView>();
-            var users = _repository.GetAll().ToList();
+            var users = userRepository.GetAll().ToList();
             UserSignUpView profile;
 
             foreach (var user in users)
@@ -122,7 +130,7 @@ namespace MusiUploaderWeb.Models.EntityManager
                 profile.LoginName = user.LoginName;
                 profile.Password = user.PasswordEncryptedText;
 
-                var userProfile = _repository.GetUserProfileByUserID(user.UserID);
+                var userProfile = userRepository.GetUserProfileByUserID(user.UserID);
                 if (userProfile != null)
                 {
                     profile.FirstName = userProfile.FirstName;
@@ -130,8 +138,8 @@ namespace MusiUploaderWeb.Models.EntityManager
                     profile.Gender = userProfile.Gender;
                 }
 
-                var userRole = _repository.GetUserRoleByUserID(user.UserID);
-                var lookupRole = _repository.GetUserRole(user.UserID);
+                var userRole = userRepository.GetUserRoleByUserID(user.UserID);
+                var lookupRole = userRepository.GetUserRole(user.UserID);
                 if (userRole != null)
                 {
                     profile.LookupRoleID = userRole.LookupRoleID;
@@ -156,8 +164,8 @@ namespace MusiUploaderWeb.Models.EntityManager
 
             userID = GetUserID(loginName);
 
-            userAssignedRoleID = _repository.GetUserRoleByUserID(userID).LookupRoleID;
-            userGender = _repository.GetUserProfileByUserID(userID).Gender;
+            userAssignedRoleID = userRepository.GetUserRoleByUserID(userID).LookupRoleID;
+            userGender = userRepository.GetUserProfileByUserID(userID).Gender;
       
             List<Gender> genders = new List<Gender>();
             genders.Add(new Gender
@@ -187,17 +195,17 @@ namespace MusiUploaderWeb.Models.EntityManager
 
         public void UpdateUserAccount(UserSignUpView user)
         {
-            _repository.UpdateUser(user);
+            userRepository.UpdateUser(user);
         }
 
         public void DeleteUser(int userID)
         {
-            _repository.DeleteUser(userID);
+            userRepository.DeleteUser(userID);
         }
 
         public UserSignUpView GetUserProfile(int userID)
         {
-            var userProfileView = _repository.GetUserProfileView(userID);
+            var userProfileView = userRepository.GetUserProfileView(userID);
             return userProfileView;
         }
     }

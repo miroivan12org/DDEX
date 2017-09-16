@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusiUploaderWeb.Interfaces
 {
-    interface IRoleRepository
+    interface IRoleRepository : IDisposable
     {
-        List<LookupRole> GetAllRoles();
+        IEnumerable<LookupRole> GetAllRoles();
 
         LookupRole GetRoleByName(string roleName);
     }

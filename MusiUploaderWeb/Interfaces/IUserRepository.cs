@@ -7,15 +7,15 @@ using System.Web;
 
 namespace MusiUploaderWeb.Interfaces
 {
-    public interface IUserRepository
+    interface IUserRepository : IDisposable
     {
-        IQueryable<User> GetAll();
+        IEnumerable<User> GetAll();
         User GetSingle(int userID);
         void Add(User user);
         void Add(UserProfile userProfile);
         void Add(UserRole userRole);
         void Edit(User user);
-        void Delete(User user);
+        void Delete(int userID);
         void Save();
         bool UserExists(string userName);
         string GetPassword(string userName);

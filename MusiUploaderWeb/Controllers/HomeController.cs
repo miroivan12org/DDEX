@@ -11,6 +11,13 @@ namespace MusiUploaderWeb.Controllers
 {
     public class HomeController : BaseController
     {
+        private UserManager userManager;
+
+        public HomeController()
+        {
+            this.userManager = new UserManager();
+        }
+
         [Authorize]
         public ActionResult Index()
         {
@@ -23,7 +30,6 @@ namespace MusiUploaderWeb.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 string loginName = User.Identity.Name;
-                var userManager = new UserManager();
                 var dataView = userManager.GetUserDataView(loginName);
 
                 var message = string.Empty;
@@ -64,7 +70,6 @@ namespace MusiUploaderWeb.Controllers
 
             try
             {
-                var userManager = new UserManager();
                 userManager.UpdateUserAccount(userProfileView);
                 success = true;
             }
@@ -83,7 +88,6 @@ namespace MusiUploaderWeb.Controllers
 
             try
             {
-                var userManager = new UserManager();
                 userManager.DeleteUser(userID);
                 success = true;
             }
