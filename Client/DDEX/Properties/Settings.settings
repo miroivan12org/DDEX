@@ -14,5 +14,8 @@
     <Setting Name="IndirectContributors" Type="System.String" Scope="User">
       <Value Profile="(Default)">Composer;Producer;Lyricist;Arranger</Value>
     </Setting>
+    <Setting Name="DisplayArtistRoles" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FeaturedArtist</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

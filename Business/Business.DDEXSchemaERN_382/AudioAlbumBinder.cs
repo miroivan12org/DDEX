@@ -28,19 +28,18 @@ namespace Business.DDEXSchemaERN_382
             bool isValid = true;
 
             var xmlObject = GetXmlObjectFromModel(model);
-            var str = Generator.SerializeXmlObject(xmlObject);
+            var str = Generator.SerializeXmlObject(xmlObject, useTempFile: true);
             isValid = Generator.IsValid(str, out message);
 
             return isValid;
         }
 
-        public void WriteXmlObjectToFile(IXmlObject xmlObject, string fileName)
+        public void WriteXmlObjectToFile(IXmlObject xmlObject)
         {
             IXmlGenerator gen = Factory.GetGenerator();
 
             var str = gen.SerializeXmlObject(xmlObject);
-            gen.WriteXmlFile(fileName, str);
-            System.IO.File.WriteAllText(fileName, str);
+            //gen.WriteXmlFile(fileName, str);
         }
 
         public IXmlGenerator GetGenerator()

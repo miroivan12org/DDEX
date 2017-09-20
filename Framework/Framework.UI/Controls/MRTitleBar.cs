@@ -56,6 +56,7 @@ namespace Framework.UI.Controls
             btnCollapse.Visible = expanded;
             btnExpand.Visible = !expanded;
             btnAdd.Visible = addVisible;
+            btnCopy.Visible = copyVisible;
         }
 
         private bool expanded = true;
@@ -84,6 +85,21 @@ namespace Framework.UI.Controls
             set
             {
                 addVisible = value;
+                BindToControl();
+            }
+        }
+
+        private bool copyVisible = false;
+        [DefaultValue(false)]
+        public bool CopyVisible
+        {
+            get
+            {
+                return copyVisible;
+            }
+            set
+            {
+                copyVisible = value;
                 BindToControl();
             }
         }
@@ -130,7 +146,8 @@ namespace Framework.UI.Controls
 
         public enum eButtonAction
         {
-            Add
+            Add,
+            Copy
         }
 
         public class ActionButtonEventArgs : EventArgs
@@ -153,7 +170,10 @@ namespace Framework.UI.Controls
             }
         }
 
-
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            OnButtonClicked(sender, new ActionButtonEventArgs() { Action = eButtonAction.Copy });
+        }
     }
 }
 

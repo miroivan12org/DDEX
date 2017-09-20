@@ -362,12 +362,14 @@ namespace DDEX.Generation.ERN_382
 
             return ret;
         }
+
         private void ERN_382GenerationFormAudioAlbumMusicOnly_Load(object sender, EventArgs e)
         {
             AudioAlbumModel m = GetModelFromFile(Model.FullFileName);
             if (m != null)
             {
                 Model.CopyFromSource(m);
+                
             }
             
             InitBindings();
@@ -423,7 +425,7 @@ namespace DDEX.Generation.ERN_382
         {
             if (e.Action == Framework.UI.Controls.MRTitleBar.eButtonAction.Add)
             {
-                var track = new TrackModel() { Ordinal = 1, Parent = Model};
+                var track = new TrackModel() { Ordinal = 1, Parent = Model };
 
                 if (Model.Tracks.Any())
                 {
@@ -440,7 +442,24 @@ namespace DDEX.Generation.ERN_382
                         dgvSoundRecordingsAndReleases.ClearSelection();
                     }
                 }
+            }
+            else if (e.Action == Framework.UI.Controls.MRTitleBar.eButtonAction.Copy)
+            {
+                TrackModel selectedTrack = (TrackModel)dgvSoundRecordingsAndReleases.CurrentRow.DataBoundItem;
+                if (selectedTrack != null)
+                {
+                    TrackModel track  = (TrackModel) selectedTrack.Copy();
+                    track.Ordinal = Model.Tracks.Max(x => x.Ordinal) + 1;
 
+                    using (var frm = new ERN_382TrackReleaseForm(track) { Editable = this.Editable, ParentForm = this })
+                    {
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            Model.Tracks.Add(track);
+                            dgvSoundRecordingsAndReleases.ClearSelection();
+                        }
+                    }
+                }
             }
             
         }
@@ -496,7 +515,7 @@ namespace DDEX.Generation.ERN_382
             string fileName = Model.FullFileName;
             if (Model.IsValid(out message) && IsXmlFileValid(out message2))
             {
-                Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), fileName);
+                Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
                 DialogResult = DialogResult.OK;
                 ParentForm.Model.Refresh();
                 Close();
@@ -507,7 +526,7 @@ namespace DDEX.Generation.ERN_382
                 rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
                 if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
                 {
-                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), fileName);
+                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
                     DialogResult = DialogResult.OK;
                     ParentForm.Model.Refresh();
                     Close();

@@ -57,10 +57,10 @@
             this.groupBox1.Controls.Add(this.lblPath);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1187, 55);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(890, 45);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loaded Navigation Folder";
@@ -68,10 +68,9 @@
             // btnValidateAll
             // 
             this.btnValidateAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValidateAll.Location = new System.Drawing.Point(1092, 18);
-            this.btnValidateAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnValidateAll.Location = new System.Drawing.Point(819, 15);
             this.btnValidateAll.Name = "btnValidateAll";
-            this.btnValidateAll.Size = new System.Drawing.Size(88, 28);
+            this.btnValidateAll.Size = new System.Drawing.Size(66, 23);
             this.btnValidateAll.TabIndex = 3;
             this.btnValidateAll.Text = "Validate";
             this.btnValidateAll.UseVisualStyleBackColor = true;
@@ -81,10 +80,9 @@
             // 
             this.chxbSubFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chxbSubFolders.AutoSize = true;
-            this.chxbSubFolders.Location = new System.Drawing.Point(966, 23);
-            this.chxbSubFolders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chxbSubFolders.Location = new System.Drawing.Point(722, 19);
             this.chxbSubFolders.Name = "chxbSubFolders";
-            this.chxbSubFolders.Size = new System.Drawing.Size(130, 21);
+            this.chxbSubFolders.Size = new System.Drawing.Size(100, 17);
             this.chxbSubFolders.TabIndex = 2;
             this.chxbSubFolders.Text = "scan subfolders";
             this.chxbSubFolders.UseVisualStyleBackColor = true;
@@ -93,10 +91,9 @@
             // btnOpenFolder
             // 
             this.btnOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenFolder.Location = new System.Drawing.Point(921, 18);
-            this.btnOpenFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOpenFolder.Location = new System.Drawing.Point(691, 15);
             this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(33, 28);
+            this.btnOpenFolder.Size = new System.Drawing.Size(25, 23);
             this.btnOpenFolder.TabIndex = 1;
             this.btnOpenFolder.Text = "...";
             this.btnOpenFolder.UseVisualStyleBackColor = true;
@@ -107,9 +104,10 @@
             this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPath.Location = new System.Drawing.Point(12, 18);
+            this.lblPath.Location = new System.Drawing.Point(9, 15);
+            this.lblPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(903, 28);
+            this.lblPath.Size = new System.Drawing.Size(677, 23);
             this.lblPath.TabIndex = 0;
             // 
             // dgvFiles
@@ -130,13 +128,12 @@
             this.ValidationMessage});
             this.dgvFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFiles.GridColor = System.Drawing.Color.DarkGray;
-            this.dgvFiles.Location = new System.Drawing.Point(0, 85);
-            this.dgvFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvFiles.Location = new System.Drawing.Point(0, 69);
             this.dgvFiles.MultiSelect = false;
             this.dgvFiles.Name = "dgvFiles";
             this.dgvFiles.ReadOnly = true;
             this.dgvFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFiles.Size = new System.Drawing.Size(1187, 386);
+            this.dgvFiles.Size = new System.Drawing.Size(890, 312);
             this.dgvFiles.TabIndex = 17;
             this.dgvFiles.TabStop = false;
             this.dgvFiles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFiles_CellClick);
@@ -225,22 +222,21 @@
             // 
             this.tbFiles.AddVisible = true;
             this.tbFiles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbFiles.Location = new System.Drawing.Point(0, 55);
-            this.tbFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFiles.Location = new System.Drawing.Point(0, 45);
             this.tbFiles.Name = "tbFiles";
-            this.tbFiles.Size = new System.Drawing.Size(1187, 30);
+            this.tbFiles.Size = new System.Drawing.Size(890, 24);
             this.tbFiles.TabIndex = 18;
             this.tbFiles.Title = "Files";
             this.tbFiles.ButtonClicked += new Framework.UI.Controls.MRTitleBar.ButtonClickedEventHandler(this.tbTrackReleases_ButtonClicked);
             // 
             // FilesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1187, 496);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(890, 403);
             this.Controls.Add(this.dgvFiles);
             this.Controls.Add(this.tbFiles);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FilesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
             this.Text = "Files Form";

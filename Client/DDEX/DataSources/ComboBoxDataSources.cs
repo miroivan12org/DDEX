@@ -25,6 +25,21 @@ namespace DDEX.DataSources
             return ret;
         }
 
+        public static List<ComboBoxItem> GetComboDataSourceDisplayArtistRole()
+        {
+            var ls = Properties.Settings.Default.DisplayArtistRoles.Split(';').ToList();
+            var ret = new List<ComboBoxItem>()
+            {
+                new ComboBoxItem() { Value = null, Text = "" }
+            };
+            foreach (string c in ls)
+            {
+                ret.Add(new ComboBoxItem() { Value = c, Text = c });
+            }
+
+            return ret;
+        }
+
         public static List<ComboBoxItem> GetComboDataSourceAudioCodecType()
         {
 

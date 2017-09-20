@@ -40,7 +40,6 @@
             this.txtFrontCoverImageHeight = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtFrontCoverImageRelativePath = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtFrontCoverImageFileName = new Framework.UI.Controls.MRTextBox(this.components);
-            this.mrButton1 = new Framework.UI.Controls.MRButton(this.components);
             this.mrLabel11 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel12 = new Framework.UI.Controls.MRLabel(this.components);
             this.btnOpenFrontCoverImage = new Framework.UI.Controls.MRButton(this.components);
@@ -108,7 +107,7 @@
             // pnlData
             // 
             this.pnlData.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlData.Size = new System.Drawing.Size(848, 555);
+            this.pnlData.Size = new System.Drawing.Size(848, 610);
             // 
             // groupBox1
             // 
@@ -165,20 +164,20 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pnlFrontCoverImage);
-            this.groupBox2.Controls.Add(this.tbFrontCoverImage);
             this.groupBox2.Controls.Add(this.dgvSoundRecordingsAndReleases);
             this.groupBox2.Controls.Add(this.tbTrackReleases);
             this.groupBox2.Controls.Add(this.pnlMessageHeader);
             this.groupBox2.Controls.Add(this.tbMessageHeader);
             this.groupBox2.Controls.Add(this.pnlMainRelease);
             this.groupBox2.Controls.Add(this.tbMainRelease);
+            this.groupBox2.Controls.Add(this.tbFrontCoverImage);
+            this.groupBox2.Controls.Add(this.pnlFrontCoverImage);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 50);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(848, 505);
+            this.groupBox2.Size = new System.Drawing.Size(848, 560);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loaded Xml Model";
@@ -189,17 +188,16 @@
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageHeight);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageRelativePath);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageFileName);
-            this.pnlFrontCoverImage.Controls.Add(this.mrButton1);
             this.pnlFrontCoverImage.Controls.Add(this.mrLabel11);
             this.pnlFrontCoverImage.Controls.Add(this.mrLabel12);
             this.pnlFrontCoverImage.Controls.Add(this.btnOpenFrontCoverImage);
             this.pnlFrontCoverImage.Controls.Add(this.mrLabel1);
             this.pnlFrontCoverImage.Controls.Add(this.label13);
-            this.pnlFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFrontCoverImage.Location = new System.Drawing.Point(2, 414);
+            this.pnlFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlFrontCoverImage.Location = new System.Drawing.Point(2, 476);
             this.pnlFrontCoverImage.Name = "pnlFrontCoverImage";
             this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.pnlFrontCoverImage.Size = new System.Drawing.Size(844, 89);
+            this.pnlFrontCoverImage.Size = new System.Drawing.Size(844, 82);
             this.pnlFrontCoverImage.TabIndex = 1;
             // 
             // txtFrontCoverImageWidth
@@ -229,17 +227,6 @@
             this.txtFrontCoverImageFileName.Name = "txtFrontCoverImageFileName";
             this.txtFrontCoverImageFileName.Size = new System.Drawing.Size(300, 20);
             this.txtFrontCoverImageFileName.TabIndex = 21;
-            // 
-            // mrButton1
-            // 
-            this.mrButton1.Location = new System.Drawing.Point(600, 52);
-            this.mrButton1.Name = "mrButton1";
-            this.mrButton1.Size = new System.Drawing.Size(75, 23);
-            this.mrButton1.TabIndex = 20;
-            this.mrButton1.Text = "mrButton1";
-            this.mrButton1.UseVisualStyleBackColor = true;
-            this.mrButton1.Visible = false;
-            this.mrButton1.Click += new System.EventHandler(this.mrButton1_Click);
             // 
             // mrLabel11
             // 
@@ -289,10 +276,10 @@
             // 
             // tbFrontCoverImage
             // 
-            this.tbFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbFrontCoverImage.Location = new System.Drawing.Point(2, 390);
+            this.tbFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbFrontCoverImage.Location = new System.Drawing.Point(2, 449);
             this.tbFrontCoverImage.Name = "tbFrontCoverImage";
-            this.tbFrontCoverImage.Size = new System.Drawing.Size(844, 24);
+            this.tbFrontCoverImage.Size = new System.Drawing.Size(844, 27);
             this.tbFrontCoverImage.TabIndex = 0;
             this.tbFrontCoverImage.Title = "Front Cover Image";
             // 
@@ -308,7 +295,7 @@
             this.csTracksOrdinal,
             this.csTracksISRC,
             this.csTrackTitle});
-            this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSoundRecordingsAndReleases.GridColor = System.Drawing.Color.DarkGray;
             this.dgvSoundRecordingsAndReleases.IgnoreParentsEnabled = true;
             this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(2, 294);
@@ -316,7 +303,7 @@
             this.dgvSoundRecordingsAndReleases.Name = "dgvSoundRecordingsAndReleases";
             this.dgvSoundRecordingsAndReleases.ReadOnly = true;
             this.dgvSoundRecordingsAndReleases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(844, 96);
+            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(844, 155);
             this.dgvSoundRecordingsAndReleases.TabIndex = 3;
             this.dgvSoundRecordingsAndReleases.TabStop = false;
             this.dgvSoundRecordingsAndReleases.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellClick);
@@ -375,6 +362,7 @@
             // tbTrackReleases
             // 
             this.tbTrackReleases.AddVisible = true;
+            this.tbTrackReleases.CopyVisible = true;
             this.tbTrackReleases.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbTrackReleases.Location = new System.Drawing.Point(2, 270);
             this.tbTrackReleases.Name = "tbTrackReleases";
@@ -804,7 +792,7 @@
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(848, 601);
+            this.ClientSize = new System.Drawing.Size(848, 656);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -870,7 +858,6 @@
         private Framework.UI.Controls.MRTitleBar tbFrontCoverImage;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private Framework.UI.Controls.MRButton mrButton1;
         private Framework.UI.Controls.MRLabel mrLabel1;
         private Framework.UI.Controls.MRButton btnOpenFrontCoverImage;
         private Framework.UI.Controls.MRLabel mrLabel2;

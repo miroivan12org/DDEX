@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MRTitleBar));
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCollapse = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.btnExpand = new System.Windows.Forms.Button();
             this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             this.pnlTitle.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.pnlTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlTitle.Controls.Add(this.lblTitle);
+            this.pnlTitle.Controls.Add(this.btnCopy);
             this.pnlTitle.Controls.Add(this.btnAdd);
             this.pnlTitle.Controls.Add(this.btnCollapse);
             this.pnlTitle.Controls.Add(this.btnExpand);
@@ -50,6 +52,31 @@
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(430, 24);
             this.pnlTitle.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(318, 20);
+            this.lblTitle.TabIndex = 2;
+            this.lblTitle.Text = "Title";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.BackColor = System.Drawing.Color.Transparent;
+            this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCopy.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCopy.Location = new System.Drawing.Point(318, 0);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(39, 20);
+            this.btnCopy.TabIndex = 5;
+            this.btnCopy.Text = "copy";
+            this.btnCopy.UseVisualStyleBackColor = false;
+            this.btnCopy.Visible = false;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnAdd
             // 
@@ -77,16 +104,6 @@
             this.btnCollapse.TabIndex = 3;
             this.btnCollapse.UseVisualStyleBackColor = false;
             this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(357, 20);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Title";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnExpand
             // 
@@ -120,5 +137,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnExpand;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnCopy;
     }
 }

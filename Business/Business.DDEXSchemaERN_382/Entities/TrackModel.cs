@@ -87,6 +87,21 @@ namespace Business.DDEXSchemaERN_382.Entities
         public string Contributor6 { get { return Get<string>(); } set { Set(value); } }
         public string Contributor6Role { get { return Get<string>(); } set { Set(value); } }
 
+        public string DisplayArtist1 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist1Role { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist2 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist2Role { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist3 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist3Role { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist4 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist4Role { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist5 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist5Role { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist6 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist6Role { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist7 { get { return Get<string>(); } set { Set(value); } }
+        public string DisplayArtist7Role { get { return Get<string>(); } set { Set(value); } }
+
         public List<Tuple<string, string>> IndirectContributors
         {
             get
@@ -107,6 +122,31 @@ namespace Business.DDEXSchemaERN_382.Entities
                     lsIndirectContributors.Add(new Tuple<string, string>(Contributor6, Contributor6Role));
 
                 return lsIndirectContributors;
+            }
+        }
+
+        public List<Tuple<string, string>> DisplayArtists
+        {
+            get
+            {
+                var ls = new List<Tuple<string, string>>();
+
+                if (DisplayArtist1 != null && DisplayArtist1 != "" && DisplayArtist1Role != null && DisplayArtist1Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist1, DisplayArtist1Role));
+                if (DisplayArtist2 != null && DisplayArtist2 != "" && DisplayArtist2Role != null && DisplayArtist2Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist2, DisplayArtist2Role));
+                if (DisplayArtist3 != null && DisplayArtist3 != "" && DisplayArtist3Role != null && DisplayArtist3Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist3, DisplayArtist3Role));
+                if (DisplayArtist4 != null && DisplayArtist4 != "" && DisplayArtist4Role != null && DisplayArtist4Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist4, DisplayArtist4Role));
+                if (DisplayArtist5 != null && DisplayArtist5 != "" && DisplayArtist5Role != null && DisplayArtist5Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist5, DisplayArtist5Role));
+                if (DisplayArtist6 != null && DisplayArtist6 != "" && DisplayArtist6Role != null && DisplayArtist6Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist6, DisplayArtist6Role));
+                                if (DisplayArtist6 != null && DisplayArtist6 != "" && DisplayArtist6Role != null && DisplayArtist6Role != "")
+                    ls.Add(new Tuple<string, string>(DisplayArtist6, DisplayArtist6Role));
+
+                return ls;
             }
         }
 

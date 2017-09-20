@@ -22,7 +22,8 @@ namespace Business.DDEXSchemaERN_382
                 LanguageAndScriptCode = "en",
                 MessageSchemaVersionId = "ern/382",
                 IsBackfill = false,
-                IsBackfillSpecified = true
+                IsBackfillSpecified = true,
+                FullFileName = m.FullFileName
             };
 
             ret.UpdateIndicator = m.UpdateIndicator;
@@ -31,6 +32,8 @@ namespace Business.DDEXSchemaERN_382
             ret.MessageHeader = GetXmlMessageHeader(m);
             ret.ResourceList = GetXmlResourceList(m);
             ret.ReleaseList = GetXmlReleaseList(m);
+
+            ret.DealList = m.TempDealList;
 
             return ret;
         }
@@ -694,6 +697,14 @@ namespace Business.DDEXSchemaERN_382
                                 ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
                                 Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.MainArtist } } }
                             }
+                            // TODO - implementirati display artiste 1-7
+                            //,
+                            //new Artist()
+                            //{
+                            //    SequenceNumber = "2",
+                            //    ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.FeaturedArtist } },
+                            //    Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.MainArtist } } }
+                            //}
                 };
             }
 

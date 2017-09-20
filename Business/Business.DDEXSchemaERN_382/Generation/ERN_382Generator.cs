@@ -26,9 +26,9 @@ namespace Business.DDEXSchemaERN_382.Generation
             return ret;
         }
 
-        public override string SerializeXmlObject(IXmlObject value)
+        public override string SerializeXmlObject(IXmlObject value, bool useTempFile = false)
         {
-            string ret = base.SerializeXmlObject(value);
+            string ret = base.SerializeXmlObject(value, useTempFile:useTempFile);
 
             var doc = new XmlDocument();
             doc.LoadXml(ret);

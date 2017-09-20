@@ -55,6 +55,9 @@ namespace DDEX.Generation.ERN_382
 
             tbContributor6.BindedControls.Add(pnlContributor6);
             tbContributor6.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.Contributor6) || !string.IsNullOrWhiteSpace(Model.Contributor6Role)) });
+
+            tbDisplayArtist1.BindedControls.Add(pnlDisplayArtist1);
+            tbDisplayArtist1.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.DisplayArtist1) || !string.IsNullOrWhiteSpace(Model.DisplayArtist1Role)) });
         }
 
         private void InitCombos()
@@ -65,6 +68,8 @@ namespace DDEX.Generation.ERN_382
             cbContributor4Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
             cbContributor5Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
             cbContributor6Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
+            cbDisplayArtistRole1.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceDisplayArtistRole();
+
             cbAudioCodecType.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceAudioCodecType();
         }
         private void InitBindings()
@@ -97,6 +102,10 @@ namespace DDEX.Generation.ERN_382
             cbContributor5Role.DataBindings.Add("SelectedItem", Model, "Contributor5Role");
             txtContributor6.DataBindings.Add("Text", Model, "Contributor6");
             cbContributor6Role.DataBindings.Add("SelectedItem", Model, "Contributor6Role");
+
+            txtDisplayArtist1.DataBindings.Add("Text", Model, "DisplayArtist1");
+            cbDisplayArtistRole1.DataBindings.Add("SelectedItem", Model, "DisplayArtist1Role");
+            
             txtResourceReleaseDate.DataBindings.Add("Text", Model, "ResourceReleaseDate");
 
             cbAudioCodecType.DataBindings.Add("SelectedItem", Model, "AudioCodec");
@@ -149,9 +158,10 @@ namespace DDEX.Generation.ERN_382
                     {
                         prePath = dir.Substring(modelDir.Length + 1);
                     }
-
+                    
                     Model.FilePath = prePath + "/";
                     Model.TrackFullFileName = fd.FileName;
+                    Model.FileName = System.IO.Path.GetFileName(fd.FileName);
                 }
                 else
                 {

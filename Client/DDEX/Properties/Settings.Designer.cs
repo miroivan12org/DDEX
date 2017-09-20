@@ -64,5 +64,17 @@ namespace DDEX.Properties {
                 this["IndirectContributors"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("FeaturedArtist")]
+        public string DisplayArtistRoles {
+            get {
+                return ((string)(this["DisplayArtistRoles"]));
+            }
+            set {
+                this["DisplayArtistRoles"] = value;
+            }
+        }
     }
 }

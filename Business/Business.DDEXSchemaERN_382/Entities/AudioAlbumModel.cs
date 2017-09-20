@@ -42,6 +42,8 @@ namespace Business.DDEXSchemaERN_382.Entities
         public int FrontCoverImageWidth_Materialized { get { return Get<int>(); } set { Set(value); } }        
         public SortableBindingList<TrackModel> Tracks { get; set; } = new SortableBindingList<TrackModel>();
 
+        public DealList TempDealList { get; set; }
+
         public string GetFullFileNameFromRelativePathAndFileName(string relativePath, string fileName)
         {
             string ret = null;

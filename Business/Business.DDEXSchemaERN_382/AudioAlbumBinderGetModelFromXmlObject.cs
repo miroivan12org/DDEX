@@ -809,7 +809,7 @@ namespace Business.DDEXSchemaERN_382
                     {
                         FullFileName = xmlObject.FullFileName
                     };
-
+                    
                     ret.EAN = GetModelEAN(nrm);
                     ret.MainArtist = GetModelMainArtist(nrm);
                     ret.LabelName = GetModelLabelName(nrm);
@@ -840,6 +840,8 @@ namespace Business.DDEXSchemaERN_382
                     {
                         track.Parent = ret;
                     }
+
+                    ret.TempDealList = nrm.DealList;
 
                     GotModel(xmlObject, ref ret);
                 }

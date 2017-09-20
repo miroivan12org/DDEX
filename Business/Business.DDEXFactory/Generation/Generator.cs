@@ -6,9 +6,9 @@ namespace Business.DDEXFactory.Generation
 {
     public abstract class Generator: IXmlGenerator
     {
-        public virtual string SerializeXmlObject(IXmlObject value)
+        public virtual string SerializeXmlObject(IXmlObject value, bool useTempFile = false)
         {
-            string xml = Helpers.SerializationHelper.Serialize(value);
+            string xml = Helpers.SerializationHelper.Serialize(value, (useTempFile == true ? null : value.FullFileName));
             return xml;
         }
 
@@ -21,6 +21,10 @@ namespace Business.DDEXFactory.Generation
             return System.IO.File.ReadAllText(fileName);
         }
 
+        public void WriteXmlObjectToFile(string fileName, IXmlObject xmlObject)
+        {
+            Helpers.SerializationHelper.Serialize(xmlObject, fileName);
+        }
         public void WriteXmlFile(string fileName, string value)
         {
             System.IO.File.WriteAllText(fileName, value);
