@@ -313,7 +313,7 @@ namespace Business.DDEXSchemaERN_382
             string ret = null;
 
             File imgFile = GetModelFrontCoverImageFile(nrm);
-            if (imgFile != null && imgFile.ItemsElementName != null && imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FileName) >= 0 && imgFile.Items != null && imgFile.Items.Length > imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath))
+            if (imgFile != null && imgFile.ItemsElementName != null && imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FileName) >= 0 && imgFile.Items != null && imgFile.Items.Length > imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath) && imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath) != -1)
             {
                 ret = imgFile.Items[imgFile.ItemsElementName.ToList().IndexOf(ItemsChoiceType6.FilePath)];
             }

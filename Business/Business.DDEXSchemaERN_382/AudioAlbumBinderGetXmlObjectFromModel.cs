@@ -661,7 +661,7 @@ namespace Business.DDEXSchemaERN_382
             sr.ResourceReference = "A" + track.Ordinal;
 
             if (!string.IsNullOrWhiteSpace(track.Title)) sr.ReferenceTitle = new ReferenceTitle() { TitleText = new TitleText() { Value = track.Title } };
-            sr.Duration = "PT" + track.DurationMin.ToString() + "M" + track.DurationSec.ToString() + "S";
+            sr.Duration = "PT" + track.DurationMin.ToString() + "M" + track.DurationSec.ToString().PadLeft(2, '0') + "S";
 
             sr.SoundRecordingDetailsByTerritory = new SoundRecordingDetailsByTerritory[] {
                         new SoundRecordingDetailsByTerritory()
