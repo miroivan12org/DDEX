@@ -787,12 +787,15 @@ namespace Business.DDEXSchemaERN_382
                 string strMsgCreatedDateTime = "";
                 try
                 {
-                    strMsgCreatedDateTime = doc.SelectNodes(".//MessageHeader/MessageCreatedDateTime")[0].InnerText;
-                    ret.MessageCreatedDateTime = DateTime.SpecifyKind(TimeZoneInfo.ConvertTimeToUtc(Convert.ToDateTime(strMsgCreatedDateTime)), DateTimeKind.Local);
+                    if (doc.SelectNodes(".//MessageHeader/MessageCreatedDateTime")[0] != null)
+                    {
+                        strMsgCreatedDateTime = doc.SelectNodes(".//MessageHeader/MessageCreatedDateTime")[0].InnerText;
+                        ret.MessageCreatedDateTime = DateTime.SpecifyKind(TimeZoneInfo.ConvertTimeToUtc(Convert.ToDateTime(strMsgCreatedDateTime)), DateTimeKind.Local);
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }                
             }
         }

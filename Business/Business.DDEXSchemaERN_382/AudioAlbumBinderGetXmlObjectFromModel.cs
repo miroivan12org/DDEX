@@ -12,19 +12,36 @@ namespace Business.DDEXSchemaERN_382
 {
     public partial class AudioAlbumBinder
     {
+        private IXmlObject LoadModelTemplate()
+        {
+            IXmlObject ret = null;
+            string path = @"C:\temp\DDEX\template\9008798224074.xml";
+            if (System.IO.File.Exists(path))
+            {
+                AudioAlbumBinder binder = new AudioAlbumBinder();
+                ret = binder.GetXmlObjectFromFile(path);
+            }
+
+            return ret;
+        }
         private NewReleaseMessage GetXmlNewReleaseMessage(AudioAlbumModel m)
         {
+            //NewReleaseMessage ret = (NewReleaseMessage)LoadModelTemplate();
             NewReleaseMessage ret = null;
 
-            ret = new NewReleaseMessage()
+
+            if (ret == null)
             {
-                ReleaseProfileVersionId = "CommonReleaseTypesTypes/13/AudioAlbumMusicOnly",
-                LanguageAndScriptCode = "en",
-                MessageSchemaVersionId = "ern/382",
-                IsBackfill = false,
-                IsBackfillSpecified = true,
-                FullFileName = m.FullFileName
-            };
+                ret = new NewReleaseMessage()
+                {
+                    ReleaseProfileVersionId = "CommonReleaseTypesTypes/13/AudioAlbumMusicOnly",
+                    LanguageAndScriptCode = "en",
+                    MessageSchemaVersionId = "ern/382",
+                    IsBackfill = false,
+                    IsBackfillSpecified = true
+                };
+            }
+            ret.FullFileName = m.FullFileName;
 
             ret.UpdateIndicator = m.UpdateIndicator;
             ret.UpdateIndicatorSpecified = true;
@@ -896,6 +913,7 @@ namespace Business.DDEXSchemaERN_382
         {
             NewReleaseMessage nrm;
             AudioAlbumModel m = (AudioAlbumModel)model;
+
 
             nrm = GetXmlNewReleaseMessage(m);
             
