@@ -28,7 +28,7 @@ namespace Business.DDEXSchemaERN_382
             bool isValid = true;
 
             var xmlObject = GetXmlObjectFromModel(model);
-            var str = Generator.SerializeXmlObject(xmlObject, useTempFile: true);
+            var str = Generator.SerializeXmlObject(xmlObject);
             isValid = Generator.IsValid(str, out message);
 
             return isValid;
@@ -37,9 +37,9 @@ namespace Business.DDEXSchemaERN_382
         public void WriteXmlObjectToFile(IXmlObject xmlObject)
         {
             IXmlGenerator gen = Factory.GetGenerator();
-
             var str = gen.SerializeXmlObject(xmlObject);
-            //gen.WriteXmlFile(fileName, str);
+            
+            gen.WriteXmlFile(xmlObject.FullFileName, str);
         }
 
         public IXmlGenerator GetGenerator()

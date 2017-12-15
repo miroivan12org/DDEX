@@ -2,7 +2,7 @@
 {
     public interface IXmlGenerator
     {
-        string SerializeXmlObject(IXmlObject value, bool useTempFile = false);
+        string SerializeXmlObject(IXmlObject value);
         IXmlObject DeserializeXmlObject(string value);
         bool IsValid(string xmlValue, out string outMessage);
         IXmlGenerationFactory Factory { get; }

@@ -1,14 +1,16 @@
 ﻿
 using System;
 using Business.DDEXFactory.Interfaces;
+using Business.DDEXFactory.Helpers;
 
 namespace Business.DDEXFactory.Generation
 {
     public abstract class Generator: IXmlGenerator
     {
-        public virtual string SerializeXmlObject(IXmlObject value, bool useTempFile = false)
+        public virtual string SerializeXmlObject(IXmlObject value)
         {
-            string xml = Helpers.SerializationHelper.Serialize(value, (useTempFile == true ? null : value.FullFileName));
+            //string xml = Helpers.SerializationHelper.Serialize(value, (useTempFile == true ? null : value.FullFileName));
+            string xml = SerializationHelper.Serialize(value);
             return xml;
         }
 
@@ -23,7 +25,8 @@ namespace Business.DDEXFactory.Generation
 
         public void WriteXmlObjectToFile(string fileName, IXmlObject xmlObject)
         {
-            Helpers.SerializationHelper.Serialize(xmlObject, fileName);
+            var str = SerializationHelper.Serialize(xmlObject);
+            WriteXmlFile(fileName, str);
         }
         public void WriteXmlFile(string fileName, string value)
         {

@@ -261,7 +261,6 @@
         private Framework.UI.Controls.MRButton btnOpenFolder;
         private Framework.UI.Controls.MRCheckBox chxbSubFolders;
         private Framework.UI.Controls.MRButton btnValidateAll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn csValidationMessage;
         private System.Windows.Forms.DataGridViewImageColumn csEdit;
         private System.Windows.Forms.DataGridViewImageColumn csDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn csTrackTitle;

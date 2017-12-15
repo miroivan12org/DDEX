@@ -8,6 +8,7 @@ using System.Xml.Schema;
 using Business.DDEXFactory.Generation;
 using Business.DDEXSchemaERN_382.Schema;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace Business.DDEXSchemaERN_382.Generation
 {
@@ -21,21 +22,30 @@ namespace Business.DDEXSchemaERN_382.Generation
         public override IXmlObject DeserializeXmlObject(string value)
         {
             IXmlObject ret = null;
-            ret = (IXmlObject)SerializationHelper.Deserialize(typeof(NewReleaseMessage), value);
-
+            ret = SerializationHelper.Deserialize<NewReleaseMessage>(value);
+            
             return ret;
         }
 
-        public override string SerializeXmlObject(IXmlObject value, bool useTempFile = false)
+        public override string SerializeXmlObject(IXmlObject value)
         {
-            string ret = base.SerializeXmlObject(value, useTempFile:useTempFile);
-
+            string ret = base.SerializeXmlObject(value);
+            
             var doc = new XmlDocument();
             doc.LoadXml(ret);
+
             NewReleaseMessage nrm = (NewReleaseMessage)value;
             var dat = nrm.MessageHeader.MessageCreatedDateTime;
-            doc.SelectNodes(".//MessageHeader/MessageCreatedDateTime")[0].InnerText = DateTime.SpecifyKind(dat, DateTimeKind.Utc).ToString("yyyy-MM-ddTHH:mm:ss") + "+00:00";
-            ret = doc.OuterXml;
+
+            string valueToReplace = ret.Substring(ret.IndexOf("<MessageCreatedDateTime>"), ret.IndexOf("</MessageCreatedDateTime>") + "</MessageCreatedDateTime>".Length - ret.IndexOf("<MessageCreatedDateTime>"));
+            string newValue = string.Format("<MessageCreatedDateTime>{0}</MessageCreatedDateTime>", DateTime.SpecifyKind(dat, DateTimeKind.Utc).ToString("yyyy-MM-ddTHH:mm:ss") + "+00:00");
+            ret = ret.Replace(valueToReplace, newValue);
+
+            ret = ret.Replace(" xmlns=\"\"", "");
+            ret = ret.Replace("xmlns=\"\"", "");
+
+            newValue = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<ern:NewReleaseMessage MessageSchemaVersionId=\"ern/382\" ReleaseProfileVersionId=\"CommonReleaseTypesTypes/13/AudioAlbumMusicOnly\" LanguageAndScriptCode=\"en\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ern=\"http://ddex.net/xml/ern/382\" xs:schemaLocation=\"http://ddex.net/xml/ern/382 http://ddex.net/xml/ern/382/release-notification.xsd\">\n";
+            ret = string.Concat(newValue, ret.Substring(ret.IndexOf("<MessageHeader"))).Replace("</NewReleaseMessage>", "</ern:NewReleaseMessage>");
 
             return ret;
         }
