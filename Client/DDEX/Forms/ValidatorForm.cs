@@ -14,7 +14,11 @@ namespace DDEX.Forms
             InitializeComponent();
         }
         
-        public AudioAlbumBinder Binder = new AudioAlbumBinder(); 
+        public AudioAlbumBinder Binder = new AudioAlbumBinder(new AudioAlbumBinder.AudioAlbumBinderSettings()
+        {
+            DeezerPartyID = Properties.Settings.Default.DeezerRecipientPartyID,
+            PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID
+        });
 
         private void btnValidate_Click(object sender, EventArgs e)
         {

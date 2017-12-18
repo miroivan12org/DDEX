@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -39,8 +40,13 @@ namespace Business.DDEXFactory.Helpers
                     }
                 }                    
             }
-            catch
+            catch(Exception ex)
             {
+                if (Debugger.IsAttached)
+                {
+                    Console.WriteLine(ex.Message);
+                    Debugger.Break();
+                }
                 throw;
             }
 

@@ -76,5 +76,92 @@ namespace DDEX.Properties {
                 this["DisplayArtistRoles"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA20160517080")]
+        public string DeezerSenderPartyID {
+            get {
+                return ((string)(this["DeezerSenderPartyID"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA2011021513H")]
+        public string DeezerRecipientPartyID {
+            get {
+                return ((string)(this["DeezerRecipientPartyID"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DEEZER")]
+        public string DeezerRecipientPartyName {
+            get {
+                return ((string)(this["DeezerRecipientPartyName"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LONGPLAY")]
+        public string DeezerSenderPartyName {
+            get {
+                return ((string)(this["DeezerSenderPartyName"]));
+            }
+            set {
+                this["DeezerSenderPartyName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA20160517080")]
+        public string PandoraSenderPartyID {
+            get {
+                return ((string)(this["PandoraSenderPartyID"]));
+            }
+            set {
+                this["PandoraSenderPartyID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA20140404055")]
+        public string PandoraRecipientPartyID {
+            get {
+                return ((string)(this["PandoraRecipientPartyID"]));
+            }
+            set {
+                this["PandoraRecipientPartyID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LONGPLAY")]
+        public string PandoraSenderPartyName {
+            get {
+                return ((string)(this["PandoraSenderPartyName"]));
+            }
+            set {
+                this["PandoraSenderPartyName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PANDORA")]
+        public string PandoraRecipientPartyName {
+            get {
+                return ((string)(this["PandoraRecipientPartyName"]));
+            }
+            set {
+                this["PandoraRecipientPartyName"] = value;
+            }
+        }
     }
 }

@@ -93,10 +93,9 @@
         }
 
         #endregion
-
-        private Controls.MRPanel pnlDlgRes;
         private Controls.MRButton btnCancel;
         private Controls.MRButton btnOk;
         public Controls.MRPanel pnlData;
+        protected internal Controls.MRPanel pnlDlgRes;
     }
 }

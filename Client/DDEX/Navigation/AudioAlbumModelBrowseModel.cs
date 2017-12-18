@@ -26,7 +26,11 @@ namespace DDEX.Navigation
             bool ret = true;
             message = "";
             
-            var binder = new AudioAlbumBinder();
+            var binder = new AudioAlbumBinder(new AudioAlbumBinder.AudioAlbumBinderSettings() {
+                DeezerPartyID = Properties.Settings.Default.DeezerRecipientPartyID,
+                PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID
+            });
+
             try
             {
                 AudioAlbumModel m = (AudioAlbumModel)binder.GetModelFromXmlObject(binder.GetXmlObjectFromFile(FullName));

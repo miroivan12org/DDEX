@@ -8,13 +8,23 @@ namespace Business.DDEXSchemaERN_382
 {
     public partial class AudioAlbumBinder
     {
+        public class AudioAlbumBinderSettings
+        {
+            public string DeezerPartyID { get; set; }
+            public string PandoraPartyID { get; set; }
+        }
+
         IXmlGenerator Generator { get; set; }
         IXmlGenerationFactory Factory { get; set; }
-        
-        public AudioAlbumBinder()
+        AudioAlbumBinderSettings Settings { get; set; }
+        private AudioAlbumBinder()
         {
             Factory = new Generation.ERN_382GenerationFactory();
             Generator = Factory.GetGenerator();
+        }
+        public AudioAlbumBinder(AudioAlbumBinderSettings settings) : this()
+        {
+            Settings = settings;
         }
 
         public bool IsFileValid(string fileName, out string message)

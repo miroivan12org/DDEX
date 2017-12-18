@@ -820,6 +820,15 @@ namespace Business.DDEXSchemaERN_382
                     ret.SenderPartyID = GetModelSenderPartyId(nrm);
                     ret.SenderPartyName = GetModelSenderPartyName(nrm);
                     ret.RecipientPartyID = GetModelRecipientPartyId(nrm);
+                    if (ret.RecipientPartyID == Settings.DeezerPartyID)
+                    {
+                        ret.MusicService = AudioAlbumModel.eMusicService.Deezer;
+                    }
+                    else if (ret.RecipientPartyID == Settings.PandoraPartyID)
+                    {
+                        ret.MusicService = AudioAlbumModel.eMusicService.Pandora;
+                    }
+
                     ret.RecipientPartyName = GetModelRecipientPartyName(nrm);
                     ret.MessageCreatedDateTime = GetModelMessageCreatedDateTime(nrm);
                     ret.ApproximateReleaseDate = GetModelApproximateReleaseDate(nrm);
@@ -844,7 +853,8 @@ namespace Business.DDEXSchemaERN_382
                         track.Parent = ret;
                     }
 
-                    ret.TempDealList = nrm.DealList;
+                    ret.DealList = nrm.DealList;
+                    
 
                     GotModel(xmlObject, ref ret);
                 }

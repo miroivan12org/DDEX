@@ -66,8 +66,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusLeft;
+        protected internal System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

@@ -34,7 +34,93 @@ namespace Business.DDEXSchemaERN_382
             ret.ResourceList = GetXmlResourceList(m);
             ret.ReleaseList = GetXmlReleaseList(m);
 
-            ret.DealList = m.TempDealList;
+            ret.DealList = GetXmlDealList(m);
+
+            return ret;
+        }
+        private DealList GetXmlDealListStandard(AudioAlbumModel m)
+        {
+            DealList ret = null;
+
+            ret = new DealList();
+
+            if (m.MusicService == AudioAlbumModel.eMusicService.Deezer)
+            {
+                ret.ReleaseDeal = new ReleaseDeal[] { new ReleaseDeal() };
+                var rd = ret.ReleaseDeal[0];
+                var releaseReferences = new List<string>();
+                for (int i = 0; i <= m.Tracks.Count(); i++)
+                {
+                    releaseReferences.Add(string.Format("R{0}", i.ToString()));
+                }
+                rd.DealReleaseReference = releaseReferences.ToArray();
+
+                rd.Deal = new Deal[] {
+                    new Deal()
+                    {
+                        DealTerms = new DealTerms()
+                        {
+                            CommercialModelType = new CommercialModelType1[]
+                            {
+                                new CommercialModelType1() {  Value = CommercialModelType.SubscriptionModel },
+                                new CommercialModelType1() {  Value = CommercialModelType.AdvertisementSupportedModel },
+                                new CommercialModelType1() {  Value = CommercialModelType.PayAsYouGoModel }
+                            },
+                            ValidityPeriod = new Period[] {
+                                new Period()
+                                {
+                                    ItemsElementName = new ItemsChoiceType3[] {  ItemsChoiceType3.StartDate },
+                                    Items = new object[] { new EventDate() {  Value = m.ApproximateReleaseDate.ToString("yyyy-MM-dd") } }
+                                }
+                            },
+                            Items1 = new CurrentTerritoryCode[] {
+                                new CurrentTerritoryCode()
+                                {
+                                    IdentifierType = TerritoryCodeType.ISO,
+                                    IdentifierTypeSpecified = false,
+                                    Value = "Worldwide"
+                                }
+                            },
+                            Items1ElementName = new Items1ChoiceType[] { Items1ChoiceType.TerritoryCode },
+                            Items = new object[] {
+                                new Usage()
+                                {
+                               
+                                    UseType = new UseType1[] {
+                                        new UseType1() {  Value = UseType.PermanentDownload },
+                                        new UseType1() {  Value = UseType.OnDemandStream },
+                                        new UseType1() {  Value = UseType.NonInteractiveStream }
+                                    }
+                                }
+                            },
+                            ItemsElementName = new ItemsChoiceType17[] { ItemsChoiceType17.Usage }
+                        }
+                    }
+                };
+            }
+            else if (m.MusicService == AudioAlbumModel.eMusicService.Pandora)
+            {
+            }
+            else
+            {
+                throw new Exception("Music service not defined. Cannot make deal list.");
+            }
+            
+            return ret;
+        }
+
+        private DealList GetXmlDealList(AudioAlbumModel m)
+        {
+            DealList ret = null;
+
+            switch (m.DealType)
+            {
+                case AudioAlbumModel.eDealType.Standard:
+                    ret = GetXmlDealListStandard(m);
+                    break;
+                default:
+                    break;
+            }
 
             return ret;
         }

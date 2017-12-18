@@ -107,6 +107,8 @@
     <Compile Include="Navigation\NavigationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\pandora2.jpg" />
+    <None Include="Resources\Deezer_logo.png" />
     <EmbeddedResource Include="Forms\ValidatorForm.resx">
       <DependentUpon>ValidatorForm.cs</DependentUpon>
     </EmbeddedResource>

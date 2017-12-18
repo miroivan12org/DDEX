@@ -17,5 +17,29 @@
     <Setting Name="DisplayArtistRoles" Type="System.String" Scope="User">
       <Value Profile="(Default)">FeaturedArtist</Value>
     </Setting>
+    <Setting Name="DeezerSenderPartyID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PADPIDA20160517080</Value>
+    </Setting>
+    <Setting Name="DeezerRecipientPartyID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PADPIDA2011021513H</Value>
+    </Setting>
+    <Setting Name="DeezerRecipientPartyName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DEEZER</Value>
+    </Setting>
+    <Setting Name="DeezerSenderPartyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LONGPLAY</Value>
+    </Setting>
+    <Setting Name="PandoraSenderPartyID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PADPIDA20160517080</Value>
+    </Setting>
+    <Setting Name="PandoraRecipientPartyID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PADPIDA20140404055</Value>
+    </Setting>
+    <Setting Name="PandoraSenderPartyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LONGPLAY</Value>
+    </Setting>
+    <Setting Name="PandoraRecipientPartyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PANDORA</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
