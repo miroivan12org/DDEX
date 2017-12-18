@@ -38,24 +38,31 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
-        private DealList GetXmlDealListStandard(AudioAlbumModel m)
+        private string[] GetXmlDealListReleaseReferences(AudioAlbumModel m)
+        {
+            string[] ret;
+
+            var releaseReferences = new List<string>();
+            for (int i = 0; i <= m.Tracks.Count(); i++)
+            {
+                releaseReferences.Add(string.Format("R{0}", i.ToString()));
+            }
+            ret = releaseReferences.ToArray();
+
+            return ret;
+        }
+        private DealList GetXmlDealListStandardDeezer(AudioAlbumModel m)
         {
             DealList ret = null;
 
             ret = new DealList();
 
-            if (m.MusicService == AudioAlbumModel.eMusicService.Deezer)
-            {
-                ret.ReleaseDeal = new ReleaseDeal[] { new ReleaseDeal() };
-                var rd = ret.ReleaseDeal[0];
-                var releaseReferences = new List<string>();
-                for (int i = 0; i <= m.Tracks.Count(); i++)
-                {
-                    releaseReferences.Add(string.Format("R{0}", i.ToString()));
-                }
-                rd.DealReleaseReference = releaseReferences.ToArray();
+            ret.ReleaseDeal = new ReleaseDeal[] { new ReleaseDeal() };
+            var rd = ret.ReleaseDeal[0];
 
-                rd.Deal = new Deal[] {
+            rd.DealReleaseReference = GetXmlDealListReleaseReferences(m);
+
+            rd.Deal = new Deal[] {
                     new Deal()
                     {
                         DealTerms = new DealTerms()
@@ -70,7 +77,7 @@ namespace Business.DDEXSchemaERN_382
                                 new Period()
                                 {
                                     ItemsElementName = new ItemsChoiceType3[] {  ItemsChoiceType3.StartDate },
-                                    Items = new object[] { new EventDate() {  Value = m.ApproximateReleaseDate.ToString("yyyy-MM-dd") } }
+                                    Items = new object[] { new EventDate() {  Value = m.DealStartDate.ToString("yyyy-MM-dd") } }
                                 }
                             },
                             Items1 = new CurrentTerritoryCode[] {
@@ -85,7 +92,7 @@ namespace Business.DDEXSchemaERN_382
                             Items = new object[] {
                                 new Usage()
                                 {
-                               
+
                                     UseType = new UseType1[] {
                                         new UseType1() {  Value = UseType.PermanentDownload },
                                         new UseType1() {  Value = UseType.OnDemandStream },
@@ -97,13 +104,214 @@ namespace Business.DDEXSchemaERN_382
                         }
                     }
                 };
+
+            return ret;
+        }
+        private DealList GetXmlDealListStandardPandora(AudioAlbumModel m)
+        {
+            DealList ret = null;
+
+            ret = new DealList();
+
+            ret.ReleaseDeal = new ReleaseDeal[] { new ReleaseDeal() };
+            var rd = ret.ReleaseDeal[0];
+            rd.DealReleaseReference = GetXmlDealListReleaseReferences(m);
+
+            rd.Deal = new Deal[] {
+                    new Deal()
+                    {
+                        DealTerms = new DealTerms()
+                        {
+                            CommercialModelType = new CommercialModelType1[]
+                            {
+                                new CommercialModelType1() {  Value = CommercialModelType.AdvertisementSupportedModel },
+                                new CommercialModelType1() {  Value = CommercialModelType.SubscriptionModel }
+                            },
+                            ValidityPeriod = new Period[] {
+                                new Period()
+                                {
+                                    ItemsElementName = new ItemsChoiceType3[] {  ItemsChoiceType3.StartDate },
+                                    Items = new object[] { new EventDate() {  Value = m.DealStartDate.ToString("yyyy-MM-dd") } }
+                                }
+                            },
+                            Items1 = new CurrentTerritoryCode[] {
+                                new CurrentTerritoryCode()
+                                {
+                                    IdentifierType = TerritoryCodeType.ISO,
+                                    IdentifierTypeSpecified = false,
+                                    Value = "Worldwide"
+                                }
+                            },
+                            Items1ElementName = new Items1ChoiceType[] { Items1ChoiceType.TerritoryCode },
+                            Items = new object[] {
+                                new Usage()
+                                {
+                                    UseType = new UseType1[] {
+                                        new UseType1() {  Value = UseType.ConditionalDownload },
+                                        new UseType1() {  Value = UseType.OnDemandStream },
+                                        new UseType1() {  Value = UseType.NonInteractiveStream }
+                                    }
+                                }
+                            },
+                            ItemsElementName = new ItemsChoiceType17[] { ItemsChoiceType17.Usage }
+                        }
+                    }
+                };
+
+            return ret;
+        }
+        private DealList GetXmlDealListStandardSoundCloud(AudioAlbumModel m)
+        {
+            DealList ret = null;
+
+            ret = new DealList();
+
+            ret.ReleaseDeal = new ReleaseDeal[] { new ReleaseDeal() };
+            var rd = ret.ReleaseDeal[0];
+            rd.DealReleaseReference = GetXmlDealListReleaseReferences(m);
+
+            rd.Deal = new Deal[] {
+                    new Deal()
+                    {
+                        DealTerms = new DealTerms()
+                        {
+                            CommercialModelType = new CommercialModelType1[]
+                            {
+                                new CommercialModelType1() {  Value = CommercialModelType.RightsClaimModel }
+                            },
+                            Items = new object[] {
+                                new Usage()
+                                {
+                                    UseType = new UseType1[] {
+                                        new UseType1() {  Value = UseType.UserDefined, UserDefinedValue = "UseForIdentification" }
+                                    }
+                                }
+                            },
+                            ItemsElementName = new ItemsChoiceType17[] { ItemsChoiceType17.Usage },
+                            
+                            Items1 = new CurrentTerritoryCode[] {
+                                new CurrentTerritoryCode()
+                                {
+                                    IdentifierType = TerritoryCodeType.ISO,
+                                    IdentifierTypeSpecified = false,
+                                    Value = "Worldwide"
+                                }
+                            },
+                            Items1ElementName = new Items1ChoiceType[] { Items1ChoiceType.TerritoryCode },
+                            ValidityPeriod = new Period[] {
+                                new Period()
+                                {
+                                    ItemsElementName = new ItemsChoiceType3[] {  ItemsChoiceType3.StartDate },
+                                    Items = new object[] { new EventDate() {  Value = m.DealStartDate.ToString("yyyy-MM-dd") } }
+                                }
+                            },
+                            RightsClaimPolicy = new RightsClaimPolicy[]
+                            {
+                                new RightsClaimPolicy()
+                                {
+                                    Condition = new Condition[] {
+                                        new Condition() {  Value = 20, Unit = UnitOfConditionValue.Percent, RelationalRelator = RelationalRelator.MoreThan }
+                                    },
+                                    RightsClaimPolicyType = RightsClaimPolicyType.ReportUsage
+                                }
+                            }
+
+                        }
+                    },
+                    new Deal()
+                    {
+                        DealTerms = new DealTerms()
+                        {
+                            CommercialModelType = new CommercialModelType1[]
+                            {
+                                new CommercialModelType1() {  Value = CommercialModelType.SubscriptionModel }
+                            },
+                            ValidityPeriod = new Period[] {
+                                new Period()
+                                {
+                                    ItemsElementName = new ItemsChoiceType3[] {  ItemsChoiceType3.StartDate },
+                                    Items = new object[] { new EventDate() {  Value = m.DealStartDate.ToString("yyyy-MM-dd") } }
+                                }
+                            },
+                            Items1 = new CurrentTerritoryCode[] {
+                                new CurrentTerritoryCode()
+                                {
+                                    IdentifierType = TerritoryCodeType.ISO,
+                                    IdentifierTypeSpecified = false,
+                                    Value = "Worldwide"
+                                }
+                            },
+                            Items1ElementName = new Items1ChoiceType[] { Items1ChoiceType.TerritoryCode },
+                            Items = new object[] {
+                                new Usage()
+                                {
+                                    UseType = new UseType1[] {
+                                        new UseType1() {  Value = UseType.OnDemandStream }
+                                    }
+                                }
+                            },
+                            ItemsElementName = new ItemsChoiceType17[] { ItemsChoiceType17.Usage }
+                        }
+                    },
+                    new Deal()
+                    {
+                        DealTerms = new DealTerms()
+                        {
+                            CommercialModelType = new CommercialModelType1[]
+                            {
+                                new CommercialModelType1() {  Value = CommercialModelType.AdvertisementSupportedModel }
+                            },
+                            ValidityPeriod = new Period[] {
+                                new Period()
+                                {
+                                    ItemsElementName = new ItemsChoiceType3[] {  ItemsChoiceType3.StartDate },
+                                    Items = new object[] { new EventDate() {  Value = m.DealStartDate.ToString("yyyy-MM-dd") } }
+                                }
+                            },
+                            Items1 = new CurrentTerritoryCode[] {
+                                new CurrentTerritoryCode()
+                                {
+                                    IdentifierType = TerritoryCodeType.ISO,
+                                    IdentifierTypeSpecified = false,
+                                    Value = "Worldwide"
+                                }
+                            },
+                            Items1ElementName = new Items1ChoiceType[] { Items1ChoiceType.TerritoryCode },
+                            Items = new object[] {
+                                new Usage()
+                                {
+                                    UseType = new UseType1[] {
+                                        new UseType1() {  Value = UseType.OnDemandStream }
+                                    }
+                                }
+                            },
+                            ItemsElementName = new ItemsChoiceType17[] { ItemsChoiceType17.Usage }
+                        }
+                    }
+                };
+
+            return ret;
+        }
+
+        private DealList GetXmlDealListStandard(AudioAlbumModel m)
+        {
+            DealList ret = null;
+            
+            if (m.MusicService == AudioAlbumModel.eMusicService.Deezer)
+            {
+                ret = GetXmlDealListStandardDeezer(m);
             }
             else if (m.MusicService == AudioAlbumModel.eMusicService.Pandora)
             {
+                ret = GetXmlDealListStandardPandora(m);
+            }
+            else if (m.MusicService == AudioAlbumModel.eMusicService.SoundCloud)
+            {
+                ret = GetXmlDealListStandardSoundCloud(m);
             }
             else
             {
-                throw new Exception("Music service not defined. Cannot make deal list.");
+                ret = GetXmlDealListStandardDeezer(m);
             }
             
             return ret;

@@ -36,8 +36,6 @@
             this.btnLoadXml = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox2 = new Framework.UI.Controls.MRGroupBox(this.components);
             this.dgvSoundRecordingsAndReleases = new Framework.UI.Controls.MRDataGridView(this.components);
-            this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.csTracksOrdinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.csTracksISRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +82,7 @@
             this.tbMainRelease = new Framework.UI.Controls.MRTitleBar();
             this.tbFrontCoverImage = new Framework.UI.Controls.MRTitleBar();
             this.pnlFrontCoverImage = new Framework.UI.Controls.MRPanel(this.components);
+            this.btnImageChangeFileName = new Framework.UI.Controls.MRButton(this.components);
             this.txtFrontCoverImageWidth = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtFrontCoverImageHeight = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtFrontCoverImageRelativePath = new Framework.UI.Controls.MRTextBox(this.components);
@@ -94,13 +93,17 @@
             this.mrLabel1 = new Framework.UI.Controls.MRLabel(this.components);
             this.label13 = new Framework.UI.Controls.MRLabel(this.components);
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.mrGroupBox1 = new Framework.UI.Controls.MRGroupBox(this.components);
             this.cbDeal = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel14 = new Framework.UI.Controls.MRLabel(this.components);
-            this.btnTemplatePandora = new Framework.UI.Controls.MRButton(this.components);
-            this.btnTemplateDeezer = new Framework.UI.Controls.MRButton(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnTemplateSoundcloud = new Framework.UI.Controls.MRButton(this.components);
+            this.btnTemplatePandora = new Framework.UI.Controls.MRButton(this.components);
+            this.btnTemplateDeezer = new Framework.UI.Controls.MRButton(this.components);
+            this.dpDealStartDate = new Framework.UI.Controls.MRDatePicker(this.components);
+            this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
             this.pnlData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,21 +111,19 @@
             this.pnlMessageHeader.SuspendLayout();
             this.pnlMainRelease.SuspendLayout();
             this.pnlFrontCoverImage.SuspendLayout();
-            this.mrGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlData
             // 
             this.pnlData.Controls.Add(this.groupBox2);
-            this.pnlData.Controls.Add(this.mrGroupBox1);
             this.pnlData.Controls.Add(this.groupBox1);
             this.pnlData.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlData.Size = new System.Drawing.Size(848, 772);
+            this.pnlData.Size = new System.Drawing.Size(903, 772);
             // 
             // pnlDlgRes
             // 
             this.pnlDlgRes.Location = new System.Drawing.Point(0, 772);
-            this.pnlDlgRes.Size = new System.Drawing.Size(848, 24);
+            this.pnlDlgRes.Size = new System.Drawing.Size(903, 24);
             // 
             // groupBox1
             // 
@@ -134,14 +135,14 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(848, 50);
+            this.groupBox1.Size = new System.Drawing.Size(903, 50);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Destination File";
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(572, 15);
+            this.btnOpenFile.Location = new System.Drawing.Point(815, 15);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(28, 27);
             this.btnOpenFile.TabIndex = 14;
@@ -163,7 +164,7 @@
             this.txtFileName.Location = new System.Drawing.Point(117, 19);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(450, 20);
+            this.txtFileName.Size = new System.Drawing.Size(693, 20);
             this.txtFileName.TabIndex = 13;
             this.txtFileName.TabStop = false;
             // 
@@ -187,11 +188,12 @@
             this.groupBox2.Controls.Add(this.tbMainRelease);
             this.groupBox2.Controls.Add(this.tbFrontCoverImage);
             this.groupBox2.Controls.Add(this.pnlFrontCoverImage);
-            this.groupBox2.Location = new System.Drawing.Point(11, 166);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 50);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(848, 467);
+            this.groupBox2.Size = new System.Drawing.Size(903, 722);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loaded Xml Model";
@@ -211,41 +213,16 @@
             this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSoundRecordingsAndReleases.GridColor = System.Drawing.Color.DarkGray;
             this.dgvSoundRecordingsAndReleases.IgnoreParentsEnabled = true;
-            this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(2, 243);
+            this.dgvSoundRecordingsAndReleases.Location = new System.Drawing.Point(2, 265);
             this.dgvSoundRecordingsAndReleases.MultiSelect = false;
             this.dgvSoundRecordingsAndReleases.Name = "dgvSoundRecordingsAndReleases";
             this.dgvSoundRecordingsAndReleases.ReadOnly = true;
             this.dgvSoundRecordingsAndReleases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(844, 113);
+            this.dgvSoundRecordingsAndReleases.Size = new System.Drawing.Size(899, 346);
             this.dgvSoundRecordingsAndReleases.TabIndex = 3;
             this.dgvSoundRecordingsAndReleases.TabStop = false;
             this.dgvSoundRecordingsAndReleases.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellClick);
             this.dgvSoundRecordingsAndReleases.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellDoubleClick);
-            // 
-            // csEdit
-            // 
-            this.csEdit.FillWeight = 12.16545F;
-            this.csEdit.HeaderText = "";
-            this.csEdit.Image = global::DDEX.Properties.Resources.Edit;
-            this.csEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.csEdit.MinimumWidth = 20;
-            this.csEdit.Name = "csEdit";
-            this.csEdit.ReadOnly = true;
-            this.csEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.csEdit.ToolTipText = "Edit selected record";
-            this.csEdit.Width = 20;
-            // 
-            // csDelete
-            // 
-            this.csDelete.FillWeight = 27.22915F;
-            this.csDelete.HeaderText = "";
-            this.csDelete.Image = global::DDEX.Properties.Resources.Delete;
-            this.csDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.csDelete.MinimumWidth = 20;
-            this.csDelete.Name = "csDelete";
-            this.csDelete.ReadOnly = true;
-            this.csDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.csDelete.Width = 20;
             // 
             // csTracksOrdinal
             // 
@@ -277,18 +254,21 @@
             this.tbTrackReleases.AddVisible = true;
             this.tbTrackReleases.CopyVisible = true;
             this.tbTrackReleases.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbTrackReleases.Location = new System.Drawing.Point(2, 219);
+            this.tbTrackReleases.Location = new System.Drawing.Point(2, 241);
             this.tbTrackReleases.Name = "tbTrackReleases";
-            this.tbTrackReleases.Size = new System.Drawing.Size(844, 24);
+            this.tbTrackReleases.Size = new System.Drawing.Size(899, 24);
             this.tbTrackReleases.TabIndex = 16;
             this.tbTrackReleases.Title = "Track Releases";
             this.tbTrackReleases.ButtonClicked += new Framework.UI.Controls.MRTitleBar.ButtonClickedEventHandler(this.tbTrackReleases_ButtonClicked);
             // 
             // pnlMessageHeader
             // 
+            this.pnlMessageHeader.Controls.Add(this.btnTemplateSoundcloud);
             this.pnlMessageHeader.Controls.Add(this.dpMessageCreatedDateTime);
             this.pnlMessageHeader.Controls.Add(this.label1);
+            this.pnlMessageHeader.Controls.Add(this.btnTemplatePandora);
             this.pnlMessageHeader.Controls.Add(this.label6);
+            this.pnlMessageHeader.Controls.Add(this.btnTemplateDeezer);
             this.pnlMessageHeader.Controls.Add(this.txtMessageID);
             this.pnlMessageHeader.Controls.Add(this.label4);
             this.pnlMessageHeader.Controls.Add(this.txtMessageSender_PartyID);
@@ -299,10 +279,10 @@
             this.pnlMessageHeader.Controls.Add(this.txtMessageRecipient_PartyID);
             this.pnlMessageHeader.Controls.Add(this.label3);
             this.pnlMessageHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMessageHeader.Location = new System.Drawing.Point(2, 152);
+            this.pnlMessageHeader.Location = new System.Drawing.Point(2, 174);
             this.pnlMessageHeader.Name = "pnlMessageHeader";
             this.pnlMessageHeader.Padding = new System.Windows.Forms.Padding(0, 0, 10, 10);
-            this.pnlMessageHeader.Size = new System.Drawing.Size(844, 67);
+            this.pnlMessageHeader.Size = new System.Drawing.Size(899, 67);
             this.pnlMessageHeader.TabIndex = 13;
             // 
             // dpMessageCreatedDateTime
@@ -412,15 +392,19 @@
             // tbMessageHeader
             // 
             this.tbMessageHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbMessageHeader.Location = new System.Drawing.Point(2, 128);
+            this.tbMessageHeader.Location = new System.Drawing.Point(2, 150);
             this.tbMessageHeader.Name = "tbMessageHeader";
-            this.tbMessageHeader.Size = new System.Drawing.Size(844, 24);
+            this.tbMessageHeader.Size = new System.Drawing.Size(899, 24);
             this.tbMessageHeader.TabIndex = 12;
             this.tbMessageHeader.Title = "Message Header";
             // 
             // pnlMainRelease
             // 
+            this.pnlMainRelease.Controls.Add(this.dpDealStartDate);
+            this.pnlMainRelease.Controls.Add(this.mrLabel15);
+            this.pnlMainRelease.Controls.Add(this.cbDeal);
             this.pnlMainRelease.Controls.Add(this.mrLabel13);
+            this.pnlMainRelease.Controls.Add(this.mrLabel14);
             this.pnlMainRelease.Controls.Add(this.txtCReleaseYear);
             this.pnlMainRelease.Controls.Add(this.mrLabel10);
             this.pnlMainRelease.Controls.Add(this.txtCLine);
@@ -448,7 +432,7 @@
             this.pnlMainRelease.Location = new System.Drawing.Point(2, 39);
             this.pnlMainRelease.Name = "pnlMainRelease";
             this.pnlMainRelease.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.pnlMainRelease.Size = new System.Drawing.Size(844, 89);
+            this.pnlMainRelease.Size = new System.Drawing.Size(899, 111);
             this.pnlMainRelease.TabIndex = 13;
             // 
             // mrLabel13
@@ -457,7 +441,7 @@
             this.mrLabel13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel13.Name = "mrLabel13";
             this.mrLabel13.Size = new System.Drawing.Size(106, 18);
-            this.mrLabel13.TabIndex = 0;
+            this.mrLabel13.TabIndex = 22;
             this.mrLabel13.Text = "CLine Release Year";
             // 
             // txtCReleaseYear
@@ -466,7 +450,7 @@
             this.txtCReleaseYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtCReleaseYear.Name = "txtCReleaseYear";
             this.txtCReleaseYear.Size = new System.Drawing.Size(156, 20);
-            this.txtCReleaseYear.TabIndex = 1;
+            this.txtCReleaseYear.TabIndex = 23;
             // 
             // mrLabel10
             // 
@@ -474,7 +458,7 @@
             this.mrLabel10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel10.Name = "mrLabel10";
             this.mrLabel10.Size = new System.Drawing.Size(108, 18);
-            this.mrLabel10.TabIndex = 22;
+            this.mrLabel10.TabIndex = 20;
             this.mrLabel10.Text = "CLine Text";
             // 
             // txtCLine
@@ -483,7 +467,7 @@
             this.txtCLine.Margin = new System.Windows.Forms.Padding(2);
             this.txtCLine.Name = "txtCLine";
             this.txtCLine.Size = new System.Drawing.Size(156, 20);
-            this.txtCLine.TabIndex = 23;
+            this.txtCLine.TabIndex = 21;
             // 
             // dpGlobalReleaseDate
             // 
@@ -493,7 +477,7 @@
             this.dpGlobalReleaseDate.Name = "dpGlobalReleaseDate";
             this.dpGlobalReleaseDate.ShowCheckBox = true;
             this.dpGlobalReleaseDate.Size = new System.Drawing.Size(131, 20);
-            this.dpGlobalReleaseDate.TabIndex = 17;
+            this.dpGlobalReleaseDate.TabIndex = 15;
             // 
             // mrLabel8
             // 
@@ -501,7 +485,7 @@
             this.mrLabel8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel8.Name = "mrLabel8";
             this.mrLabel8.Size = new System.Drawing.Size(137, 21);
-            this.mrLabel8.TabIndex = 16;
+            this.mrLabel8.TabIndex = 14;
             this.mrLabel8.Text = "Approximate Release Date";
             // 
             // mrLabel7
@@ -510,7 +494,7 @@
             this.mrLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel7.Name = "mrLabel7";
             this.mrLabel7.Size = new System.Drawing.Size(106, 18);
-            this.mrLabel7.TabIndex = 20;
+            this.mrLabel7.TabIndex = 18;
             this.mrLabel7.Text = "PLine Release Year";
             // 
             // txtPReleaseYear
@@ -519,7 +503,7 @@
             this.txtPReleaseYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtPReleaseYear.Name = "txtPReleaseYear";
             this.txtPReleaseYear.Size = new System.Drawing.Size(156, 20);
-            this.txtPReleaseYear.TabIndex = 21;
+            this.txtPReleaseYear.TabIndex = 19;
             // 
             // mrLabel6
             // 
@@ -527,7 +511,7 @@
             this.mrLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel6.Name = "mrLabel6";
             this.mrLabel6.Size = new System.Drawing.Size(106, 18);
-            this.mrLabel6.TabIndex = 18;
+            this.mrLabel6.TabIndex = 16;
             this.mrLabel6.Text = "PLine Text";
             // 
             // txtPLine
@@ -536,7 +520,7 @@
             this.txtPLine.Margin = new System.Windows.Forms.Padding(2);
             this.txtPLine.Name = "txtPLine";
             this.txtPLine.Size = new System.Drawing.Size(156, 20);
-            this.txtPLine.TabIndex = 19;
+            this.txtPLine.TabIndex = 17;
             // 
             // mrLabel4
             // 
@@ -544,7 +528,7 @@
             this.mrLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel4.Name = "mrLabel4";
             this.mrLabel4.Size = new System.Drawing.Size(130, 18);
-            this.mrLabel4.TabIndex = 14;
+            this.mrLabel4.TabIndex = 12;
             this.mrLabel4.Text = "Sub Genre";
             // 
             // mrLabel5
@@ -553,7 +537,7 @@
             this.mrLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel5.Name = "mrLabel5";
             this.mrLabel5.Size = new System.Drawing.Size(122, 18);
-            this.mrLabel5.TabIndex = 11;
+            this.mrLabel5.TabIndex = 10;
             this.mrLabel5.Text = "Genre";
             // 
             // txtSubGenre
@@ -562,7 +546,7 @@
             this.txtSubGenre.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubGenre.Name = "txtSubGenre";
             this.txtSubGenre.Size = new System.Drawing.Size(155, 20);
-            this.txtSubGenre.TabIndex = 15;
+            this.txtSubGenre.TabIndex = 13;
             // 
             // txtGenre
             // 
@@ -570,7 +554,7 @@
             this.txtGenre.Margin = new System.Windows.Forms.Padding(2);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(155, 20);
-            this.txtGenre.TabIndex = 13;
+            this.txtGenre.TabIndex = 11;
             // 
             // mrLabel3
             // 
@@ -587,7 +571,7 @@
             this.txtLabel.Margin = new System.Windows.Forms.Padding(2);
             this.txtLabel.Name = "txtLabel";
             this.txtLabel.Size = new System.Drawing.Size(155, 20);
-            this.txtLabel.TabIndex = 10;
+            this.txtLabel.TabIndex = 9;
             // 
             // mrLabel2
             // 
@@ -663,21 +647,22 @@
             this.tbMainRelease.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbMainRelease.Location = new System.Drawing.Point(2, 15);
             this.tbMainRelease.Name = "tbMainRelease";
-            this.tbMainRelease.Size = new System.Drawing.Size(844, 24);
+            this.tbMainRelease.Size = new System.Drawing.Size(899, 24);
             this.tbMainRelease.TabIndex = 12;
             this.tbMainRelease.Title = "Main Release";
             // 
             // tbFrontCoverImage
             // 
             this.tbFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbFrontCoverImage.Location = new System.Drawing.Point(2, 356);
+            this.tbFrontCoverImage.Location = new System.Drawing.Point(2, 611);
             this.tbFrontCoverImage.Name = "tbFrontCoverImage";
-            this.tbFrontCoverImage.Size = new System.Drawing.Size(844, 27);
+            this.tbFrontCoverImage.Size = new System.Drawing.Size(899, 27);
             this.tbFrontCoverImage.TabIndex = 0;
             this.tbFrontCoverImage.Title = "Front Cover Image";
             // 
             // pnlFrontCoverImage
             // 
+            this.pnlFrontCoverImage.Controls.Add(this.btnImageChangeFileName);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageWidth);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageHeight);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageRelativePath);
@@ -688,11 +673,21 @@
             this.pnlFrontCoverImage.Controls.Add(this.mrLabel1);
             this.pnlFrontCoverImage.Controls.Add(this.label13);
             this.pnlFrontCoverImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFrontCoverImage.Location = new System.Drawing.Point(2, 383);
+            this.pnlFrontCoverImage.Location = new System.Drawing.Point(2, 638);
             this.pnlFrontCoverImage.Name = "pnlFrontCoverImage";
             this.pnlFrontCoverImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.pnlFrontCoverImage.Size = new System.Drawing.Size(844, 82);
+            this.pnlFrontCoverImage.Size = new System.Drawing.Size(899, 82);
             this.pnlFrontCoverImage.TabIndex = 1;
+            // 
+            // btnImageChangeFileName
+            // 
+            this.btnImageChangeFileName.Location = new System.Drawing.Point(444, 5);
+            this.btnImageChangeFileName.Name = "btnImageChangeFileName";
+            this.btnImageChangeFileName.Size = new System.Drawing.Size(97, 22);
+            this.btnImageChangeFileName.TabIndex = 25;
+            this.btnImageChangeFileName.Text = "...";
+            this.btnImageChangeFileName.UseVisualStyleBackColor = true;
+            this.btnImageChangeFileName.Click += new System.EventHandler(this.btnImageChangeFileName_Click);
             // 
             // txtFrontCoverImageWidth
             // 
@@ -780,61 +775,23 @@
             this.rtbOutput.TabIndex = 5;
             this.rtbOutput.Text = "";
             // 
-            // mrGroupBox1
-            // 
-            this.mrGroupBox1.Controls.Add(this.cbDeal);
-            this.mrGroupBox1.Controls.Add(this.mrLabel14);
-            this.mrGroupBox1.Controls.Add(this.btnTemplatePandora);
-            this.mrGroupBox1.Controls.Add(this.btnTemplateDeezer);
-            this.mrGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mrGroupBox1.Location = new System.Drawing.Point(0, 50);
-            this.mrGroupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.mrGroupBox1.Name = "mrGroupBox1";
-            this.mrGroupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.mrGroupBox1.Size = new System.Drawing.Size(848, 88);
-            this.mrGroupBox1.TabIndex = 4;
-            this.mrGroupBox1.TabStop = false;
-            this.mrGroupBox1.Text = "Templates And Deals";
-            // 
             // cbDeal
             // 
             this.cbDeal.FormattingEnabled = true;
-            this.cbDeal.Location = new System.Drawing.Point(116, 59);
+            this.cbDeal.Location = new System.Drawing.Point(114, 86);
             this.cbDeal.Margin = new System.Windows.Forms.Padding(2);
             this.cbDeal.Name = "cbDeal";
-            this.cbDeal.Size = new System.Drawing.Size(115, 21);
-            this.cbDeal.TabIndex = 18;
+            this.cbDeal.Size = new System.Drawing.Size(156, 21);
+            this.cbDeal.TabIndex = 25;
             // 
             // mrLabel14
             // 
-            this.mrLabel14.Location = new System.Drawing.Point(15, 59);
+            this.mrLabel14.Location = new System.Drawing.Point(12, 86);
             this.mrLabel14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel14.Name = "mrLabel14";
             this.mrLabel14.Size = new System.Drawing.Size(98, 18);
-            this.mrLabel14.TabIndex = 17;
+            this.mrLabel14.TabIndex = 24;
             this.mrLabel14.Text = "Deal";
-            // 
-            // btnTemplatePandora
-            // 
-            this.btnTemplatePandora.BackgroundImage = global::DDEX.Properties.Resources.pandora1;
-            this.btnTemplatePandora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemplatePandora.Location = new System.Drawing.Point(239, 11);
-            this.btnTemplatePandora.Name = "btnTemplatePandora";
-            this.btnTemplatePandora.Size = new System.Drawing.Size(108, 43);
-            this.btnTemplatePandora.TabIndex = 16;
-            this.btnTemplatePandora.UseVisualStyleBackColor = true;
-            this.btnTemplatePandora.Click += new System.EventHandler(this.btnTemplate_Click);
-            // 
-            // btnTemplateDeezer
-            // 
-            this.btnTemplateDeezer.BackgroundImage = global::DDEX.Properties.Resources.Deezer_logo;
-            this.btnTemplateDeezer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemplateDeezer.Location = new System.Drawing.Point(116, 12);
-            this.btnTemplateDeezer.Name = "btnTemplateDeezer";
-            this.btnTemplateDeezer.Size = new System.Drawing.Size(115, 42);
-            this.btnTemplateDeezer.TabIndex = 15;
-            this.btnTemplateDeezer.UseVisualStyleBackColor = true;
-            this.btnTemplateDeezer.Click += new System.EventHandler(this.btnTemplate_Click);
             // 
             // dataGridViewImageColumn1
             // 
@@ -861,10 +818,87 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
+            // csEdit
+            // 
+            this.csEdit.FillWeight = 12.16545F;
+            this.csEdit.HeaderText = "";
+            this.csEdit.Image = global::DDEX.Properties.Resources.Edit;
+            this.csEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.csEdit.MinimumWidth = 20;
+            this.csEdit.Name = "csEdit";
+            this.csEdit.ReadOnly = true;
+            this.csEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.csEdit.ToolTipText = "Edit selected record";
+            this.csEdit.Width = 20;
+            // 
+            // csDelete
+            // 
+            this.csDelete.FillWeight = 27.22915F;
+            this.csDelete.HeaderText = "";
+            this.csDelete.Image = global::DDEX.Properties.Resources.Delete;
+            this.csDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.csDelete.MinimumWidth = 20;
+            this.csDelete.Name = "csDelete";
+            this.csDelete.ReadOnly = true;
+            this.csDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.csDelete.Width = 20;
+            // 
+            // btnTemplateSoundcloud
+            // 
+            this.btnTemplateSoundcloud.BackgroundImage = global::DDEX.Properties.Resources.soundcloud2;
+            this.btnTemplateSoundcloud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemplateSoundcloud.Location = new System.Drawing.Point(817, 3);
+            this.btnTemplateSoundcloud.Name = "btnTemplateSoundcloud";
+            this.btnTemplateSoundcloud.Size = new System.Drawing.Size(69, 59);
+            this.btnTemplateSoundcloud.TabIndex = 17;
+            this.btnTemplateSoundcloud.UseVisualStyleBackColor = true;
+            this.btnTemplateSoundcloud.Click += new System.EventHandler(this.btnTemplate_Click);
+            // 
+            // btnTemplatePandora
+            // 
+            this.btnTemplatePandora.BackgroundImage = global::DDEX.Properties.Resources.pandora1;
+            this.btnTemplatePandora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemplatePandora.Location = new System.Drawing.Point(733, 28);
+            this.btnTemplatePandora.Name = "btnTemplatePandora";
+            this.btnTemplatePandora.Size = new System.Drawing.Size(84, 34);
+            this.btnTemplatePandora.TabIndex = 16;
+            this.btnTemplatePandora.UseVisualStyleBackColor = true;
+            this.btnTemplatePandora.Click += new System.EventHandler(this.btnTemplate_Click);
+            // 
+            // btnTemplateDeezer
+            // 
+            this.btnTemplateDeezer.BackgroundImage = global::DDEX.Properties.Resources.Deezer_logo;
+            this.btnTemplateDeezer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemplateDeezer.Location = new System.Drawing.Point(733, 3);
+            this.btnTemplateDeezer.Name = "btnTemplateDeezer";
+            this.btnTemplateDeezer.Size = new System.Drawing.Size(84, 26);
+            this.btnTemplateDeezer.TabIndex = 15;
+            this.btnTemplateDeezer.UseVisualStyleBackColor = true;
+            this.btnTemplateDeezer.Click += new System.EventHandler(this.btnTemplate_Click);
+            // 
+            // dpDealStartDate
+            // 
+            this.dpDealStartDate.CustomFormat = "yyyy-MM-dd";
+            this.dpDealStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDealStartDate.Location = new System.Drawing.Point(410, 86);
+            this.dpDealStartDate.Name = "dpDealStartDate";
+            this.dpDealStartDate.ShowCheckBox = true;
+            this.dpDealStartDate.Size = new System.Drawing.Size(131, 20);
+            this.dpDealStartDate.TabIndex = 27;
+            // 
+            // mrLabel15
+            // 
+            this.mrLabel15.Location = new System.Drawing.Point(274, 86);
+            this.mrLabel15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel15.Name = "mrLabel15";
+            this.mrLabel15.Size = new System.Drawing.Size(137, 21);
+            this.mrLabel15.TabIndex = 26;
+            this.mrLabel15.Text = "Deal Start Date";
+            // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(848, 818);
+            this.ClientSize = new System.Drawing.Size(903, 818);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ERN_382GenerationFormAudioAlbumMusicOnly";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
@@ -882,7 +916,6 @@
             this.pnlMainRelease.PerformLayout();
             this.pnlFrontCoverImage.ResumeLayout(false);
             this.pnlFrontCoverImage.PerformLayout();
-            this.mrGroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -956,10 +989,13 @@
         private Framework.UI.Controls.MRTextBox txtFrontCoverImageWidth;
         private Framework.UI.Controls.MRTextBox txtFrontCoverImageHeight;
         private Framework.UI.Controls.MRTextBox txtFrontCoverImageRelativePath;
-        private Framework.UI.Controls.MRGroupBox mrGroupBox1;
         private Framework.UI.Controls.MRButton btnTemplatePandora;
         private Framework.UI.Controls.MRButton btnTemplateDeezer;
         private Framework.UI.Controls.MRComboBox cbDeal;
         private Framework.UI.Controls.MRLabel mrLabel14;
+        private Framework.UI.Controls.MRButton btnImageChangeFileName;
+        private Framework.UI.Controls.MRButton btnTemplateSoundcloud;
+        private Framework.UI.Controls.MRDatePicker dpDealStartDate;
+        private Framework.UI.Controls.MRLabel mrLabel15;
     }
 }

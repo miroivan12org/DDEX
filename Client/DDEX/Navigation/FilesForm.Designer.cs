@@ -60,7 +60,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(1138, 45);
+            this.groupBox1.Size = new System.Drawing.Size(988, 45);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loaded Navigation Folder";
@@ -68,7 +68,7 @@
             // btnValidateAll
             // 
             this.btnValidateAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValidateAll.Location = new System.Drawing.Point(1067, 15);
+            this.btnValidateAll.Location = new System.Drawing.Point(917, 15);
             this.btnValidateAll.Name = "btnValidateAll";
             this.btnValidateAll.Size = new System.Drawing.Size(66, 23);
             this.btnValidateAll.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             this.chxbSubFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chxbSubFolders.AutoSize = true;
-            this.chxbSubFolders.Location = new System.Drawing.Point(970, 19);
+            this.chxbSubFolders.Location = new System.Drawing.Point(820, 19);
             this.chxbSubFolders.Name = "chxbSubFolders";
             this.chxbSubFolders.Size = new System.Drawing.Size(100, 17);
             this.chxbSubFolders.TabIndex = 2;
@@ -91,7 +91,7 @@
             // btnOpenFolder
             // 
             this.btnOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenFolder.Location = new System.Drawing.Point(939, 15);
+            this.btnOpenFolder.Location = new System.Drawing.Point(789, 15);
             this.btnOpenFolder.Name = "btnOpenFolder";
             this.btnOpenFolder.Size = new System.Drawing.Size(25, 23);
             this.btnOpenFolder.TabIndex = 1;
@@ -107,7 +107,7 @@
             this.lblPath.Location = new System.Drawing.Point(9, 15);
             this.lblPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(925, 23);
+            this.lblPath.Size = new System.Drawing.Size(775, 23);
             this.lblPath.TabIndex = 0;
             // 
             // dgvFiles
@@ -133,7 +133,7 @@
             this.dgvFiles.Name = "dgvFiles";
             this.dgvFiles.ReadOnly = true;
             this.dgvFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFiles.Size = new System.Drawing.Size(1138, 312);
+            this.dgvFiles.Size = new System.Drawing.Size(988, 312);
             this.dgvFiles.TabIndex = 17;
             this.dgvFiles.TabStop = false;
             this.dgvFiles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFiles_CellClick);
@@ -145,7 +145,7 @@
             this.tbFiles.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbFiles.Location = new System.Drawing.Point(0, 45);
             this.tbFiles.Name = "tbFiles";
-            this.tbFiles.Size = new System.Drawing.Size(1138, 24);
+            this.tbFiles.Size = new System.Drawing.Size(988, 24);
             this.tbFiles.TabIndex = 18;
             this.tbFiles.Title = "Files";
             this.tbFiles.ButtonClicked += new Framework.UI.Controls.MRTitleBar.ButtonClickedEventHandler(this.tbTrackReleases_ButtonClicked);
@@ -177,12 +177,14 @@
             // 
             // csTrackTitle
             // 
-            this.csTrackTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.csTrackTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.csTrackTitle.DataPropertyName = "Name";
             this.csTrackTitle.FillWeight = 170.5285F;
             this.csTrackTitle.HeaderText = "Name";
+            this.csTrackTitle.MinimumWidth = 200;
             this.csTrackTitle.Name = "csTrackTitle";
             this.csTrackTitle.ReadOnly = true;
+            this.csTrackTitle.Width = 200;
             // 
             // Extension
             // 
@@ -233,7 +235,7 @@
             // FilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1138, 403);
+            this.ClientSize = new System.Drawing.Size(988, 403);
             this.Controls.Add(this.dgvFiles);
             this.Controls.Add(this.tbFiles);
             this.Controls.Add(this.groupBox1);

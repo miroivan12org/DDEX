@@ -18,14 +18,14 @@ namespace Framework.UI.Forms
         }
         public MRMessageBox(string message, eMessageBoxStyle messageBoxStyle) : this()
         {
-            lblTitle.Text = SplitStringWithNewLines(message);
+            mrRichTextBox1.Text = SplitStringWithNewLines(message);
             MessageBoxStyle = messageBoxStyle;
         }
 
         public MRMessageBox(string message, eMessageBoxStyle messageBoxStyle, int lineLength) : this(message, messageBoxStyle)
         {
             LineLength = lineLength;
-            lblTitle.Text = SplitStringWithNewLines(message);
+            mrRichTextBox1.Text = SplitStringWithNewLines(message);
         }
         [DefaultValue(DEFAULT_LINE_LENGTH)]
         public int LineLength { get; set; } = DEFAULT_LINE_LENGTH;
@@ -99,7 +99,7 @@ namespace Framework.UI.Forms
 
         private void BindToForm()
         {
-            lblTitle.ForeColor = TitleColor;
+            mrRichTextBox1.ForeColor = TitleColor;
             Text = FormTitle;
             pnlYesNo.Visible = MessageBoxStyle == eMessageBoxStyle.YesNo;
             pnlOk.Visible = messageBoxStyle == eMessageBoxStyle.OK;

@@ -41,7 +41,8 @@ namespace DDEX.Generation.ERN_382
         public AudioAlbumBinder Binder = new AudioAlbumBinder(new AudioAlbumBinder.AudioAlbumBinderSettings()
         {
             DeezerPartyID = Properties.Settings.Default.DeezerRecipientPartyID,
-            PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID
+            PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID,
+            SoundCloudPartyID = Properties.Settings.Default.SoundCloudRecipientPartyID
         });
 
         public new FilesForm ParentForm { get; set; }
@@ -81,12 +82,21 @@ namespace DDEX.Generation.ERN_382
                     {
                         ret.MessageCreatedDateTime = DateTime.Now;
                     }
-                    
+                    if (ret.DealStartDate == new DateTime(1, 1, 1))
+                    {
+                        ret.DealStartDate = DateTime.Now;
+                    }
+
                 }
             }
             catch (Exception ex)
             {
-                MRMessageBox.Show(string.Format("Unable to read file {1}.\n{0}", ex.Message, fileName), MRMessageBox.eMessageBoxStyle.OK, MRMessageBox.eMessageBoxType.Error);
+                string message = string.Format("Unable to read file {1}.\n{0}", ex.Message, fileName);
+                if (Properties.Settings.Default.ShowExceptionStackTrace)
+                {
+                    message = string.Format("Unable to read file {1}.\n{0}\n{2}", ex.Message, fileName, ex.StackTrace);
+                }                
+                MRMessageBox.Show(message, MRMessageBox.eMessageBoxStyle.OK, MRMessageBox.eMessageBoxType.Error);
             }
 
             return ret;
@@ -110,8 +120,11 @@ namespace DDEX.Generation.ERN_382
             btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
 
             dpGlobalReleaseDate.DataBindings.Add("Text", Model, "ApproximateReleaseDate");
+            dpDealStartDate.DataBindings.Add("Text", Model, "DealStartDate");
 
-            cbDeal.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "Standard", Value = "Standard" } };
+            cbDeal.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "Standard", Value = AudioAlbumModel.eDealType.Standard } };
+            cbDeal.DataBindings.Add("SelectedItem", Model, "DealType");
+
             cbUpdateIndicator.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "OriginalMessage", Value = UpdateIndicator.OriginalMessage }, new ComboBoxItem() { Text = "UpdateMessage", Value = UpdateIndicator.UpdateMessage } };
             tbMainRelease.BindedControls.Add(pnlMainRelease);
             tbMessageHeader.BindedControls.Add(pnlMessageHeader);
@@ -138,6 +151,7 @@ namespace DDEX.Generation.ERN_382
             dpMessageCreatedDateTime.DataBindings.Add("Value", Model, "MessageCreatedDateTime");
 
             cbUpdateIndicator.DataBindings.Add("SelectedItem", Model, "UpdateIndicator");
+            
             txtMainReleaseReferenceTitle.DataBindings.Add("Text", Model, "MainReleaseReferenceTitle");
 
             txtFrontCoverImageRelativePath.DataBindings.Add("Text", Model, "FrontCoverImagePath");
@@ -241,30 +255,27 @@ namespace DDEX.Generation.ERN_382
         {
             string message = "";
             string message2 = "";
-            string message3 = "";
-            //string fileName = Model.FullFileName.Replace(".xml", "_test.xml");
-
-            string fileName = Model.FullFileName;
-            if (Model.IsValid(out message3) && Model.IsValid(out message) && IsXmlFileValid(out message2))
+            if (Editable)
             {
-                Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
-                DialogResult = DialogResult.OK;
-                ParentForm.Model.Refresh();
-                Close();
-                Dispose();
-            }
-            else
-            {
-                rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
-                if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n{2}\n\nDo you wish to save invalid xml file? ", message, message2, message3), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
+                string fileName = Model.FullFileName;
+                if (Model.IsValid(out message) && IsXmlFileValid(out message2))
                 {
                     Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
                     DialogResult = DialogResult.OK;
-                    ParentForm.Model.Refresh();
-                    Close();
-                    Dispose();
+                }
+                else
+                {
+                    rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
+                    if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
+                    {
+                        Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
+                        DialogResult = DialogResult.OK;
+                    }
                 }
             }
+            ParentForm.Model.Refresh();
+            Close();
+            Dispose();
         }
         private void mrButton1_Click(object sender, EventArgs e)
         {
@@ -361,20 +372,45 @@ namespace DDEX.Generation.ERN_382
             {
                 Model.RecipientPartyName = Properties.Settings.Default.DeezerRecipientPartyName;
                 Model.RecipientPartyID = Properties.Settings.Default.DeezerRecipientPartyID;
-                Model.SenderPartyID = Properties.Settings.Default.DeezerSenderPartyID;
-                Model.SenderPartyName = Properties.Settings.Default.DeezerSenderPartyName;
+                Model.SenderPartyID = Properties.Settings.Default.SenderPartyID;
+                Model.SenderPartyName = Properties.Settings.Default.SenderPartyName;
                 Model.MusicService = AudioAlbumModel.eMusicService.Deezer;
             }
             else if(sender == btnTemplatePandora)
             {
                 Model.RecipientPartyName = Properties.Settings.Default.PandoraRecipientPartyName;
                 Model.RecipientPartyID = Properties.Settings.Default.PandoraRecipientPartyID;
-                Model.SenderPartyID = Properties.Settings.Default.PandoraSenderPartyID;
-                Model.SenderPartyName = Properties.Settings.Default.PandoraSenderPartyName;
+                Model.SenderPartyID = Properties.Settings.Default.SenderPartyID;
+                Model.SenderPartyName = Properties.Settings.Default.SenderPartyName;
                 Model.MusicService = AudioAlbumModel.eMusicService.Pandora;
+            }
+            else if (sender == btnTemplateSoundcloud)
+            {
+                Model.RecipientPartyName = Properties.Settings.Default.SoundCloudRecipientPartyName;
+                Model.RecipientPartyID = Properties.Settings.Default.SoundCloudRecipientPartyID;
+                Model.SenderPartyID = Properties.Settings.Default.SenderPartyID;
+                Model.SenderPartyName = Properties.Settings.Default.SenderPartyName;
+                Model.MusicService = AudioAlbumModel.eMusicService.SoundCloud;
             }
         }
 
+        private void btnImageChangeFileName_Click(object sender, EventArgs e)
+        {
+            if (Model.FrontCoverImageFullFileName != null && System.IO.File.Exists(Model.FrontCoverImageFullFileName))
+            {
+                string name = Model.CalculateFrontCoverImageFileName();
+                if (!Equals(name.ToUpper(), Model.FrontCoverImageFileName.Substring(0, Model.FrontCoverImageFileName.LastIndexOf('.')).ToUpper()))
+                {
+                    string directory = System.IO.Path.GetDirectoryName(Model.FrontCoverImageFullFileName);
+                    string ext = System.IO.Path.GetExtension(Model.FrontCoverImageFullFileName);
+                    string newFileName = System.IO.Path.Combine(directory, name + ext);
+                    System.IO.File.Move(Model.FrontCoverImageFullFileName, newFileName);
+                    Model.FrontCoverImageFileName = name + ext;
+                    Model.FrontCoverImageFullFileName = newFileName;
+                    Model.ComputeMaterialized();
+                }
+            }
+        }
     }
     
 }

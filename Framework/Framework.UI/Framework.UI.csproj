@@ -91,6 +91,12 @@
     <Compile Include="Controls\MRPanel.Designer.cs">
       <DependentUpon>MRPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MRRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MRRichTextBox.Designer.cs">
+      <DependentUpon>MRRichTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MRTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

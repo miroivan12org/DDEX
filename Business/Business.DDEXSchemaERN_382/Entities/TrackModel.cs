@@ -152,7 +152,7 @@ namespace Business.DDEXSchemaERN_382.Entities
 
         public override bool IsValid(out string message)
         {
-
+            //TODO - check filename (example ean_01_01.flac)
             return base.IsValid(out message);
         }
     }

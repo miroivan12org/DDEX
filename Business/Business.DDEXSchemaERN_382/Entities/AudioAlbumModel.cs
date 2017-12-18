@@ -14,6 +14,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         {
             MessageCreatedDateTime = DateTime.Now;
             ApproximateReleaseDate = DateTime.Now;
+            DealStartDate = DateTime.Now;
         }
         public enum eDealType
         {
@@ -22,12 +23,15 @@ namespace Business.DDEXSchemaERN_382.Entities
 
         public enum eMusicService
         {
-            Deezer = 0,
-            Pandora = 1
+            Unknown = 0,
+            Deezer = 1,
+            Pandora = 2,
+            SoundCloud = 3
         }
-        [NotNull]
+        [NotNull, DefaultValue(eMusicService.Unknown)]
         public eMusicService MusicService { get { return Get<eMusicService>(); } set { Set(value); } }
         public eDealType DealType { get { return Get<eDealType>(); } set { Set(value); } }
+        public DateTime DealStartDate { get { return Get<DateTime>(); } set { Set(value); } }
         public string FullFileName { get { return Get<string>(); } set { Set(value); } }
         public string EAN { get { return Get<string>(); } set { Set(value); } }
         public string MainArtist { get { return Get<string>(); } set { Set(value); } }
@@ -77,9 +81,21 @@ namespace Business.DDEXSchemaERN_382.Entities
             {
                 using (var im = System.Drawing.Image.FromFile(FrontCoverImageFullFileName))
                 {
-                    if (im.RawFormat == System.Drawing.Imaging.ImageFormat.Jpeg)
+                    if (im.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Jpeg.Guid)
                     {
                         FrontCoverImageCodecType = ImageCodecType.JPEG;
+                    }
+                    else if (im.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Png.Guid)
+                    {
+                        FrontCoverImageCodecType = ImageCodecType.PNG;
+                    }
+                    else if (im.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Gif.Guid)
+                    {
+                        FrontCoverImageCodecType = ImageCodecType.GIF;
+                    }
+                    else if (im.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Tiff.Guid)
+                    {
+                        FrontCoverImageCodecType = ImageCodecType.TIFF;
                     }
                     else
                     {
@@ -109,6 +125,16 @@ namespace Business.DDEXSchemaERN_382.Entities
             bool isValid = base.IsValid(out message);
             if (isValid)
             {
+                string name = CalculateFrontCoverImageFileName();
+                if (!Equals(name.ToUpper(), FrontCoverImageFileName.Substring(0, FrontCoverImageFileName.LastIndexOf('.')).ToUpper()))
+                {
+                    isValid = false;
+                    message = string.Format("FrontCoverImageFileName not equal to {0}.", CalculateFrontCoverImageFileName());
+                }
+            }
+
+            if (isValid)
+            {
                 foreach (var track in Tracks)
                 {
                     isValid = track.IsValid(out message);
@@ -121,19 +147,13 @@ namespace Business.DDEXSchemaERN_382.Entities
 
             return isValid;
         }
-
-        public bool IsValidMusicService(out string message, string musicServicePartyID)
+        public string CalculateFrontCoverImageFileName()
         {
-            bool isValid = true;
-            message = "";
+            string ret = "";
 
-            if (RecipientPartyID != musicServicePartyID)
-            {
-                isValid = false;
-                message = "Message Recipient PartyId doesn't match defined Music Service PartyId.";
-            }
+            ret = EAN;
 
-            return isValid;
-        }
+            return ret;
+        }        
     }
 }

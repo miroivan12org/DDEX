@@ -12,6 +12,7 @@ namespace Business.DDEXSchemaERN_382
         {
             public string DeezerPartyID { get; set; }
             public string PandoraPartyID { get; set; }
+            public string SoundCloudPartyID { get; set; }
         }
 
         IXmlGenerator Generator { get; set; }

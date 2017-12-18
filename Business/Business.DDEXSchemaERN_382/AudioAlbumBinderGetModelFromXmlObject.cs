@@ -189,6 +189,39 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private DateTime GetModelDealStartDate(NewReleaseMessage nrm)
+        {
+            DateTime ret = DateTime.MinValue;
+
+            DealList dl = nrm.DealList;
+            if (dl != null && dl.ReleaseDeal != null && dl.ReleaseDeal.Length > 0 && dl.ReleaseDeal[0] != null && dl.ReleaseDeal[0].Deal != null && dl.ReleaseDeal[0].Deal.Length > 0 && dl.ReleaseDeal[0].Deal[0] != null && dl.ReleaseDeal[0].Deal[0].DealTerms != null && dl.ReleaseDeal[0].Deal[0].DealTerms.ValidityPeriod != null && dl.ReleaseDeal[0].Deal[0].DealTerms.ValidityPeriod.Length > 0 && dl.ReleaseDeal[0].Deal[0].DealTerms.ValidityPeriod[0] != null)
+            {
+                int index = -1;
+                EventDate ed = null;
+                var vp = dl.ReleaseDeal[0].Deal[0].DealTerms.ValidityPeriod[0];
+                if (vp.ItemsElementName != null)
+                {
+                    for (int i = 0; i < vp.ItemsElementName.Length; i++)
+                    {
+                        if (vp.ItemsElementName[i] == ItemsChoiceType3.StartDate)
+                        {
+                            index = i;
+                            break;
+                        }
+                    }
+                }
+                if (index != -1)
+                {
+                    if (vp.Items != null && vp.Items.Length > index && vp.Items[index] is EventDate)
+                    {
+                        ed = (EventDate) vp.Items[index];
+                        ret = DateTime.ParseExact(ed.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    }
+                }
+            }
+
+            return ret;
+        }
         private DateTime GetModelApproximateReleaseDate(NewReleaseMessage nrm)
         {
             DateTime ret = DateTime.MinValue;
@@ -714,7 +747,14 @@ namespace Business.DDEXSchemaERN_382
             if (sr != null && sr.Duration != null && sr.Duration.StartsWith("PT"))
             {
                 var sSec = sr.Duration.Substring(sr.Duration.IndexOf('M') + 1, sr.Duration.IndexOf('S') - sr.Duration.IndexOf('M') - 1);
-                ret = Convert.ToInt32(sSec);
+                try
+                {
+                    ret = Convert.ToInt32(Convert.ToDecimal(sSec, CultureInfo.InvariantCulture));
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(string.Format("Error reading track duration {0}", sr.Duration), ex);
+                }
             }
             return ret;
         }
@@ -799,6 +839,29 @@ namespace Business.DDEXSchemaERN_382
                 }                
             }
         }
+
+        private AudioAlbumModel.eMusicService GetModelMusicService(NewReleaseMessage nrm)
+        {
+            string recipientPartyID = GetModelRecipientPartyId(nrm);
+
+            AudioAlbumModel.eMusicService ret = AudioAlbumModel.eMusicService.Unknown;
+
+            if (recipientPartyID == Settings.DeezerPartyID)
+            {
+                ret = AudioAlbumModel.eMusicService.Deezer;
+            }
+            else if (recipientPartyID == Settings.PandoraPartyID)
+            {
+                ret = AudioAlbumModel.eMusicService.Pandora;
+            }
+            else if (recipientPartyID == Settings.SoundCloudPartyID)
+            {
+                ret = AudioAlbumModel.eMusicService.SoundCloud;
+            }
+
+            return ret;
+        }
+
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)
         {
             AudioAlbumModel ret = null;
@@ -819,19 +882,14 @@ namespace Business.DDEXSchemaERN_382
                     ret.MessageID = GetModelMessageId(nrm);
                     ret.SenderPartyID = GetModelSenderPartyId(nrm);
                     ret.SenderPartyName = GetModelSenderPartyName(nrm);
+
                     ret.RecipientPartyID = GetModelRecipientPartyId(nrm);
-                    if (ret.RecipientPartyID == Settings.DeezerPartyID)
-                    {
-                        ret.MusicService = AudioAlbumModel.eMusicService.Deezer;
-                    }
-                    else if (ret.RecipientPartyID == Settings.PandoraPartyID)
-                    {
-                        ret.MusicService = AudioAlbumModel.eMusicService.Pandora;
-                    }
+                    ret.MusicService = GetModelMusicService(nrm);
 
                     ret.RecipientPartyName = GetModelRecipientPartyName(nrm);
                     ret.MessageCreatedDateTime = GetModelMessageCreatedDateTime(nrm);
                     ret.ApproximateReleaseDate = GetModelApproximateReleaseDate(nrm);
+                    ret.DealStartDate = GetModelDealStartDate(nrm);
                     ret.UpdateIndicator = GetModelUpdateIndicator(nrm);
                     ret.MainReleaseReferenceTitle = GetModelMainReleaseReferenceTitle(nrm);
                     ret.Genre = GetModelGenre(nrm);

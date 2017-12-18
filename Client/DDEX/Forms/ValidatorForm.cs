@@ -17,7 +17,8 @@ namespace DDEX.Forms
         public AudioAlbumBinder Binder = new AudioAlbumBinder(new AudioAlbumBinder.AudioAlbumBinderSettings()
         {
             DeezerPartyID = Properties.Settings.Default.DeezerRecipientPartyID,
-            PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID
+            PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID,
+            SoundCloudPartyID = Properties.Settings.Default.SoundCloudRecipientPartyID
         });
 
         private void btnValidate_Click(object sender, EventArgs e)
