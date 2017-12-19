@@ -44,6 +44,7 @@
             this.csFileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastWriteTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.csIsValid_Materialized = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AllFilesExist_Materialized = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ValidationMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
@@ -60,7 +61,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(988, 45);
+            this.groupBox1.Size = new System.Drawing.Size(1047, 45);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loaded Navigation Folder";
@@ -68,7 +69,7 @@
             // btnValidateAll
             // 
             this.btnValidateAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValidateAll.Location = new System.Drawing.Point(917, 15);
+            this.btnValidateAll.Location = new System.Drawing.Point(976, 15);
             this.btnValidateAll.Name = "btnValidateAll";
             this.btnValidateAll.Size = new System.Drawing.Size(66, 23);
             this.btnValidateAll.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             this.chxbSubFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chxbSubFolders.AutoSize = true;
-            this.chxbSubFolders.Location = new System.Drawing.Point(820, 19);
+            this.chxbSubFolders.Location = new System.Drawing.Point(879, 19);
             this.chxbSubFolders.Name = "chxbSubFolders";
             this.chxbSubFolders.Size = new System.Drawing.Size(100, 17);
             this.chxbSubFolders.TabIndex = 2;
@@ -91,7 +92,7 @@
             // btnOpenFolder
             // 
             this.btnOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenFolder.Location = new System.Drawing.Point(789, 15);
+            this.btnOpenFolder.Location = new System.Drawing.Point(848, 15);
             this.btnOpenFolder.Name = "btnOpenFolder";
             this.btnOpenFolder.Size = new System.Drawing.Size(25, 23);
             this.btnOpenFolder.TabIndex = 1;
@@ -107,7 +108,7 @@
             this.lblPath.Location = new System.Drawing.Point(9, 15);
             this.lblPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(775, 23);
+            this.lblPath.Size = new System.Drawing.Size(834, 23);
             this.lblPath.TabIndex = 0;
             // 
             // dgvFiles
@@ -125,6 +126,7 @@
             this.csFileSize,
             this.LastWriteTime,
             this.csIsValid_Materialized,
+            this.AllFilesExist_Materialized,
             this.ValidationMessage});
             this.dgvFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFiles.GridColor = System.Drawing.Color.DarkGray;
@@ -133,7 +135,7 @@
             this.dgvFiles.Name = "dgvFiles";
             this.dgvFiles.ReadOnly = true;
             this.dgvFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFiles.Size = new System.Drawing.Size(988, 312);
+            this.dgvFiles.Size = new System.Drawing.Size(1047, 312);
             this.dgvFiles.TabIndex = 17;
             this.dgvFiles.TabStop = false;
             this.dgvFiles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFiles_CellClick);
@@ -145,7 +147,7 @@
             this.tbFiles.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbFiles.Location = new System.Drawing.Point(0, 45);
             this.tbFiles.Name = "tbFiles";
-            this.tbFiles.Size = new System.Drawing.Size(988, 24);
+            this.tbFiles.Size = new System.Drawing.Size(1047, 24);
             this.tbFiles.TabIndex = 18;
             this.tbFiles.Title = "Files";
             this.tbFiles.ButtonClicked += new Framework.UI.Controls.MRTitleBar.ButtonClickedEventHandler(this.tbTrackReleases_ButtonClicked);
@@ -199,7 +201,7 @@
             this.DirectoryName.HeaderText = "Folder";
             this.DirectoryName.Name = "DirectoryName";
             this.DirectoryName.ReadOnly = true;
-            this.DirectoryName.Width = 200;
+            this.DirectoryName.Width = 150;
             // 
             // csFileSize
             // 
@@ -224,18 +226,28 @@
             this.csIsValid_Materialized.ReadOnly = true;
             this.csIsValid_Materialized.Width = 50;
             // 
+            // AllFilesExist_Materialized
+            // 
+            this.AllFilesExist_Materialized.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.AllFilesExist_Materialized.DataPropertyName = "AllFilesExist_Materialized";
+            this.AllFilesExist_Materialized.HeaderText = "All files exist";
+            this.AllFilesExist_Materialized.Name = "AllFilesExist_Materialized";
+            this.AllFilesExist_Materialized.ReadOnly = true;
+            this.AllFilesExist_Materialized.Width = 62;
+            // 
             // ValidationMessage
             // 
+            this.ValidationMessage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ValidationMessage.DataPropertyName = "ValidationMessage";
             this.ValidationMessage.HeaderText = "Xml Validation Message";
             this.ValidationMessage.Name = "ValidationMessage";
             this.ValidationMessage.ReadOnly = true;
-            this.ValidationMessage.Width = 200;
+            this.ValidationMessage.Width = 132;
             // 
             // FilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(988, 403);
+            this.ClientSize = new System.Drawing.Size(1047, 403);
             this.Controls.Add(this.dgvFiles);
             this.Controls.Add(this.tbFiles);
             this.Controls.Add(this.groupBox1);
@@ -272,6 +284,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn csFileSize;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastWriteTime;
         private System.Windows.Forms.DataGridViewCheckBoxColumn csIsValid_Materialized;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn AllFilesExist_Materialized;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValidationMessage;
     }
 }

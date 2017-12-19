@@ -76,6 +76,8 @@ namespace DDEX.Generation.ERN_382
         {
             InitCombos();
 
+            lblFileFound.DataBindings.Add("Visible", Model, "FileExists");
+            lblFileNotFound.DataBindings.Add("Visible", Model, "FileNotExists"); 
             btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
             txtGenre.DataBindings.Add("Text", Model, "Genre");
             txtSubGenre.DataBindings.Add("Text", Model, "SubGenre");
@@ -172,6 +174,24 @@ namespace DDEX.Generation.ERN_382
 
                 Model.ComputeMaterialized();
             }
+        }
+
+        private void btnChangeFileName_Click(object sender, EventArgs e)
+        {
+            if (Model.TrackFullFileName != null && System.IO.File.Exists(Model.TrackFullFileName))
+            {
+                string name = Model.CalculateTrackFileName();
+                if (!Equals(name.ToUpper(), Model.FileName.Substring(0, Model.FileName.LastIndexOf('.')).ToUpper()))
+                {
+                    string directory = System.IO.Path.GetDirectoryName(Model.TrackFullFileName);
+                    string ext = System.IO.Path.GetExtension(Model.TrackFullFileName);
+                    string newFileName = System.IO.Path.Combine(directory, name + ext);
+                    System.IO.File.Move(Model.TrackFullFileName, newFileName);
+                    Model.FileName = name + ext;
+                    Model.ComputeMaterialized();
+                }
+            }
+
         }
     }
 }

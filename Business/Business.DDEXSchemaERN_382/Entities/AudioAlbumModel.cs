@@ -57,9 +57,29 @@ namespace Business.DDEXSchemaERN_382.Entities
         public ImageCodecType FrontCoverImageCodecType { get { return Get<ImageCodecType>(); } set { Set(value); } }
         public string FrontCoverImageHashSum_Materialized { get { return Get<string>(); } set { Set(value); } }
         public int FrontCoverImageHeight_Materialized { get { return Get<int>(); } set { Set(value); } }
-        public int FrontCoverImageWidth_Materialized { get { return Get<int>(); } set { Set(value); } }        
+        public int FrontCoverImageWidth_Materialized { get { return Get<int>(); } set { Set(value); } }
+        public bool FrontCoverImageFileExists
+        {
+            get
+            {
+                bool ret = false;
+                var fullpath = GetFullFileNameFromRelativePathAndFileName(FrontCoverImagePath, FrontCoverImageFileName);
+                if (fullpath != null)
+                {
+                    ret = System.IO.File.Exists(fullpath);
+                }
+                return ret;
+            }
+        }
+        public bool FrontCoverImageFileNotExists
+        {
+            get
+            {
+                return !FrontCoverImageFileExists;
+            }
+        }
+        public bool AllFilesExists_Materialized { get { return Get<bool>(); } set { Set(value); } }
         public SortableBindingList<TrackModel> Tracks { get; set; } = new SortableBindingList<TrackModel>();
-
         public DealList DealList { get; set; }
 
         public string GetFullFileNameFromRelativePathAndFileName(string relativePath, string fileName)
@@ -76,6 +96,8 @@ namespace Business.DDEXSchemaERN_382.Entities
         }
         public void ComputeMaterialized()
         {
+            bool allFilesExist = true;
+            
             FrontCoverImageFullFileName = GetFullFileNameFromRelativePathAndFileName(FrontCoverImagePath, FrontCoverImageFileName);
             if (System.IO.File.Exists(FrontCoverImageFullFileName))
             {
@@ -109,6 +131,7 @@ namespace Business.DDEXSchemaERN_382.Entities
             }
             else
             {
+                allFilesExist = false;
                 FrontCoverImageHeight_Materialized = 0;
                 FrontCoverImageWidth_Materialized = 0;
                 FrontCoverImageCodecType = ImageCodecType.Unknown;
@@ -118,7 +141,9 @@ namespace Business.DDEXSchemaERN_382.Entities
             foreach (TrackModel track in Tracks)
             {
                 track.ComputeMaterialized();
+                allFilesExist = allFilesExist && track.FileExists;
             }
+            AllFilesExists_Materialized = allFilesExist;
         }
         public override bool IsValid(out string message)
         {
@@ -126,7 +151,7 @@ namespace Business.DDEXSchemaERN_382.Entities
             if (isValid)
             {
                 string name = CalculateFrontCoverImageFileName();
-                if (!Equals(name.ToUpper(), FrontCoverImageFileName.Substring(0, FrontCoverImageFileName.LastIndexOf('.')).ToUpper()))
+                if (name != null && !Equals(name.ToUpper(), FrontCoverImageFileName.Substring(0, FrontCoverImageFileName.LastIndexOf('.')).ToUpper()))
                 {
                     isValid = false;
                     message = string.Format("FrontCoverImageFileName not equal to {0}.", CalculateFrontCoverImageFileName());

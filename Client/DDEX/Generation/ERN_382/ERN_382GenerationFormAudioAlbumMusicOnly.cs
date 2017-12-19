@@ -116,6 +116,10 @@ namespace DDEX.Generation.ERN_382
         }
         private void InitBindings()
         {
+            lblFileFound.DataBindings.Add("Visible", Model, "FrontCoverImageFileExists");
+            lblFileNotFound.DataBindings.Add("Visible", Model, "FrontCoverImageFileNotExists");
+            btnImageChangeFileName.DataBindings.Add("Enabled", Model, "FrontCoverImageFileExists");
+
             btnOpenFrontCoverImage.DataBindings.Add("Enabled", this, "Editable");
             btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
 
@@ -260,7 +264,7 @@ namespace DDEX.Generation.ERN_382
                 string fileName = Model.FullFileName;
                 if (Model.IsValid(out message) && IsXmlFileValid(out message2))
                 {
-                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
+                    Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model);
                     DialogResult = DialogResult.OK;
                 }
                 else
@@ -268,7 +272,7 @@ namespace DDEX.Generation.ERN_382
                     rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
                     if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
                     {
-                        Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model));
+                        Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model);
                         DialogResult = DialogResult.OK;
                     }
                 }

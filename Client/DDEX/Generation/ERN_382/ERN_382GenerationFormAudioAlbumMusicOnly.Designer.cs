@@ -36,14 +36,14 @@
             this.btnLoadXml = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox2 = new Framework.UI.Controls.MRGroupBox(this.components);
             this.dgvSoundRecordingsAndReleases = new Framework.UI.Controls.MRDataGridView(this.components);
-            this.csTracksOrdinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.csTracksISRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTrackReleases = new Framework.UI.Controls.MRTitleBar();
             this.pnlMessageHeader = new Framework.UI.Controls.MRPanel(this.components);
+            this.btnTemplateSoundcloud = new Framework.UI.Controls.MRButton(this.components);
             this.dpMessageCreatedDateTime = new Framework.UI.Controls.MRDatePicker(this.components);
             this.label1 = new Framework.UI.Controls.MRLabel(this.components);
+            this.btnTemplatePandora = new Framework.UI.Controls.MRButton(this.components);
             this.label6 = new Framework.UI.Controls.MRLabel(this.components);
+            this.btnTemplateDeezer = new Framework.UI.Controls.MRButton(this.components);
             this.txtMessageID = new Framework.UI.Controls.MRTextBox(this.components);
             this.label4 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtMessageSender_PartyID = new Framework.UI.Controls.MRTextBox(this.components);
@@ -55,7 +55,11 @@
             this.label3 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbMessageHeader = new Framework.UI.Controls.MRTitleBar();
             this.pnlMainRelease = new Framework.UI.Controls.MRPanel(this.components);
+            this.dpDealStartDate = new Framework.UI.Controls.MRDatePicker(this.components);
+            this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
+            this.cbDeal = new Framework.UI.Controls.MRComboBox(this.components);
             this.mrLabel13 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel14 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtCReleaseYear = new Framework.UI.Controls.MRTextBox(this.components);
             this.mrLabel10 = new Framework.UI.Controls.MRLabel(this.components);
             this.txtCLine = new Framework.UI.Controls.MRTextBox(this.components);
@@ -93,17 +97,16 @@
             this.mrLabel1 = new Framework.UI.Controls.MRLabel(this.components);
             this.label13 = new Framework.UI.Controls.MRLabel(this.components);
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.cbDeal = new Framework.UI.Controls.MRComboBox(this.components);
-            this.mrLabel14 = new Framework.UI.Controls.MRLabel(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnTemplateSoundcloud = new Framework.UI.Controls.MRButton(this.components);
-            this.btnTemplatePandora = new Framework.UI.Controls.MRButton(this.components);
-            this.btnTemplateDeezer = new Framework.UI.Controls.MRButton(this.components);
-            this.dpDealStartDate = new Framework.UI.Controls.MRDatePicker(this.components);
-            this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
+            this.csTracksOrdinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.csTracksISRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileExists = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblFileFound = new Framework.UI.Controls.MRLabel(this.components);
+            this.lblFileNotFound = new Framework.UI.Controls.MRLabel(this.components);
             this.pnlData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -209,7 +212,8 @@
             this.csDelete,
             this.csTracksOrdinal,
             this.csTracksISRC,
-            this.csTrackTitle});
+            this.csTrackTitle,
+            this.FileExists});
             this.dgvSoundRecordingsAndReleases.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSoundRecordingsAndReleases.GridColor = System.Drawing.Color.DarkGray;
             this.dgvSoundRecordingsAndReleases.IgnoreParentsEnabled = true;
@@ -223,31 +227,6 @@
             this.dgvSoundRecordingsAndReleases.TabStop = false;
             this.dgvSoundRecordingsAndReleases.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellClick);
             this.dgvSoundRecordingsAndReleases.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellDoubleClick);
-            // 
-            // csTracksOrdinal
-            // 
-            this.csTracksOrdinal.DataPropertyName = "Ordinal";
-            this.csTracksOrdinal.FillWeight = 136.2605F;
-            this.csTracksOrdinal.HeaderText = "Ordinal";
-            this.csTracksOrdinal.Name = "csTracksOrdinal";
-            this.csTracksOrdinal.ReadOnly = true;
-            // 
-            // csTracksISRC
-            // 
-            this.csTracksISRC.DataPropertyName = "ISRC";
-            this.csTracksISRC.FillWeight = 153.8164F;
-            this.csTracksISRC.HeaderText = "ISRC";
-            this.csTracksISRC.Name = "csTracksISRC";
-            this.csTracksISRC.ReadOnly = true;
-            // 
-            // csTrackTitle
-            // 
-            this.csTrackTitle.DataPropertyName = "Title";
-            this.csTrackTitle.FillWeight = 170.5285F;
-            this.csTrackTitle.HeaderText = "Title";
-            this.csTrackTitle.Name = "csTrackTitle";
-            this.csTrackTitle.ReadOnly = true;
-            this.csTrackTitle.Width = 280;
             // 
             // tbTrackReleases
             // 
@@ -285,6 +264,17 @@
             this.pnlMessageHeader.Size = new System.Drawing.Size(899, 67);
             this.pnlMessageHeader.TabIndex = 13;
             // 
+            // btnTemplateSoundcloud
+            // 
+            this.btnTemplateSoundcloud.BackgroundImage = global::DDEX.Properties.Resources.soundcloud2;
+            this.btnTemplateSoundcloud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemplateSoundcloud.Location = new System.Drawing.Point(817, 3);
+            this.btnTemplateSoundcloud.Name = "btnTemplateSoundcloud";
+            this.btnTemplateSoundcloud.Size = new System.Drawing.Size(69, 59);
+            this.btnTemplateSoundcloud.TabIndex = 17;
+            this.btnTemplateSoundcloud.UseVisualStyleBackColor = true;
+            this.btnTemplateSoundcloud.Click += new System.EventHandler(this.btnTemplate_Click);
+            // 
             // dpMessageCreatedDateTime
             // 
             this.dpMessageCreatedDateTime.CustomFormat = "dd.MM.yyyy HH:mm.ss";
@@ -304,6 +294,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Message ID";
             // 
+            // btnTemplatePandora
+            // 
+            this.btnTemplatePandora.BackgroundImage = global::DDEX.Properties.Resources.pandora1;
+            this.btnTemplatePandora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemplatePandora.Location = new System.Drawing.Point(733, 28);
+            this.btnTemplatePandora.Name = "btnTemplatePandora";
+            this.btnTemplatePandora.Size = new System.Drawing.Size(84, 34);
+            this.btnTemplatePandora.TabIndex = 16;
+            this.btnTemplatePandora.UseVisualStyleBackColor = true;
+            this.btnTemplatePandora.Click += new System.EventHandler(this.btnTemplate_Click);
+            // 
             // label6
             // 
             this.label6.Location = new System.Drawing.Point(405, 3);
@@ -312,6 +313,17 @@
             this.label6.Size = new System.Drawing.Size(157, 18);
             this.label6.TabIndex = 2;
             this.label6.Text = "DateTime Created";
+            // 
+            // btnTemplateDeezer
+            // 
+            this.btnTemplateDeezer.BackgroundImage = global::DDEX.Properties.Resources.Deezer_logo;
+            this.btnTemplateDeezer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemplateDeezer.Location = new System.Drawing.Point(733, 3);
+            this.btnTemplateDeezer.Name = "btnTemplateDeezer";
+            this.btnTemplateDeezer.Size = new System.Drawing.Size(84, 26);
+            this.btnTemplateDeezer.TabIndex = 15;
+            this.btnTemplateDeezer.UseVisualStyleBackColor = true;
+            this.btnTemplateDeezer.Click += new System.EventHandler(this.btnTemplate_Click);
             // 
             // txtMessageID
             // 
@@ -435,6 +447,34 @@
             this.pnlMainRelease.Size = new System.Drawing.Size(899, 111);
             this.pnlMainRelease.TabIndex = 13;
             // 
+            // dpDealStartDate
+            // 
+            this.dpDealStartDate.CustomFormat = "yyyy-MM-dd";
+            this.dpDealStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDealStartDate.Location = new System.Drawing.Point(410, 86);
+            this.dpDealStartDate.Name = "dpDealStartDate";
+            this.dpDealStartDate.ShowCheckBox = true;
+            this.dpDealStartDate.Size = new System.Drawing.Size(131, 20);
+            this.dpDealStartDate.TabIndex = 27;
+            // 
+            // mrLabel15
+            // 
+            this.mrLabel15.Location = new System.Drawing.Point(274, 86);
+            this.mrLabel15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel15.Name = "mrLabel15";
+            this.mrLabel15.Size = new System.Drawing.Size(137, 21);
+            this.mrLabel15.TabIndex = 26;
+            this.mrLabel15.Text = "Deal Start Date";
+            // 
+            // cbDeal
+            // 
+            this.cbDeal.FormattingEnabled = true;
+            this.cbDeal.Location = new System.Drawing.Point(114, 86);
+            this.cbDeal.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDeal.Name = "cbDeal";
+            this.cbDeal.Size = new System.Drawing.Size(156, 21);
+            this.cbDeal.TabIndex = 25;
+            // 
             // mrLabel13
             // 
             this.mrLabel13.Location = new System.Drawing.Point(568, 64);
@@ -443,6 +483,15 @@
             this.mrLabel13.Size = new System.Drawing.Size(106, 18);
             this.mrLabel13.TabIndex = 22;
             this.mrLabel13.Text = "CLine Release Year";
+            // 
+            // mrLabel14
+            // 
+            this.mrLabel14.Location = new System.Drawing.Point(12, 86);
+            this.mrLabel14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel14.Name = "mrLabel14";
+            this.mrLabel14.Size = new System.Drawing.Size(98, 18);
+            this.mrLabel14.TabIndex = 24;
+            this.mrLabel14.Text = "Deal";
             // 
             // txtCReleaseYear
             // 
@@ -662,6 +711,8 @@
             // 
             // pnlFrontCoverImage
             // 
+            this.pnlFrontCoverImage.Controls.Add(this.lblFileFound);
+            this.pnlFrontCoverImage.Controls.Add(this.lblFileNotFound);
             this.pnlFrontCoverImage.Controls.Add(this.btnImageChangeFileName);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageWidth);
             this.pnlFrontCoverImage.Controls.Add(this.txtFrontCoverImageHeight);
@@ -681,11 +732,11 @@
             // 
             // btnImageChangeFileName
             // 
-            this.btnImageChangeFileName.Location = new System.Drawing.Point(444, 5);
+            this.btnImageChangeFileName.Location = new System.Drawing.Point(410, 27);
             this.btnImageChangeFileName.Name = "btnImageChangeFileName";
-            this.btnImageChangeFileName.Size = new System.Drawing.Size(97, 22);
+            this.btnImageChangeFileName.Size = new System.Drawing.Size(131, 22);
             this.btnImageChangeFileName.TabIndex = 25;
-            this.btnImageChangeFileName.Text = "...";
+            this.btnImageChangeFileName.Text = "Compute FileName";
             this.btnImageChangeFileName.UseVisualStyleBackColor = true;
             this.btnImageChangeFileName.Click += new System.EventHandler(this.btnImageChangeFileName_Click);
             // 
@@ -775,24 +826,6 @@
             this.rtbOutput.TabIndex = 5;
             this.rtbOutput.Text = "";
             // 
-            // cbDeal
-            // 
-            this.cbDeal.FormattingEnabled = true;
-            this.cbDeal.Location = new System.Drawing.Point(114, 86);
-            this.cbDeal.Margin = new System.Windows.Forms.Padding(2);
-            this.cbDeal.Name = "cbDeal";
-            this.cbDeal.Size = new System.Drawing.Size(156, 21);
-            this.cbDeal.TabIndex = 25;
-            // 
-            // mrLabel14
-            // 
-            this.mrLabel14.Location = new System.Drawing.Point(12, 86);
-            this.mrLabel14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mrLabel14.Name = "mrLabel14";
-            this.mrLabel14.Size = new System.Drawing.Size(98, 18);
-            this.mrLabel14.TabIndex = 24;
-            this.mrLabel14.Text = "Deal";
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.FillWeight = 12.16545F;
@@ -843,57 +876,72 @@
             this.csDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.csDelete.Width = 20;
             // 
-            // btnTemplateSoundcloud
+            // csTracksOrdinal
             // 
-            this.btnTemplateSoundcloud.BackgroundImage = global::DDEX.Properties.Resources.soundcloud2;
-            this.btnTemplateSoundcloud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemplateSoundcloud.Location = new System.Drawing.Point(817, 3);
-            this.btnTemplateSoundcloud.Name = "btnTemplateSoundcloud";
-            this.btnTemplateSoundcloud.Size = new System.Drawing.Size(69, 59);
-            this.btnTemplateSoundcloud.TabIndex = 17;
-            this.btnTemplateSoundcloud.UseVisualStyleBackColor = true;
-            this.btnTemplateSoundcloud.Click += new System.EventHandler(this.btnTemplate_Click);
+            this.csTracksOrdinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.csTracksOrdinal.DataPropertyName = "Ordinal";
+            this.csTracksOrdinal.FillWeight = 136.2605F;
+            this.csTracksOrdinal.HeaderText = "Ordinal";
+            this.csTracksOrdinal.MinimumWidth = 50;
+            this.csTracksOrdinal.Name = "csTracksOrdinal";
+            this.csTracksOrdinal.ReadOnly = true;
+            this.csTracksOrdinal.Width = 65;
             // 
-            // btnTemplatePandora
+            // csTracksISRC
             // 
-            this.btnTemplatePandora.BackgroundImage = global::DDEX.Properties.Resources.pandora1;
-            this.btnTemplatePandora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemplatePandora.Location = new System.Drawing.Point(733, 28);
-            this.btnTemplatePandora.Name = "btnTemplatePandora";
-            this.btnTemplatePandora.Size = new System.Drawing.Size(84, 34);
-            this.btnTemplatePandora.TabIndex = 16;
-            this.btnTemplatePandora.UseVisualStyleBackColor = true;
-            this.btnTemplatePandora.Click += new System.EventHandler(this.btnTemplate_Click);
+            this.csTracksISRC.DataPropertyName = "ISRC";
+            this.csTracksISRC.FillWeight = 153.8164F;
+            this.csTracksISRC.HeaderText = "ISRC";
+            this.csTracksISRC.MinimumWidth = 100;
+            this.csTracksISRC.Name = "csTracksISRC";
+            this.csTracksISRC.ReadOnly = true;
+            this.csTracksISRC.Width = 200;
             // 
-            // btnTemplateDeezer
+            // csTrackTitle
             // 
-            this.btnTemplateDeezer.BackgroundImage = global::DDEX.Properties.Resources.Deezer_logo;
-            this.btnTemplateDeezer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemplateDeezer.Location = new System.Drawing.Point(733, 3);
-            this.btnTemplateDeezer.Name = "btnTemplateDeezer";
-            this.btnTemplateDeezer.Size = new System.Drawing.Size(84, 26);
-            this.btnTemplateDeezer.TabIndex = 15;
-            this.btnTemplateDeezer.UseVisualStyleBackColor = true;
-            this.btnTemplateDeezer.Click += new System.EventHandler(this.btnTemplate_Click);
+            this.csTrackTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.csTrackTitle.DataPropertyName = "Title";
+            this.csTrackTitle.FillWeight = 170.5285F;
+            this.csTrackTitle.HeaderText = "Title";
+            this.csTrackTitle.MinimumWidth = 300;
+            this.csTrackTitle.Name = "csTrackTitle";
+            this.csTrackTitle.ReadOnly = true;
+            this.csTrackTitle.Width = 300;
             // 
-            // dpDealStartDate
+            // FileExists
             // 
-            this.dpDealStartDate.CustomFormat = "yyyy-MM-dd";
-            this.dpDealStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDealStartDate.Location = new System.Drawing.Point(410, 86);
-            this.dpDealStartDate.Name = "dpDealStartDate";
-            this.dpDealStartDate.ShowCheckBox = true;
-            this.dpDealStartDate.Size = new System.Drawing.Size(131, 20);
-            this.dpDealStartDate.TabIndex = 27;
+            this.FileExists.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FileExists.DataPropertyName = "FileExists";
+            this.FileExists.HeaderText = "File Exists";
+            this.FileExists.Name = "FileExists";
+            this.FileExists.ReadOnly = true;
+            this.FileExists.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FileExists.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.FileExists.Width = 78;
             // 
-            // mrLabel15
+            // lblFileFound
             // 
-            this.mrLabel15.Location = new System.Drawing.Point(274, 86);
-            this.mrLabel15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mrLabel15.Name = "mrLabel15";
-            this.mrLabel15.Size = new System.Drawing.Size(137, 21);
-            this.mrLabel15.TabIndex = 26;
-            this.mrLabel15.Text = "Deal Start Date";
+            this.lblFileFound.BackColor = System.Drawing.Color.MintCream;
+            this.lblFileFound.ForeColor = System.Drawing.Color.Green;
+            this.lblFileFound.Location = new System.Drawing.Point(437, 5);
+            this.lblFileFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileFound.Name = "lblFileFound";
+            this.lblFileFound.Size = new System.Drawing.Size(104, 18);
+            this.lblFileFound.TabIndex = 43;
+            this.lblFileFound.Text = "FILE FOUND";
+            this.lblFileFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFileNotFound
+            // 
+            this.lblFileNotFound.BackColor = System.Drawing.Color.Snow;
+            this.lblFileNotFound.ForeColor = System.Drawing.Color.Red;
+            this.lblFileNotFound.Location = new System.Drawing.Point(437, 6);
+            this.lblFileNotFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileNotFound.Name = "lblFileNotFound";
+            this.lblFileNotFound.Size = new System.Drawing.Size(104, 18);
+            this.lblFileNotFound.TabIndex = 44;
+            this.lblFileNotFound.Text = "FILE NOT FOUND";
+            this.lblFileNotFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
@@ -951,11 +999,6 @@
         private Framework.UI.Controls.MRPanel pnlMessageHeader;
         private Framework.UI.Controls.MRTitleBar tbMessageHeader;
         private Framework.UI.Controls.MRTitleBar tbTrackReleases;
-        private System.Windows.Forms.DataGridViewImageColumn csEdit;
-        private System.Windows.Forms.DataGridViewImageColumn csDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn csTracksOrdinal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn csTracksISRC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn csTrackTitle;
         private Framework.UI.Controls.MRPanel pnlFrontCoverImage;
         private Framework.UI.Controls.MRTitleBar tbFrontCoverImage;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
@@ -997,5 +1040,13 @@
         private Framework.UI.Controls.MRButton btnTemplateSoundcloud;
         private Framework.UI.Controls.MRDatePicker dpDealStartDate;
         private Framework.UI.Controls.MRLabel mrLabel15;
+        private System.Windows.Forms.DataGridViewImageColumn csEdit;
+        private System.Windows.Forms.DataGridViewImageColumn csDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn csTracksOrdinal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn csTracksISRC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn csTrackTitle;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn FileExists;
+        private Framework.UI.Controls.MRLabel lblFileFound;
+        private Framework.UI.Controls.MRLabel lblFileNotFound;
     }
 }

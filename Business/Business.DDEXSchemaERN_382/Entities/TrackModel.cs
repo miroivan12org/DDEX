@@ -42,6 +42,25 @@ namespace Business.DDEXSchemaERN_382.Entities
         public string FileName { get { return Get<string>(); } set { Set(value); } }
         public string FilePath { get { return Get<string>(); } set { Set(value); } }
         public string FileHashSum_Materialized { get { return Get<string>(); } set { Set(value); } }
+        public bool FileExists
+        {
+            get
+            {
+                bool ret = false;
+
+                string fullFileName = GetFullFileNameFromRelativePathAndFileName(System.IO.Path.GetDirectoryName(Parent.FullFileName), FilePath, FileName);
+                if (fullFileName != null) ret = System.IO.File.Exists(fullFileName);
+
+                return ret;
+            }
+        }
+        public bool FileNotExists
+        {
+            get
+            {
+                return !FileExists;
+            }
+        }
 
         public string GetFullFileNameFromRelativePathAndFileName(string rootDirectory, string relativePath, string fileName)
         {
@@ -150,10 +169,27 @@ namespace Business.DDEXSchemaERN_382.Entities
             }
         }
 
+        public string CalculateTrackFileName()
+        {
+            string ret = "";
+
+            ret = Parent.EAN + "_01_" + Ordinal.ToString().PadLeft(2, '0');
+
+            return ret;
+        }
+
         public override bool IsValid(out string message)
         {
-            //TODO - check filename (example ean_01_01.flac)
-            return base.IsValid(out message);
+            bool isValid = base.IsValid(out message);
+
+            var name = CalculateTrackFileName();
+            if (name!= null && !Equals(name.ToUpper(), FileName.Substring(0, FileName.LastIndexOf('.')).ToUpper()))
+            {
+                isValid = false;
+                message = string.Format("Track {1} - File name not equal to {0}.", CalculateTrackFileName(), Ordinal.ToString());
+            }
+
+            return isValid;
         }
     }
 }

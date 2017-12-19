@@ -81,6 +81,12 @@
             this.mrLabel21 = new Framework.UI.Controls.MRLabel(this.components);
             this.mrLabel22 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbTechnicalDetails = new Framework.UI.Controls.MRTitleBar();
+            this.pnlDisplayArtist1 = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbDisplayArtistRole1 = new Framework.UI.Controls.MRComboBox(this.components);
+            this.mrLabel27 = new Framework.UI.Controls.MRLabel(this.components);
+            this.mrLabel28 = new Framework.UI.Controls.MRLabel(this.components);
+            this.txtDisplayArtist1 = new Framework.UI.Controls.MRTextBox(this.components);
+            this.tbDisplayArtist1 = new Framework.UI.Controls.MRTitleBar();
             this.pnlMainRelease = new Framework.UI.Controls.MRPanel(this.components);
             this.mrPanel1 = new Framework.UI.Controls.MRPanel(this.components);
             this.mrLabel20 = new Framework.UI.Controls.MRLabel(this.components);
@@ -113,12 +119,9 @@
             this.label3 = new Framework.UI.Controls.MRLabel(this.components);
             this.label2 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbTrackRelease = new Framework.UI.Controls.MRTitleBar();
-            this.pnlDisplayArtist1 = new Framework.UI.Controls.MRPanel(this.components);
-            this.cbDisplayArtistRole1 = new Framework.UI.Controls.MRComboBox(this.components);
-            this.mrLabel27 = new Framework.UI.Controls.MRLabel(this.components);
-            this.mrLabel28 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtDisplayArtist1 = new Framework.UI.Controls.MRTextBox(this.components);
-            this.tbDisplayArtist1 = new Framework.UI.Controls.MRTitleBar();
+            this.btnChangeFileName = new Framework.UI.Controls.MRButton(this.components);
+            this.lblFileFound = new Framework.UI.Controls.MRLabel(this.components);
+            this.lblFileNotFound = new Framework.UI.Controls.MRLabel(this.components);
             this.pnlData.SuspendLayout();
             this.pnlMainReleaseParent.SuspendLayout();
             this.pnlContributor6.SuspendLayout();
@@ -128,10 +131,10 @@
             this.pnlContributor2.SuspendLayout();
             this.pnlContributor1.SuspendLayout();
             this.pnlTechnicalDetails.SuspendLayout();
+            this.pnlDisplayArtist1.SuspendLayout();
             this.pnlMainRelease.SuspendLayout();
             this.mrPanel1.SuspendLayout();
             this.mrPanel2.SuspendLayout();
-            this.pnlDisplayArtist1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlData
@@ -139,6 +142,11 @@
             this.pnlData.Controls.Add(this.pnlMainReleaseParent);
             this.pnlData.Margin = new System.Windows.Forms.Padding(4);
             this.pnlData.Size = new System.Drawing.Size(660, 906);
+            // 
+            // pnlDlgRes
+            // 
+            this.pnlDlgRes.Location = new System.Drawing.Point(0, 906);
+            this.pnlDlgRes.Size = new System.Drawing.Size(660, 24);
             // 
             // pnlMainReleaseParent
             // 
@@ -516,6 +524,8 @@
             // 
             // pnlTechnicalDetails
             // 
+            this.pnlTechnicalDetails.Controls.Add(this.lblFileFound);
+            this.pnlTechnicalDetails.Controls.Add(this.btnChangeFileName);
             this.pnlTechnicalDetails.Controls.Add(this.cbAudioCodecType);
             this.pnlTechnicalDetails.Controls.Add(this.btnOpenFile);
             this.pnlTechnicalDetails.Controls.Add(this.txtRelativePath);
@@ -529,6 +539,7 @@
             this.pnlTechnicalDetails.Controls.Add(this.txtNumberOfChannels);
             this.pnlTechnicalDetails.Controls.Add(this.mrLabel21);
             this.pnlTechnicalDetails.Controls.Add(this.mrLabel22);
+            this.pnlTechnicalDetails.Controls.Add(this.lblFileNotFound);
             this.pnlTechnicalDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTechnicalDetails.Location = new System.Drawing.Point(0, 307);
             this.pnlTechnicalDetails.Name = "pnlTechnicalDetails";
@@ -546,7 +557,7 @@
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(336, 56);
+            this.btnOpenFile.Location = new System.Drawing.Point(336, 51);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(29, 22);
             this.btnOpenFile.TabIndex = 38;
@@ -656,6 +667,64 @@
             this.tbTechnicalDetails.Size = new System.Drawing.Size(660, 21);
             this.tbTechnicalDetails.TabIndex = 34;
             this.tbTechnicalDetails.Title = "Technical Details";
+            // 
+            // pnlDisplayArtist1
+            // 
+            this.pnlDisplayArtist1.Controls.Add(this.cbDisplayArtistRole1);
+            this.pnlDisplayArtist1.Controls.Add(this.mrLabel27);
+            this.pnlDisplayArtist1.Controls.Add(this.mrLabel28);
+            this.pnlDisplayArtist1.Controls.Add(this.txtDisplayArtist1);
+            this.pnlDisplayArtist1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDisplayArtist1.Location = new System.Drawing.Point(0, 233);
+            this.pnlDisplayArtist1.Name = "pnlDisplayArtist1";
+            this.pnlDisplayArtist1.Size = new System.Drawing.Size(660, 53);
+            this.pnlDisplayArtist1.TabIndex = 37;
+            this.pnlDisplayArtist1.Visible = false;
+            // 
+            // cbDisplayArtistRole1
+            // 
+            this.cbDisplayArtistRole1.FormattingEnabled = true;
+            this.cbDisplayArtistRole1.Location = new System.Drawing.Point(137, 28);
+            this.cbDisplayArtistRole1.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDisplayArtistRole1.Name = "cbDisplayArtistRole1";
+            this.cbDisplayArtistRole1.Size = new System.Drawing.Size(182, 21);
+            this.cbDisplayArtistRole1.TabIndex = 30;
+            // 
+            // mrLabel27
+            // 
+            this.mrLabel27.Location = new System.Drawing.Point(11, 30);
+            this.mrLabel27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel27.Name = "mrLabel27";
+            this.mrLabel27.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel27.TabIndex = 28;
+            this.mrLabel27.Text = "Role";
+            // 
+            // mrLabel28
+            // 
+            this.mrLabel28.Location = new System.Drawing.Point(11, 12);
+            this.mrLabel28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel28.Name = "mrLabel28";
+            this.mrLabel28.Size = new System.Drawing.Size(122, 18);
+            this.mrLabel28.TabIndex = 26;
+            this.mrLabel28.Text = "Name";
+            // 
+            // txtDisplayArtist1
+            // 
+            this.txtDisplayArtist1.Location = new System.Drawing.Point(137, 10);
+            this.txtDisplayArtist1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDisplayArtist1.Name = "txtDisplayArtist1";
+            this.txtDisplayArtist1.Size = new System.Drawing.Size(182, 20);
+            this.txtDisplayArtist1.TabIndex = 27;
+            // 
+            // tbDisplayArtist1
+            // 
+            this.tbDisplayArtist1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbDisplayArtist1.Expanded = false;
+            this.tbDisplayArtist1.Location = new System.Drawing.Point(0, 212);
+            this.tbDisplayArtist1.Name = "tbDisplayArtist1";
+            this.tbDisplayArtist1.Size = new System.Drawing.Size(660, 21);
+            this.tbDisplayArtist1.TabIndex = 36;
+            this.tbDisplayArtist1.Title = "Display Artist 1";
             // 
             // pnlMainRelease
             // 
@@ -984,63 +1053,39 @@
             this.tbTrackRelease.TabIndex = 12;
             this.tbTrackRelease.Title = "Track Release";
             // 
-            // pnlDisplayArtist1
+            // btnChangeFileName
             // 
-            this.pnlDisplayArtist1.Controls.Add(this.cbDisplayArtistRole1);
-            this.pnlDisplayArtist1.Controls.Add(this.mrLabel27);
-            this.pnlDisplayArtist1.Controls.Add(this.mrLabel28);
-            this.pnlDisplayArtist1.Controls.Add(this.txtDisplayArtist1);
-            this.pnlDisplayArtist1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDisplayArtist1.Location = new System.Drawing.Point(0, 233);
-            this.pnlDisplayArtist1.Name = "pnlDisplayArtist1";
-            this.pnlDisplayArtist1.Size = new System.Drawing.Size(660, 53);
-            this.pnlDisplayArtist1.TabIndex = 37;
-            this.pnlDisplayArtist1.Visible = false;
+            this.btnChangeFileName.Location = new System.Drawing.Point(336, 75);
+            this.btnChangeFileName.Name = "btnChangeFileName";
+            this.btnChangeFileName.Size = new System.Drawing.Size(138, 22);
+            this.btnChangeFileName.TabIndex = 40;
+            this.btnChangeFileName.Text = "Compute FileName";
+            this.btnChangeFileName.UseVisualStyleBackColor = true;
+            this.btnChangeFileName.Click += new System.EventHandler(this.btnChangeFileName_Click);
             // 
-            // cbDisplayArtistRole1
+            // lblFileFound
             // 
-            this.cbDisplayArtistRole1.FormattingEnabled = true;
-            this.cbDisplayArtistRole1.Location = new System.Drawing.Point(137, 28);
-            this.cbDisplayArtistRole1.Margin = new System.Windows.Forms.Padding(2);
-            this.cbDisplayArtistRole1.Name = "cbDisplayArtistRole1";
-            this.cbDisplayArtistRole1.Size = new System.Drawing.Size(182, 21);
-            this.cbDisplayArtistRole1.TabIndex = 30;
+            this.lblFileFound.BackColor = System.Drawing.Color.MintCream;
+            this.lblFileFound.ForeColor = System.Drawing.Color.Green;
+            this.lblFileFound.Location = new System.Drawing.Point(370, 53);
+            this.lblFileFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileFound.Name = "lblFileFound";
+            this.lblFileFound.Size = new System.Drawing.Size(104, 18);
+            this.lblFileFound.TabIndex = 41;
+            this.lblFileFound.Text = "FILE FOUND";
+            this.lblFileFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mrLabel27
+            // lblFileNotFound
             // 
-            this.mrLabel27.Location = new System.Drawing.Point(11, 30);
-            this.mrLabel27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mrLabel27.Name = "mrLabel27";
-            this.mrLabel27.Size = new System.Drawing.Size(122, 18);
-            this.mrLabel27.TabIndex = 28;
-            this.mrLabel27.Text = "Role";
-            // 
-            // mrLabel28
-            // 
-            this.mrLabel28.Location = new System.Drawing.Point(11, 12);
-            this.mrLabel28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mrLabel28.Name = "mrLabel28";
-            this.mrLabel28.Size = new System.Drawing.Size(122, 18);
-            this.mrLabel28.TabIndex = 26;
-            this.mrLabel28.Text = "Name";
-            // 
-            // txtDisplayArtist1
-            // 
-            this.txtDisplayArtist1.Location = new System.Drawing.Point(137, 10);
-            this.txtDisplayArtist1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDisplayArtist1.Name = "txtDisplayArtist1";
-            this.txtDisplayArtist1.Size = new System.Drawing.Size(182, 20);
-            this.txtDisplayArtist1.TabIndex = 27;
-            // 
-            // tbDisplayArtist1
-            // 
-            this.tbDisplayArtist1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbDisplayArtist1.Expanded = false;
-            this.tbDisplayArtist1.Location = new System.Drawing.Point(0, 212);
-            this.tbDisplayArtist1.Name = "tbDisplayArtist1";
-            this.tbDisplayArtist1.Size = new System.Drawing.Size(660, 21);
-            this.tbDisplayArtist1.TabIndex = 36;
-            this.tbDisplayArtist1.Title = "Display Artist 1";
+            this.lblFileNotFound.BackColor = System.Drawing.Color.Snow;
+            this.lblFileNotFound.ForeColor = System.Drawing.Color.Red;
+            this.lblFileNotFound.Location = new System.Drawing.Point(370, 54);
+            this.lblFileNotFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileNotFound.Name = "lblFileNotFound";
+            this.lblFileNotFound.Size = new System.Drawing.Size(104, 18);
+            this.lblFileNotFound.TabIndex = 42;
+            this.lblFileNotFound.Text = "FILE NOT FOUND";
+            this.lblFileNotFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ERN_382TrackReleaseForm
             // 
@@ -1067,13 +1112,13 @@
             this.pnlContributor1.PerformLayout();
             this.pnlTechnicalDetails.ResumeLayout(false);
             this.pnlTechnicalDetails.PerformLayout();
+            this.pnlDisplayArtist1.ResumeLayout(false);
+            this.pnlDisplayArtist1.PerformLayout();
             this.pnlMainRelease.ResumeLayout(false);
             this.mrPanel1.ResumeLayout(false);
             this.mrPanel1.PerformLayout();
             this.mrPanel2.ResumeLayout(false);
             this.mrPanel2.PerformLayout();
-            this.pnlDisplayArtist1.ResumeLayout(false);
-            this.pnlDisplayArtist1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1171,5 +1216,8 @@
         private Framework.UI.Controls.MRLabel mrLabel28;
         private Framework.UI.Controls.MRTextBox txtDisplayArtist1;
         private Framework.UI.Controls.MRTitleBar tbDisplayArtist1;
+        private Framework.UI.Controls.MRButton btnChangeFileName;
+        private Framework.UI.Controls.MRLabel lblFileNotFound;
+        private Framework.UI.Controls.MRLabel lblFileFound;
     }
 }

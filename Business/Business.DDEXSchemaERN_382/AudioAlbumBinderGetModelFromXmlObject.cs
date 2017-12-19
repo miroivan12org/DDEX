@@ -839,11 +839,8 @@ namespace Business.DDEXSchemaERN_382
                 }                
             }
         }
-
-        private AudioAlbumModel.eMusicService GetModelMusicService(NewReleaseMessage nrm)
+        private AudioAlbumModel.eMusicService GetModelMusicService(string recipientPartyID)
         {
-            string recipientPartyID = GetModelRecipientPartyId(nrm);
-
             AudioAlbumModel.eMusicService ret = AudioAlbumModel.eMusicService.Unknown;
 
             if (recipientPartyID == Settings.DeezerPartyID)
@@ -860,6 +857,12 @@ namespace Business.DDEXSchemaERN_382
             }
 
             return ret;
+        }
+        private AudioAlbumModel.eMusicService GetModelMusicService(NewReleaseMessage nrm)
+        {
+            string recipientPartyID = GetModelRecipientPartyId(nrm);
+
+            return GetModelMusicService(recipientPartyID);
         }
 
         public IBindableModel GetModelFromXmlObject(IXmlObject xmlObject)

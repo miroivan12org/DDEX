@@ -20,7 +20,7 @@ namespace DDEX.Navigation
         public bool IsValid_Materialized { get { return Get<bool>(); } set { Set(value); } }
         public string ValidationMessage { get { return Get<string>(); } set { Set(value); } }
         public long Size { get { return Get<long>(); } set { Set(value); } }
-
+        public bool AllFilesExist_Materialized { get { return Get<bool>(); } set { Set(value); } }
         public override bool IsValid(out string message)
         {
             bool ret = true;
@@ -35,12 +35,14 @@ namespace DDEX.Navigation
             try
             {
                 AudioAlbumModel m = (AudioAlbumModel)binder.GetModelFromXmlObject(binder.GetXmlObjectFromFile(FullName));
+                m.ComputeMaterialized();
                 string msg = "";
                 if (!m.IsValid(out msg) || !binder.IsModelValid(m, out msg))
                 {
                     message = msg;
                     ret = false;
                 }
+                AllFilesExist_Materialized = m.AllFilesExists_Materialized;
             }
             catch (Exception ex)
             {
