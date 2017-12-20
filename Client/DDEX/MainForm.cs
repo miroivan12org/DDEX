@@ -36,7 +36,6 @@ namespace DDEX
             if (Debugger.IsAttached)
             {
                 filesToolStripMenuItem_Click(this, new EventArgs());
-                settingsToolStripMenuItem_Click_1(this, new EventArgs());
             }
         }
 

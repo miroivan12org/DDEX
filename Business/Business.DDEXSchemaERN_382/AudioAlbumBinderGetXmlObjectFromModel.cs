@@ -982,25 +982,55 @@ namespace Business.DDEXSchemaERN_382
                 };
             }
 
+            var lsDisplayArtists = new List<Artist>();
+            if (track.DisplayArtists.Count > 0)
+            {
+                //sr.SoundRecordingDetailsByTerritory[0].DisplayArtist = new IndirectResourceContributor[track.IndirectContributors.Count];
+                
+
+                var roleLastSequenceNumber = new Dictionary<string, int>();
+                for (int j = 0; j < track.DisplayArtists.Count; j++)
+                {
+                    Tuple<string, string> artistTuple = track.DisplayArtists[j];
+                    var art = new Artist()
+                    {
+                        Items = new object[] { new PartyName() { FullName = new Name() { Value = artistTuple.Item1 } } },
+                        ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = (ArtistRole) Enum.Parse(typeof(ArtistRole), artistTuple.Item2) } },
+                    };
+                    if (!roleLastSequenceNumber.ContainsKey(artistTuple.Item2))
+                    {
+                        roleLastSequenceNumber.Add(artistTuple.Item2, 1);
+                    }
+                    else
+                    {
+                        roleLastSequenceNumber[artistTuple.Item2] = roleLastSequenceNumber[artistTuple.Item2] + 1;
+                    }
+                    art.SequenceNumber = roleLastSequenceNumber[artistTuple.Item2].ToString();
+
+                    //sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor[j] = art;
+                    lsDisplayArtists.Add(art);
+                }
+            }
+            /* TODO
+                - rijesiti glavnog displayartista
+                - ne zaboraviti dodati displyartiste u release dolje
+             */
             if (!string.IsNullOrWhiteSpace(track.MainArtist))
             {
-                sr.SoundRecordingDetailsByTerritory[0].DisplayArtist = new Artist[]
-                {
+                lsDisplayArtists.Insert(0, 
+                
                             new Artist()
                             {
                                 SequenceNumber = "1",
                                 ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
                                 Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.MainArtist } } }
                             }
-                            // TODO - implementirati display artiste 1-7
-                            //,
-                            //new Artist()
-                            //{
-                            //    SequenceNumber = "2",
-                            //    ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.FeaturedArtist } },
-                            //    Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.MainArtist } } }
-                            //}
-                };
+                );
+             
+            }
+            if (lsDisplayArtists.Count > 0)
+            {
+                sr.SoundRecordingDetailsByTerritory[0].DisplayArtist = lsDisplayArtists.ToArray();
             }
 
             if (!string.IsNullOrWhiteSpace(track.Producer))

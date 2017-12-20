@@ -696,6 +696,29 @@ namespace Business.DDEXSchemaERN_382
             }
             return ret;
         }
+        private List<Tuple<string, string>> GetModelTrackDisplayArtists(SoundRecording sr)
+        {
+            var ret = new List<Tuple<string, string>>();
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtist != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtist.Length > 0)
+            {
+                var cons = sr.SoundRecordingDetailsByTerritory[0].DisplayArtist.ToList();
+                for (int i = 0; i < cons.Count; i++)
+                {
+                    string name = null;
+                    string role = null;
+                    if (cons[i].Items != null && cons[i].Items.Length > 0 && cons[i].Items[0] is PartyName && ((PartyName)cons[i].Items[0]).FullName != null && ((PartyName)cons[i].Items[0]).FullName.Value != null)
+                    {
+                        name = ((PartyName)cons[i].Items[0]).FullName.Value;
+                        if (cons[i].ArtistRole != null && cons[i].ArtistRole.Length > 0 && cons[i].ArtistRole[0] != null)
+                        {
+                            role = cons[i].ArtistRole[0].Value.ToString();
+                            ret.Add(new Tuple<string, string>(name, role));
+                        }
+                    }
+                }
+            }
+            return ret;
+        }
         private void FillIndirectContributors(TrackModel m, List<Tuple<string, string>> nameRolePairs)
         {
             if (nameRolePairs.Count > 0)
@@ -727,6 +750,40 @@ namespace Business.DDEXSchemaERN_382
             {
                 m.Contributor6 = nameRolePairs[5].Item1;
                 m.Contributor6Role = nameRolePairs[5].Item2;
+            }
+        }
+
+        private void FillDisplayArtists(TrackModel m, List<Tuple<string, string>> nameRolePairs)
+        {
+            if (nameRolePairs.Count > 0)
+            {
+                m.DisplayArtist1 = nameRolePairs[0].Item1;
+                m.DisplayArtist1Role = nameRolePairs[0].Item2;
+            }
+            if (nameRolePairs.Count > 1)
+            {
+                m.DisplayArtist2 = nameRolePairs[1].Item1;
+                m.DisplayArtist2Role = nameRolePairs[1].Item2;
+            }
+            if (nameRolePairs.Count > 2)
+            {
+                m.DisplayArtist3 = nameRolePairs[2].Item1;
+                m.DisplayArtist3Role = nameRolePairs[2].Item2;
+            }
+            if (nameRolePairs.Count > 3)
+            {
+                m.DisplayArtist4 = nameRolePairs[3].Item1;
+                m.DisplayArtist4Role = nameRolePairs[3].Item2;
+            }
+            if (nameRolePairs.Count > 4)
+            {
+                m.DisplayArtist5 = nameRolePairs[4].Item1;
+                m.DisplayArtist5Role = nameRolePairs[4].Item2;
+            }
+            if (nameRolePairs.Count > 5)
+            {
+                m.DisplayArtist6 = nameRolePairs[5].Item1;
+                m.DisplayArtist6Role = nameRolePairs[5].Item2;
             }
         }
         private int GetModelTrackDurationMin(SoundRecording sr)
@@ -795,7 +852,9 @@ namespace Business.DDEXSchemaERN_382
             ret.FileHashSum_Materialized = GetModelTrackHashSum(sr);
 
             FillIndirectContributors(ret, GetModelTrackIndirectContributors(sr));
-            
+            FillDisplayArtists(ret, GetModelTrackDisplayArtists(sr));
+
+
             return ret;
         }
         #endregion

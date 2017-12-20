@@ -29,6 +29,8 @@ namespace DDEX
             AppDomain.CurrentDomain.UnhandledException +=
                 new UnhandledExceptionEventHandler(UnhandledException);
 
+            AppSettings.LoadSettings();
+
             Application.Run(new MainForm());
         }
 
@@ -76,6 +78,5 @@ namespace DDEX
                 }
             }
         }
-
     }
 }

@@ -58,6 +58,19 @@ namespace DDEX.Generation.ERN_382
 
             tbDisplayArtist1.BindedControls.Add(pnlDisplayArtist1);
             tbDisplayArtist1.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.DisplayArtist1) || !string.IsNullOrWhiteSpace(Model.DisplayArtist1Role)) });
+
+            tbDisplayArtist2.BindedControls.Add(pnlDisplayArtist2);
+            tbDisplayArtist2.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.DisplayArtist2) || !string.IsNullOrWhiteSpace(Model.DisplayArtist2Role)) });
+
+            tbDisplayArtist3.BindedControls.Add(pnlDisplayArtist3);
+            tbDisplayArtist3.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.DisplayArtist3) || !string.IsNullOrWhiteSpace(Model.DisplayArtist3Role)) });
+
+            tbDisplayArtist4.BindedControls.Add(pnlDisplayArtist4);
+            tbDisplayArtist4.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.DisplayArtist4) || !string.IsNullOrWhiteSpace(Model.DisplayArtist4Role)) });
+
+            tbDisplayArtist5.BindedControls.Add(pnlDisplayArtist5);
+            tbDisplayArtist5.OnChanged(this, new Framework.UI.Controls.MRTitleBar.TitleBarChangedEventArgs() { Expanded = (!string.IsNullOrWhiteSpace(Model.DisplayArtist5) || !string.IsNullOrWhiteSpace(Model.DisplayArtist5Role)) });
+
         }
 
         private void InitCombos()
@@ -69,6 +82,10 @@ namespace DDEX.Generation.ERN_382
             cbContributor5Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
             cbContributor6Role.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceIndirectResourceContributorRole();
             cbDisplayArtistRole1.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceDisplayArtistRole();
+            cbDisplayArtistRole2.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceDisplayArtistRole();
+            cbDisplayArtistRole3.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceDisplayArtistRole();
+            cbDisplayArtistRole4.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceDisplayArtistRole();
+            cbDisplayArtistRole5.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceDisplayArtistRole();
 
             cbAudioCodecType.DataSource = DataSources.ComboBoxDataSources.GetComboDataSourceAudioCodecType();
         }
@@ -78,6 +95,7 @@ namespace DDEX.Generation.ERN_382
 
             lblFileFound.DataBindings.Add("Visible", Model, "FileExists");
             lblFileNotFound.DataBindings.Add("Visible", Model, "FileNotExists"); 
+            btnChangeFileName.DataBindings.Add("Enabled", Model, "FileExists");
             btnOpenFile.DataBindings.Add("Enabled", this, "Editable");
             txtGenre.DataBindings.Add("Text", Model, "Genre");
             txtSubGenre.DataBindings.Add("Text", Model, "SubGenre");
@@ -107,7 +125,15 @@ namespace DDEX.Generation.ERN_382
 
             txtDisplayArtist1.DataBindings.Add("Text", Model, "DisplayArtist1");
             cbDisplayArtistRole1.DataBindings.Add("SelectedItem", Model, "DisplayArtist1Role");
-            
+            txtDisplayArtist2.DataBindings.Add("Text", Model, "DisplayArtist2");
+            cbDisplayArtistRole2.DataBindings.Add("SelectedItem", Model, "DisplayArtist2Role");
+            txtDisplayArtist3.DataBindings.Add("Text", Model, "DisplayArtist3");
+            cbDisplayArtistRole3.DataBindings.Add("SelectedItem", Model, "DisplayArtist3Role");
+            txtDisplayArtist4.DataBindings.Add("Text", Model, "DisplayArtist4");
+            cbDisplayArtistRole4.DataBindings.Add("SelectedItem", Model, "DisplayArtist4Role");
+            txtDisplayArtist5.DataBindings.Add("Text", Model, "DisplayArtist5");
+            cbDisplayArtistRole5.DataBindings.Add("SelectedItem", Model, "DisplayArtist5Role");
+
             txtResourceReleaseDate.DataBindings.Add("Text", Model, "ResourceReleaseDate");
 
             cbAudioCodecType.DataBindings.Add("SelectedItem", Model, "AudioCodec");
