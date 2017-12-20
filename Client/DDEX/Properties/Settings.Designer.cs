@@ -13,7 +13,7 @@ namespace DDEX.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -23,132 +23,12 @@ namespace DDEX.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\temp\\DDEX\\soundcloud")]
-        public string NavigationFolderPath {
-            get {
-                return ((string)(this["NavigationFolderPath"]));
-            }
-            set {
-                this["NavigationFolderPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(P) 2016 LONGPLAY")]
-        public string PLineText {
-            get {
-                return ((string)(this["PLineText"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LONGPLAY")]
-        public string LabelName {
-            get {
-                return ((string)(this["LabelName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Composer;Producer;Lyricist;Arranger")]
-        public string IndirectContributors {
-            get {
-                return ((string)(this["IndirectContributors"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("FeaturedArtist")]
-        public string DisplayArtistRoles {
-            get {
-                return ((string)(this["DisplayArtistRoles"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA2011021513H")]
-        public string DeezerRecipientPartyID {
-            get {
-                return ((string)(this["DeezerRecipientPartyID"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DEEZER")]
-        public string DeezerRecipientPartyName {
-            get {
-                return ((string)(this["DeezerRecipientPartyName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LONGPLAY")]
-        public string SenderPartyName {
-            get {
-                return ((string)(this["SenderPartyName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA20160517080")]
-        public string SenderPartyID {
-            get {
-                return ((string)(this["SenderPartyID"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA20140404055")]
-        public string PandoraRecipientPartyID {
-            get {
-                return ((string)(this["PandoraRecipientPartyID"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PANDORA")]
-        public string PandoraRecipientPartyName {
-            get {
-                return ((string)(this["PandoraRecipientPartyName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PADPIDA20121010037")]
-        public string SoundCloudRecipientPartyID {
-            get {
-                return ((string)(this["SoundCloudRecipientPartyID"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SOUNDCLOUD")]
-        public string SoundCloudRecipientPartyName {
-            get {
-                return ((string)(this["SoundCloudRecipientPartyName"]));
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowExceptionStackTrace {
+        public bool SYS_ShowExceptionStackTrace {
             get {
-                return ((bool)(this["ShowExceptionStackTrace"]));
+                return ((bool)(this["SYS_ShowExceptionStackTrace"]));
             }
         }
     }

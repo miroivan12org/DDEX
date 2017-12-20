@@ -25,7 +25,7 @@ namespace DDEX.Navigation
         public NavigationModel Model { get; set; } = new NavigationModel();
         private void FilesForm_Load(object sender, EventArgs e)
         {
-            Model.FolderPath = Properties.Settings.Default.NavigationFolderPath;
+            Model.FolderPath = AppSettings.GetInstance().NavigationFolderPath;
             Model.Refresh();
             InitBindings();
         }
@@ -44,7 +44,7 @@ namespace DDEX.Navigation
         {
             if (e.Action == Framework.UI.Controls.MRTitleBar.eButtonAction.Add)
             {
-                var model = new AudioAlbumModel() { LabelName = Properties.Settings.Default.LabelName };
+                var model = new AudioAlbumModel() { LabelName = AppSettings.GetInstance().LabelName };
                 using (var frmEdit = new Generation.ERN_382.ERN_382GenerationFormAudioAlbumMusicOnly(model) { ParentForm = this })
                 {
                     if (frmEdit.ShowDialog() == DialogResult.OK)
@@ -72,7 +72,7 @@ namespace DDEX.Navigation
             using(var b = new FolderBrowserDialog()
             {
                 Description = "Select folder for xml files",
-                SelectedPath = Properties.Settings.Default.NavigationFolderPath,
+                SelectedPath = AppSettings.GetInstance().NavigationFolderPath,
                 RootFolder = Environment.SpecialFolder.MyComputer,
                 ShowNewFolderButton = true
             })

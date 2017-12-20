@@ -12,7 +12,7 @@ namespace DDEX.DataSources
     {
         public static List<ComboBoxItem> GetComboDataSourceIndirectResourceContributorRole()
         {
-            var lsIndirectContributors = Properties.Settings.Default.IndirectContributors.Split(';').ToList();
+            var lsIndirectContributors = AppSettings.GetInstance().IndirectContributors.Split(';').ToList();
             var ret = new List<ComboBoxItem>()
             {
                 new ComboBoxItem() { Value = null, Text = "" }
@@ -27,7 +27,7 @@ namespace DDEX.DataSources
 
         public static List<ComboBoxItem> GetComboDataSourceDisplayArtistRole()
         {
-            var ls = Properties.Settings.Default.DisplayArtistRoles.Split(';').ToList();
+            var ls = AppSettings.GetInstance().DisplayArtistRoles.Split(';').ToList();
             var ret = new List<ComboBoxItem>()
             {
                 new ComboBoxItem() { Value = null, Text = "" }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -32,7 +33,11 @@ namespace DDEX
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            filesToolStripMenuItem_Click(this, new EventArgs());
+            if (Debugger.IsAttached)
+            {
+                filesToolStripMenuItem_Click(this, new EventArgs());
+                settingsToolStripMenuItem_Click_1(this, new EventArgs());
+            }
         }
 
         private void validatorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,11 +53,22 @@ namespace DDEX
             frm.MdiParent = this;
             frm.Show();
         }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
+
+        private void settingsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var frm = new Forms.SettingsForm();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
     /*
  TODO:
     - rijesiti display artiste
-    - otvoriti menu settings i omoguciti editiranje nekih settingsa
     - napraviti license.dat file i vanjski dll za dekripciju fajla
     */

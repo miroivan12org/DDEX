@@ -25,7 +25,7 @@ namespace DDEX.Generation.ERN_382
                     Model = new AudioAlbumModel()
                     {
                         FullFileName = @"C:\temp\DDEX\deezer\9008798224074_20170112173000222\9008798224074.xml",
-                        LabelName = Properties.Settings.Default.LabelName
+                        LabelName = AppSettings.GetInstance().LabelName
                     };
                 }
             }                      
@@ -36,13 +36,13 @@ namespace DDEX.Generation.ERN_382
             Model.CopyFromSource(model);
         }
 
-        public AudioAlbumModel Model = new AudioAlbumModel() { LabelName = Properties.Settings.Default.LabelName };
+        public AudioAlbumModel Model = new AudioAlbumModel() { LabelName = AppSettings.GetInstance().LabelName };
 
         public AudioAlbumBinder Binder = new AudioAlbumBinder(new AudioAlbumBinder.AudioAlbumBinderSettings()
         {
-            DeezerPartyID = Properties.Settings.Default.DeezerRecipientPartyID,
-            PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID,
-            SoundCloudPartyID = Properties.Settings.Default.SoundCloudRecipientPartyID
+            DeezerPartyID = AppSettings.GetInstance().DeezerRecipientPartyID,
+            PandoraPartyID = AppSettings.GetInstance().PandoraRecipientPartyID,
+            SoundCloudPartyID = AppSettings.GetInstance().SoundCloudRecipientPartyID
         });
 
         public new FilesForm ParentForm { get; set; }
@@ -92,7 +92,7 @@ namespace DDEX.Generation.ERN_382
             catch (Exception ex)
             {
                 string message = string.Format("Unable to read file {1}.\n{0}", ex.Message, fileName);
-                if (Properties.Settings.Default.ShowExceptionStackTrace)
+                if (Properties.Settings.Default.SYS_ShowExceptionStackTrace)
                 {
                     message = string.Format("Unable to read file {1}.\n{0}\n{2}", ex.Message, fileName, ex.StackTrace);
                 }                
@@ -178,8 +178,8 @@ namespace DDEX.Generation.ERN_382
                 if (Model.Tracks.Any())
                 {
                     track.Ordinal = Model.Tracks.Max(x => x.Ordinal) + 1;
-                    track.PLineText = Properties.Settings.Default.PLineText;
-                    track.CLineText = Properties.Settings.Default.PLineText;
+                    track.PLineText = AppSettings.GetInstance().PLineText;
+                    track.CLineText = AppSettings.GetInstance().PLineText;
                 }
 
                 using (var frm = new ERN_382TrackReleaseForm(track) { Editable = this.Editable, ParentForm = this })
@@ -374,26 +374,26 @@ namespace DDEX.Generation.ERN_382
         {
             if (sender == btnTemplateDeezer)
             {
-                Model.RecipientPartyName = Properties.Settings.Default.DeezerRecipientPartyName;
-                Model.RecipientPartyID = Properties.Settings.Default.DeezerRecipientPartyID;
-                Model.SenderPartyID = Properties.Settings.Default.SenderPartyID;
-                Model.SenderPartyName = Properties.Settings.Default.SenderPartyName;
+                Model.RecipientPartyName = AppSettings.GetInstance().DeezerRecipientPartyName;
+                Model.RecipientPartyID = AppSettings.GetInstance().DeezerRecipientPartyID;
+                Model.SenderPartyID = AppSettings.GetInstance().SenderPartyID;
+                Model.SenderPartyName = AppSettings.GetInstance().SenderPartyName;
                 Model.MusicService = AudioAlbumModel.eMusicService.Deezer;
             }
             else if(sender == btnTemplatePandora)
             {
-                Model.RecipientPartyName = Properties.Settings.Default.PandoraRecipientPartyName;
-                Model.RecipientPartyID = Properties.Settings.Default.PandoraRecipientPartyID;
-                Model.SenderPartyID = Properties.Settings.Default.SenderPartyID;
-                Model.SenderPartyName = Properties.Settings.Default.SenderPartyName;
+                Model.RecipientPartyName = AppSettings.GetInstance().PandoraRecipientPartyName;
+                Model.RecipientPartyID = AppSettings.GetInstance().PandoraRecipientPartyID;
+                Model.SenderPartyID = AppSettings.GetInstance().SenderPartyID;
+                Model.SenderPartyName = AppSettings.GetInstance().SenderPartyName;
                 Model.MusicService = AudioAlbumModel.eMusicService.Pandora;
             }
             else if (sender == btnTemplateSoundcloud)
             {
-                Model.RecipientPartyName = Properties.Settings.Default.SoundCloudRecipientPartyName;
-                Model.RecipientPartyID = Properties.Settings.Default.SoundCloudRecipientPartyID;
-                Model.SenderPartyID = Properties.Settings.Default.SenderPartyID;
-                Model.SenderPartyName = Properties.Settings.Default.SenderPartyName;
+                Model.RecipientPartyName = AppSettings.GetInstance().SoundCloudRecipientPartyName;
+                Model.RecipientPartyID = AppSettings.GetInstance().SoundCloudRecipientPartyID;
+                Model.SenderPartyID = AppSettings.GetInstance().SenderPartyID;
+                Model.SenderPartyName = AppSettings.GetInstance().SenderPartyName;
                 Model.MusicService = AudioAlbumModel.eMusicService.SoundCloud;
             }
         }

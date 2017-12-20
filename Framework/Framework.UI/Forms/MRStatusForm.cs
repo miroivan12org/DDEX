@@ -15,6 +15,7 @@ namespace Framework.UI.Forms
         public MRStatusForm()
         {
             InitializeComponent();
+            StatusLabelText = DateTime.Now.ToString("dd.MM.yyyy. HH:mm.sss");
         }
 
         public string StatusLabelText {

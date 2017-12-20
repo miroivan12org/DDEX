@@ -27,9 +27,9 @@ namespace DDEX.Navigation
             message = "";
             
             var binder = new AudioAlbumBinder(new AudioAlbumBinder.AudioAlbumBinderSettings() {
-                DeezerPartyID = Properties.Settings.Default.DeezerRecipientPartyID,
-                PandoraPartyID = Properties.Settings.Default.PandoraRecipientPartyID,
-                SoundCloudPartyID = Properties.Settings.Default.SoundCloudRecipientPartyID
+                DeezerPartyID = AppSettings.GetInstance().DeezerRecipientPartyID,
+                PandoraPartyID = AppSettings.GetInstance().PandoraRecipientPartyID,
+                SoundCloudPartyID = AppSettings.GetInstance().SoundCloudRecipientPartyID
             });
 
             try
