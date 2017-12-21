@@ -123,6 +123,7 @@ namespace DDEX.Generation.ERN_382
             txtContributor6.DataBindings.Add("Text", Model, "Contributor6");
             cbContributor6Role.DataBindings.Add("SelectedItem", Model, "Contributor6Role");
 
+            txtDisplayArtistName.DataBindings.Add("Text", Model, "DisplayArtistName");
             txtDisplayArtist1.DataBindings.Add("Text", Model, "DisplayArtist1");
             cbDisplayArtistRole1.DataBindings.Add("SelectedItem", Model, "DisplayArtist1Role");
             txtDisplayArtist2.DataBindings.Add("Text", Model, "DisplayArtist2");

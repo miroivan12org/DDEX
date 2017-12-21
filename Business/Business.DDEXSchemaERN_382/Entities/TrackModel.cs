@@ -106,6 +106,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         public string Contributor6 { get { return Get<string>(); } set { Set(value); } }
         public string Contributor6Role { get { return Get<string>(); } set { Set(value); } }
 
+        public string DisplayArtistName { get { return Get<string>(); } set { Set(value); } }
         public string DisplayArtist1 { get { return Get<string>(); } set { Set(value); } }
         public string DisplayArtist1Role { get { return Get<string>(); } set { Set(value); } }
         public string DisplayArtist2 { get { return Get<string>(); } set { Set(value); } }

@@ -717,8 +717,48 @@ namespace Business.DDEXSchemaERN_382
                 IsApproximateSpecified = true,
                 Value = m.ApproximateReleaseDate.ToString("yyyy-MM-dd")
             };
-            
 
+            if (!string.IsNullOrWhiteSpace(track.DisplayArtistName))
+            {
+                ret.DisplayArtistName = new Name[]
+                {
+                    new Name
+                    {
+                        Value = track.DisplayArtistName
+                    }
+                };
+            }
+
+            var lsDisplayArtists = new List<Artist>();
+            if (track.DisplayArtists.Count > 0)
+            {
+                for (int j = 0; j < track.DisplayArtists.Count; j++)
+                {
+                    Tuple<string, string> artistTuple = track.DisplayArtists[j];
+                    var art = new Artist()
+                    {
+                        Items = new object[] { new PartyName() { FullName = new Name() { Value = artistTuple.Item1 } } },
+                        ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = (ArtistRole)Enum.Parse(typeof(ArtistRole), artistTuple.Item2) } },
+                    };
+                    lsDisplayArtists.Add(art);
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(track.MainArtist))
+            {
+                lsDisplayArtists.Insert(0,
+                    new Artist()
+                    {
+                        ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
+                        Items = new object[] { new PartyName() { FullName = new Name() { Value = track.MainArtist } } }
+                    }
+                );
+            }
+            if (lsDisplayArtists.Count > 0)
+            {
+                ret.DisplayArtist = lsDisplayArtists.ToArray();
+            }
+            /*
             if (!string.IsNullOrWhiteSpace(track.MainArtist))
             {
                 ret.DisplayArtistName = new Name[]
@@ -750,6 +790,7 @@ namespace Business.DDEXSchemaERN_382
                     }
                 };
             }
+            */
 
             if (!string.IsNullOrWhiteSpace(m.LabelName))
             {
@@ -972,6 +1013,16 @@ namespace Business.DDEXSchemaERN_382
                             }
                         }
                     };
+            if (!string.IsNullOrWhiteSpace(track.DisplayArtistName))
+            {
+                sr.SoundRecordingDetailsByTerritory[0].DisplayArtistName = new Name[] 
+                {
+                    new Name
+                    {
+                        Value = track.DisplayArtistName
+                    }
+                };
+            }
 
             if (!string.IsNullOrWhiteSpace(track.Title))
             {
@@ -985,10 +1036,7 @@ namespace Business.DDEXSchemaERN_382
             var lsDisplayArtists = new List<Artist>();
             if (track.DisplayArtists.Count > 0)
             {
-                //sr.SoundRecordingDetailsByTerritory[0].DisplayArtist = new IndirectResourceContributor[track.IndirectContributors.Count];
-                
-
-                var roleLastSequenceNumber = new Dictionary<string, int>();
+                //var roleLastSequenceNumber = new Dictionary<string, int>();
                 for (int j = 0; j < track.DisplayArtists.Count; j++)
                 {
                     Tuple<string, string> artistTuple = track.DisplayArtists[j];
@@ -997,17 +1045,15 @@ namespace Business.DDEXSchemaERN_382
                         Items = new object[] { new PartyName() { FullName = new Name() { Value = artistTuple.Item1 } } },
                         ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = (ArtistRole) Enum.Parse(typeof(ArtistRole), artistTuple.Item2) } },
                     };
-                    if (!roleLastSequenceNumber.ContainsKey(artistTuple.Item2))
-                    {
-                        roleLastSequenceNumber.Add(artistTuple.Item2, 1);
-                    }
-                    else
-                    {
-                        roleLastSequenceNumber[artistTuple.Item2] = roleLastSequenceNumber[artistTuple.Item2] + 1;
-                    }
-                    art.SequenceNumber = roleLastSequenceNumber[artistTuple.Item2].ToString();
-
-                    //sr.SoundRecordingDetailsByTerritory[0].IndirectResourceContributor[j] = art;
+                    //if (!roleLastSequenceNumber.ContainsKey(artistTuple.Item2))
+                    //{
+                    //    roleLastSequenceNumber.Add(artistTuple.Item2, 1);
+                    //}
+                    //else
+                    //{
+                    //    roleLastSequenceNumber[artistTuple.Item2] = roleLastSequenceNumber[artistTuple.Item2] + 1;
+                    //}
+                    //art.SequenceNumber = roleLastSequenceNumber[artistTuple.Item2].ToString();
                     lsDisplayArtists.Add(art);
                 }
             }
@@ -1021,7 +1067,7 @@ namespace Business.DDEXSchemaERN_382
                 
                             new Artist()
                             {
-                                SequenceNumber = "1",
+                                // SequenceNumber = "1",
                                 ArtistRole = new ArtistRole1[] { new ArtistRole1() { Value = ArtistRole.MainArtist } },
                                 Items = new object[] { new PartyName() {  FullName = new Name() { Value = track.MainArtist } } }
                             }

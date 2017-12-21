@@ -147,7 +147,7 @@
             this.txtDisplayArtist5 = new Framework.UI.Controls.MRTextBox(this.components);
             this.tbDisplayArtist5 = new Framework.UI.Controls.MRTitleBar();
             this.mrLabel37 = new Framework.UI.Controls.MRLabel(this.components);
-            this.txtDisplayArtist = new Framework.UI.Controls.MRTextBox(this.components);
+            this.txtDisplayArtistName = new Framework.UI.Controls.MRTextBox(this.components);
             this.pnlData.SuspendLayout();
             this.pnlMainReleaseParent.SuspendLayout();
             this.pnlContributor6.SuspendLayout();
@@ -171,11 +171,11 @@
             // 
             this.pnlData.Controls.Add(this.pnlMainReleaseParent);
             this.pnlData.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlData.Size = new System.Drawing.Size(684, 999);
+            this.pnlData.Size = new System.Drawing.Size(684, 715);
             // 
             // pnlDlgRes
             // 
-            this.pnlDlgRes.Location = new System.Drawing.Point(0, 999);
+            this.pnlDlgRes.Location = new System.Drawing.Point(0, 715);
             this.pnlDlgRes.Size = new System.Drawing.Size(684, 24);
             // 
             // pnlMainReleaseParent
@@ -211,7 +211,7 @@
             this.pnlMainReleaseParent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainReleaseParent.Location = new System.Drawing.Point(0, 0);
             this.pnlMainReleaseParent.Name = "pnlMainReleaseParent";
-            this.pnlMainReleaseParent.Size = new System.Drawing.Size(684, 999);
+            this.pnlMainReleaseParent.Size = new System.Drawing.Size(684, 715);
             this.pnlMainReleaseParent.TabIndex = 16;
             // 
             // pnlContributor6
@@ -812,7 +812,7 @@
             // mrPanel1
             // 
             this.mrPanel1.Controls.Add(this.mrLabel37);
-            this.mrPanel1.Controls.Add(this.txtDisplayArtist);
+            this.mrPanel1.Controls.Add(this.txtDisplayArtistName);
             this.mrPanel1.Controls.Add(this.mrLabel20);
             this.mrPanel1.Controls.Add(this.txtPLineReleaseYear);
             this.mrPanel1.Controls.Add(this.txtResourceReleaseDate);
@@ -1366,22 +1366,22 @@
             this.mrLabel37.Name = "mrLabel37";
             this.mrLabel37.Size = new System.Drawing.Size(103, 18);
             this.mrLabel37.TabIndex = 32;
-            this.mrLabel37.Text = "Display Artist";
+            this.mrLabel37.Text = "Display Artist Name";
             // 
-            // txtDisplayArtist
+            // txtDisplayArtistName
             // 
-            this.txtDisplayArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDisplayArtistName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDisplayArtist.Location = new System.Drawing.Point(8, 162);
-            this.txtDisplayArtist.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDisplayArtist.Name = "txtDisplayArtist";
-            this.txtDisplayArtist.Size = new System.Drawing.Size(309, 20);
-            this.txtDisplayArtist.TabIndex = 33;
+            this.txtDisplayArtistName.Location = new System.Drawing.Point(8, 162);
+            this.txtDisplayArtistName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDisplayArtistName.Name = "txtDisplayArtistName";
+            this.txtDisplayArtistName.Size = new System.Drawing.Size(309, 20);
+            this.txtDisplayArtistName.TabIndex = 33;
             // 
             // ERN_382TrackReleaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(684, 1045);
+            this.ClientSize = new System.Drawing.Size(684, 761);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ERN_382TrackReleaseForm";
             this.Text = "Track Release Edit";
@@ -1543,6 +1543,6 @@
         private Framework.UI.Controls.MRTextBox txtDisplayArtist2;
         private Framework.UI.Controls.MRTitleBar tbDisplayArtist2;
         private Framework.UI.Controls.MRLabel mrLabel37;
-        private Framework.UI.Controls.MRTextBox txtDisplayArtist;
+        private Framework.UI.Controls.MRTextBox txtDisplayArtistName;
     }
 }

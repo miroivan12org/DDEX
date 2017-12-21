@@ -522,6 +522,17 @@ namespace Business.DDEXSchemaERN_382
 
             return ret;
         }
+        private string GetModelTrackDisplayArtistName(SoundRecording sr)
+        {
+            string ret = null;
+
+            if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtistName != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtistName.Length > 0)
+            {
+                ret = sr.SoundRecordingDetailsByTerritory[0].DisplayArtistName[0].Value;
+            }
+
+            return ret;
+        }
         private string GetModelTrackProducer(SoundRecording sr)
         {
             string ret = null;
@@ -702,6 +713,7 @@ namespace Business.DDEXSchemaERN_382
             if (sr != null && sr.SoundRecordingDetailsByTerritory != null && sr.SoundRecordingDetailsByTerritory.Length > 0 && sr.SoundRecordingDetailsByTerritory[0] != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtist != null && sr.SoundRecordingDetailsByTerritory[0].DisplayArtist.Length > 0)
             {
                 var cons = sr.SoundRecordingDetailsByTerritory[0].DisplayArtist.ToList();
+                int firstMainArtistIndex = -1;
                 for (int i = 0; i < cons.Count; i++)
                 {
                     string name = null;
@@ -711,8 +723,15 @@ namespace Business.DDEXSchemaERN_382
                         name = ((PartyName)cons[i].Items[0]).FullName.Value;
                         if (cons[i].ArtistRole != null && cons[i].ArtistRole.Length > 0 && cons[i].ArtistRole[0] != null)
                         {
-                            role = cons[i].ArtistRole[0].Value.ToString();
-                            ret.Add(new Tuple<string, string>(name, role));
+                            if (firstMainArtistIndex == -1 && cons[i].ArtistRole[0].Value == ArtistRole.MainArtist)
+                            {
+                                firstMainArtistIndex = i;
+                            }
+                            else
+                            {
+                                role = cons[i].ArtistRole[0].Value.ToString();
+                                ret.Add(new Tuple<string, string>(name, role));
+                            }
                         }
                     }
                 }
@@ -842,6 +861,7 @@ namespace Business.DDEXSchemaERN_382
             ret.CLineText = GetModelTrackCLineText(rel);
             ret.CLineReleaseYear = GetModelTrackCLineReleaseYear(rel);
             ret.MainArtist = GetModelTrackMainArtist(sr);
+            ret.DisplayArtistName = GetModelTrackDisplayArtistName(sr);
             ret.Producer = GetModelTrackProducer(sr);
             ret.AudioCodec = GetModelTrackAudioCodecType(sr);
             ret.NumberOfChannels = GetModelTrackNumberOfChannels(sr);
