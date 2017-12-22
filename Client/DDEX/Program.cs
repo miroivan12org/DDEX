@@ -31,7 +31,8 @@ namespace DDEX
 
             AppSettings.LoadSettings();
 
-            Application.Run(new MainForm());
+            //Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
 
         private static void UIThreadException(object sender, ThreadExceptionEventArgs t)
