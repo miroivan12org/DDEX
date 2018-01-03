@@ -33,10 +33,10 @@ namespace DDEX
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (Debugger.IsAttached)
-            {
+            //if (Debugger.IsAttached)
+            //{
                 filesToolStripMenuItem_Click(this, new EventArgs());
-            }
+            //}
         }
 
         private void validatorToolStripMenuItem_Click(object sender, EventArgs e)

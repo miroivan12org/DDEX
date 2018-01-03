@@ -32,7 +32,20 @@ namespace DDEX
             AppSettings.LoadSettings();
 
             //Application.Run(new MainForm());
-            Application.Run(new LoginForm());
+            if (Debugger.IsAttached)
+            {
+                Application.Run(new MainForm());
+            }
+            else
+            {
+                using (var frm = new LoginForm())
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        Application.Run(new MainForm());
+                    }
+                }
+            }
         }
 
         private static void UIThreadException(object sender, ThreadExceptionEventArgs t)

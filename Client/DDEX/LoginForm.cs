@@ -48,16 +48,16 @@ namespace DDEX
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
-
             loginName = mrTextBox1.Text;
             try
             {
                 if (IsValid())
                 {
-                    var mainForm = new MainForm();
-                    mainForm.FormClosed += mainForm_FormClosed;
-                    mainForm.Show();
-                    Visible = false;
+                    //var mainForm = new MainForm();
+                    //mainForm.FormClosed += mainForm_FormClosed;
+                    //mainForm.Show();
+                    //Visible = false;
+                    DialogResult = DialogResult.OK;
                 }
             }
             catch (Exception ex)
@@ -75,6 +75,7 @@ namespace DDEX
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             Close();
             Dispose();
         }
