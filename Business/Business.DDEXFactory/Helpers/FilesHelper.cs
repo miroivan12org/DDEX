@@ -36,7 +36,11 @@ namespace Business.DDEXFactory.Helpers
             {
                 using (var stream = File.OpenRead(fileName))
                 {
-                    return BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "‌​").ToLower();
+                    byte[] bytes = md5.ComputeHash(stream);
+                    string str = BitConverter.ToString(bytes);
+                    str = str.Replace("-", "").ToLower();
+                    return str;
+                    //return BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "‌​").ToLower();
                 }
             }
         }
