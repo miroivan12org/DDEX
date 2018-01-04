@@ -39,8 +39,8 @@ namespace Business.DDEXFactory.Helpers
                     byte[] bytes = md5.ComputeHash(stream);
                     string str = BitConverter.ToString(bytes);
                     str = str.Replace("-", "").ToLower();
+
                     return str;
-                    //return BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "‌​").ToLower();
                 }
             }
         }
