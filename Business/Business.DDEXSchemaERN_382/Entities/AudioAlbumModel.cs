@@ -44,6 +44,7 @@ namespace Business.DDEXSchemaERN_382.Entities
         public DateTime MessageCreatedDateTime { get { return Get<DateTime>(); } set { Set(value); } }
         public DateTime ApproximateReleaseDate { get { return Get<DateTime>(); } set { Set(value); } }
         public UpdateIndicator UpdateIndicator { get { return Get<UpdateIndicator>(); } set { Set(value); } }
+        public string MessageControlType { get { return Get<string>(); } set { Set(value); } }
         public string MainReleaseReferenceTitle { get { return Get<string>(); } set { Set(value); } }
         public string Genre { get { return Get<string>(); } set { Set(value); } }
         public string SubGenre { get { return Get<string>(); } set { Set(value); } }

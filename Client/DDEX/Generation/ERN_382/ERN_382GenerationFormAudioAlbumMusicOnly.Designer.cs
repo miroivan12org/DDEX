@@ -36,6 +36,12 @@
             this.btnLoadXml = new Framework.UI.Controls.MRButton(this.components);
             this.groupBox2 = new Framework.UI.Controls.MRGroupBox(this.components);
             this.dgvSoundRecordingsAndReleases = new Framework.UI.Controls.MRDataGridView(this.components);
+            this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.csTracksOrdinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.csTracksISRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileExists = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbTrackReleases = new Framework.UI.Controls.MRTitleBar();
             this.pnlMessageHeader = new Framework.UI.Controls.MRPanel(this.components);
             this.btnTemplateSoundcloud = new Framework.UI.Controls.MRButton(this.components);
@@ -55,6 +61,8 @@
             this.label3 = new Framework.UI.Controls.MRLabel(this.components);
             this.tbMessageHeader = new Framework.UI.Controls.MRTitleBar();
             this.pnlMainRelease = new Framework.UI.Controls.MRPanel(this.components);
+            this.cbMessageControlType = new Framework.UI.Controls.MRComboBox(this.components);
+            this.mrLabel16 = new Framework.UI.Controls.MRLabel(this.components);
             this.dpDealStartDate = new Framework.UI.Controls.MRDatePicker(this.components);
             this.mrLabel15 = new Framework.UI.Controls.MRLabel(this.components);
             this.cbDeal = new Framework.UI.Controls.MRComboBox(this.components);
@@ -86,6 +94,8 @@
             this.tbMainRelease = new Framework.UI.Controls.MRTitleBar();
             this.tbFrontCoverImage = new Framework.UI.Controls.MRTitleBar();
             this.pnlFrontCoverImage = new Framework.UI.Controls.MRPanel(this.components);
+            this.lblFileFound = new Framework.UI.Controls.MRLabel(this.components);
+            this.lblFileNotFound = new Framework.UI.Controls.MRLabel(this.components);
             this.btnImageChangeFileName = new Framework.UI.Controls.MRButton(this.components);
             this.txtFrontCoverImageWidth = new Framework.UI.Controls.MRTextBox(this.components);
             this.txtFrontCoverImageHeight = new Framework.UI.Controls.MRTextBox(this.components);
@@ -99,14 +109,6 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.csEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.csDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.csTracksOrdinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.csTracksISRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.csTrackTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileExists = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.lblFileFound = new Framework.UI.Controls.MRLabel(this.components);
-            this.lblFileNotFound = new Framework.UI.Controls.MRLabel(this.components);
             this.pnlData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -227,6 +229,74 @@
             this.dgvSoundRecordingsAndReleases.TabStop = false;
             this.dgvSoundRecordingsAndReleases.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellClick);
             this.dgvSoundRecordingsAndReleases.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoundRecordingsAndReleases_CellDoubleClick);
+            // 
+            // csEdit
+            // 
+            this.csEdit.FillWeight = 12.16545F;
+            this.csEdit.HeaderText = "";
+            this.csEdit.Image = global::DDEX.Properties.Resources.Edit;
+            this.csEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.csEdit.MinimumWidth = 20;
+            this.csEdit.Name = "csEdit";
+            this.csEdit.ReadOnly = true;
+            this.csEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.csEdit.ToolTipText = "Edit selected record";
+            this.csEdit.Width = 20;
+            // 
+            // csDelete
+            // 
+            this.csDelete.FillWeight = 27.22915F;
+            this.csDelete.HeaderText = "";
+            this.csDelete.Image = global::DDEX.Properties.Resources.Delete;
+            this.csDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.csDelete.MinimumWidth = 20;
+            this.csDelete.Name = "csDelete";
+            this.csDelete.ReadOnly = true;
+            this.csDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.csDelete.Width = 20;
+            // 
+            // csTracksOrdinal
+            // 
+            this.csTracksOrdinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.csTracksOrdinal.DataPropertyName = "Ordinal";
+            this.csTracksOrdinal.FillWeight = 136.2605F;
+            this.csTracksOrdinal.HeaderText = "Ordinal";
+            this.csTracksOrdinal.MinimumWidth = 50;
+            this.csTracksOrdinal.Name = "csTracksOrdinal";
+            this.csTracksOrdinal.ReadOnly = true;
+            this.csTracksOrdinal.Width = 65;
+            // 
+            // csTracksISRC
+            // 
+            this.csTracksISRC.DataPropertyName = "ISRC";
+            this.csTracksISRC.FillWeight = 153.8164F;
+            this.csTracksISRC.HeaderText = "ISRC";
+            this.csTracksISRC.MinimumWidth = 100;
+            this.csTracksISRC.Name = "csTracksISRC";
+            this.csTracksISRC.ReadOnly = true;
+            this.csTracksISRC.Width = 200;
+            // 
+            // csTrackTitle
+            // 
+            this.csTrackTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.csTrackTitle.DataPropertyName = "Title";
+            this.csTrackTitle.FillWeight = 170.5285F;
+            this.csTrackTitle.HeaderText = "Title";
+            this.csTrackTitle.MinimumWidth = 300;
+            this.csTrackTitle.Name = "csTrackTitle";
+            this.csTrackTitle.ReadOnly = true;
+            this.csTrackTitle.Width = 300;
+            // 
+            // FileExists
+            // 
+            this.FileExists.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FileExists.DataPropertyName = "FileExists";
+            this.FileExists.HeaderText = "File Exists";
+            this.FileExists.Name = "FileExists";
+            this.FileExists.ReadOnly = true;
+            this.FileExists.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FileExists.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.FileExists.Width = 78;
             // 
             // tbTrackReleases
             // 
@@ -412,6 +482,8 @@
             // 
             // pnlMainRelease
             // 
+            this.pnlMainRelease.Controls.Add(this.cbMessageControlType);
+            this.pnlMainRelease.Controls.Add(this.mrLabel16);
             this.pnlMainRelease.Controls.Add(this.dpDealStartDate);
             this.pnlMainRelease.Controls.Add(this.mrLabel15);
             this.pnlMainRelease.Controls.Add(this.cbDeal);
@@ -447,6 +519,25 @@
             this.pnlMainRelease.Size = new System.Drawing.Size(899, 111);
             this.pnlMainRelease.TabIndex = 13;
             // 
+            // cbMessageControlType
+            // 
+            this.cbMessageControlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMessageControlType.FormattingEnabled = true;
+            this.cbMessageControlType.Location = new System.Drawing.Point(685, 86);
+            this.cbMessageControlType.Margin = new System.Windows.Forms.Padding(2);
+            this.cbMessageControlType.Name = "cbMessageControlType";
+            this.cbMessageControlType.Size = new System.Drawing.Size(156, 21);
+            this.cbMessageControlType.TabIndex = 31;
+            // 
+            // mrLabel16
+            // 
+            this.mrLabel16.Location = new System.Drawing.Point(568, 86);
+            this.mrLabel16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mrLabel16.Name = "mrLabel16";
+            this.mrLabel16.Size = new System.Drawing.Size(119, 21);
+            this.mrLabel16.TabIndex = 28;
+            this.mrLabel16.Text = "Message Control Type";
+            // 
             // dpDealStartDate
             // 
             this.dpDealStartDate.CustomFormat = "yyyy-MM-dd";
@@ -468,6 +559,7 @@
             // 
             // cbDeal
             // 
+            this.cbDeal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDeal.FormattingEnabled = true;
             this.cbDeal.Location = new System.Drawing.Point(114, 86);
             this.cbDeal.Margin = new System.Windows.Forms.Padding(2);
@@ -477,7 +569,7 @@
             // 
             // mrLabel13
             // 
-            this.mrLabel13.Location = new System.Drawing.Point(568, 64);
+            this.mrLabel13.Location = new System.Drawing.Point(568, 66);
             this.mrLabel13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel13.Name = "mrLabel13";
             this.mrLabel13.Size = new System.Drawing.Size(106, 18);
@@ -495,7 +587,7 @@
             // 
             // txtCReleaseYear
             // 
-            this.txtCReleaseYear.Location = new System.Drawing.Point(682, 64);
+            this.txtCReleaseYear.Location = new System.Drawing.Point(685, 64);
             this.txtCReleaseYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtCReleaseYear.Name = "txtCReleaseYear";
             this.txtCReleaseYear.Size = new System.Drawing.Size(156, 20);
@@ -512,7 +604,7 @@
             // 
             // txtCLine
             // 
-            this.txtCLine.Location = new System.Drawing.Point(682, 45);
+            this.txtCLine.Location = new System.Drawing.Point(685, 43);
             this.txtCLine.Margin = new System.Windows.Forms.Padding(2);
             this.txtCLine.Name = "txtCLine";
             this.txtCLine.Size = new System.Drawing.Size(156, 20);
@@ -539,7 +631,7 @@
             // 
             // mrLabel7
             // 
-            this.mrLabel7.Location = new System.Drawing.Point(568, 22);
+            this.mrLabel7.Location = new System.Drawing.Point(569, 23);
             this.mrLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mrLabel7.Name = "mrLabel7";
             this.mrLabel7.Size = new System.Drawing.Size(106, 18);
@@ -548,7 +640,7 @@
             // 
             // txtPReleaseYear
             // 
-            this.txtPReleaseYear.Location = new System.Drawing.Point(682, 22);
+            this.txtPReleaseYear.Location = new System.Drawing.Point(685, 22);
             this.txtPReleaseYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtPReleaseYear.Name = "txtPReleaseYear";
             this.txtPReleaseYear.Size = new System.Drawing.Size(156, 20);
@@ -565,7 +657,7 @@
             // 
             // txtPLine
             // 
-            this.txtPLine.Location = new System.Drawing.Point(682, 4);
+            this.txtPLine.Location = new System.Drawing.Point(685, 4);
             this.txtPLine.Margin = new System.Windows.Forms.Padding(2);
             this.txtPLine.Name = "txtPLine";
             this.txtPLine.Size = new System.Drawing.Size(156, 20);
@@ -730,6 +822,30 @@
             this.pnlFrontCoverImage.Size = new System.Drawing.Size(899, 82);
             this.pnlFrontCoverImage.TabIndex = 1;
             // 
+            // lblFileFound
+            // 
+            this.lblFileFound.BackColor = System.Drawing.Color.MintCream;
+            this.lblFileFound.ForeColor = System.Drawing.Color.Green;
+            this.lblFileFound.Location = new System.Drawing.Point(437, 5);
+            this.lblFileFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileFound.Name = "lblFileFound";
+            this.lblFileFound.Size = new System.Drawing.Size(104, 18);
+            this.lblFileFound.TabIndex = 43;
+            this.lblFileFound.Text = "FILE FOUND";
+            this.lblFileFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFileNotFound
+            // 
+            this.lblFileNotFound.BackColor = System.Drawing.Color.Snow;
+            this.lblFileNotFound.ForeColor = System.Drawing.Color.Red;
+            this.lblFileNotFound.Location = new System.Drawing.Point(437, 6);
+            this.lblFileNotFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileNotFound.Name = "lblFileNotFound";
+            this.lblFileNotFound.Size = new System.Drawing.Size(104, 18);
+            this.lblFileNotFound.TabIndex = 44;
+            this.lblFileNotFound.Text = "FILE NOT FOUND";
+            this.lblFileNotFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnImageChangeFileName
             // 
             this.btnImageChangeFileName.Location = new System.Drawing.Point(410, 27);
@@ -851,98 +967,6 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn2.Width = 20;
             // 
-            // csEdit
-            // 
-            this.csEdit.FillWeight = 12.16545F;
-            this.csEdit.HeaderText = "";
-            this.csEdit.Image = global::DDEX.Properties.Resources.Edit;
-            this.csEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.csEdit.MinimumWidth = 20;
-            this.csEdit.Name = "csEdit";
-            this.csEdit.ReadOnly = true;
-            this.csEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.csEdit.ToolTipText = "Edit selected record";
-            this.csEdit.Width = 20;
-            // 
-            // csDelete
-            // 
-            this.csDelete.FillWeight = 27.22915F;
-            this.csDelete.HeaderText = "";
-            this.csDelete.Image = global::DDEX.Properties.Resources.Delete;
-            this.csDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.csDelete.MinimumWidth = 20;
-            this.csDelete.Name = "csDelete";
-            this.csDelete.ReadOnly = true;
-            this.csDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.csDelete.Width = 20;
-            // 
-            // csTracksOrdinal
-            // 
-            this.csTracksOrdinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.csTracksOrdinal.DataPropertyName = "Ordinal";
-            this.csTracksOrdinal.FillWeight = 136.2605F;
-            this.csTracksOrdinal.HeaderText = "Ordinal";
-            this.csTracksOrdinal.MinimumWidth = 50;
-            this.csTracksOrdinal.Name = "csTracksOrdinal";
-            this.csTracksOrdinal.ReadOnly = true;
-            this.csTracksOrdinal.Width = 65;
-            // 
-            // csTracksISRC
-            // 
-            this.csTracksISRC.DataPropertyName = "ISRC";
-            this.csTracksISRC.FillWeight = 153.8164F;
-            this.csTracksISRC.HeaderText = "ISRC";
-            this.csTracksISRC.MinimumWidth = 100;
-            this.csTracksISRC.Name = "csTracksISRC";
-            this.csTracksISRC.ReadOnly = true;
-            this.csTracksISRC.Width = 200;
-            // 
-            // csTrackTitle
-            // 
-            this.csTrackTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.csTrackTitle.DataPropertyName = "Title";
-            this.csTrackTitle.FillWeight = 170.5285F;
-            this.csTrackTitle.HeaderText = "Title";
-            this.csTrackTitle.MinimumWidth = 300;
-            this.csTrackTitle.Name = "csTrackTitle";
-            this.csTrackTitle.ReadOnly = true;
-            this.csTrackTitle.Width = 300;
-            // 
-            // FileExists
-            // 
-            this.FileExists.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FileExists.DataPropertyName = "FileExists";
-            this.FileExists.HeaderText = "File Exists";
-            this.FileExists.Name = "FileExists";
-            this.FileExists.ReadOnly = true;
-            this.FileExists.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FileExists.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FileExists.Width = 78;
-            // 
-            // lblFileFound
-            // 
-            this.lblFileFound.BackColor = System.Drawing.Color.MintCream;
-            this.lblFileFound.ForeColor = System.Drawing.Color.Green;
-            this.lblFileFound.Location = new System.Drawing.Point(437, 5);
-            this.lblFileFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFileFound.Name = "lblFileFound";
-            this.lblFileFound.Size = new System.Drawing.Size(104, 18);
-            this.lblFileFound.TabIndex = 43;
-            this.lblFileFound.Text = "FILE FOUND";
-            this.lblFileFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblFileNotFound
-            // 
-            this.lblFileNotFound.BackColor = System.Drawing.Color.Snow;
-            this.lblFileNotFound.ForeColor = System.Drawing.Color.Red;
-            this.lblFileNotFound.Location = new System.Drawing.Point(437, 6);
-            this.lblFileNotFound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFileNotFound.Name = "lblFileNotFound";
-            this.lblFileNotFound.Size = new System.Drawing.Size(104, 18);
-            this.lblFileNotFound.TabIndex = 44;
-            this.lblFileNotFound.Text = "FILE NOT FOUND";
-            this.lblFileNotFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ERN_382GenerationFormAudioAlbumMusicOnly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1048,5 +1072,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn FileExists;
         private Framework.UI.Controls.MRLabel lblFileFound;
         private Framework.UI.Controls.MRLabel lblFileNotFound;
+        private Framework.UI.Controls.MRLabel mrLabel16;
+        private Framework.UI.Controls.MRComboBox cbMessageControlType;
     }
 }

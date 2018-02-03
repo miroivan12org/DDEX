@@ -341,6 +341,9 @@ namespace Business.DDEXSchemaERN_382
             ret.MessageId = m.MessageID;
             ret.MessageThreadId = m.MessageID;
 
+            ret.MessageControlType = (m.MessageControlType == "TestMessage" ? MessageControlType.TestMessage : MessageControlType.LiveMessage);
+            ret.MessageControlTypeSpecified = true;
+            
             if (m.SenderPartyID != null || m.SenderPartyName != null)
             {
                 ret.MessageSender = new MessagingParty();
@@ -371,8 +374,7 @@ namespace Business.DDEXSchemaERN_382
                     ret.MessageRecipient[0].PartyName = new PartyName() { FullName = new Name() { Value = m.RecipientPartyName } };
                 }
             }
-            //ret.MessageCreatedDateTime = new DateTime(m.MessageCreatedDateTime.Ticks, DateTimeKind.Local);
-            
+
             ret.MessageCreatedDateTime = DateTime.SpecifyKind(m.MessageCreatedDateTime, DateTimeKind.Local); 
             
             return ret;

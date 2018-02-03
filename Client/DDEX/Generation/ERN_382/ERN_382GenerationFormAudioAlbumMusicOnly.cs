@@ -167,6 +167,10 @@ namespace DDEX.Generation.ERN_382
             txtCLine.DataBindings.Add("Text", Model, "CLineText");
             txtPReleaseYear.DataBindings.Add("Text", Model, "PLineReleaseYear");
             txtCReleaseYear.DataBindings.Add("Text", Model, "CLineReleaseYear");
+
+            cbMessageControlType.DataSource = new List<ComboBoxItem>() { new ComboBoxItem() { Text = "LiveMessage", Value = "LiveMessage" }, new ComboBoxItem() { Text = "TestMessage", Value = "TestMessage"} };
+            cbMessageControlType.DataBindings.Add("SelectedItem", Model, "MessageControlType");
+            
         }
 
         private void tbTrackReleases_ButtonClicked(object sender, Framework.UI.Controls.MRTitleBar.ActionButtonEventArgs e)
@@ -262,21 +266,47 @@ namespace DDEX.Generation.ERN_382
             if (Editable)
             {
                 string fileName = Model.FullFileName;
-                if (Model.IsValid(out message) && IsXmlFileValid(out message2))
-                {
+                Action saveFileAction = (() => {
                     Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model);
                     DialogResult = DialogResult.OK;
+                });
+
+                Func<bool> fileIsReadOnly = () => {
+                    System.IO.FileInfo fi = new System.IO.FileInfo(fileName);
+                    return ((fi.Attributes & System.IO.FileAttributes.ReadOnly) == System.IO.FileAttributes.ReadOnly);
+                };
+
+                if (Model.IsValid(out message) && IsXmlFileValid(out message2))
+                {
+                    try
+                    {
+                        saveFileAction.Invoke();
+                    }
+                    catch (UnauthorizedAccessException)
+                    {
+                        while (fileIsReadOnly.Invoke() && MRMessageBox.Show("File is in read only state.\nTo make it writable right click on it in windows explorer and remove the readonly flag.\nTry again?", MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Warning) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                saveFileAction.Invoke();
+                            }
+                            catch (UnauthorizedAccessException)
+                            {                                    
+                                // RETRY
+                            }
+                        }
+                    }
                 }
                 else
                 {
                     rtbOutput.Text = message2 + "---\n" + rtbOutput.Text.ToString() + "\n";
                     if (MRMessageBox.Show(string.Format("Data not valid.\n{0}\n{1}\n\nDo you wish to save invalid xml file? ", message, message2), MRMessageBox.eMessageBoxStyle.YesNo, MRMessageBox.eMessageBoxType.Error, 300) == DialogResult.Yes)
                     {
-                        Binder.WriteXmlObjectToFile(Binder.GetXmlObjectFromModel(Model), Model);
-                        DialogResult = DialogResult.OK;
+                        saveFileAction.Invoke();
                     }
                 }
             }
+
             ParentForm.Model.Refresh();
             Close();
             Dispose();
@@ -414,6 +444,11 @@ namespace DDEX.Generation.ERN_382
                     Model.ComputeMaterialized();
                 }
             }
+        }
+
+        private void cbMessageControlType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Model.MessageControlType = (MessageControlType)((ComboBoxItem)cbMessageControlType.SelectedItem).Value;
         }
     }
     

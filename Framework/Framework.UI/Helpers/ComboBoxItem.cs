@@ -18,6 +18,8 @@ namespace Framework.UI.Helpers
 
         public override bool Equals(object obj)
         {
+            if (obj == null || obj is DBNull) return false;
+
             return Object.Equals(obj, Value);
         }
         public override int GetHashCode()
